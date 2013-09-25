@@ -1,0 +1,115 @@
+//
+//  GameLevelLayer.m
+//  Dance Wars
+//
+//  Created by Prayaas Jain on 9/20/13.
+//  Copyright 2013 Ameya Koshti. All rights reserved.
+//
+
+#import "GameLevelLayer.h"
+
+
+@implementation GameLevelLayer
+
+
+// Helper class method that creates a Scene with the HelloWorldLayer as the only child.
++(CCScene *) scene
+{
+	// 'scene' is an autorelease object.
+	CCScene *scene = [CCScene node];
+	
+	// 'layer' is an autorelease object.
+	GameLevelLayer *layer = [GameLevelLayer node];
+	
+	// add layer as a child to scene
+	[scene addChild: layer];
+	
+	// return the scene
+	return scene;
+}
+
+-(id) init {
+    
+    if((self = [super initWithColor:ccc4(0, 255, 0, 255)])) {
+    
+        
+        CCLabelTTF *check = [CCLabelTTF labelWithString:@"Game Level Layer" fontName:@"Arial" fontSize:100];
+        
+        CGSize size = [[CCDirector sharedDirector] winSize];
+        
+        check.position = ccp(size.width/2, size.height/2);
+        
+        
+        CCSprite *levelBg = [CCSprite spriteWithFile:@"level_bg.png"];
+        levelBg.position = ccp(size.width/2, size.height/2);
+        
+        [self addChild:check];
+        [self addChild:levelBg];
+    }
+    
+    _patternsGenerated = [[NSMutableArray alloc] init];
+    
+    [self performSelector:@selector(addTouchIcons) withObject:nil afterDelay:2.0];
+    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+    
+    return self;
+    
+}
+
+- (void) addTouchIcons {
+    
+    touchIcon = [CCSprite spriteWithFile:@"Icon.png"];
+    
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    
+    touchIcon.position = ccp(size.width/2, size.height*3/4);
+    [self addChild:touchIcon];
+    
+    [_patternsGenerated addObject:touchIcon];
+    
+}
+
+- (BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+
+    return YES;
+    
+}
+
+- (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+    
+    
+    // user touch recognition and matching
+    //UITouch *touch = [touches anyObject];
+    
+    UIAlertView *patternDecision;
+    
+        CGPoint location = [[CCDirector sharedDirector] convertTouchToGL:touch];
+    
+        if((CGRectContainsPoint(touchIcon.boundingBox, location))) {
+        
+            patternDecision = [[UIAlertView alloc] initWithTitle:@"Touch Detected" message:@"You have a HIT!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            NSLog(@"Hit!!");
+            [patternDecision show];
+            [patternDecision release];
+        }
+        else {
+        
+            patternDecision = [[UIAlertView alloc] initWithTitle:@"Touch Detected" message:@"You Missed!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            NSLog(@"Miss!!");
+            [patternDecision show];
+            [patternDecision release];
+        }
+    
+}
+
+- (void) dealloc {
+    
+    [super dealloc];
+    
+    [_patternsGenerated release];
+    _patternsGenerated = nil;
+    
+}
+
+
+@end

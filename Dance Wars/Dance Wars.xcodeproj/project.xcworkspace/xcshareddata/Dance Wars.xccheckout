@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C2A09895-FFCF-4720-AA2B-4FD3C8F45AF3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Dance Wars</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2F601BF9-C3C3-4291-B946-BDC8EF046BF5</key>
+		<string>http://triforce.usc.edu/svn/2013Fall/CS526/Dance%20Wars</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Dance Wars/Dance Wars.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2F601BF9-C3C3-4291-B946-BDC8EF046BF5</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>2F601BF9-C3C3-4291-B946-BDC8EF046BF5</key>
+		<string>http://triforce.usc.edu/svn/2013Fall</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://triforce.usc.edu/svn/2013Fall/CS526/Dance%20Wars/Dance%20Wars/Dance%20Wars.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2F601BF9-C3C3-4291-B946-BDC8EF046BF5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2F601BF9-C3C3-4291-B946-BDC8EF046BF5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Dance Wars</string>
+		</dict>
+	</array>
+</dict>
+</plist>
