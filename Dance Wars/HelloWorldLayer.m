@@ -62,7 +62,7 @@
 - (void) loadGameLayer {
     
     CCScene *gameLevel = [GameLevelLayer scene];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:2.0 scene:gameLevel]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:gameLevel]];
     
 }
 

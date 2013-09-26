@@ -8,9 +8,10 @@
 
 #import "GameLevelLayer.h"
 
-
 @implementation GameLevelLayer
 
+@synthesize life;
+@synthesize progressTimer;
 
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
@@ -34,27 +35,35 @@
     if((self = [super initWithColor:ccc4(0, 255, 0, 255)])) {
     
         size = [[CCDirector sharedDirector] winSize];
-        CCLabelTTF *check = [CCLabelTTF labelWithString:@"Game Level Layer" fontName:@"Arial" fontSize:100];
-        CCLOG(@"Game Level Layer has been loaded.");
+        //CCLabelTTF *check = [CCLabelTTF labelWithString:@"Game Level Layer" fontName:@"Arial" fontSize:100];
+        //CCLOG(@"Game Level Layer has been loaded.");
         
         score = [[NSString alloc] init];
         
         
-        check.position = ccp(size.width/2, size.height/2);
+        //check.position = ccp(size.width/2, size.height/2);
         
         
-        CCSprite *levelBg = [CCSprite spriteWithFile:@"level_bg.png"];
+        CCSprite *levelBg = [CCSprite spriteWithFile:@"level_bg.jpg"];
         levelBg.position = ccp(size.width/2, size.height/2);
     
-        [self addChild:check];
+        //[self addChild:check];
         [self addChild:levelBg];
         
         dancer = [CCSprite spriteWithFile:@"dance1.png"];
-        dancer.position = ccp(dancer.contentSize.width/2,size.height - (size.height/3));
+        dancer.position = ccp(200,250);
         
         [self addChild:dancer];
        
-        
+        self.life = 0;
+        self.progressTimer = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"healthbar_red.png"]];
+        self.progressTimer.type = kCCProgressTimerTypeBar;
+        self.progressTimer.midpoint = ccp(0,0);
+        self.progressTimer.barChangeRate = ccp(1,0);
+        [self.progressTimer setScale:1];
+        self.progressTimer.percentage = self.life;
+        self.progressTimer.position = ccp(size.width-120,size.height-20);
+        [self addChild:self.progressTimer];
     }
     
     _patternsGenerated = [[NSMutableArray alloc] init];
@@ -98,9 +107,9 @@
     }
     
     CCAnimation *walk = [CCAnimation animationWithFrames:walkframes delay:0.1f];
-    CGSize winSize = [CCDirector sharedDirector].winSize;
+    //CGSize winSize = [CCDirector sharedDirector].winSize;
     CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"dance1.png"];
-    dance.position = ccp(dance.contentSize.width/2, winSize.height - (winSize.height/3));
+    dance.position = ccp(200, 250);
     
     CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk restoreOriginalFrame:NO] times:1];
     
@@ -112,7 +121,7 @@
 
 - (void) addTouchIcons {
     
-    touchIcon = [CCSprite spriteWithFile:@"Icon.png"];
+    touchIcon = [CCSprite spriteWithFile:@"touchpoints.png"];
     
     
     float maxX = size.width * 3/4;
@@ -140,7 +149,7 @@
 
 -(void) removeTouchIcons{
     
-    NSLog(@"Trying to remove now!! missed hit");
+    //NSLog(@"Trying to remove now!! missed hit");
     [self removeChild:touchIcon cleanup:YES];
     
     if(objectCount >= 6){
@@ -170,18 +179,43 @@
         if((CGRectContainsPoint(touchIcon.boundingBox, location))) {
         
             patternDecision = [[UIAlertView alloc] initWithTitle:@"Touch Detected" message:@"You have a HIT!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            NSLog(@"Hit!!");
+            //NSLog(@"Hit!!");
             [self removeChild:touchIcon cleanup:YES];
             hitCount++;
             //[patternDecision show];
             [patternDecision release];
+            if(self.life >= 0 && self.life < 100){
+               self.life += 15;
+                if(self.life > 25 && self.life < 60){
+                    [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
+                    [self.progressTimer setScale:1];
+                }
+                if(self.life > 60){
+                    [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_green.png"]];
+                    [self.progressTimer setScale:1];
+                }
+            }
+            [self.progressTimer setPercentage:self.life];
+            
         }
         else {
         
             patternDecision = [[UIAlertView alloc] initWithTitle:@"Touch Detected" message:@"You Missed!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            NSLog(@"Miss!!");
+            //NSLog(@"Miss!!");
             //[patternDecision show];
             [patternDecision release];
+            if(self.life > 0 && self.life <= 100){
+                self.life -= 15;
+                if(self.life > 25 && self.life < 60){
+                    [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
+                    [self.progressTimer setScale:1];
+                }
+                if(self.life > 60){
+                    [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_green.png"]];
+                    [self.progressTimer setScale:1];
+                }
+            }
+            [self.progressTimer setPercentage:self.life];
         }
     
    }

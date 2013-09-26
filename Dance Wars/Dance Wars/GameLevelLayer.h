@@ -19,10 +19,13 @@
     int missCount;
     NSString *score;
     CCLabelTTF *scoreLabel;
-    
+    CCProgressTimer *progressTimer;
+    int life;
 }
 
 +(CCScene *) scene;
 
+@property (nonatomic,retain) CCProgressTimer *progressTimer;
+@property (nonatomic,assign) int life;
 
 @end
