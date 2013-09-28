@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "cocos2d.h"
 
-@interface InputHandler : NSObject
+@interface InputHandler : NSObject {
+    
+    
+}
+
 
 @end

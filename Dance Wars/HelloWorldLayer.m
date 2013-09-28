@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 
 #import "GameLevelLayer.h"
+#import "CharacterSelect.h"
 
 #pragma mark - HelloWorldLayer
 
@@ -61,8 +62,9 @@
 
 - (void) loadGameLayer {
     
-    CCScene *gameLevel = [GameLevelLayer scene];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:gameLevel]];
+    //CCScene *gameLevel = [GameLevelLayer scene];
+    CCScene *charSelect = [CharacterSelect scene];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:charSelect]];
     
 }
 
