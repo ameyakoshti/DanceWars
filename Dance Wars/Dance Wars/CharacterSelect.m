@@ -45,25 +45,25 @@
         
         
         // Adding player 1 in the player selection menu
-        NSString *charPath1 = @"dance5.png";
+        NSString *charPath1 = @"dancer1.png";
         [self addSprite:charPath1];
         ch.character.position = ccp(128,300);
         [self addChild:ch.character];
 
         // Adding player 2 in the player selection menu
-        charPath1 = @"dance1.png";
+        charPath1 = @"dancer2.png";
         [self addSprite:charPath1];
         ch.character.position = ccp(384,300);
         [self addChild:ch.character];
         
         // Adding player 3 in the player selection menu
-        charPath1 = @"dance2.png";
+        charPath1 = @"dancer3.png";
         [self addSprite:charPath1];
         ch.character.position = ccp(640,300);
         [self addChild:ch.character];
         
         // Adding player 4 in the player selection menu
-        charPath1 = @"dance4.png";
+        charPath1 = @"dancer4.png";
         [self addSprite:charPath1];
         ch.character.position = ccp(896,300);
         [self addChild:ch.character];
