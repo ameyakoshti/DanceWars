@@ -7,6 +7,7 @@
 //
 
 #import "GameLevelLayer.h"
+#import "HelloWorldLayer.h"
 
 @implementation GameLevelLayer
 
@@ -117,6 +118,19 @@
     [spriteSheet addChild:dance];
     [self addChild:spriteSheet];
 
+    
+    CCMenuItemImage *playButton = [CCMenuItemImage itemWithNormalImage:@"menu.png" selectedImage:@"menu.png" target:self selector:@selector(loadGameLayer)];
+    CCMenu *gameMenu = [CCMenu menuWithItems:playButton, nil];
+    gameMenu.position = ccp(size.width/2, size.height/3);
+    [self addChild:gameMenu];
+
+}
+
+- (void) loadGameLayer {
+    
+    CCScene *gameLevel = [HelloWorldLayer scene];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.2 scene:gameLevel]];
+    
 }
 
 - (void) addTouchIcons {
@@ -147,7 +161,7 @@
     objectCount ++;
 }
 
--(void) removeTouchIcons{
+- (void) removeTouchIcons{
     
     //NSLog(@"Trying to remove now!! missed hit");
     [self removeChild:touchIcon cleanup:YES];
