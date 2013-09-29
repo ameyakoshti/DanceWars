@@ -42,9 +42,6 @@
         
         CGSize size = [[CCDirector sharedDirector] winSize];
         
-//        CCLabelTTF *welcomeLabel = [CCLabelTTF labelWithString:@"DANCE WARS" fontName:@"Papyrus" fontSize:100];
-//        welcomeLabel.position = ccp(size.width/2, size.height*2/3);
-        
         CCSprite *introName = [CCSprite spriteWithFile:@"intro_name.png"];
         introName.position = ccp(size.width/2, size.height*2/3);
                 
@@ -61,11 +58,8 @@
 }
 
 - (void) loadGameLayer {
-    
-    //CCScene *gameLevel = [GameLevelLayer scene];
     CCScene *charSelect = [CharacterSelect scene];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:charSelect]];
-    
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:charSelect]];
 }
 
 @end

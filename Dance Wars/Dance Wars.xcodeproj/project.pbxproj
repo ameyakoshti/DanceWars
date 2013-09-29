@@ -208,6 +208,10 @@
 		DF3E1EB817EA4A2E0043593E /* GenerateMoves.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EB717EA4A2E0043593E /* GenerateMoves.m */; };
 		DF3E1EBB17EA4A8C0043593E /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EBA17EA4A8B0043593E /* Settings.m */; };
 		DF4B336B17F7A9E800A1C5BC /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336A17F7A9E800A1C5BC /* menu.png */; };
+		DF4B337017F7B8FB00A1C5BC /* i_love_clubbing_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336C17F7B8FB00A1C5BC /* i_love_clubbing_heart.png */; };
+		DF4B337117F7B8FB00A1C5BC /* i_love_dancing_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336D17F7B8FB00A1C5BC /* i_love_dancing_heart.png */; };
+		DF4B337217F7B8FB00A1C5BC /* i_love_disco.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336E17F7B8FB00A1C5BC /* i_love_disco.png */; };
+		DF4B337317F7B8FB00A1C5BC /* i_love_music.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336F17F7B8FB00A1C5BC /* i_love_music.png */; };
 		DF6AA8BA17F4A7F60076B2A5 /* healthbar_green.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8B717F4A7F60076B2A5 /* healthbar_green.png */; };
 		DF6AA8BB17F4A7F60076B2A5 /* healthbar_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8B817F4A7F60076B2A5 /* healthbar_orange.png */; };
 		DF6AA8BC17F4A7F60076B2A5 /* healthbar_red.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8B917F4A7F60076B2A5 /* healthbar_red.png */; };
@@ -637,6 +641,10 @@
 		DF3E1EB917EA4A8B0043593E /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		DF3E1EBA17EA4A8B0043593E /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		DF4B336A17F7A9E800A1C5BC /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		DF4B336C17F7B8FB00A1C5BC /* i_love_clubbing_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i_love_clubbing_heart.png; sourceTree = "<group>"; };
+		DF4B336D17F7B8FB00A1C5BC /* i_love_dancing_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i_love_dancing_heart.png; sourceTree = "<group>"; };
+		DF4B336E17F7B8FB00A1C5BC /* i_love_disco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i_love_disco.png; sourceTree = "<group>"; };
+		DF4B336F17F7B8FB00A1C5BC /* i_love_music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i_love_music.png; sourceTree = "<group>"; };
 		DF6AA8B717F4A7F60076B2A5 /* healthbar_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_green.png; sourceTree = "<group>"; };
 		DF6AA8B817F4A7F60076B2A5 /* healthbar_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_orange.png; sourceTree = "<group>"; };
 		DF6AA8B917F4A7F60076B2A5 /* healthbar_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_red.png; sourceTree = "<group>"; };
@@ -1293,6 +1301,10 @@
 		DF3E1E9217EA38BC0043593E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DF4B336C17F7B8FB00A1C5BC /* i_love_clubbing_heart.png */,
+				DF4B336D17F7B8FB00A1C5BC /* i_love_dancing_heart.png */,
+				DF4B336E17F7B8FB00A1C5BC /* i_love_disco.png */,
+				DF4B336F17F7B8FB00A1C5BC /* i_love_music.png */,
 				DF4B336A17F7A9E800A1C5BC /* menu.png */,
 				D8597B3117F65C10003F8B6D /* level_button2.png */,
 				D8597B3217F65C11003F8B6D /* level_button2_pressed.png */,
@@ -1452,6 +1464,10 @@
 				D8597B3717F65C12003F8B6D /* level_button1.png in Resources */,
 				D8597B3817F65C12003F8B6D /* level_button1_pressed.png in Resources */,
 				DF4B336B17F7A9E800A1C5BC /* menu.png in Resources */,
+				DF4B337017F7B8FB00A1C5BC /* i_love_clubbing_heart.png in Resources */,
+				DF4B337117F7B8FB00A1C5BC /* i_love_dancing_heart.png in Resources */,
+				DF4B337217F7B8FB00A1C5BC /* i_love_disco.png in Resources */,
+				DF4B337317F7B8FB00A1C5BC /* i_love_music.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

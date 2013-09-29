@@ -118,10 +118,10 @@
     [spriteSheet addChild:dance];
     [self addChild:spriteSheet];
 
-    
+    // this adds a button after the game is over to return to the main menu
     CCMenuItemImage *playButton = [CCMenuItemImage itemWithNormalImage:@"menu.png" selectedImage:@"menu.png" target:self selector:@selector(loadGameLayer)];
     CCMenu *gameMenu = [CCMenu menuWithItems:playButton, nil];
-    gameMenu.position = ccp(size.width/2, size.height/3);
+    gameMenu.position = ccp(950, 70);
     [self addChild:gameMenu];
 
 }

@@ -38,14 +38,18 @@
         label.position = ccp(size.width/2, size.height*3/4);
         [self addChild:label];
         
-        CCMenuItemImage *buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"level_button1.png" selectedImage:@"level_button1_pressed.png" target:self selector:@selector(loadGameLayer)];
-        CCMenuItemImage *buttonLevel2 = [CCMenuItemImage itemWithNormalImage:@"level_button2.png" selectedImage:@"level_button2_pressed.png" target:self selector:@selector(loadGameLayer)];
-        CCMenu *gameMenu = [CCMenu menuWithItems:buttonLevel1, buttonLevel2, nil];
+        // menu to create different levels of difficulty
+        CCMenuItemImage *buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"i_love_clubbing_heart.png" selectedImage:@"i_love_clubbing_heart.png" target:self selector:@selector(loadGameLayer)];
+        CCMenuItemImage *buttonLevel2 = [CCMenuItemImage itemWithNormalImage:@"i_love_dancing_heart.png" selectedImage:@"i_love_dancing_heart.png" target:self selector:@selector(loadGameLayer)];
+        CCMenuItemImage *buttonLevel3 = [CCMenuItemImage itemWithNormalImage:@"i_love_disco.png" selectedImage:@"i_love_disco.png" target:self selector:@selector(loadGameLayer)];
+        CCMenuItemImage *buttonLevel4 = [CCMenuItemImage itemWithNormalImage:@"i_love_music.png" selectedImage:@"i_love_music.png" target:self selector:@selector(loadGameLayer)];
+        
+        CCMenu *gameMenu = [CCMenu menuWithItems:buttonLevel1, buttonLevel2, buttonLevel3, buttonLevel4, nil];
+        NSNumber* itemsPerRow = [NSNumber numberWithInt:4];
+        [gameMenu alignItemsInColumns:itemsPerRow, itemsPerRow, itemsPerRow, nil];
         gameMenu.position = ccp(size.width/2, size.height/3);
         
         [self addChild:gameMenu];
-        
-        
     }
     return self;
 }
@@ -53,10 +57,6 @@
 - (void) loadGameLayer {
     
     CCScene *gameLevel = [GameLevelLayer scene];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:gameLevel]];
-    
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:gameLevel]];
 }
-
-
-
 @end
