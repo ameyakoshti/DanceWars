@@ -34,7 +34,7 @@
     
     if((self = [super init])) {
         
-        //CGSize windowSize = [[CCDirector sharedDirector] winSize];
+        windowSize = [[CCDirector sharedDirector] winSize];
         
         counter=1;
         
@@ -43,29 +43,28 @@
         ih = [[InputHandler alloc] init];
         ch = [[CharacterHandler alloc] init];
         
-        
         // Adding player 1 in the player selection menu
         NSString *charPath1 = @"dancer1.png";
         [self addSprite:charPath1];
-        ch.character.position = ccp(128,300);
+        ch.character.position = ccp((windowSize.width*1/4)/2,windowSize.height/3);
         [self addChild:ch.character];
 
         // Adding player 2 in the player selection menu
         charPath1 = @"dancer2.png";
         [self addSprite:charPath1];
-        ch.character.position = ccp(384,300);
+        ch.character.position = ccp((windowSize.width*1/4 + windowSize.width*1/2)/2,windowSize.height/3);
         [self addChild:ch.character];
         
         // Adding player 3 in the player selection menu
         charPath1 = @"dancer3.png";
         [self addSprite:charPath1];
-        ch.character.position = ccp(640,300);
+        ch.character.position = ccp((windowSize.width*1/2 + windowSize.width*3/4)/2,windowSize.height/3);
         [self addChild:ch.character];
         
         // Adding player 4 in the player selection menu
         charPath1 = @"dancer4.png";
         [self addSprite:charPath1];
-        ch.character.position = ccp(896,300);
+        ch.character.position = ccp((windowSize.width*3/4 + windowSize.width)/2,windowSize.height/3);
         [self addChild:ch.character];
      
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
@@ -85,9 +84,9 @@
     glLineWidth(5.0f);
     
     // Drwing 3 vertical lines for player selsection
-    ccDrawLine(ccp(256, 0), ccp(256, 768));
-    ccDrawLine(ccp(512, 0), ccp(512, 768));
-    ccDrawLine(ccp(768, 0), ccp(768, 768));
+    ccDrawLine(ccp(windowSize.width*1/4, 0), ccp(windowSize.width*1/4, windowSize.height));
+    ccDrawLine(ccp(windowSize.width*1/2, 0), ccp(windowSize.width*1/2, windowSize.height));
+    ccDrawLine(ccp(windowSize.width*3/4, 0), ccp(windowSize.width*3/4, windowSize.height));
 }
 
 - (CCSprite *) addSprite:(NSString *)spritePath {
@@ -120,7 +119,7 @@
         
         // Frame for player 1 selection
         
-        if(location.x > 0 && location.x < 256 && location.y > 0 && location.y <768){
+        if(location.x > 0 && location.x < windowSize.width*1/4 && location.y > 0 && location.y < windowSize.height){
             [ch2 setSelected:@"1"];
             CCScene *levelSelect = [LevelSelectLayer scene];
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipX transitionWithDuration:0.5 scene:levelSelect]];
@@ -128,7 +127,7 @@
         
         // Frame for player 2 selection
         
-        if(location.x > 256 && location.x < 512 && location.y > 0 && location.y <768){
+        if(location.x > windowSize.width*1/4 && location.x < windowSize.width*1/2 && location.y > 0 && location.y < windowSize.height){
             [ch2 setSelected:@"2"];
             CCScene *levelSelect = [LevelSelectLayer scene];
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipX transitionWithDuration:0.5 scene:levelSelect]];
@@ -136,7 +135,7 @@
         
         // Frame for player 3 selection
         
-        if(location.x > 512 && location.x < 768 && location.y > 0 && location.y <768){
+        if(location.x > windowSize.width*1/2 && location.x < windowSize.width*3/4 && location.y > 0 && location.y < windowSize.height){
             [ch2 setSelected:@"3"];
             CCScene *levelSelect = [LevelSelectLayer scene];
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipX transitionWithDuration:0.5 scene:levelSelect]];
@@ -144,7 +143,7 @@
         
         // Frame for player 4 selection
         
-        if(location.x > 768 && location.x < 1024 && location.y > 0 && location.y <768){
+        if(location.x > windowSize.width*3/4 && location.x < windowSize.width && location.y > 0 && location.y < windowSize.height){
             [ch2 setSelected:@"4"];
             CCScene *levelSelect = [LevelSelectLayer scene];
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipX transitionWithDuration:0.5 scene:levelSelect]];

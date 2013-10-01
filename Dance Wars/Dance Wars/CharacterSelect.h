@@ -16,7 +16,7 @@
     InputHandler *ih;
     CharacterHandler *ch;
     int counter;
-    
+    CGSize windowSize;    
 }
 
 @property (nonatomic, retain) NSMutableArray *charSpriteList;
