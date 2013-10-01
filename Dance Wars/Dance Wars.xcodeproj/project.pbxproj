@@ -232,6 +232,8 @@
 		DF6AA8D517F4AB920076B2A5 /* dance9.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8CB17F4AB920076B2A5 /* dance9.png */; };
 		DF6AA8D617F4AB920076B2A5 /* dance10.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8CC17F4AB920076B2A5 /* dance10.png */; };
 		DF6AA8D817F4ABD80076B2A5 /* dance.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8D717F4ABD70076B2A5 /* dance.png */; };
+		DFB8372C17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB8372B17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m */; };
+		DFB8373017FAA016002094B4 /* gesture.png in Resources */ = {isa = PBXBuildFile; fileRef = DFB8372F17FAA016002094B4 /* gesture.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -669,6 +671,9 @@
 		DF6AA8CB17F4AB920076B2A5 /* dance9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dance9.png; sourceTree = "<group>"; };
 		DF6AA8CC17F4AB920076B2A5 /* dance10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dance10.png; sourceTree = "<group>"; };
 		DF6AA8D717F4ABD70076B2A5 /* dance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dance.png; sourceTree = "<group>"; };
+		DFB8372A17FA9E41002094B4 /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
+		DFB8372B17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+SFGestureRecognizers.m"; sourceTree = "<group>"; };
+		DFB8372F17FAA016002094B4 /* gesture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -729,6 +734,7 @@
 		DF3E1C5A17EA363E0043593E /* Dance Wars */ = {
 			isa = PBXGroup;
 			children = (
+				DFB8372917FA9E40002094B4 /* CCNode+SFGestureRecognizers */,
 				DF3E1EAE17EA44FF0043593E /* AI */,
 				DF3E1E9517EA3A840043593E /* Scenes */,
 				DF3E1E9417EA3A7D0043593E /* Player */,
@@ -1308,6 +1314,7 @@
 		DF3E1E9217EA38BC0043593E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DFB8372F17FAA016002094B4 /* gesture.png */,
 				D807235D17ED1EE700759B73 /* play_button.png */,
 				DF4B338217F7C0A400A1C5BC /* dancer3.png */,
 				DF4B338017F7C04400A1C5BC /* dancer4.png */,
@@ -1386,6 +1393,15 @@
 				DF3E1EB717EA4A2E0043593E /* GenerateMoves.m */,
 			);
 			name = AI;
+			sourceTree = "<group>";
+		};
+		DFB8372917FA9E40002094B4 /* CCNode+SFGestureRecognizers */ = {
+			isa = PBXGroup;
+			children = (
+				DFB8372A17FA9E41002094B4 /* CCNode+SFGestureRecognizers.h */,
+				DFB8372B17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m */,
+			);
+			path = "CCNode+SFGestureRecognizers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1484,6 +1500,7 @@
 				DF4B338117F7C04400A1C5BC /* dancer4.png in Resources */,
 				DF4B338317F7C0A400A1C5BC /* dancer3.png in Resources */,
 				DF4B338517F7C17900A1C5BC /* level_bg.jpg in Resources */,
+				DFB8373017FAA016002094B4 /* gesture.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1664,6 +1681,7 @@
 				D8597B2A17F619CA003F8B6D /* LevelSelectLayer.m in Sources */,
 				D8597B2D17F61A71003F8B6D /* CharacterSelect.m in Sources */,
 				D8597B3017F62249003F8B6D /* CharacterHandler.m in Sources */,
+				DFB8372C17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GameKit/GameKit.h>
+
 #import "cocos2d.h"
 
-@interface GameLevelLayer : CCLayerColor {
+@interface GameLevelLayer : CCLayer <UIGestureRecognizerDelegate> {
     CGSize size;
     NSMutableArray * _patternsGenerated;
     CCSprite *touchIcon;

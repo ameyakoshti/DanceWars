@@ -30,7 +30,7 @@
 
 -(id) init {
     
-    if((self = [super initWithColor:ccc4(0, 0, 0, 0)])) {
+    if((self = [super init])) {
     
         CGSize size = [[CCDirector sharedDirector] winSize];
         

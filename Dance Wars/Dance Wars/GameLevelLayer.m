@@ -6,14 +6,17 @@
 //  Copyright 2013 Ameya Koshti. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "GameLevelLayer.h"
 #import "HelloWorldLayer.h"
+#import "CCNode+SFGestureRecognizers.h"
 
 @implementation GameLevelLayer
 
 @synthesize life;
 @synthesize progressTimer;
 
+static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKey";
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
@@ -33,17 +36,13 @@
 
 -(id) init {
     
-    if((self = [super initWithColor:ccc4(0, 255, 0, 255)])) {
+    if((self = [super init])) {
     
+        //self.isTouchEnabled = YES;
         size = [[CCDirector sharedDirector] winSize];
-        //CCLabelTTF *check = [CCLabelTTF labelWithString:@"Game Level Layer" fontName:@"Arial" fontSize:100];
-        //CCLOG(@"Game Level Layer has been loaded.");
-        
         score = [[NSString alloc] init];
-        
-        
+                
         //check.position = ccp(size.width/2, size.height/2);
-        
         
         CCSprite *levelBg = [CCSprite spriteWithFile:@"level_bg.jpg"];
         levelBg.position = ccp(size.width/2, size.height/2);
@@ -64,7 +63,32 @@
         [self.progressTimer setScale:1];
         self.progressTimer.percentage = self.life;
         self.progressTimer.position = ccp(size.width-120,size.height-20);
-        [self addChild:self.progressTimer];
+        [self addChild:self.progressTimer];        
+
+
+        CCSprite *sprite = [CCSprite spriteWithFile:@"gesture.png"];
+        sprite.scale = 0.5f;
+        sprite.position = ccp(arc4random() % (int)size.width, arc4random() % (int)size.height);
+        sprite.isTouchEnabled=YES;
+        
+        //! pan gesture recognizer
+        UIGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+        panGestureRecognizer.delegate = self;
+        [sprite addGestureRecognizer:panGestureRecognizer];
+        
+        /*
+        //! pinch gesture recognizer
+        UIPinchGestureRecognizer *pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
+        [sprite addGestureRecognizer:pinchGestureRecognizer];
+        pinchGestureRecognizer.delegate = self;
+        
+        //! rotation gesture recognizer
+        UIRotationGestureRecognizer *rotationGestureRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotationGestureRecognizer:)];
+        [sprite addGestureRecognizer:rotationGestureRecognizer];
+        rotationGestureRecognizer.delegate = self;
+        */
+        [self addChild:sprite];
+
     }
     
     _patternsGenerated = [[NSMutableArray alloc] init];
@@ -73,10 +97,59 @@
     [self schedule:@selector(addTouchIcons) interval:1.0 repeat:5 delay:1.5];
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
     
-     return self;
-    
+     return self;    
 }
 
+
+#pragma mark - GestureRecognizer delegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
+- (void)handlePanGesture:(UIPanGestureRecognizer*)aPanGestureRecognizer
+{
+    CCNode *node = aPanGestureRecognizer.node;
+    CGPoint translation = [aPanGestureRecognizer translationInView:aPanGestureRecognizer.view];
+    translation.y *= -1;
+    [aPanGestureRecognizer setTranslation:CGPointZero inView:aPanGestureRecognizer.view];
+    
+    node.position = ccpAdd(node.position, translation);
+}
+
+- (void)handlePinchGesture:(UIPinchGestureRecognizer*)aPinchGestureRecognizer
+{
+    if (aPinchGestureRecognizer.state == UIGestureRecognizerStateBegan || aPinchGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        CCNode *node = aPinchGestureRecognizer.node;
+        float scale = [aPinchGestureRecognizer scale];
+        node.scale *= scale;
+        aPinchGestureRecognizer.scale = 1;
+    }
+}
+
+- (void)handleRotationGestureRecognizer:(UIRotationGestureRecognizer*)aRotationGestureRecognizer
+{
+    if (aRotationGestureRecognizer.state == UIGestureRecognizerStateBegan || aRotationGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        CCNode *node = aRotationGestureRecognizer.node;
+        float rotation = aRotationGestureRecognizer.rotation;
+        node.rotation += CC_RADIANS_TO_DEGREES(rotation);
+        aRotationGestureRecognizer.rotation = 0;
+    }
+}
+
+#pragma mark GameKit delegate
+
+-(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
+{
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[[app navController] dismissModalViewControllerAnimated:YES];
+}
+
+-(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[[app navController] dismissModalViewControllerAnimated:YES];
+}
 
 -(void) calcScore {
     missCount = objectCount - hitCount;
