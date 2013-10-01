@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		077E090217FB900A00548FBF /* Jungle.png in Resources */ = {isa = PBXBuildFile; fileRef = 077E090117FB900A00548FBF /* Jungle.png */; };
 		07B212FC17F2C21A005B9821 /* dance.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07B212F017F2C21A005B9821 /* dance.plist */; };
 		D807235C17ED0D0400759B73 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D807235B17ED0D0400759B73 /* HelloWorldLayer.m */; };
 		D807235E17ED1EE700759B73 /* play_button.png in Resources */ = {isa = PBXBuildFile; fileRef = D807235D17ED1EE700759B73 /* play_button.png */; };
@@ -237,6 +238,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		077E090117FB900A00548FBF /* Jungle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Jungle.png; sourceTree = "<group>"; };
 		07B212F017F2C21A005B9821 /* dance.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dance.plist; sourceTree = "<group>"; };
 		D807235A17ED0D0400759B73 /* HelloWorldLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelloWorldLayer.h; path = ../HelloWorldLayer.h; sourceTree = "<group>"; };
 		D807235B17ED0D0400759B73 /* HelloWorldLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelloWorldLayer.m; path = ../HelloWorldLayer.m; sourceTree = "<group>"; };
@@ -1314,6 +1316,7 @@
 		DF3E1E9217EA38BC0043593E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				077E090117FB900A00548FBF /* Jungle.png */,
 				DFB8372F17FAA016002094B4 /* gesture.png */,
 				D807235D17ED1EE700759B73 /* play_button.png */,
 				DF4B338217F7C0A400A1C5BC /* dancer3.png */,
@@ -1484,6 +1487,7 @@
 				DF6AA8D317F4AB920076B2A5 /* dance7.png in Resources */,
 				DF6AA8D417F4AB920076B2A5 /* dance8.png in Resources */,
 				DF6AA8D517F4AB920076B2A5 /* dance9.png in Resources */,
+				077E090217FB900A00548FBF /* Jungle.png in Resources */,
 				DF6AA8D617F4AB920076B2A5 /* dance10.png in Resources */,
 				DF6AA8D817F4ABD80076B2A5 /* dance.png in Resources */,
 				D8597B3517F65C12003F8B6D /* level_button2.png in Resources */,
@@ -1741,9 +1745,7 @@
 					DEBUG,
 					"COCOS2D_DEBUG=1",
 				);
-				HEADER_SEARCH_PATHS = (
-					"\"Dance Wars/libs/kazmath/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"Dance Wars/libs/kazmath/include\"";
 				INFOPLIST_FILE = "Dance Wars/Resources/Info.plist";
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -1768,9 +1770,7 @@
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
 				);
-				HEADER_SEARCH_PATHS = (
-					"\"Dance Wars/libs/kazmath/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"Dance Wars/libs/kazmath/include\"";
 				INFOPLIST_FILE = "Dance Wars/Resources/Info.plist";
 				OTHER_LDFLAGS = (
 					"-lz",

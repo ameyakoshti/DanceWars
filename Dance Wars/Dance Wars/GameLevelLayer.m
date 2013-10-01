@@ -44,14 +44,14 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
                 
         //check.position = ccp(size.width/2, size.height/2);
         
-        CCSprite *levelBg = [CCSprite spriteWithFile:@"level_bg.jpg"];
+        CCSprite *levelBg = [CCSprite spriteWithFile:@"Jungle.png"];
         levelBg.position = ccp(size.width/2, size.height/2);
     
         //[self addChild:check];
         [self addChild:levelBg];
         
         dancer = [CCSprite spriteWithFile:@"dance1.png"];
-        dancer.position = ccp(200,250);
+        dancer.position = ccp(150,200);
         
         [self addChild:dancer];
        
@@ -183,7 +183,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     CCAnimation *walk = [CCAnimation animationWithFrames:walkframes delay:0.1f];
     //CGSize winSize = [CCDirector sharedDirector].winSize;
     CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"dance1.png"];
-    dance.position = ccp(200, 250);
+    dance.position = ccp(150, 200);
     
     CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk restoreOriginalFrame:NO] times:1];
     
