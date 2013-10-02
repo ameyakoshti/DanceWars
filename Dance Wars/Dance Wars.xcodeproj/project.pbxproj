@@ -208,7 +208,6 @@
 		DF3E1EB517EA4A210043593E /* GeneratePoints.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EB417EA4A210043593E /* GeneratePoints.m */; };
 		DF3E1EB817EA4A2E0043593E /* GenerateMoves.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EB717EA4A2E0043593E /* GenerateMoves.m */; };
 		DF3E1EBB17EA4A8C0043593E /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EBA17EA4A8B0043593E /* Settings.m */; };
-		DF4B336B17F7A9E800A1C5BC /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336A17F7A9E800A1C5BC /* menu.png */; };
 		DF4B337017F7B8FB00A1C5BC /* i_love_clubbing_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336C17F7B8FB00A1C5BC /* i_love_clubbing_heart.png */; };
 		DF4B337117F7B8FB00A1C5BC /* i_love_dancing_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336D17F7B8FB00A1C5BC /* i_love_dancing_heart.png */; };
 		DF4B337217F7B8FB00A1C5BC /* i_love_disco.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336E17F7B8FB00A1C5BC /* i_love_disco.png */; };
@@ -235,6 +234,8 @@
 		DF6AA8D817F4ABD80076B2A5 /* dance.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8D717F4ABD70076B2A5 /* dance.png */; };
 		DFB8372C17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB8372B17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m */; };
 		DFB8373017FAA016002094B4 /* gesture.png in Resources */ = {isa = PBXBuildFile; fileRef = DFB8372F17FAA016002094B4 /* gesture.png */; };
+		DFE89BB717FBBC7A007A7468 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BB617FBBC7A007A7468 /* home.png */; };
+		DFE89BB917FBBD6D007A7468 /* home_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BB817FBBD6D007A7468 /* home_pressed.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -648,7 +649,6 @@
 		DF3E1EB717EA4A2E0043593E /* GenerateMoves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateMoves.m; sourceTree = "<group>"; };
 		DF3E1EB917EA4A8B0043593E /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		DF3E1EBA17EA4A8B0043593E /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
-		DF4B336A17F7A9E800A1C5BC /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		DF4B336C17F7B8FB00A1C5BC /* i_love_clubbing_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i_love_clubbing_heart.png; sourceTree = "<group>"; };
 		DF4B336D17F7B8FB00A1C5BC /* i_love_dancing_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i_love_dancing_heart.png; sourceTree = "<group>"; };
 		DF4B336E17F7B8FB00A1C5BC /* i_love_disco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i_love_disco.png; sourceTree = "<group>"; };
@@ -676,6 +676,8 @@
 		DFB8372A17FA9E41002094B4 /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
 		DFB8372B17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+SFGestureRecognizers.m"; sourceTree = "<group>"; };
 		DFB8372F17FAA016002094B4 /* gesture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture.png; sourceTree = "<group>"; };
+		DFE89BB617FBBC7A007A7468 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		DFE89BB817FBBD6D007A7468 /* home_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_pressed.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1318,8 +1320,10 @@
 			children = (
 				077E090117FB900A00548FBF /* Jungle.png */,
 				DFB8372F17FAA016002094B4 /* gesture.png */,
+				DFE89BB617FBBC7A007A7468 /* home.png */,
 				D807235D17ED1EE700759B73 /* play_button.png */,
 				DF4B338217F7C0A400A1C5BC /* dancer3.png */,
+				DFE89BB817FBBD6D007A7468 /* home_pressed.png */,
 				DF4B338017F7C04400A1C5BC /* dancer4.png */,
 				DF4B337A17F7BFDA00A1C5BC /* dancer1.png */,
 				DF4B337817F7BF2200A1C5BC /* dancer2.png */,
@@ -1328,7 +1332,6 @@
 				DF4B338417F7C17800A1C5BC /* level_bg.jpg */,
 				DF4B336E17F7B8FB00A1C5BC /* i_love_disco.png */,
 				DF4B336F17F7B8FB00A1C5BC /* i_love_music.png */,
-				DF4B336A17F7A9E800A1C5BC /* menu.png */,
 				D8597B3117F65C10003F8B6D /* level_button2.png */,
 				D8597B3217F65C11003F8B6D /* level_button2_pressed.png */,
 				D8597B3317F65C11003F8B6D /* level_button1.png */,
@@ -1459,6 +1462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07B212FC17F2C21A005B9821 /* dance.plist in Resources */,
+				DFE89BB917FBBD6D007A7468 /* home_pressed.png in Resources */,
 				DF3E1C5F17EA363E0043593E /* Default@2x.png in Resources */,
 				DF3E1C6117EA363E0043593E /* Default-568h@2x.png in Resources */,
 				DF3E1C6317EA363E0043593E /* Default-Landscape~ipad.png in Resources */,
@@ -1487,6 +1491,7 @@
 				DF6AA8D317F4AB920076B2A5 /* dance7.png in Resources */,
 				DF6AA8D417F4AB920076B2A5 /* dance8.png in Resources */,
 				DF6AA8D517F4AB920076B2A5 /* dance9.png in Resources */,
+				DFE89BB717FBBC7A007A7468 /* home.png in Resources */,
 				077E090217FB900A00548FBF /* Jungle.png in Resources */,
 				DF6AA8D617F4AB920076B2A5 /* dance10.png in Resources */,
 				DF6AA8D817F4ABD80076B2A5 /* dance.png in Resources */,
@@ -1494,7 +1499,6 @@
 				D8597B3617F65C12003F8B6D /* level_button2_pressed.png in Resources */,
 				D8597B3717F65C12003F8B6D /* level_button1.png in Resources */,
 				D8597B3817F65C12003F8B6D /* level_button1_pressed.png in Resources */,
-				DF4B336B17F7A9E800A1C5BC /* menu.png in Resources */,
 				DF4B337017F7B8FB00A1C5BC /* i_love_clubbing_heart.png in Resources */,
 				DF4B337117F7B8FB00A1C5BC /* i_love_dancing_heart.png in Resources */,
 				DF4B337217F7B8FB00A1C5BC /* i_love_disco.png in Resources */,
