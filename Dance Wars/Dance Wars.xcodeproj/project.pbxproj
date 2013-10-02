@@ -18,7 +18,7 @@
 		D8597B3617F65C12003F8B6D /* level_button2_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = D8597B3217F65C11003F8B6D /* level_button2_pressed.png */; };
 		D8597B3717F65C12003F8B6D /* level_button1.png in Resources */ = {isa = PBXBuildFile; fileRef = D8597B3317F65C11003F8B6D /* level_button1.png */; };
 		D8597B3817F65C12003F8B6D /* level_button1_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = D8597B3417F65C12003F8B6D /* level_button1_pressed.png */; };
-		D8F37D0017F34EA600234874 /* intro_name.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F37CFF17F34EA600234874 /* intro_name.png */; };
+		D8E3F3CF17FC8D4E00B34EB7 /* intro_name.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E3F3CE17FC8D4E00B34EB7 /* intro_name.png */; };
 		DF3E1C4717EA363E0043593E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3E1C4617EA363E0043593E /* QuartzCore.framework */; };
 		DF3E1C4917EA363E0043593E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3E1C4817EA363E0043593E /* OpenGLES.framework */; };
 		DF3E1C4B17EA363E0043593E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3E1C4A17EA363E0043593E /* OpenAL.framework */; };
@@ -260,7 +260,7 @@
 		D8597B3217F65C11003F8B6D /* level_button2_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level_button2_pressed.png; sourceTree = "<group>"; };
 		D8597B3317F65C11003F8B6D /* level_button1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level_button1.png; sourceTree = "<group>"; };
 		D8597B3417F65C12003F8B6D /* level_button1_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level_button1_pressed.png; sourceTree = "<group>"; };
-		D8F37CFF17F34EA600234874 /* intro_name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_name.png; sourceTree = "<group>"; };
+		D8E3F3CE17FC8D4E00B34EB7 /* intro_name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_name.png; sourceTree = "<group>"; };
 		DF3E1C4317EA363E0043593E /* Dance Wars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dance Wars.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF3E1C4617EA363E0043593E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DF3E1C4817EA363E0043593E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1322,12 +1322,12 @@
 				DF3E1C6017EA363E0043593E /* Default-568h@2x.png */,
 				DF3E1C6217EA363E0043593E /* Default-Landscape~ipad.png */,
 				DF3E1C6417EA363E0043593E /* Icon-72.png */,
+				D8E3F3CE17FC8D4E00B34EB7 /* intro_name.png */,
 				DF3E1C6617EA363E0043593E /* Icon-Small-50.png */,
 				DF3E1C6817EA363E0043593E /* Icon-Small.png */,
 				DF3E1C6A17EA363E0043593E /* Icon-Small@2x.png */,
 				DF3E1C6C17EA363E0043593E /* Icon.png */,
 				DF3E1C6E17EA363E0043593E /* Icon@2x.png */,
-				D8F37CFF17F34EA600234874 /* intro_name.png */,
 				DF3E1E8A17EA36420043593E /* blocks.png */,
 				077E090117FB900A00548FBF /* Jungle.png */,
 				DFB8372F17FAA016002094B4 /* gesture.png */,
@@ -1494,7 +1494,6 @@
 				DF3E1DCB17EA36410043593E /* ChangeLog in Resources */,
 				DF3E1E8B17EA36420043593E /* blocks.png in Resources */,
 				D807236317ED5BE600759B73 /* Default.png in Resources */,
-				D8F37D0017F34EA600234874 /* intro_name.png in Resources */,
 				DFE89BCA17FBE0B0007A7468 /* dance.plist in Resources */,
 				DF6AA8BA17F4A7F60076B2A5 /* healthbar_green.png in Resources */,
 				DF6AA8BB17F4A7F60076B2A5 /* healthbar_orange.png in Resources */,
@@ -1529,6 +1528,7 @@
 				DF4B338517F7C17900A1C5BC /* level_bg.jpg in Resources */,
 				DFB8373017FAA016002094B4 /* gesture.png in Resources */,
 				DFE89BCB17FBE0B0007A7468 /* dance.png in Resources */,
+				D8E3F3CF17FC8D4E00B34EB7 /* intro_name.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1769,7 +1769,9 @@
 					DEBUG,
 					"COCOS2D_DEBUG=1",
 				);
-				HEADER_SEARCH_PATHS = "\"Dance Wars/libs/kazmath/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"Dance Wars/libs/kazmath/include\"",
+				);
 				INFOPLIST_FILE = "Dance Wars/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
@@ -1796,7 +1798,9 @@
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
 				);
-				HEADER_SEARCH_PATHS = "\"Dance Wars/libs/kazmath/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"Dance Wars/libs/kazmath/include\"",
+				);
 				INFOPLIST_FILE = "Dance Wars/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
