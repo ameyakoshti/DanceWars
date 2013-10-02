@@ -238,6 +238,8 @@
 		DFE89BBB17FBBE2E007A7468 /* play_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BBA17FBBE2E007A7468 /* play_button.png */; };
 		DFE89BBD17FBBE4C007A7468 /* play_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BBC17FBBE4C007A7468 /* play_button_pressed.png */; };
 		DFE89BC317FBC06E007A7468 /* home_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BC217FBC06E007A7468 /* home_bg.jpg */; };
+		DFE89BC517FBC471007A7468 /* colorwheel.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BC417FBC471007A7468 /* colorwheel.png */; };
+		DFE89BC717FBC877007A7468 /* colorwheel_trail.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BC617FBC877007A7468 /* colorwheel_trail.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -682,6 +684,8 @@
 		DFE89BBA17FBBE2E007A7468 /* play_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_button.png; sourceTree = "<group>"; };
 		DFE89BBC17FBBE4C007A7468 /* play_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_button_pressed.png; sourceTree = "<group>"; };
 		DFE89BC217FBC06E007A7468 /* home_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home_bg.jpg; sourceTree = "<group>"; };
+		DFE89BC417FBC471007A7468 /* colorwheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorwheel.png; sourceTree = "<group>"; };
+		DFE89BC617FBC877007A7468 /* colorwheel_trail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorwheel_trail.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1327,10 +1331,12 @@
 				DFE89BC217FBC06E007A7468 /* home_bg.jpg */,
 				DFE89BB617FBBC7A007A7468 /* home.png */,
 				DFE89BBA17FBBE2E007A7468 /* play_button.png */,
+				DFE89BC617FBC877007A7468 /* colorwheel_trail.png */,
 				DFE89BBC17FBBE4C007A7468 /* play_button_pressed.png */,
 				DF4B338217F7C0A400A1C5BC /* dancer3.png */,
 				DFE89BB817FBBD6D007A7468 /* home_pressed.png */,
 				DF4B338017F7C04400A1C5BC /* dancer4.png */,
+				DFE89BC417FBC471007A7468 /* colorwheel.png */,
 				DF4B337A17F7BFDA00A1C5BC /* dancer1.png */,
 				DF4B337817F7BF2200A1C5BC /* dancer2.png */,
 				DF4B336C17F7B8FB00A1C5BC /* i_love_clubbing_heart.png */,
@@ -1473,6 +1479,7 @@
 				DF3E1C5F17EA363E0043593E /* Default@2x.png in Resources */,
 				DF3E1C6117EA363E0043593E /* Default-568h@2x.png in Resources */,
 				DF3E1C6317EA363E0043593E /* Default-Landscape~ipad.png in Resources */,
+				DFE89BC717FBC877007A7468 /* colorwheel_trail.png in Resources */,
 				DF3E1C6517EA363E0043593E /* Icon-72.png in Resources */,
 				DF3E1C6717EA363E0043593E /* Icon-Small-50.png in Resources */,
 				DF3E1C6917EA363E0043593E /* Icon-Small.png in Resources */,
@@ -1497,6 +1504,7 @@
 				DF6AA8D117F4AB920076B2A5 /* dance5.png in Resources */,
 				DF6AA8D217F4AB920076B2A5 /* dance6.png in Resources */,
 				DF6AA8D317F4AB920076B2A5 /* dance7.png in Resources */,
+				DFE89BC517FBC471007A7468 /* colorwheel.png in Resources */,
 				DF6AA8D417F4AB920076B2A5 /* dance8.png in Resources */,
 				DF6AA8D517F4AB920076B2A5 /* dance9.png in Resources */,
 				DFE89BB717FBBC7A007A7468 /* home.png in Resources */,

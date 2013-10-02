@@ -88,7 +88,6 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         rotationGestureRecognizer.delegate = self;
         */
         [self addChild:sprite];
-
     }
     
     _patternsGenerated = [[NSMutableArray alloc] init];
@@ -115,6 +114,18 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [aPanGestureRecognizer setTranslation:CGPointZero inView:aPanGestureRecognizer.view];
     
     node.position = ccpAdd(node.position, translation);
+    
+    CCParticleSystem *emitterGesture = [CCParticleExplosion node];
+    //set the location of the emitter
+    emitterGesture.position = node.position;
+    //set size of particle animation
+    emitterGesture.scale = 0.3;
+    //set an Image for the particle
+    emitterGesture.texture = [[CCTextureCache sharedTextureCache] addImage:@"colorwheel_trail.png"];
+    //set length of particle animation
+    [emitterGesture setLife:0.1f];
+    //add to layer ofcourse(effect begins after this step)
+    [self addChild: emitterGesture];
 }
 
 - (void)handlePinchGesture:(UIPinchGestureRecognizer*)aPinchGestureRecognizer
@@ -216,9 +227,9 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     float rangeX = maxX- minX;
     float randomH = (arc4random() % (int)size.height) + (int) size.height * 1/4;
     float randomW = (arc4random() % (int)rangeX) + minX;
-    CCLOG(@"I am here!!!");
-    NSLog(@"H = %f",randomH);
-    NSLog(@"W = %f",randomW);
+    //CCLOG(@"I am here!!!");
+    //NSLog(@"H = %f",randomH);
+    //NSLog(@"W = %f",randomW);
    
     if(randomH > 768)
         randomH = size.height - touchIcon.boundingBox.size.height;
@@ -227,11 +238,23 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     if(randomW > maxX)
         randomW = 600;
     touchIcon.position = ccp(randomW, randomH);
-    NSLog(@"%f and %f", touchIcon.position.x, touchIcon.position.y);
+    //NSLog(@"%f and %f", touchIcon.position.x, touchIcon.position.y);
     [self addChild:touchIcon];
     [self scheduleOnce:@selector(removeTouchIcons) delay:0.75];
     [_patternsGenerated addObject:touchIcon];
     objectCount ++;
+    
+    CCParticleSystem *emitter = [CCParticleExplosion node];
+    //set the location of the emitter
+    emitter.position = touchIcon.position;
+    //set size of particle animation
+    emitter.scale = 0.5;
+    //set an Image for the particle
+    emitter.texture = [[CCTextureCache sharedTextureCache] addImage:@"touchpoints.png"];
+    //set length of particle animation
+    [emitter setLife:0.1f];
+    //add to layer ofcourse(effect begins after this step)
+    [self addChild: emitter];
 }
 
 - (void) removeTouchIcons{
