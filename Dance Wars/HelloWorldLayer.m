@@ -45,7 +45,7 @@
         CCSprite *introName = [CCSprite spriteWithFile:@"intro_name.png"];
         introName.position = ccp(size.width/2, size.height*2/3);
                 
-        CCMenuItemImage *playButton = [CCMenuItemImage itemWithNormalImage:@"play_button.png" selectedImage:@"play_button.png" target:self selector:@selector(loadGameLayer)];
+        CCMenuItemImage *playButton = [CCMenuItemImage itemWithNormalImage:@"play_button.png" selectedImage:@"play_button_pressed.png" target:self selector:@selector(loadGameLayer)];
         CCMenu *gameMenu = [CCMenu menuWithItems:playButton, nil];
         gameMenu.position = ccp(size.width/2, size.height/3);
         
