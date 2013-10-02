@@ -139,7 +139,8 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     //NSLog(@"%f %f",node.position.x,node.position.y);
     for(int pointNumber = 0 ; pointNumber < 6 ; pointNumber++){
         
-        if(CGRectContainsPoint(touchHit.boundingBox, ccp(xLocations[pointNumber],yLocations[pointNumber]))){
+        if(CGRectContainsPoint(touchHit.boundingBox, ccp(xLocations[pointNumber],yLocations[pointNumber]))  && visited[pointNumber] == 0){
+            visited[pointNumber] = 1;
             CCParticleSystem *emitterGesture = [CCParticleExplosion node];
             //set the location of the emitter
             emitterGesture.position = node.position;
@@ -151,6 +152,19 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
             [emitterGesture setLife:1.0f];
             //add to layer ofcourse(effect begins after this step)
             [self addChild: emitterGesture];
+            
+            if(self.life >= 0 && self.life < 100){
+                self.life += 15;
+                if(self.life > 25 && self.life < 60){
+                    [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
+                    [self.progressTimer setScale:1];
+                }
+                if(self.life > 60){
+                    [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_green.png"]];
+                    [self.progressTimer setScale:1];
+                }
+            }
+           [self.progressTimer setPercentage:self.life];
         }
     }
 
@@ -242,14 +256,14 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 
 }
 
-- (void) loadGameLayer {
+-(void) loadGameLayer {
     
     CCScene *gameLevel = [HelloWorldLayer scene];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.2 scene:gameLevel]];
     
 }
 
-- (void) addTouchIcons {
+-(void) addTouchIcons {
     
     touchIcon = [CCSprite spriteWithFile:@"touchpoints.png"];
     
@@ -271,6 +285,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     // these variables are used to store the location of the touch points to calculate the score
     xLocations[objectCount] = (float)randomW;
     yLocations[objectCount] = (float)randomH;
+    visited[objectCount] = 0;
     
     [self addChild:touchIcon];
     [self scheduleOnce:@selector(removeTouchIcons) delay:0.75];
@@ -290,7 +305,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [self addChild: emitter];
 }
 
-- (void) removeTouchIcons{
+-(void) removeTouchIcons{
     
     //NSLog(@"Trying to remove now!! missed hit");
     [self removeChild:touchIcon cleanup:YES];
@@ -303,13 +318,13 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     }
 }
 
-- (BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
 
     return YES;
     
 }
 
-- (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+-(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
     
     
     // user touch recognition and matching
@@ -362,7 +377,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         }
    }
 
-- (void) dealloc {
+-(void) dealloc {
     
     [super dealloc];
     

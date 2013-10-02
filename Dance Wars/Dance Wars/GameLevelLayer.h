@@ -27,6 +27,7 @@
     
     float xLocations[6];
     float yLocations[6];
+    int visited[6];
     CCSprite *touchHit;
     
     InputHandler *ih;
