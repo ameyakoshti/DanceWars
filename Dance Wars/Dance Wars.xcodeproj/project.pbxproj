@@ -1769,11 +1769,9 @@
 					DEBUG,
 					"COCOS2D_DEBUG=1",
 				);
-				HEADER_SEARCH_PATHS = (
-					"\"Dance Wars/libs/kazmath/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"Dance Wars/libs/kazmath/include\"";
 				INFOPLIST_FILE = "Dance Wars/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
@@ -1798,11 +1796,9 @@
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
 				);
-				HEADER_SEARCH_PATHS = (
-					"\"Dance Wars/libs/kazmath/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"Dance Wars/libs/kazmath/include\"";
 				INFOPLIST_FILE = "Dance Wars/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",

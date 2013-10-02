@@ -66,15 +66,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         [self addChild:self.progressTimer];        
 
 
-        touchHit = [CCSprite spriteWithFile:@"gesture.png"];
-        touchHit.scale = 0.5f;
-        touchHit.position = ccp(arc4random() % (int)size.width, arc4random() % (int)size.height);
-        touchHit.isTouchEnabled=YES;
-        
-        //! pan gesture recognizer
-        UIGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
-        panGestureRecognizer.delegate = self;
-        [touchHit addGestureRecognizer:panGestureRecognizer];
+
         
         /*
         //! pinch gesture recognizer
@@ -87,9 +79,6 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         [sprite addGestureRecognizer:rotationGestureRecognizer];
         rotationGestureRecognizer.delegate = self;
         */
-        [self addChild:touchHit];
-        
-        
         
         // objects from input handler
         ih = [[InputHandler alloc] init];
@@ -195,13 +184,13 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 -(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
 {
 	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissModalViewControllerAnimated:YES];
+	[[app navController] dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
 {
 	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissModalViewControllerAnimated:YES];
+	[[app navController] dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void) calcScore {
@@ -211,14 +200,24 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [gp calcAIScore:ih];
     
     missCount = objectCount - hitCount;
-    //NSLog(@" misses = %d", missCount);
-    //NSLog(@"hits = %d", hitCount);
     scoreLabel = [CCLabelTTF labelWithString:score fontName:@"Marker felt" fontSize:25];
     scoreLabel.position = ccp(size.width - 100, size.height - 20);
-    //[scoreLabel setString:@"0,0"];
     [self addChild:scoreLabel];
     score = [NSString stringWithFormat:@"Hits =  %u, Misses = %u",hitCount, missCount];
     [scoreLabel setString:score];
+    
+    // allow the user to swipe now.
+    touchHit = [CCSprite spriteWithFile:@"gesture.png"];
+    touchHit.scale = 0.5f;
+    touchHit.position = ccp(size.width/2,size.height/2);
+    touchHit.isTouchEnabled=YES;
+    
+    //! pan gesture recognizer
+    UIGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+    panGestureRecognizer.delegate = self;
+    [touchHit addGestureRecognizer:panGestureRecognizer];
+    [self addChild:touchHit];
+
 }
 
 -(void) initiateDance {
@@ -230,12 +229,8 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     NSMutableArray *walkframes = [NSMutableArray array];
     
     for (int i = 1; i <= 10; ++i) {
-        
-        // [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString tringWithFormat:@"dance%d.png", 1]]];
-        
         NSString *frameName = [NSString stringWithFormat:@"dance%d.png",i];
         [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
-        
     }
     
     CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
@@ -253,20 +248,17 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     CCMenu *gameMenu = [CCMenu menuWithItems:playButton, nil];
     gameMenu.position = ccp(size.width - playButton.contentSize.width/2, playButton.contentSize.height/2);
     [self addChild:gameMenu];
-
 }
 
 -(void) loadGameLayer {
     
     CCScene *gameLevel = [HelloWorldLayer scene];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.2 scene:gameLevel]];
-    
 }
 
 -(void) addTouchIcons {
     
     touchIcon = [CCSprite spriteWithFile:@"touchpoints.png"];
-    
     
     float maxX = size.width * 3/4;
     float minX = size.width * 1/4;
@@ -313,8 +305,6 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     if(objectCount >= 6){
         [self calcScore];
         [self initiateDance];
-        
-
     }
 }
 
@@ -325,7 +315,6 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 }
 
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-    
     
     // user touch recognition and matching
     //UITouch *touch = [touches anyObject];
@@ -383,8 +372,6 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     
     [_patternsGenerated release];
     _patternsGenerated = nil;
-    
 }
-
 
 @end
