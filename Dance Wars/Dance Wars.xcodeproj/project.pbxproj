@@ -237,6 +237,7 @@
 		DFE89BB917FBBD6D007A7468 /* home_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BB817FBBD6D007A7468 /* home_pressed.png */; };
 		DFE89BBB17FBBE2E007A7468 /* play_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BBA17FBBE2E007A7468 /* play_button.png */; };
 		DFE89BBD17FBBE4C007A7468 /* play_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BBC17FBBE4C007A7468 /* play_button_pressed.png */; };
+		DFE89BC317FBC06E007A7468 /* home_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BC217FBC06E007A7468 /* home_bg.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -680,6 +681,7 @@
 		DFE89BB817FBBD6D007A7468 /* home_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_pressed.png; sourceTree = "<group>"; };
 		DFE89BBA17FBBE2E007A7468 /* play_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_button.png; sourceTree = "<group>"; };
 		DFE89BBC17FBBE4C007A7468 /* play_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_button_pressed.png; sourceTree = "<group>"; };
+		DFE89BC217FBC06E007A7468 /* home_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home_bg.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1322,6 +1324,7 @@
 			children = (
 				077E090117FB900A00548FBF /* Jungle.png */,
 				DFB8372F17FAA016002094B4 /* gesture.png */,
+				DFE89BC217FBC06E007A7468 /* home_bg.jpg */,
 				DFE89BB617FBBC7A007A7468 /* home.png */,
 				DFE89BBA17FBBE2E007A7468 /* play_button.png */,
 				DFE89BBC17FBBE4C007A7468 /* play_button_pressed.png */,
@@ -1465,6 +1468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07B212FC17F2C21A005B9821 /* dance.plist in Resources */,
+				DFE89BC317FBC06E007A7468 /* home_bg.jpg in Resources */,
 				DFE89BB917FBBD6D007A7468 /* home_pressed.png in Resources */,
 				DF3E1C5F17EA363E0043593E /* Default@2x.png in Resources */,
 				DF3E1C6117EA363E0043593E /* Default-568h@2x.png in Resources */,
