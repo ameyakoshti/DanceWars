@@ -14,5 +14,10 @@
     
 }
 
-
+@property (nonatomic) float accuracy;
+@property (nonatomic) int gameLevelDifficulty;
+@property (nonatomic) int moveDifficulty;     //player move difficulty
+@property (nonatomic) float aiScore;          //ai response points
+@property (nonatomic) float pointsScored;     //player points
+@property (nonatomic) int aiAccuracy;         //accuracy of AI depending on the level selected
 @end

@@ -14,7 +14,7 @@
 @implementation GameLevelLayer
 
 @synthesize life;
-@synthesize progressTimer;
+@synthesize progressTimer, background;
 
 static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKey";
 
@@ -66,15 +66,15 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         [self addChild:self.progressTimer];        
 
 
-        CCSprite *sprite = [CCSprite spriteWithFile:@"gesture.png"];
-        sprite.scale = 0.5f;
-        sprite.position = ccp(arc4random() % (int)size.width, arc4random() % (int)size.height);
-        sprite.isTouchEnabled=YES;
+        touchHit = [CCSprite spriteWithFile:@"gesture.png"];
+        touchHit.scale = 0.5f;
+        touchHit.position = ccp(arc4random() % (int)size.width, arc4random() % (int)size.height);
+        touchHit.isTouchEnabled=YES;
         
         //! pan gesture recognizer
         UIGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
         panGestureRecognizer.delegate = self;
-        [sprite addGestureRecognizer:panGestureRecognizer];
+        [touchHit addGestureRecognizer:panGestureRecognizer];
         
         /*
         //! pinch gesture recognizer
@@ -87,7 +87,12 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         [sprite addGestureRecognizer:rotationGestureRecognizer];
         rotationGestureRecognizer.delegate = self;
         */
-        [self addChild:sprite];
+        [self addChild:touchHit];
+        
+        
+        
+        // objects from input handler
+        ih = [[InputHandler alloc] init];
     }
     
     _patternsGenerated = [[NSMutableArray alloc] init];
@@ -114,7 +119,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [aPanGestureRecognizer setTranslation:CGPointZero inView:aPanGestureRecognizer.view];
     
     node.position = ccpAdd(node.position, translation);
-    
+    /*
     CCParticleSystem *emitterGesture = [CCParticleExplosion node];
     //set the location of the emitter
     emitterGesture.position = node.position;
@@ -126,6 +131,29 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [emitterGesture setLife:0.1f];
     //add to layer ofcourse(effect begins after this step)
     [self addChild: emitterGesture];
+    */
+    
+    
+    
+    // this is to check if the touch gesture has been through the touch points
+    //NSLog(@"%f %f",node.position.x,node.position.y);
+    for(int pointNumber = 0 ; pointNumber < 6 ; pointNumber++){
+        
+        if(CGRectContainsPoint(touchHit.boundingBox, ccp(xLocations[pointNumber],yLocations[pointNumber]))){
+            CCParticleSystem *emitterGesture = [CCParticleExplosion node];
+            //set the location of the emitter
+            emitterGesture.position = node.position;
+            //set size of particle animation
+            emitterGesture.scale = 0.5;
+            //set an Image for the particle
+            emitterGesture.texture = [[CCTextureCache sharedTextureCache] addImage:@"Icon-Small.png"];
+            //set length of particle animation
+            [emitterGesture setLife:1.0f];
+            //add to layer ofcourse(effect begins after this step)
+            [self addChild: emitterGesture];
+        }
+    }
+
 }
 
 - (void)handlePinchGesture:(UIPinchGestureRecognizer*)aPinchGestureRecognizer
@@ -163,9 +191,14 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 }
 
 -(void) calcScore {
+    
+    [ih setAccuracy:(hitCount*100/objectCount)];
+    GeneratePoints *gp = [[GeneratePoints alloc] init];
+    [gp calcAIScore:ih];
+    
     missCount = objectCount - hitCount;
-    NSLog(@" misses = %d", missCount);
-    NSLog(@"hits = %d", hitCount);
+    //NSLog(@" misses = %d", missCount);
+    //NSLog(@"hits = %d", hitCount);
     scoreLabel = [CCLabelTTF labelWithString:score fontName:@"Marker felt" fontSize:25];
     scoreLabel.position = ccp(size.width - 100, size.height - 20);
     //[scoreLabel setString:@"0,0"];
@@ -191,12 +224,11 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         
     }
     
-    CCAnimation *walk = [CCAnimation animationWithFrames:walkframes delay:0.1f];
-    //CGSize winSize = [CCDirector sharedDirector].winSize;
+    CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
     CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"dance1.png"];
     dance.position = ccp(150, 200);
     
-    CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk restoreOriginalFrame:NO] times:1];
+    CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
     
     [dance runAction:danceAction];
     [spriteSheet addChild:dance];
@@ -205,7 +237,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     // this adds a button after the game is over to return to the main menu
     CCMenuItemImage *playButton = [CCMenuItemImage itemWithNormalImage:@"home.png" selectedImage:@"home_pressed.png" target:self selector:@selector(loadGameLayer)];
     CCMenu *gameMenu = [CCMenu menuWithItems:playButton, nil];
-    gameMenu.position = ccp(950, 70);
+    gameMenu.position = ccp(size.width - playButton.contentSize.width/2, playButton.contentSize.height/2);
     [self addChild:gameMenu];
 
 }
@@ -227,9 +259,6 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     float rangeX = maxX- minX;
     float randomH = (arc4random() % (int)size.height) + (int) size.height * 1/4;
     float randomW = (arc4random() % (int)rangeX) + minX;
-    //CCLOG(@"I am here!!!");
-    //NSLog(@"H = %f",randomH);
-    //NSLog(@"W = %f",randomW);
    
     if(randomH > 768)
         randomH = size.height - touchIcon.boundingBox.size.height;
@@ -238,7 +267,11 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     if(randomW > maxX)
         randomW = 600;
     touchIcon.position = ccp(randomW, randomH);
-    //NSLog(@"%f and %f", touchIcon.position.x, touchIcon.position.y);
+    
+    // these variables are used to store the location of the touch points to calculate the score
+    xLocations[objectCount] = (float)randomW;
+    yLocations[objectCount] = (float)randomH;
+    
     [self addChild:touchIcon];
     [self scheduleOnce:@selector(removeTouchIcons) delay:0.75];
     [_patternsGenerated addObject:touchIcon];
@@ -327,7 +360,6 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
             }
             [self.progressTimer setPercentage:self.life];
         }
-    
    }
 
 - (void) dealloc {

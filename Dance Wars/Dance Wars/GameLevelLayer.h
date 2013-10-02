@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <GameKit/GameKit.h>
-
+#import "InputHandler.h"
+#import "GeneratePoints.h"
 #import "cocos2d.h"
 
 @interface GameLevelLayer : CCLayer <UIGestureRecognizerDelegate> {
@@ -23,11 +24,18 @@
     CCLabelTTF *scoreLabel;
     CCProgressTimer *progressTimer;
     int life;
+    
+    float xLocations[6];
+    float yLocations[6];
+    CCSprite *touchHit;
+    
+    InputHandler *ih;
 }
 
 +(CCScene *) scene;
 
 @property (nonatomic,retain) CCProgressTimer *progressTimer;
 @property (nonatomic,assign) int life;
+@property (nonatomic,assign) NSString *background;
 
 @end

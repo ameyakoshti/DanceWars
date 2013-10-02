@@ -30,8 +30,9 @@
 
 -(id) init {
     
-    if((self = [super init])) {
-    
+    if((self = [super initWithColor:ccc4(0, 0, 0, 0)])) {
+        ih = [[InputHandler alloc] init];
+        
         CGSize size = [[CCDirector sharedDirector] winSize];
         
         CCLabelTTF *label = [CCLabelTTF labelWithString:@"Select Your Level of Difficulty" fontName:@"Papyrus" fontSize:50];
@@ -39,10 +40,11 @@
         [self addChild:label];
         
         // menu to create different levels of difficulty
-        CCMenuItemImage *buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"i_love_clubbing_heart.png" selectedImage:@"i_love_clubbing_heart.png" target:self selector:@selector(loadGameLayer)];
-        CCMenuItemImage *buttonLevel2 = [CCMenuItemImage itemWithNormalImage:@"i_love_dancing_heart.png" selectedImage:@"i_love_dancing_heart.png" target:self selector:@selector(loadGameLayer)];
-        CCMenuItemImage *buttonLevel3 = [CCMenuItemImage itemWithNormalImage:@"i_love_disco.png" selectedImage:@"i_love_disco.png" target:self selector:@selector(loadGameLayer)];
-        CCMenuItemImage *buttonLevel4 = [CCMenuItemImage itemWithNormalImage:@"i_love_music.png" selectedImage:@"i_love_music.png" target:self selector:@selector(loadGameLayer)];
+        CCMenuItemImage *buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"i_love_clubbing_heart.png" selectedImage:@"i_love_clubbing_heart.png" target:self selector:@selector(loadLevelEasy)];
+        CCMenuItemImage *buttonLevel2 = [CCMenuItemImage itemWithNormalImage:@"i_love_dancing_heart.png" selectedImage:@"i_love_dancing_heart.png" target:self selector:@selector(loadLevelMed)];
+        CCMenuItemImage *buttonLevel3 = [CCMenuItemImage itemWithNormalImage:@"i_love_disco.png" selectedImage:@"i_love_disco.png" target:self selector:@selector(loadLevelDif)];
+        
+        CCMenuItemImage *buttonLevel4 = [CCMenuItemImage itemWithNormalImage:@"i_love_music.png" selectedImage:@"i_love_music.png" target:self selector:@selector(loadLevelDif)];
         
         CCMenu *gameMenu = [CCMenu menuWithItems:buttonLevel1, buttonLevel2, buttonLevel3, buttonLevel4, nil];
         NSNumber* itemsPerRow = [NSNumber numberWithInt:4];
@@ -52,6 +54,37 @@
         [self addChild:gameMenu];
     }
     return self;
+}
+
+- (void) loadLevelEasy {
+    
+    [ih setGameLevelDifficulty:1];
+    [ih setAiAccuracy:30];
+    [gll setBackground:@"level_bg.jpg"];
+    NSLog(@"Level Difficulty set to %d", [ih gameLevelDifficulty]);
+    NSLog(@"Level Difficulty set to %d", [ih aiAccuracy]);
+    [self performSelector:@selector(loadGameLayer)];
+    
+}
+
+- (void) loadLevelMed {
+    
+    [ih setGameLevelDifficulty:2];
+    [ih setAiAccuracy:60];
+    [gll setBackground:@"level_bg.jpg"];
+    NSLog(@"Level Difficulty set to %d", [ih gameLevelDifficulty]);
+    [self performSelector:@selector(loadGameLayer)];
+    
+}
+
+- (void) loadLevelDif {
+    
+    [ih setGameLevelDifficulty:3];
+    [ih setAiAccuracy:90];
+    [gll setBackground:@"level_bg.jpg"];
+    NSLog(@"Level Difficulty set to %d", [ih gameLevelDifficulty]);
+    [self performSelector:@selector(loadGameLayer)];
+    
 }
 
 - (void) loadGameLayer {

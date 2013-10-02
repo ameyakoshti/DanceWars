@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "InputHandler.h"
+#import "GameLevelLayer.h"
 
 @interface LevelSelectLayer : CCLayerColor {
+    
+    InputHandler *ih;
+    GameLevelLayer *gll;
     
 }
 

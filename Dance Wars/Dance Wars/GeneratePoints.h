@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "cocos2d.h"
+#import "InputHandler.h"
 
-@interface GeneratePoints : NSObject
+@interface GeneratePoints : NSObject {
+    
+    InputHandler *ih;
+    float patternDifficulty;
+}
+
+- (float) calcAIScore:(InputHandler *)ih2;
 
 @end
