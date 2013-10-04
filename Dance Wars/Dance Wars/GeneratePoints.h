@@ -13,9 +13,9 @@
 @interface GeneratePoints : NSObject {
     
     InputHandler *ih;
-    float patternDifficulty;
+    int patternDifficulty;
 }
 
-- (float) calcAIScore:(InputHandler *)ih2;
+- (float) calcAIScore;
 
 @end

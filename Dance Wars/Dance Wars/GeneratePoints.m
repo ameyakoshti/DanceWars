@@ -7,6 +7,8 @@
 //
 
 #import "GeneratePoints.h"
+#import "HelloWorldLayer.h"
+#import "MyManager.h"
 
 @implementation GeneratePoints
 
@@ -14,24 +16,43 @@
     
     [super init];
     
-    
+    ih = [[InputHandler alloc] init];
     return self;
 }
 
-- (float) calcAIScore:(InputHandler *)ih2 {
+- (float) calcAIScore {
     
-    ih = ih2;
+    MyManager *sharedManager = [MyManager sharedManager];
+    InputHandler *ih2 = [sharedManager.inputBundle objectForKey:@"LDAA"];
+    
+    InputHandler *ihsetacc = [sharedManager.inputBundle objectForKey:@"SETACC"];
+    
+    NSLog(@"setacc: %@", ihsetacc);
+
+    //NSLog(@"Object %@", ih2);
+    NSLog(@"Level Difficulty: %d", [ih2 gameLevelDifficulty]);
+    NSLog(@"AI Accuracy: %d", [ih2 aiAccuracy]);
+    NSLog(@"Player Accuracy: %f", [ihsetacc accuracy]);
+    
     
     [ih setMoveDifficulty:3];                                         //not been implemented yet
     
-    patternDifficulty = ([ih moveDifficulty] * [ih gameLevelDifficulty]);
-    [ih setPointsScored: (patternDifficulty * [ih accuracy])];
+    patternDifficulty = ([ih moveDifficulty] * [ih2 gameLevelDifficulty]);
+    [ih setPointsScored: (patternDifficulty * [ihsetacc accuracy])];
     
-    [ih setAiScore:([ih aiAccuracy] * patternDifficulty)*1000/9];   //1000 - randomly chosen multiplying factor to generate score range. 9 is the
-    //scale down factor
+    NSLog(@"Move Dif: %d", [ih moveDifficulty]);
+    NSLog(@"Player Points: %f", [ih pointsScored]);
     
-    NSLog(@"AI Score = %f", [ih aiScore]);
+    float aiscore;
+    aiscore = (66*3)*1000/9;
     
+    //[ih setAiScore:([ih2 aiAccuracy] * patternDifficulty)*1000/9];   //1000 - randomly chosen multiplying factor to generate score range. 9 is the
+                                                                    //scale down factor
+    
+    [ih setAiScore:aiscore];
+    
+    NSLog(@"AI Score = %f", aiscore);
+    NSLog(@"AI S: %f", [ih aiScore]);
     
     return [ih aiScore];
 }
