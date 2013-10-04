@@ -88,9 +88,10 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     
 
     [self schedule:@selector(addTouchIcons) interval:1.0 repeat:5 delay:1.5];
+
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
     
-     return self;    
+    return self;
 }
 
 
@@ -260,24 +261,24 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     
     touchIcon = [CCSprite spriteWithFile:@"touchpoints.png"];
     
-    float maxX = size.width * 3/4;
-    float minX = size.width * 1/4;
-    float rangeX = maxX- minX;
-    float randomH = (arc4random() % (int)size.height) + (int) size.height * 1/4;
-    float randomW = (arc4random() % (int)rangeX) + minX;
+    // creating the imaginary rectangle in which the icons will appear
+    float maxX = size.width * 2/3;
+    float minX = size.width * 1/3;
+    float maxY = size.height * 2/3;
+    float minY = size.height * 1/3;
+    float rangeX = maxX - minX;
+    float rangeY = maxY - minY;
+    float randomH = (arc4random() % (int)rangeY) + (int)minY;
+    float randomW = (arc4random() % (int)rangeX) + (int)minX;
    
-    if(randomH > 768)
-        randomH = size.height - touchIcon.boundingBox.size.height;
-    if(randomW < minX)
-        randomW = 400;
-    if(randomW > maxX)
-        randomW = 600;
+
     touchIcon.position = ccp(randomW, randomH);
     
     // these variables are used to store the location of the touch points to calculate the score
     xLocations[objectCount] = (float)randomW;
     yLocations[objectCount] = (float)randomH;
     visited[objectCount] = 0;
+    
     
     [self addChild:touchIcon];
     [self scheduleOnce:@selector(removeTouchIcons) delay:0.75];
@@ -343,6 +344,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
                 }
             }
             [self.progressTimer setPercentage:self.life];
+            
             
         }
         else {
