@@ -8,6 +8,8 @@
 
 #import "LevelSelectLayer.h"
 #import "GameLevelLayer.h"
+#import "HelloWorldLayer.h"
+#import "MyManager.h"
 
 
 @implementation LevelSelectLayer
@@ -57,12 +59,20 @@
 }
 
 - (void) loadLevelEasy {
+
+    MyManager *sharedManager = [MyManager sharedManager];
     
     [ih setGameLevelDifficulty:1];
     [ih setAiAccuracy:30];
+    
+    [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
+    //NSLog(@"Object Passed: %@", ih);
+    
+    //[inputBundle setObject:ih forKey:@"lDaA"];
+    
     [gll setBackground:@"level_bg.jpg"];
     NSLog(@"Level Difficulty set to %d", [ih gameLevelDifficulty]);
-    NSLog(@"Level Difficulty set to %d", [ih aiAccuracy]);
+    NSLog(@"AI Accuracy set to %d", [ih aiAccuracy]);
     [self performSelector:@selector(loadGameLayer)];
     
 }

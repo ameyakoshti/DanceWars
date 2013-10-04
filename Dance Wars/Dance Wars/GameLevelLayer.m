@@ -10,6 +10,7 @@
 #import "GameLevelLayer.h"
 #import "HelloWorldLayer.h"
 #import "CCNode+SFGestureRecognizers.h"
+#import "MyManager.h"
 
 @implementation GameLevelLayer
 
@@ -195,10 +196,19 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 }
 
 -(void) calcScore {
+
+    MyManager *sharedManager = [MyManager sharedManager];
     
     [ih setAccuracy:(hitCount*100/objectCount)];
+    
+    NSLog(@"Hits: %d, Misses: %d", hitCount,missCount);
+    NSLog(@"Accuracy: %f", ih.accuracy);
+    
+    [sharedManager.inputBundle setObject:ih forKey:@"SETACC"];
+    
     GeneratePoints *gp = [[GeneratePoints alloc] init];
-    [gp calcAIScore:ih];
+    [gp calcAIScore];
+    
     
     missCount = objectCount - hitCount;
     scoreLabel = [CCLabelTTF labelWithString:score fontName:@"Marker felt" fontSize:25];

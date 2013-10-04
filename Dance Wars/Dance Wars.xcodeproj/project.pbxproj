@@ -11,6 +11,7 @@
 		D807235C17ED0D0400759B73 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D807235B17ED0D0400759B73 /* HelloWorldLayer.m */; };
 		D807236117ED271100759B73 /* GameLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D807236017ED270F00759B73 /* GameLevelLayer.m */; };
 		D807236317ED5BE600759B73 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D807236217ED5BE600759B73 /* Default.png */; };
+		D84CA37B17FF574D00BC058A /* MyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CA37A17FF574D00BC058A /* MyManager.m */; };
 		D8597B2A17F619CA003F8B6D /* LevelSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D8597B2917F619CA003F8B6D /* LevelSelectLayer.m */; };
 		D8597B2D17F61A71003F8B6D /* CharacterSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = D8597B2C17F61A71003F8B6D /* CharacterSelect.m */; };
 		D8597B3017F62249003F8B6D /* CharacterHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D8597B2F17F62249003F8B6D /* CharacterHandler.m */; };
@@ -250,6 +251,8 @@
 		D807235F17ED270F00759B73 /* GameLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLevelLayer.h; sourceTree = "<group>"; };
 		D807236017ED270F00759B73 /* GameLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLevelLayer.m; sourceTree = "<group>"; };
 		D807236217ED5BE600759B73 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D84CA37917FF574D00BC058A /* MyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyManager.h; sourceTree = "<group>"; };
+		D84CA37A17FF574D00BC058A /* MyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyManager.m; sourceTree = "<group>"; };
 		D8597B2817F619CA003F8B6D /* LevelSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectLayer.h; sourceTree = "<group>"; };
 		D8597B2917F619CA003F8B6D /* LevelSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectLayer.m; sourceTree = "<group>"; };
 		D8597B2B17F61A71003F8B6D /* CharacterSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterSelect.h; sourceTree = "<group>"; };
@@ -757,6 +760,8 @@
 				DF3E1E7F17EA36420043593E /* AppDelegate.mm */,
 				D807235A17ED0D0400759B73 /* HelloWorldLayer.h */,
 				D807235B17ED0D0400759B73 /* HelloWorldLayer.m */,
+				D84CA37917FF574D00BC058A /* MyManager.h */,
+				D84CA37A17FF574D00BC058A /* MyManager.m */,
 				DF3E1E8417EA36420043593E /* IntroLayer.h */,
 				DF3E1E8517EA36420043593E /* IntroLayer.mm */,
 				D807235F17ED270F00759B73 /* GameLevelLayer.h */,
@@ -1451,7 +1456,7 @@
 		DF3E1C3B17EA363E0043593E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Ameya Koshti";
 			};
 			buildConfigurationList = DF3E1C3E17EA363E0043593E /* Build configuration list for PBXProject "Dance Wars" */;
@@ -1662,6 +1667,7 @@
 				DF3E1E1117EA36410043593E /* b2BlockAllocator.cpp in Sources */,
 				DF3E1E1417EA36410043593E /* b2Draw.cpp in Sources */,
 				DF3E1E1817EA36410043593E /* b2Math.cpp in Sources */,
+				D84CA37B17FF574D00BC058A /* MyManager.m in Sources */,
 				DF3E1E1B17EA36410043593E /* b2Settings.cpp in Sources */,
 				DF3E1E1E17EA36410043593E /* b2StackAllocator.cpp in Sources */,
 				DF3E1E2117EA36410043593E /* b2Timer.cpp in Sources */,
@@ -1719,7 +1725,12 @@
 		DF3E1E8C17EA36420043593E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1729,9 +1740,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1740,7 +1756,12 @@
 		DF3E1E8D17EA36420043593E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1748,7 +1769,11 @@
 					"NS_BLOCK_ASSERTIONS=1",
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;

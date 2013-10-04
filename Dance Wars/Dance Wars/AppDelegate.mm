@@ -10,6 +10,7 @@
 
 #import "AppDelegate.h"
 #import "IntroLayer.h"
+#import "HelloWorldLayer.h"
 
 @implementation MyNavigationController
 
@@ -138,7 +139,7 @@
 	
 	// make main window visible
 	[window_ makeKeyAndVisible];
-	
+    
 	return YES;
 }
 
