@@ -72,9 +72,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     return self;
 }
 
--(void) initiateDance {
-    
-    [self removeChild: dancer];
+-(void) initiateAICharDance {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"dance.plist"];
     CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"dance.png"];
     
@@ -94,6 +92,59 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [dance runAction:danceAction];
     [spriteSheet addChild:dance];
     [self addChild:spriteSheet];
+}
+
+-(void) initiateLadyAIChar {
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"ladydance.plist"];
+    CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"ladydance.png"];
+    
+    NSMutableArray *walkframes = [NSMutableArray array];
+    
+    for (int i = 1; i <= 83; ++i) {
+        NSString *frameName = [NSString stringWithFormat:@"d%d.png",i];
+        [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
+    }
+    
+    CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
+    CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"d1.png"];
+    dance.position = ccp(300, 400);
+    
+    CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
+    
+    [dance runAction:danceAction];
+    [spriteSheet addChild:dance];
+    [self addChild:spriteSheet];
+}
+
+-(void) initiateBlast {
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"bomb.plist"];
+    CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"bomb.png"];
+    
+    NSMutableArray *walkframes = [NSMutableArray array];
+
+    for (int i = 1; i <= 21; ++i) {
+        NSString *frameName = [NSString stringWithFormat:@"f%d.png",i];
+        [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
+    }
+    
+    CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
+    CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"f1.png"];
+    dance.position = ccp(400, 500);
+    
+    CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
+    
+    [dance runAction:danceAction];
+    [spriteSheet addChild:dance];
+    [self addChild:spriteSheet];
+}
+
+-(void) initiateDance {
+
+    [self removeChild: dancer];
+
+    [self initiateAICharDance];
+    [self initiateLadyAIChar];
+    [self initiateBlast];
     
     // this adds a button after the game is over to return to the main menu
     CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"home.png" selectedImage:@"home_pressed.png" target:self selector:@selector(loadGameLayer)];
