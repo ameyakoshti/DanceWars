@@ -1,5 +1,5 @@
 //
-//  Score.h
+//  GeneratePoints.h
 //  Dance Wars
 //
 //  Created by Ameya Koshti on 9/18/13.
@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "cocos2d.h"
+#import "InputHandler.h"
 
-@interface Score : NSObject
+@interface GeneratePoints : NSObject {
+    
+    InputHandler *ih;
+    int patternDifficulty;
+}
+
+-(float) calScore:(float)Accuracy;
 
 @end

@@ -40,7 +40,7 @@
         
         charSpriteList = [[NSMutableArray alloc] init];
         
-        ih = [[InputHandler alloc] init];
+        //ih = [[InputHandler alloc] init];
         ch = [[CharacterHandler alloc] init];
         
         // Adding player 1 in the player selection menu

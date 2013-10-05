@@ -203,8 +203,7 @@
 		DF3E1EA417EA42500043593E /* LosAngeles.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EA317EA42500043593E /* LosAngeles.m */; };
 		DF3E1EA717EA43D00043593E /* Bombay.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EA617EA43D00043593E /* Bombay.m */; };
 		DF3E1EAA17EA43E20043593E /* Madrid.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EA917EA43E20043593E /* Madrid.m */; };
-		DF3E1EAD17EA44DE0043593E /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EAC17EA44DE0043593E /* Score.m */; };
-		DF3E1EB517EA4A210043593E /* GeneratePoints.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EB417EA4A210043593E /* GeneratePoints.m */; };
+		DF3E1EB517EA4A210043593E /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EB417EA4A210043593E /* Score.m */; };
 		DF3E1EB817EA4A2E0043593E /* GenerateMoves.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EB717EA4A2E0043593E /* GenerateMoves.m */; };
 		DF3E1EBB17EA4A8C0043593E /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EBA17EA4A8B0043593E /* Settings.m */; };
 		DF4B337017F7B8FB00A1C5BC /* i_love_clubbing_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336C17F7B8FB00A1C5BC /* i_love_clubbing_heart.png */; };
@@ -647,10 +646,8 @@
 		DF3E1EA617EA43D00043593E /* Bombay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bombay.m; sourceTree = "<group>"; };
 		DF3E1EA817EA43E20043593E /* Madrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Madrid.h; sourceTree = "<group>"; };
 		DF3E1EA917EA43E20043593E /* Madrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Madrid.m; sourceTree = "<group>"; };
-		DF3E1EAB17EA44DE0043593E /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
-		DF3E1EAC17EA44DE0043593E /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Score.m; sourceTree = "<group>"; };
-		DF3E1EB317EA4A210043593E /* GeneratePoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratePoints.h; sourceTree = "<group>"; };
-		DF3E1EB417EA4A210043593E /* GeneratePoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratePoints.m; sourceTree = "<group>"; };
+		DF3E1EB317EA4A210043593E /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
+		DF3E1EB417EA4A210043593E /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Score.m; sourceTree = "<group>"; };
 		DF3E1EB617EA4A2E0043593E /* GenerateMoves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenerateMoves.h; sourceTree = "<group>"; };
 		DF3E1EB717EA4A2E0043593E /* GenerateMoves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateMoves.m; sourceTree = "<group>"; };
 		DF3E1EB917EA4A8B0043593E /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -1391,8 +1388,6 @@
 			children = (
 				D8597B2F17F62249003F8B6D /* CharacterHandler.m */,
 				D8597B2E17F62249003F8B6D /* CharacterHandler.h */,
-				DF3E1EAB17EA44DE0043593E /* Score.h */,
-				DF3E1EAC17EA44DE0043593E /* Score.m */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -1413,8 +1408,8 @@
 		DF3E1EAE17EA44FF0043593E /* AI */ = {
 			isa = PBXGroup;
 			children = (
-				DF3E1EB317EA4A210043593E /* GeneratePoints.h */,
-				DF3E1EB417EA4A210043593E /* GeneratePoints.m */,
+				DF3E1EB317EA4A210043593E /* Score.h */,
+				DF3E1EB417EA4A210043593E /* Score.m */,
 				DF3E1EB617EA4A2E0043593E /* GenerateMoves.h */,
 				DF3E1EB717EA4A2E0043593E /* GenerateMoves.m */,
 			);
@@ -1706,8 +1701,7 @@
 				DF3E1EA417EA42500043593E /* LosAngeles.m in Sources */,
 				DF3E1EA717EA43D00043593E /* Bombay.m in Sources */,
 				DF3E1EAA17EA43E20043593E /* Madrid.m in Sources */,
-				DF3E1EAD17EA44DE0043593E /* Score.m in Sources */,
-				DF3E1EB517EA4A210043593E /* GeneratePoints.m in Sources */,
+				DF3E1EB517EA4A210043593E /* Score.m in Sources */,
 				DF3E1EB817EA4A2E0043593E /* GenerateMoves.m in Sources */,
 				DF3E1EBB17EA4A8C0043593E /* Settings.m in Sources */,
 				D807235C17ED0D0400759B73 /* HelloWorldLayer.m in Sources */,
@@ -1746,7 +1740,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1775,7 +1769,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
