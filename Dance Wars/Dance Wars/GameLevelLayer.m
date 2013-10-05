@@ -18,6 +18,7 @@
 @synthesize life;
 @synthesize progressTimer, background;
 
+CCSprite *grid;
 static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKey";
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
@@ -40,13 +41,14 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         
         CCSprite *levelBg = [CCSprite spriteWithFile:@"Jungle.png"];
         levelBg.position = ccp(size.width/2, size.height/2);
-    
-        //[self addChild:check];
         [self addChild:levelBg];
+        
+        grid = [CCSprite spriteWithFile:@"grid_map.png"];
+        grid.position = ccp(size.width/2, size.height/2);
+        [self addChild:grid];
         
         dancer = [CCSprite spriteWithFile:@"dance1.png"];
         dancer.position = ccp(150,200);
-        
         [self addChild:dancer];
        
         self.life = 0;
@@ -222,6 +224,8 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         
         //enable dance show
         [self initiateDance];
+        
+        [self removeChild:grid];
     }
 }
 

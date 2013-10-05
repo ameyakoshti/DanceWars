@@ -107,6 +107,7 @@
 		D8597B3717F65C12003F8B6D /* level_button1.png in Resources */ = {isa = PBXBuildFile; fileRef = D8597B3317F65C11003F8B6D /* level_button1.png */; };
 		D8597B3817F65C12003F8B6D /* level_button1_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = D8597B3417F65C12003F8B6D /* level_button1_pressed.png */; };
 		D8E3F3CF17FC8D4E00B34EB7 /* intro_name.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E3F3CE17FC8D4E00B34EB7 /* intro_name.png */; };
+		DF0B84CA17FFAD8B00E28583 /* grid_map.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0B84C917FFAD8B00E28583 /* grid_map.png */; };
 		DF3E1C4717EA363E0043593E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3E1C4617EA363E0043593E /* QuartzCore.framework */; };
 		DF3E1C4917EA363E0043593E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3E1C4817EA363E0043593E /* OpenGLES.framework */; };
 		DF3E1C4B17EA363E0043593E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3E1C4A17EA363E0043593E /* OpenAL.framework */; };
@@ -437,6 +438,7 @@
 		D8597B3317F65C11003F8B6D /* level_button1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level_button1.png; sourceTree = "<group>"; };
 		D8597B3417F65C12003F8B6D /* level_button1_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level_button1_pressed.png; sourceTree = "<group>"; };
 		D8E3F3CE17FC8D4E00B34EB7 /* intro_name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_name.png; sourceTree = "<group>"; };
+		DF0B84C917FFAD8B00E28583 /* grid_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grid_map.png; sourceTree = "<group>"; };
 		DF3E1C4317EA363E0043593E /* Dance Wars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dance Wars.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF3E1C4617EA363E0043593E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DF3E1C4817EA363E0043593E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1494,6 +1496,7 @@
 		DF3E1E9217EA38BC0043593E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DF0B84C917FFAD8B00E28583 /* grid_map.png */,
 				35D623F117FF96500020F299 /* bomb.png */,
 				35D6231B17FF92390020F299 /* d1.png */,
 				35D6231C17FF92390020F299 /* d2.png */,
@@ -1832,6 +1835,7 @@
 				35D6239317FF923A0020F299 /* d38.png in Resources */,
 				35D6239417FF923A0020F299 /* d39.png in Resources */,
 				35D6239517FF923A0020F299 /* d40.png in Resources */,
+				DF0B84CA17FFAD8B00E28583 /* grid_map.png in Resources */,
 				35D6239617FF923A0020F299 /* d41.png in Resources */,
 				35D6239717FF923A0020F299 /* d42.png in Resources */,
 				35D6239817FF923A0020F299 /* d43.png in Resources */,
@@ -2136,9 +2140,7 @@
 					DEBUG,
 					"COCOS2D_DEBUG=1",
 				);
-				HEADER_SEARCH_PATHS = (
-					"\"Dance Wars/libs/kazmath/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"Dance Wars/libs/kazmath/include\"";
 				INFOPLIST_FILE = "Dance Wars/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = (
@@ -2165,9 +2167,7 @@
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
 				);
-				HEADER_SEARCH_PATHS = (
-					"\"Dance Wars/libs/kazmath/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"Dance Wars/libs/kazmath/include\"";
 				INFOPLIST_FILE = "Dance Wars/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = (
