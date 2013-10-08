@@ -8,10 +8,6 @@
 
 #import "AppDelegate.h"
 #import "GameLevelLayer.h"
-#import "HelloWorldLayer.h"
-#import "CCNode+SFGestureRecognizers.h"
-#import "MyManager.h"
-#import "Score.h"
 
 @implementation GameLevelLayer
 
@@ -32,16 +28,19 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 -(id) init {
     
     if((self = [super init])) {
-    
         //self.isTouchEnabled = YES;
         size = [[CCDirector sharedDirector] winSize];
         score = [[NSString alloc] init];
                 
         //check.position = ccp(size.width/2, size.height/2);
         
-        CCSprite *levelBg = [CCSprite spriteWithFile:@"Jungle.png"];
-        levelBg.position = ccp(size.width/2, size.height/2);
-        [self addChild:levelBg];
+        
+        // loading game environment
+        sharedManager = [MyManager sharedManager];
+        le = [sharedManager.inputBundle objectForKey:@"ENVR"];
+        le.background.position = ccp(size.width/2, size.height/2);
+        [self addChild:le.background];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:le.backgroundMusic];
         
         grid = [CCSprite spriteWithFile:@"grid_map.png"];
         grid.position = ccp(size.width/2, size.height/2);
@@ -156,6 +155,11 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 }
 
 -(void) loadGameLayer {
+    // stop game music
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    
+    // start home background music
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"background.mp3"];
     
     CCScene *gameLevel = [HelloWorldLayer scene];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.2 scene:gameLevel]];

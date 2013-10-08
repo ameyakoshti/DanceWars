@@ -11,7 +11,6 @@
 #import "IntroLayer.h"
 #import "HelloWorldLayer.h"
 
-
 #pragma mark - IntroLayer
 
 // HelloWorldLayer implementation
@@ -38,6 +37,9 @@
 {
 	if( (self=[super init])) {
 		
+        // start intro music
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"intro.mp3"];
+        
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		

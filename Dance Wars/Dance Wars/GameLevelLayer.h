@@ -11,6 +11,11 @@
 #import "InputHandler.h"
 #import "Score.h"
 #import "cocos2d.h"
+#import "HelloWorldLayer.h"
+#import "CCNode+SFGestureRecognizers.h"
+#import "MyManager.h"
+#import "LevelEnvironment.h"
+#import "SimpleAudioEngine.h"
 
 @interface GameLevelLayer : CCLayer <UIGestureRecognizerDelegate> {
     CGSize size;
@@ -24,6 +29,8 @@
     CCLabelTTF *scoreLabel;
     CCProgressTimer *progressTimer;
     int life;
+    MyManager *sharedManager;
+    LevelEnvironment *le;
     
     float xLocations[6];
     float yLocations[6];

@@ -7,8 +7,6 @@
 //
 
 #import "LevelSelectLayer.h"
-#import "GameLevelLayer.h"
-#import "HelloWorldLayer.h"
 
 @implementation LevelSelectLayer
 
@@ -35,6 +33,9 @@
         sharedManager = [MyManager sharedManager];
         
         ih = [[InputHandler alloc] init];
+        
+        // initializing level env
+        le = [[LevelEnvironment alloc]init];
         
         CGSize size = [[CCDirector sharedDirector] winSize];
         
@@ -76,7 +77,10 @@
     
     [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
     
-    [gll setBackground:@"level_bg.jpg"];
+    le.background = [CCSprite spriteWithFile:@"bombay.png"];
+    le.backgroundMusic = [NSString stringWithFormat:@"bombay.mp3"];
+    
+    [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
     [self performSelector:@selector(loadGameLayer)];
 }
 
@@ -85,7 +89,10 @@
 
     [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
     
-    [gll setBackground:@"level_bg.jpg"];
+    le.background = [CCSprite spriteWithFile:@"losangeles.png"];
+    le.backgroundMusic = [NSString stringWithFormat:@"losangeles.mp3"];
+    
+    [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
     [self performSelector:@selector(loadGameLayer)];
 }
 
@@ -94,12 +101,15 @@
 
     [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
     
-    [gll setBackground:@"level_bg.jpg"];
+    le.background = [CCSprite spriteWithFile:@"madrid.png"];
+    le.backgroundMusic = [NSString stringWithFormat:@"madrid.mp3"];
+    
+    [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
     [self performSelector:@selector(loadGameLayer)];
 }
 
 - (void) loadGameLayer {
-    
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     CCScene *gameLevel = [GameLevelLayer scene];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:gameLevel]];
 }
