@@ -39,7 +39,8 @@
 		
         // start intro music
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"intro.mp3"];
-        
+       
+        /*
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		
@@ -54,7 +55,7 @@
 		background.position = ccp(size.width/2, size.height/2);
 		
 		// add the label as a child to this Layer
-		[self addChild: background];
+		[self addChild: background];*/
 	}
 	
 	return self;

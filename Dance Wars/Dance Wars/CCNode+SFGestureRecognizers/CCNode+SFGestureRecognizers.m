@@ -192,7 +192,8 @@ static NSString *const UIGestureRecognizerSFGestureRecognizersPassingDelegateKey
   if (passingDelegate) {
     passingDelegate->originalDelegate = aDelegate;
   } else {
-    [self performSelector:@selector(originalSetDelegate:) withObject:aDelegate];
+    SEL myOriginalSetDelegate = sel_registerName("originalSetDelegate:");
+    [self performSelector:myOriginalSetDelegate withObject:aDelegate];
   }
 }
 
@@ -204,12 +205,14 @@ static NSString *const UIGestureRecognizerSFGestureRecognizersPassingDelegateKey
   }
 
   //! no delegate yet so use original method
-  return [self performSelector:@selector(originalDelegate)];
+  SEL myOriginalDelegate = sel_registerName("originalDelegate");
+  return [self performSelector:myOriginalDelegate];
 }
 
 - (Class)swappedClass
 {
-  Class originalClass = [self performSelector:@selector(originalClass)];
+  SEL myOriginalClass = sel_registerName("originalClass");
+  Class originalClass = [self performSelector:myOriginalClass];
   NSString *gestureClassString = NSStringFromClass(originalClass);
   if ([gestureClassString hasPrefix:kSFGestureClassPrefix]) {
     originalClass = NSClassFromString([gestureClassString stringByReplacingOccurrencesOfString:kSFGestureClassPrefix withString:@""]);
@@ -286,13 +289,17 @@ static NSString *const UIGestureRecognizerSFGestureRecognizersPassingDelegateKey
       Method swappedSetter = class_getInstanceMethod([__SFGestureRecognizersPassingDelegate class], @selector(setDelegate:));
       Method swappedClass = class_getInstanceMethod([__SFGestureRecognizersPassingDelegate class], @selector(swappedClass));
 
-      class_addMethod(newClass, @selector(originalDelegate), method_getImplementation(originalGetter), method_getTypeEncoding(originalGetter));
+      SEL myOriginalDelegate = sel_registerName("originalDelegate");
+      SEL myOriginalSetDelegate = sel_registerName("originalSetDelegate:");
+      SEL myOriginalClass = sel_registerName("originalClass");
+        
+      class_addMethod(newClass, myOriginalDelegate, method_getImplementation(originalGetter), method_getTypeEncoding(originalGetter));
       class_replaceMethod(newClass, @selector(delegate), method_getImplementation(swappedGetter), method_getTypeEncoding(swappedGetter));
       
-      class_addMethod(newClass, @selector(originalSetDelegate:), method_getImplementation(originalSetter), method_getTypeEncoding(originalSetter));
+      class_addMethod(newClass, myOriginalSetDelegate, method_getImplementation(originalSetter), method_getTypeEncoding(originalSetter));
       class_replaceMethod(newClass, @selector(setDelegate:), method_getImplementation(swappedSetter), method_getTypeEncoding(swappedSetter));
       
-      class_addMethod(newClass, @selector(originalClass), method_getImplementation(originalClass), method_getTypeEncoding(originalClass));
+      class_addMethod(newClass, myOriginalClass, method_getImplementation(originalClass), method_getTypeEncoding(originalClass));
       class_replaceMethod(newClass, @selector(class), method_getImplementation(swappedClass), method_getTypeEncoding(swappedClass));
     }
     object_setClass(aGestureRecognizer, newClass);
