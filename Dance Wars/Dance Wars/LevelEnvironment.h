@@ -12,6 +12,6 @@
 @interface LevelEnvironment : NSObject {
     
 }
-@property CCSprite *background;
-@property NSString *backgroundMusic;
+@property (nonatomic,assign) CCSprite *background;
+@property (nonatomic,assign) NSString *backgroundMusic;
 @end

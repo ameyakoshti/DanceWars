@@ -11,10 +11,8 @@
 
 @implementation GameLevelLayer
 
-@synthesize life;
-@synthesize progressTimer, background;
+@synthesize life,aiLife,progressTimer,aiProgressTimer,background;
 
-CCSprite *grid;
 static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKey";
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
@@ -28,12 +26,10 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 -(id) init {
     
     if((self = [super init])) {
+        
         //self.isTouchEnabled = YES;
         size = [[CCDirector sharedDirector] winSize];
         score = [[NSString alloc] init];
-                
-        //check.position = ccp(size.width/2, size.height/2);
-        
         
         // loading game environment
         sharedManager = [MyManager sharedManager];
@@ -50,6 +46,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         dancer.position = ccp(150,200);
         [self addChild:dancer];
        
+        // Player life bar
         self.life = 0;
         self.progressTimer = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"healthbar_red.png"]];
         self.progressTimer.type = kCCProgressTimerTypeBar;
@@ -57,10 +54,21 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         self.progressTimer.barChangeRate = ccp(1,0);
         [self.progressTimer setScale:1];
         self.progressTimer.percentage = self.life;
-        self.progressTimer.position = ccp(size.width-120,size.height-20);
+        self.progressTimer.position = ccp(80 ,size.height-50);
         [self addChild:self.progressTimer];        
 
-        // objects from input handler
+        // AI life bar
+        self.aiLife = 0;
+        self.aiProgressTimer = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"healthbar_red.png"]];
+        self.aiProgressTimer.type = kCCProgressTimerTypeBar;
+        self.aiProgressTimer.midpoint = ccp(0,0);
+        self.aiProgressTimer.barChangeRate = ccp(1,0);
+        [self.aiProgressTimer setScale:1];
+        self.aiProgressTimer.percentage = self.aiLife;
+        self.aiProgressTimer.position = ccp(size.width-120,size.height-50);
+        [self addChild:self.aiProgressTimer];
+
+        // input handler object initialization
         ih = [[InputHandler alloc] init];
     }
     
@@ -93,6 +101,27 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [dance runAction:danceAction];
     [spriteSheet addChild:dance];
     [self addChild:spriteSheet];
+    
+    [self scheduleOnce:@selector(initiateLadyAIChar) delay:4.0];
+
+    // this is to get the score for the AI player
+    
+    
+    int aiscore = (int)(([getScore calScore]*100)/2100);
+    
+    // AI life bar
+    if(self.aiLife >= 0 && self.aiLife < 100){
+        self.aiLife = aiscore;
+        if(self.aiLife > 25 && self.aiLife < 60){
+            [self.aiProgressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
+            [self.aiProgressTimer setScale:1];
+        }
+        if(self.aiLife > 60){
+            [self.aiProgressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_green.png"]];
+            [self.aiProgressTimer setScale:1];
+        }
+    }
+    [self.aiProgressTimer setPercentage:self.aiLife];
 }
 
 -(void) initiateLadyAIChar {
@@ -100,21 +129,28 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"ladydance.png"];
     
     NSMutableArray *walkframes = [NSMutableArray array];
+    int trigger = 0;
     
     for (int i = 1; i <= 83; ++i) {
         NSString *frameName = [NSString stringWithFormat:@"d%d.png",i];
         [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
+        trigger++;
     }
     
     CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
     CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"d1.png"];
-    dance.position = ccp(300, 400);
+    dance.position = ccp(876, 200);
     
     CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
     
     [dance runAction:danceAction];
     [spriteSheet addChild:dance];
     [self addChild:spriteSheet];
+    
+    if (trigger >= 83) {
+    
+        [self scheduleOnce:@selector(initiateBlast) delay:5.0];
+    }
 }
 
 -(void) initiateBlast {
@@ -130,7 +166,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     
     CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
     CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"f1.png"];
-    dance.position = ccp(400, 500);
+    dance.position = ccp(150, 150);
     
     CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
     
@@ -144,8 +180,6 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [self removeChild: dancer];
 
     [self initiateAICharDance];
-    [self initiateLadyAIChar];
-    [self initiateBlast];
     
     // this adds a button after the game is over to return to the main menu
     CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"home.png" selectedImage:@"home_pressed.png" target:self selector:@selector(loadGameLayer)];
@@ -214,8 +248,15 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     if(objectCount >= 6){
         
         // calculate the score and accuracy for user and ai
-        GeneratePoints *gp = [[GeneratePoints alloc] init];
-        [gp calScore:(hitCount*100/objectCount)];
+        
+        InputHandler *ih2 = [sharedManager.inputBundle objectForKey:@"LDAA"];
+        
+        [ih2 setUserAccuracy:(hitCount*100/objectCount)];
+        [sharedManager.inputBundle setObject:ih2 forKey:@"USERACC"];
+        
+        getScore = [[Score alloc] init];
+        [getScore calScore];
+
         
         //allow the user to swipe now.
         touchHit = [CCSprite spriteWithFile:@"gesture.png"];

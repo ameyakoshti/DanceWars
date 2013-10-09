@@ -22,13 +22,12 @@
     NSMutableArray * _patternsGenerated;
     CCSprite *touchIcon;
     CCSprite *dancer;
+    CCSprite *grid;
     int hitCount;
     int objectCount;
     int missCount;
     NSString *score;
     CCLabelTTF *scoreLabel;
-    CCProgressTimer *progressTimer;
-    int life;
     MyManager *sharedManager;
     LevelEnvironment *le;
     
@@ -38,13 +37,16 @@
     CCSprite *touchHit;
     
     InputHandler *ih;
+    Score *getScore;
 }
 
 +(CCScene *) scene;
 -(void) enableGesture;
 
 @property (nonatomic,retain) CCProgressTimer *progressTimer;
+@property (nonatomic,retain) CCProgressTimer *aiProgressTimer;
 @property (nonatomic,assign) int life;
+@property (nonatomic,assign) int aiLife;
 @property (nonatomic,assign) NSString *background;
 
 @end

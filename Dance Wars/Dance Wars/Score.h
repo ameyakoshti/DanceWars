@@ -10,12 +10,12 @@
 #import "cocos2d.h"
 #import "InputHandler.h"
 
-@interface GeneratePoints : NSObject {
+@interface Score : NSObject {
     
     InputHandler *ih;
     int patternDifficulty;
 }
 
--(float) calScore:(float)Accuracy;
+-(float) calScore;
 
 @end
