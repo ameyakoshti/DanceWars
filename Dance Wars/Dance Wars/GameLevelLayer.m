@@ -85,7 +85,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     return self;
 }
 
--(void) initiateAICharDance {
+-(void) initiateAIDance {
     [self removeChild:aichar];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"dance.plist"];
     CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"dance.png"];
@@ -108,7 +108,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [spriteSheet addChild:dance];
     [self addChild:spriteSheet];
     
-    //[self scheduleOnce:@selector(initiateLadyAIChar) delay:4.0];
+    //[self scheduleOnce:@selector(initiateUserDance) delay:4.0];
 
     // this is to get the score for the AI player
     
@@ -130,7 +130,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [self.aiProgressTimer setPercentage:self.aiLife];
 }
 
--(void) initiateLadyAIChar {
+-(void) initiateUserDance {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"ladydance.plist"];
     CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"ladydance.png"];
     
@@ -153,7 +153,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [spriteSheet addChild:dance];
     [self addChild:spriteSheet];
     
-    [self scheduleOnce:@selector(initiateAICharDance) delay:4.0];
+    [self scheduleOnce:@selector(initiateAIDance) delay:4.0];
     
     if (trigger >= 83) {
     
@@ -187,7 +187,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 
     [self removeChild: dancer];
 
-    [self initiateLadyAIChar];
+    [self initiateUserDance];
     
     // this adds a button after the game is over to return to the main menu
     CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"home.png" selectedImage:@"home_pressed.png" target:self selector:@selector(loadGameLayer)];
