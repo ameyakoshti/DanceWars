@@ -99,7 +99,6 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     
     CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
     CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"dance1.png"];
-    //dance.position = ccp(150, 200);
     dance.position = ccp(876, 200);
     
     CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
@@ -108,11 +107,9 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [spriteSheet addChild:dance];
     [self addChild:spriteSheet];
     
-    //[self scheduleOnce:@selector(initiateUserDance) delay:4.0];
-
+    [self scheduleOnce:@selector(initiateBlast) delay:4.0];
+   
     // this is to get the score for the AI player
-    
-    
     int aiscore = (int)(([getScore calScore]*100)/2100);
     
     // AI life bar
@@ -138,14 +135,14 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     int trigger = 0;
     
     for (int i = 1; i <= 83; ++i) {
+        trigger++;
         NSString *frameName = [NSString stringWithFormat:@"d%d.png",i];
         [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
-        trigger++;
+       
     }
     
     CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
     CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"d1.png"];
-    //dance.position = ccp(876, 200);
     dance.position = ccp(150,200);
     CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
     
@@ -153,11 +150,11 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [spriteSheet addChild:dance];
     [self addChild:spriteSheet];
     
-    [self scheduleOnce:@selector(initiateAIDance) delay:4.0];
     
     if (trigger >= 83) {
     
-        [self scheduleOnce:@selector(initiateBlast) delay:5.0];
+        [self scheduleOnce:@selector(initiateAIDance) delay:4.0];
+
     }
 }
 
