@@ -315,6 +315,7 @@
 		DF8699701803D028008CB857 /* intro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF86996B1803D028008CB857 /* intro.mp3 */; };
 		DF8699711803D028008CB857 /* losangeles.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF86996C1803D028008CB857 /* losangeles.mp3 */; };
 		DF8699721803D028008CB857 /* madrid.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF86996D1803D028008CB857 /* madrid.mp3 */; };
+		DF9586191804F9A8006C9B0F /* touchpoint-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = DF9586181804F9A8006C9B0F /* touchpoint-blue.png */; };
 		DFB8372C17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB8372B17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m */; };
 		DFB8373017FAA016002094B4 /* gesture.png in Resources */ = {isa = PBXBuildFile; fileRef = DFB8372F17FAA016002094B4 /* gesture.png */; };
 		DFE89BB717FBBC7A007A7468 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BB617FBBC7A007A7468 /* home.png */; };
@@ -845,6 +846,7 @@
 		DF86996B1803D028008CB857 /* intro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = intro.mp3; sourceTree = "<group>"; };
 		DF86996C1803D028008CB857 /* losangeles.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = losangeles.mp3; sourceTree = "<group>"; };
 		DF86996D1803D028008CB857 /* madrid.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = madrid.mp3; sourceTree = "<group>"; };
+		DF9586181804F9A8006C9B0F /* touchpoint-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touchpoint-blue.png"; sourceTree = "<group>"; };
 		DFB8372A17FA9E41002094B4 /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
 		DFB8372B17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+SFGestureRecognizers.m"; sourceTree = "<group>"; };
 		DFB8372F17FAA016002094B4 /* gesture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture.png; sourceTree = "<group>"; };
@@ -1495,6 +1497,7 @@
 		DF3E1E9217EA38BC0043593E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DF9586181804F9A8006C9B0F /* touchpoint-blue.png */,
 				DF8699551803C75C008CB857 /* losangeles.png */,
 				DF8699511803C6B4008CB857 /* bombay.png */,
 				DF8699521803C6B4008CB857 /* madrid.png */,
@@ -1769,6 +1772,7 @@
 				DF4B337217F7B8FB00A1C5BC /* i_love_disco.png in Resources */,
 				DF4B337317F7B8FB00A1C5BC /* i_love_music.png in Resources */,
 				DF4B337917F7BF2200A1C5BC /* dancer2.png in Resources */,
+				DF9586191804F9A8006C9B0F /* touchpoint-blue.png in Resources */,
 				DF4B337D17F7BFDA00A1C5BC /* dancer1.png in Resources */,
 				DF4B338117F7C04400A1C5BC /* dancer4.png in Resources */,
 				DF4B338317F7C0A400A1C5BC /* dancer3.png in Resources */,
