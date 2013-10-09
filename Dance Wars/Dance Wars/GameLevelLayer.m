@@ -58,7 +58,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         self.progressTimer.barChangeRate = ccp(1,0);
         [self.progressTimer setScale:1];
         self.progressTimer.percentage = self.life;
-        self.progressTimer.position = ccp(80 ,size.height-50);
+        self.progressTimer.position = ccp(120 ,size.height-50);
         [self addChild:self.progressTimer];        
 
         // AI life bar
