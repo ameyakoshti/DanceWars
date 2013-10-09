@@ -13,7 +13,7 @@
 
 @interface CharacterSelect : CCLayer {
 
-    InputHandler *ih;
+    //InputHandler *ih;
     CharacterHandler *ch;
     int counter;
     CGSize windowSize;    

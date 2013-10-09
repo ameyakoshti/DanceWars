@@ -7,12 +7,9 @@
 //
 
 #import "LevelSelectLayer.h"
-#import "GameLevelLayer.h"
-#import "HelloWorldLayer.h"
-#import "MyManager.h"
-
 
 @implementation LevelSelectLayer
+
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
@@ -33,7 +30,12 @@
 -(id) init {
     
     if((self = [super initWithColor:ccc4(0, 0, 0, 0)])) {
+        sharedManager = [MyManager sharedManager];
+        
         ih = [[InputHandler alloc] init];
+        
+        // initializing level env
+        le = [[LevelEnvironment alloc]init];
         
         CGSize size = [[CCDirector sharedDirector] winSize];
         
@@ -54,51 +56,60 @@
         gameMenu.position = ccp(size.width/2, size.height/3);
         
         [self addChild:gameMenu];
+        
+        // this adds a button after the game is over to return to the main menu
+        CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"home.png" selectedImage:@"home_pressed.png" target:self selector:@selector(loadHome)];
+        CCMenu *homeMenu = [CCMenu menuWithItems:homeButton, nil];
+        homeMenu.position = ccp(size.width - homeButton.contentSize.width/2, homeButton.contentSize.height/2);
+        [self addChild:homeMenu];
+
     }
     return self;
 }
 
-- (void) loadLevelEasy {
+-(void) loadHome {
+    CCScene *gameLevel = [HelloWorldLayer scene];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.2 scene:gameLevel]];
+}
 
-    MyManager *sharedManager = [MyManager sharedManager];
-    
+- (void) loadLevelEasy {
     [ih setGameLevelDifficulty:1];
-    [ih setAiAccuracy:30];
     
     [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
-    //NSLog(@"Object Passed: %@", ih);
     
-    //[inputBundle setObject:ih forKey:@"lDaA"];
+    le.background = [CCSprite spriteWithFile:@"bombay.png"];
+    le.backgroundMusic = [NSString stringWithFormat:@"bombay.mp3"];
     
-    [gll setBackground:@"level_bg.jpg"];
-    NSLog(@"Level Difficulty set to %d", [ih gameLevelDifficulty]);
-    NSLog(@"AI Accuracy set to %d", [ih aiAccuracy]);
+    [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
     [self performSelector:@selector(loadGameLayer)];
-    
 }
 
 - (void) loadLevelMed {
-    
     [ih setGameLevelDifficulty:2];
-    [ih setAiAccuracy:60];
-    [gll setBackground:@"level_bg.jpg"];
-    NSLog(@"Level Difficulty set to %d", [ih gameLevelDifficulty]);
-    [self performSelector:@selector(loadGameLayer)];
+
+    [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
     
+    le.background = [CCSprite spriteWithFile:@"losangeles.png"];
+    le.backgroundMusic = [NSString stringWithFormat:@"losangeles.mp3"];
+    
+    [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
+    [self performSelector:@selector(loadGameLayer)];
 }
 
-- (void) loadLevelDif {
-    
+- (void) loadLevelDif {    
     [ih setGameLevelDifficulty:3];
-    [ih setAiAccuracy:90];
-    [gll setBackground:@"level_bg.jpg"];
-    NSLog(@"Level Difficulty set to %d", [ih gameLevelDifficulty]);
-    [self performSelector:@selector(loadGameLayer)];
+
+    [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
     
+    le.background = [CCSprite spriteWithFile:@"madrid.png"];
+    le.backgroundMusic = [NSString stringWithFormat:@"madrid.mp3"];
+    
+    [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
+    [self performSelector:@selector(loadGameLayer)];
 }
 
 - (void) loadGameLayer {
-    
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     CCScene *gameLevel = [GameLevelLayer scene];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:gameLevel]];
 }

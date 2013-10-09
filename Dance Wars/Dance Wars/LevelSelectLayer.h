@@ -10,12 +10,17 @@
 #import "cocos2d.h"
 #import "InputHandler.h"
 #import "GameLevelLayer.h"
+#import "MyManager.h"
+#import "GameLevelLayer.h"
+#import "HelloWorldLayer.h"
+#import "LevelEnvironment.h"
 
 @interface LevelSelectLayer : CCLayerColor {
     
     InputHandler *ih;
     GameLevelLayer *gll;
-    
+    MyManager *sharedManager;
+    LevelEnvironment *le;
 }
 
 +(CCScene *) scene;
