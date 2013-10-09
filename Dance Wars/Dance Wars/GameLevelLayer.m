@@ -42,9 +42,13 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         grid.position = ccp(size.width/2, size.height/2);
         [self addChild:grid];
         
-        dancer = [CCSprite spriteWithFile:@"dance1.png"];
+        dancer = [CCSprite spriteWithFile:@"d1.png"];
         dancer.position = ccp(150,200);
         [self addChild:dancer];
+        
+        aichar = [CCSprite spriteWithFile:@"dance1.png"];
+        aichar.position = ccp(876,200);
+        [self addChild:aichar];
        
         // Player life bar
         self.life = 0;
@@ -82,6 +86,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 }
 
 -(void) initiateAICharDance {
+    [self removeChild:aichar];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"dance.plist"];
     CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"dance.png"];
     
@@ -94,7 +99,8 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     
     CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
     CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"dance1.png"];
-    dance.position = ccp(150, 200);
+    //dance.position = ccp(150, 200);
+    dance.position = ccp(876, 200);
     
     CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
     
@@ -102,7 +108,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [spriteSheet addChild:dance];
     [self addChild:spriteSheet];
     
-    [self scheduleOnce:@selector(initiateLadyAIChar) delay:4.0];
+    //[self scheduleOnce:@selector(initiateLadyAIChar) delay:4.0];
 
     // this is to get the score for the AI player
     
@@ -139,13 +145,15 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     
     CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
     CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"d1.png"];
-    dance.position = ccp(876, 200);
-    
+    //dance.position = ccp(876, 200);
+    dance.position = ccp(150,200);
     CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
     
     [dance runAction:danceAction];
     [spriteSheet addChild:dance];
     [self addChild:spriteSheet];
+    
+    [self scheduleOnce:@selector(initiateAICharDance) delay:4.0];
     
     if (trigger >= 83) {
     
@@ -166,7 +174,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     
     CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
     CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"f1.png"];
-    dance.position = ccp(150, 150);
+    dance.position = ccp(876, 150);
     
     CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
     
@@ -179,7 +187,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 
     [self removeChild: dancer];
 
-    [self initiateAICharDance];
+    [self initiateLadyAIChar];
     
     // this adds a button after the game is over to return to the main menu
     CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"home.png" selectedImage:@"home_pressed.png" target:self selector:@selector(loadGameLayer)];

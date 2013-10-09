@@ -22,6 +22,7 @@
     NSMutableArray * _patternsGenerated;
     CCSprite *touchIcon;
     CCSprite *dancer;
+    CCSprite *aichar;
     CCSprite *grid;
     int hitCount;
     int objectCount;
