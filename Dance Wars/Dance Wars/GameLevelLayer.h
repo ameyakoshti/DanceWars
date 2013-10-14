@@ -24,6 +24,8 @@
     CCSprite *dancer;
     CCSprite *aichar;
     CCSprite *grid;
+    CCSpriteBatchNode *userSpriteSheet;
+    CCSpriteBatchNode *aiSpriteSheet;
     int hitCount;
     int objectCount;
     int missCount;

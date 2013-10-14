@@ -77,18 +77,20 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     }
     
     _patternsGenerated = [[NSMutableArray alloc] init];
-
     [self schedule:@selector(addTouchIcons) interval:1.0 repeat:5 delay:1.5];
-
-    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
     
+    NSLog(@"After add touch");
+    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
     return self;
 }
 
 -(void) initiateAIDance {
+    
     [self removeChild:aichar];
+    [self removeChild:aiSpriteSheet];
+    
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"dance.plist"];
-    CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"dance.png"];
+    aiSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"dance.png"];
     
     NSMutableArray *walkframes = [NSMutableArray array];
     
@@ -104,10 +106,10 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
     
     [dance runAction:danceAction];
-    [spriteSheet addChild:dance];
-    [self addChild:spriteSheet];
+    [aiSpriteSheet addChild:dance];
+    [self addChild:aiSpriteSheet];
     
-    [self scheduleOnce:@selector(initiateBlast) delay:4.0];
+    [self scheduleOnce:@selector(initiateBlast) delay:2.0];
    
     // this is to get the score for the AI player
     int aiscore = (int)(([getScore calScore]*100)/2100);
@@ -128,14 +130,17 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 }
 
 -(void) initiateUserDance {
+    
+    [self removeChild:userSpriteSheet];
+
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"ladydance.plist"];
-    CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"ladydance.png"];
+    userSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"ladydance.png"];
     
     NSMutableArray *walkframes = [NSMutableArray array];
-    int trigger = 0;
+//  int trigger = 1;
     
-    for (int i = 1; i <= 83; ++i) {
-        trigger++;
+    for (int i=1; i <= 83; ++i) {
+//      trigger++;
         NSString *frameName = [NSString stringWithFormat:@"d%d.png",i];
         [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
        
@@ -146,16 +151,17 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     dance.position = ccp(150,200);
     CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
     
-    [dance runAction:danceAction];
-    [spriteSheet addChild:dance];
-    [self addChild:spriteSheet];
-    
-    
-    if (trigger >= 83) {
-    
-        [self scheduleOnce:@selector(initiateAIDance) delay:4.0];
+    [dance runAction:[CCSequence actions: danceAction, [CCCallFunc actionWithTarget:self selector:@selector(initiateAIDance)],nil]];
+    [userSpriteSheet addChild:dance];
+    [self addChild:userSpriteSheet];
 
+/*  
+    if(trigger>=83)
+    {
+        [self scheduleOnce:@selector(initiateAIDance) delay:4.0];
     }
+*/
+    
 }
 
 -(void) initiateBlast {
@@ -178,6 +184,17 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [dance runAction:danceAction];
     [spriteSheet addChild:dance];
     [self addChild:spriteSheet];
+    
+    if (self.life<100 && self.aiLife<100) {
+        
+        NSLog(@"The user score %d",self.life);
+        NSLog(@"The AI Score%d",self.aiLife);
+        
+        objectCount=0;
+        
+        [self removeChild:spriteSheet];
+        [self schedule:@selector(addTouchIcons) interval:1.0 repeat:5 delay:1.5];
+    }
 }
 
 -(void) initiateDance {
@@ -264,13 +281,13 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 
         
         //allow the user to swipe now.
-        touchHit = [CCSprite spriteWithFile:@"gesture.png"];
+/*        touchHit = [CCSprite spriteWithFile:@"gesture.png"];
         touchHit.scale = 0.5f;
         touchHit.position = ccp(size.width/2,size.height/2);
         touchHit.isTouchEnabled=YES;
         
         //enable pan gesture recognizer
-        [self enableGesture];
+        [self enableGesture]; */
         
         //enable dance show
         [self initiateDance];
