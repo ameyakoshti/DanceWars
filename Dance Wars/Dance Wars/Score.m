@@ -40,6 +40,11 @@
     
     // set user score
     [ih setUserScore: (patternDifficulty * [ih3 userAccuracy])];
+    NSLog(@"Userscore: %f", [ih userScore]);
+    
+    //set user life value
+    [ih3 setUserLife:[ih userScore]/21];
+    [sharedManager.inputBundle setObject:ih3 forKey:@"USERLIFE"];
     
     // set ai acurracy
     switch([ih3 gameLevelDifficulty]){
@@ -50,7 +55,7 @@
     
     NSLog(@"Diff: %d",[ih3 gameLevelDifficulty]);
     NSLog(@"AIAcc: %d", [ih3 aiAccuracy]);
-    NSLog(@"USer Acc: %f", [ih3 userAccuracy]);
+    NSLog(@"User Acc: %f", [ih3 userAccuracy]);
     
     // set ai score
     aiscore = (patternDifficulty * [ih3 aiAccuracy]);

@@ -16,31 +16,39 @@
 #import "MyManager.h"
 #import "LevelEnvironment.h"
 #import "SimpleAudioEngine.h"
+#import "CharacterSelect.h"
 
 @interface GameLevelLayer : CCLayer <UIGestureRecognizerDelegate> {
+    
     CGSize size;
     NSMutableArray * _patternsGenerated;
+    
     CCSprite *touchIcon;
     CCSprite *dancer;
     CCSprite *aichar;
     CCSprite *grid;
     CCSpriteBatchNode *userSpriteSheet;
     CCSpriteBatchNode *aiSpriteSheet;
+    CCSprite *touchHit;
+
     int hitCount;
     int objectCount;
     int missCount;
-    NSString *score;
-    CCLabelTTF *scoreLabel;
-    MyManager *sharedManager;
-    LevelEnvironment *le;
+    int totalObjects;
+    int visited[6];
     
     float xLocations[6];
     float yLocations[6];
-    int visited[6];
-    CCSprite *touchHit;
+
+    NSString *score;
+    CCLabelTTF *scoreLabel;
     
     InputHandler *ih;
+    CharacterHandler *charHand;
     Score *getScore;
+    MyManager *sharedManager;
+    LevelEnvironment *le;
+
 }
 
 +(CCScene *) scene;

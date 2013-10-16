@@ -20,5 +20,6 @@
 @property (nonatomic) float userScore;        //player points
 @property (nonatomic) int aiAccuracy;         //accuracy of AI depending on the level selected
 @property (nonatomic) float aiScore;          //ai response points
+@property (nonatomic) float userLife;         //corresponds to value obtained from user score being used to update progress bar
 
 @end

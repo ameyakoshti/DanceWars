@@ -10,13 +10,17 @@
 #import "InputHandler.h"
 #import "CharacterHandler.h"
 #import "cocos2d.h"
+#import "MyManager.h"
+
 
 @interface CharacterSelect : CCLayer {
 
     //InputHandler *ih;
     CharacterHandler *ch;
     int counter;
-    CGSize windowSize;    
+    CGSize windowSize;
+    MyManager *sharedManager;
+
 }
 
 @property (nonatomic, retain) NSMutableArray *charSpriteList;

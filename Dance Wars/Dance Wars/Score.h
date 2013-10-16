@@ -14,6 +14,7 @@
     
     InputHandler *ih;
     int patternDifficulty;
+    
 }
 
 -(float) calScore;

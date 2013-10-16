@@ -38,11 +38,18 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         [self addChild:le.background];
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:le.backgroundMusic];
         
+        
+        charHand = [sharedManager.inputBundle objectForKey:@"ch"];
+        NSLog(@"Char selected in the init = %@", charHand.charName);
+        
+        
         grid = [CCSprite spriteWithFile:@"grid_map.png"];
         grid.position = ccp(size.width/2, size.height/2);
         [self addChild:grid];
         
-        dancer = [CCSprite spriteWithFile:@"d1.png"];
+        //user sprite as selected from the char sel layer
+        
+        dancer = [CCSprite spriteWithFile:[charHand.charName stringByAppendingString:@"1.png"]];
         dancer.position = ccp(150,200);
         [self addChild:dancer];
         
@@ -116,7 +123,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     
     // AI life bar
     if(self.aiLife >= 0 && self.aiLife < 100){
-        self.aiLife = aiscore;
+        self.aiLife += aiscore;
         if(self.aiLife > 25 && self.aiLife < 60){
             [self.aiProgressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
             [self.aiProgressTimer setScale:1];
@@ -130,18 +137,34 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 }
 
 -(void) initiateUserDance {
+
+    NSString *name;
+    NSLog(@"Char name = %@",charHand.charName);
+    
+    if([charHand.charName  isEqual: @"d"]) {
+        name = @"ladydance";
+    }
+    else {
+        name = @"dance";
+        
+    }
     
     [self removeChild:userSpriteSheet];
 
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"ladydance.plist"];
-    userSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"ladydance.png"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[name stringByAppendingString:@".plist"]];
+    NSString *BatchName = [name stringByAppendingString:@".png"];
+    userSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:BatchName];
     
     NSMutableArray *walkframes = [NSMutableArray array];
-//  int trigger = 1;
     
     for (int i=1; i <= 83; ++i) {
-//      trigger++;
-        NSString *frameName = [NSString stringWithFormat:@"d%d.png",i];
+        NSString *lastPart = [NSString stringWithFormat:@"%d.png",i];
+//        NSLog(@"Last part = %@",lastPart);
+//        NSLog(@"Char name = %@",charHand.charName);
+        NSString *name = [charHand.charName stringByAppendingString:lastPart];
+//        NSLog(@"Name = %@",name);
+        
+        NSString *frameName = [NSString stringWithFormat: @"%@",name];
         [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
        
     }
@@ -155,12 +178,6 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [userSpriteSheet addChild:dance];
     [self addChild:userSpriteSheet];
 
-/*  
-    if(trigger>=83)
-    {
-        [self scheduleOnce:@selector(initiateAIDance) delay:4.0];
-    }
-*/
     
 }
 
@@ -248,6 +265,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [self scheduleOnce:@selector(removeTouchIcons) delay:0.75];
     [_patternsGenerated addObject:touchIcon];
     objectCount ++;
+    totalObjects ++;
     
     CCParticleSystem *emitter = [CCParticleExplosion node];
     //set the location of the emitter
@@ -272,12 +290,31 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         // calculate the score and accuracy for user and ai
         
         InputHandler *ih2 = [sharedManager.inputBundle objectForKey:@"LDAA"];
+        InputHandler *ih3 = [sharedManager.inputBundle objectForKey:@"USERLIFE"];
         
-        [ih2 setUserAccuracy:(hitCount*100/objectCount)];
+        [ih2 setUserAccuracy:(hitCount*100/totalObjects)];
+        NSLog(@"USER Accuracy: %f", [ih2 userAccuracy]);
         [sharedManager.inputBundle setObject:ih2 forKey:@"USERACC"];
+        
+        
         
         getScore = [[Score alloc] init];
         [getScore calScore];
+        
+        
+        //increment progress bar for user
+        if(self.life >= 0 && self.life < 100){
+            self.life += (int)[ih3 userLife];
+            if(self.life > 25 && self.life < 60){
+                [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
+                [self.progressTimer setScale:1];
+            }
+            if(self.life > 60){
+                [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_green.png"]];
+                [self.progressTimer setScale:1];
+            }
+        }
+        [self.progressTimer setPercentage:self.life];
 
         
         //allow the user to swipe now.
@@ -399,54 +436,29 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
     
-    // user touch recognition and matching
+    //user touch recognition and matching
     //UITouch *touch = [touches anyObject];
-    
-    UIAlertView *patternDecision;
     
         CGPoint location = [[CCDirector sharedDirector] convertTouchToGL:touch];
     
         if((CGRectContainsPoint(touchIcon.boundingBox, location))) {
-        
-            patternDecision = [[UIAlertView alloc] initWithTitle:@"Touch Detected" message:@"You have a HIT!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             //NSLog(@"Hit!!");
             [self removeChild:touchIcon cleanup:YES];
             hitCount++;
-            //[patternDecision show];
-            [patternDecision release];
-            if(self.life >= 0 && self.life < 100){
-               self.life += 15;
-                if(self.life > 25 && self.life < 60){
-                    [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
-                    [self.progressTimer setScale:1];
-                }
-                if(self.life > 60){
-                    [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_green.png"]];
-                    [self.progressTimer setScale:1];
-                }
-            }
-            [self.progressTimer setPercentage:self.life];
-            
-            
         }
         else {
-        
-            patternDecision = [[UIAlertView alloc] initWithTitle:@"Touch Detected" message:@"You Missed!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            //NSLog(@"Miss!!");
-            //[patternDecision show];
-            [patternDecision release];
-            if(self.life > 0 && self.life <= 100){
-                self.life -= 15;
-                if(self.life > 25 && self.life < 60){
-                    [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
-                    [self.progressTimer setScale:1];
-                }
-                if(self.life > 60){
-                    [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_green.png"]];
-                    [self.progressTimer setScale:1];
-                }
-            }
-            [self.progressTimer setPercentage:self.life];
+//            if(self.life > 0 && self.life <= 100){
+//                self.life -= 15;
+//                if(self.life > 25 && self.life < 60){
+//                    [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
+//                    [self.progressTimer setScale:1];
+//                }
+//                if(self.life > 60){
+//                    [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_green.png"]];
+//                    [self.progressTimer setScale:1];
+//                }
+//            }
+//            [self.progressTimer setPercentage:self.life];
         }
    }
 
