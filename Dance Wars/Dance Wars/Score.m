@@ -15,10 +15,12 @@
 
 - (id) init {
     
-    [super init];
+    if ( self = [super init]) {
     
-    ih = [[InputHandler alloc] init];
+        ih = [[InputHandler alloc] init];
+    }
     return self;
+    
 }
 
 -(float) calScore {

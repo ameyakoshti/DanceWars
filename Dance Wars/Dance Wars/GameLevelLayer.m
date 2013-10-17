@@ -464,10 +464,10 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 
 -(void) dealloc {
     
-    [super dealloc];
-    
-    [_patternsGenerated release];
-    _patternsGenerated = nil;
+//    [super dealloc];
+//    
+//    [_patternsGenerated release];
+//    _patternsGenerated = nil;
 }
 
 @end
