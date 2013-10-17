@@ -351,6 +351,8 @@
 		DFE89BCB17FBE0B0007A7468 /* dance.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BC917FBE0B0007A7468 /* dance.png */; };
 		DFE89BCD17FBEFFA007A7468 /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BCC17FBEFFA007A7468 /* fire.png */; };
 		DFEAFB85180F837000308AC0 /* touchpoints-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = DFEAFB84180F837000308AC0 /* touchpoints-blue.png */; };
+		DFEAFB8A180F93EB00308AC0 /* nice.png in Resources */ = {isa = PBXBuildFile; fileRef = DFEAFB89180F93EB00308AC0 /* nice.png */; };
+		DFEAFB8C180F96C100308AC0 /* danceMessage1.png in Resources */ = {isa = PBXBuildFile; fileRef = DFEAFB8B180F96C100308AC0 /* danceMessage1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -906,6 +908,8 @@
 		DFE89BC917FBE0B0007A7468 /* dance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dance.png; sourceTree = "<group>"; };
 		DFE89BCC17FBEFFA007A7468 /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
 		DFEAFB84180F837000308AC0 /* touchpoints-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touchpoints-blue.png"; sourceTree = "<group>"; };
+		DFEAFB89180F93EB00308AC0 /* nice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nice.png; sourceTree = "<group>"; };
+		DFEAFB8B180F96C100308AC0 /* danceMessage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = danceMessage1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1543,6 +1547,8 @@
 		DF3E1E9217EA38BC0043593E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DFEAFB8B180F96C100308AC0 /* danceMessage1.png */,
+				DFEAFB89180F93EB00308AC0 /* nice.png */,
 				D8BFB8A7180CE36B002DA2E0 /* f1.png */,
 				DFEAFB84180F837000308AC0 /* touchpoints-blue.png */,
 				D8BFB8A8180CE36B002DA2E0 /* f2.png */,
@@ -1942,6 +1948,7 @@
 				35D623AC17FF923A0020F299 /* d63.png in Resources */,
 				35D623AD17FF923A0020F299 /* d64.png in Resources */,
 				35D623AE17FF923A0020F299 /* d65.png in Resources */,
+				DFEAFB8C180F96C100308AC0 /* danceMessage1.png in Resources */,
 				D8BFB8C8180CE36C002DA2E0 /* f12.png in Resources */,
 				35D623AF17FF923A0020F299 /* d66.png in Resources */,
 				35D623B017FF923A0020F299 /* d67.png in Resources */,
@@ -1957,6 +1964,7 @@
 				35D623B917FF923A0020F299 /* d76.png in Resources */,
 				35D623BA17FF923A0020F299 /* d77.png in Resources */,
 				35D623BB17FF923A0020F299 /* d78.png in Resources */,
+				DFEAFB8A180F93EB00308AC0 /* nice.png in Resources */,
 				35D623BC17FF923A0020F299 /* d79.png in Resources */,
 				35D623BD17FF923A0020F299 /* d80.png in Resources */,
 				DF8699721803D028008CB857 /* madrid.mp3 in Resources */,

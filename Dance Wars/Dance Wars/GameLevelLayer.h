@@ -27,6 +27,7 @@
     CCSprite *dancer;
     CCSprite *aichar;
     CCSprite *grid;
+    CCSprite *message;
     CCSpriteBatchNode *userSpriteSheet;
     CCSpriteBatchNode *aiSpriteSheet;
     CCSprite *touchHit;

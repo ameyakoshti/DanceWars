@@ -144,6 +144,21 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [self.aiProgressTimer setPercentage:self.aiLife];
 }
 
+-(void) addMessage:(NSString *)image{
+    message = [CCSprite spriteWithFile:image];
+    if([image isEqualToString:@"danceMessage1.png"]){
+        message.position = ccp(size.width/2,size.height/2);
+    }
+    else{
+        message.position = ccp(size.width/2,size.height*2/3);
+    }
+    [self addChild:message];
+}
+
+-(void) removeMessage{
+    [self removeChild:message];
+}
+
 -(void) initiateUserDance {
 
     NSString *name;
@@ -217,6 +232,8 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         
         [self removeChild:spriteSheet];
         touchPointCounter=0;
+        [self addMessage:@"danceMessage1.png"];
+        [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:1];
         [self schedule:@selector(managingTouchIcons) interval:1.0 repeat:5 delay:1.5];
     }
 }
@@ -429,14 +446,25 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     for(UITouch *touch in touches)
     {
         CGPoint location = [[CCDirector sharedDirector] convertTouchToGL:touch];
-        
+        int checkIfBothHit = 0;
         if((CGRectContainsPoint(touchIcon[1].boundingBox, location))) {
+            checkIfBothHit++;
             [self removeChild:touchIcon[1] cleanup:YES];
+            hitCount++;
+        }
+        if((CGRectContainsPoint(touchIcon[2].boundingBox, location))) {
+            checkIfBothHit++;
+            [self removeChild:touchIcon[2] cleanup:YES];
             hitCount++;
         }
         else {
            // for negative points
         }
+        if(checkIfBothHit == 2){
+            [self addMessage:@"nice.png"];
+            [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:0.5];
+        }
+        checkIfBothHit = 0;
     }
 }
 
