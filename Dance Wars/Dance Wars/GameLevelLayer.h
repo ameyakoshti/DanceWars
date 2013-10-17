@@ -23,7 +23,7 @@
     CGSize size;
     NSMutableArray * _patternsGenerated;
     
-    CCSprite *touchIcon;
+    CCSprite *touchIcon[2];
     CCSprite *dancer;
     CCSprite *aichar;
     CCSprite *grid;
@@ -31,6 +31,7 @@
     CCSpriteBatchNode *aiSpriteSheet;
     CCSprite *touchHit;
 
+    int touchPointCounter;
     int hitCount;
     int objectCount;
     int missCount;

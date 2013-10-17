@@ -350,6 +350,7 @@
 		DFE89BCA17FBE0B0007A7468 /* dance.plist in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BC817FBE0B0007A7468 /* dance.plist */; };
 		DFE89BCB17FBE0B0007A7468 /* dance.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BC917FBE0B0007A7468 /* dance.png */; };
 		DFE89BCD17FBEFFA007A7468 /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BCC17FBEFFA007A7468 /* fire.png */; };
+		DFEAFB85180F837000308AC0 /* touchpoints-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = DFEAFB84180F837000308AC0 /* touchpoints-blue.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -904,6 +905,7 @@
 		DFE89BC817FBE0B0007A7468 /* dance.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dance.plist; sourceTree = "<group>"; };
 		DFE89BC917FBE0B0007A7468 /* dance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dance.png; sourceTree = "<group>"; };
 		DFE89BCC17FBEFFA007A7468 /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
+		DFEAFB84180F837000308AC0 /* touchpoints-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touchpoints-blue.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1542,6 +1544,7 @@
 			isa = PBXGroup;
 			children = (
 				D8BFB8A7180CE36B002DA2E0 /* f1.png */,
+				DFEAFB84180F837000308AC0 /* touchpoints-blue.png */,
 				D8BFB8A8180CE36B002DA2E0 /* f2.png */,
 				D8BFB8A9180CE36B002DA2E0 /* f3.png */,
 				D8BFB8AA180CE36B002DA2E0 /* f4.png */,
@@ -1921,6 +1924,7 @@
 				35D6239E17FF923A0020F299 /* d49.png in Resources */,
 				35D6239F17FF923A0020F299 /* d50.png in Resources */,
 				35D623A017FF923A0020F299 /* d51.png in Resources */,
+				DFEAFB85180F837000308AC0 /* touchpoints-blue.png in Resources */,
 				35D623A117FF923A0020F299 /* d52.png in Resources */,
 				35D623A217FF923A0020F299 /* d53.png in Resources */,
 				35D623A317FF923A0020F299 /* d54.png in Resources */,
