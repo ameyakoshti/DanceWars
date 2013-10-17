@@ -67,8 +67,9 @@
         ch.character.position = ccp(windowSize.width*7/8,windowSize.height/3);
         [self addChild:ch.character];
         
-        [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-        
+        self.touchEnabled = YES;
+        [[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
+        //[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];        
     }
     return self;
 }
@@ -105,92 +106,84 @@
     return ch.character;
 }
 
-- (BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+-(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
-    return YES;
-    
-}
-
-- (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-    
-    CGPoint location = [[CCDirector sharedDirector] convertTouchToGL:touch];
-    
-    for(CharacterHandler *ch2 in charSpriteList) {
+    for(UITouch *touch in touches){
+        CGPoint location = [[CCDirector sharedDirector] convertTouchToGL:touch];
         
-        // creating manual frames for individual players
-        
-        // Frame for player 1 selection
-        
-        if(location.x > 0 && location.x < windowSize.width*1/4 && location.y > 0 && location.y < windowSize.height){
-            [ch2 setSelected:@"1"];
-            if([ch2.selected  isEqual: @"1"]){
-                NSString *name = [NSString stringWithFormat:@"dance"];
-                [ch setCharName:name];
-            }
-            NSLog(@"Name = %@",ch.charName);
-            NSLog(@"Selected = %@",ch2.selected);
+        for(CharacterHandler *ch2 in charSpriteList) {
             
-            sharedManager = [MyManager sharedManager];
-            [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
+            // creating manual frames for individual players
             
-            CCScene *levelSelect = [LevelSelectLayer scene];
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipX transitionWithDuration:0.5 scene:levelSelect]];
-        }
-        
-        // Frame for player 2 selection
-        
-        if(location.x > windowSize.width*1/4 && location.x < windowSize.width*1/2 && location.y > 0 && location.y < windowSize.height){
-            [ch2 setSelected:@"2"];
-            if([ch2.selected  isEqual: @"2"]){
-                NSString *name = [NSString stringWithFormat:@"d"];
-                [ch setCharName:name];
+            // Frame for player 1 selection
+            
+            if(location.x > 0 && location.x < windowSize.width*1/4 && location.y > 0 && location.y < windowSize.height){
+                [ch2 setSelected:@"1"];
+                if([ch2.selected  isEqual: @"1"]){
+                    NSString *name = [NSString stringWithFormat:@"dance"];
+                    [ch setCharName:name];
+                }
+                NSLog(@"Name = %@",ch.charName);
+                NSLog(@"Selected = %@",ch2.selected);
+                
+                sharedManager = [MyManager sharedManager];
+                [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
+                
+                CCScene *levelSelect = [LevelSelectLayer scene];
+                [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipX transitionWithDuration:0.5 scene:levelSelect]];
             }
             
-            sharedManager = [MyManager sharedManager];
-            [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
+            // Frame for player 2 selection
             
-            CCScene *levelSelect = [LevelSelectLayer scene];
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipX transitionWithDuration:0.5 scene:levelSelect]];
-        }
-        
-        // Frame for player 3 selection
-        
-        if(location.x > windowSize.width*1/2 && location.x < windowSize.width*3/4 && location.y > 0 && location.y < windowSize.height){
-            [ch2 setSelected:@"3"];
-            if([ch2.selected  isEqual: @"3"]){
-                NSString *name = [NSString stringWithFormat:@"dancer"];
-                [ch setCharName:name];
-            }
-            sharedManager = [MyManager sharedManager];
-            [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
-            
-            CCScene *levelSelect = [LevelSelectLayer scene];
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipX transitionWithDuration:0.5 scene:levelSelect]];
-        }
-        
-        // Frame for player 4 selection
-        
-        if(location.x > windowSize.width*3/4 && location.x < windowSize.width && location.y > 0 && location.y < windowSize.height){
-            [ch2 setSelected:@"4"];
-            if([ch2.selected  isEqual: @"4"]){
-                NSString *name = [NSString stringWithFormat:@"dancer1"];
-                [ch setCharName:name];
+            if(location.x > windowSize.width*1/4 && location.x < windowSize.width*1/2 && location.y > 0 && location.y < windowSize.height){
+                [ch2 setSelected:@"2"];
+                if([ch2.selected  isEqual: @"2"]){
+                    NSString *name = [NSString stringWithFormat:@"d"];
+                    [ch setCharName:name];
+                }
+                
+                sharedManager = [MyManager sharedManager];
+                [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
+                
+                CCScene *levelSelect = [LevelSelectLayer scene];
+                [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipX transitionWithDuration:0.5 scene:levelSelect]];
             }
             
-            sharedManager = [MyManager sharedManager];
-            [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
+            // Frame for player 3 selection
             
-            CCScene *levelSelect = [LevelSelectLayer scene];
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipX transitionWithDuration:0.5 scene:levelSelect]];
+            if(location.x > windowSize.width*1/2 && location.x < windowSize.width*3/4 && location.y > 0 && location.y < windowSize.height){
+                [ch2 setSelected:@"3"];
+                if([ch2.selected  isEqual: @"3"]){
+                    NSString *name = [NSString stringWithFormat:@"dancer"];
+                    [ch setCharName:name];
+                }
+                sharedManager = [MyManager sharedManager];
+                [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
+                
+                CCScene *levelSelect = [LevelSelectLayer scene];
+                [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipX transitionWithDuration:0.5 scene:levelSelect]];
+            }
+            
+            // Frame for player 4 selection
+            
+            if(location.x > windowSize.width*3/4 && location.x < windowSize.width && location.y > 0 && location.y < windowSize.height){
+                [ch2 setSelected:@"4"];
+                if([ch2.selected  isEqual: @"4"]){
+                    NSString *name = [NSString stringWithFormat:@"dancer1"];
+                    [ch setCharName:name];
+                }
+                
+                sharedManager = [MyManager sharedManager];
+                [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
+                
+                CCScene *levelSelect = [LevelSelectLayer scene];
+                [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipX transitionWithDuration:0.5 scene:levelSelect]];
+            }
         }
-        
     }
 }
 
 - (void) dealloc {
-    
-//    [super dealloc];
-    
 }
 
 @end

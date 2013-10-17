@@ -86,8 +86,10 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     _patternsGenerated = [[NSMutableArray alloc] init];
     [self schedule:@selector(addTouchIcons) interval:1.0 repeat:5 delay:1.5];
     
-    NSLog(@"After add touch");
-    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+    self.touchEnabled = YES;
+    [[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
+    
+    //[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
     return self;
 }
 
@@ -172,13 +174,11 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
     CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"d1.png"];
     dance.position = ccp(150,200);
-    CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
+    CCFiniteTimeAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
     
     [dance runAction:[CCSequence actions: danceAction, [CCCallFunc actionWithTarget:self selector:@selector(initiateAIDance)],nil]];
     [userSpriteSheet addChild:dance];
-    [self addChild:userSpriteSheet];
-
-    
+    [self addChild:userSpriteSheet];    
 }
 
 -(void) initiateBlast {
@@ -290,17 +290,14 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         // calculate the score and accuracy for user and ai
         
         InputHandler *ih2 = [sharedManager.inputBundle objectForKey:@"LDAA"];
-        InputHandler *ih3 = [sharedManager.inputBundle objectForKey:@"USERLIFE"];
-        
+                
         [ih2 setUserAccuracy:(hitCount*100/totalObjects)];
         NSLog(@"USER Accuracy: %f", [ih2 userAccuracy]);
         [sharedManager.inputBundle setObject:ih2 forKey:@"USERACC"];
         
-        
-        
         getScore = [[Score alloc] init];
         [getScore calScore];
-        
+        InputHandler *ih3 = [sharedManager.inputBundle objectForKey:@"USERLIFE"];
         
         //increment progress bar for user
         if(self.life >= 0 && self.life < 100){
@@ -428,46 +425,23 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 	[[app navController] dismissViewControllerAnimated:YES completion:nil];
 }
 
--(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-
-    return YES;
-    
-}
-
--(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-    
-    //user touch recognition and matching
-    //UITouch *touch = [touches anyObject];
-    
+-(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    for(UITouch *touch in touches)
+    {
         CGPoint location = [[CCDirector sharedDirector] convertTouchToGL:touch];
-    
+        
         if((CGRectContainsPoint(touchIcon.boundingBox, location))) {
             //NSLog(@"Hit!!");
             [self removeChild:touchIcon cleanup:YES];
             hitCount++;
         }
         else {
-//            if(self.life > 0 && self.life <= 100){
-//                self.life -= 15;
-//                if(self.life > 25 && self.life < 60){
-//                    [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
-//                    [self.progressTimer setScale:1];
-//                }
-//                if(self.life > 60){
-//                    [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_green.png"]];
-//                    [self.progressTimer setScale:1];
-//                }
-//            }
-//            [self.progressTimer setPercentage:self.life];
+           // for negative points
         }
-   }
+    }
+}
 
 -(void) dealloc {
-    
-//    [super dealloc];
-//    
-//    [_patternsGenerated release];
-//    _patternsGenerated = nil;
 }
 
 @end
