@@ -95,6 +95,99 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     return self;
 }
 
+-(void) addMessage:(NSString *)image{
+    message = [CCSprite spriteWithFile:image];
+    if([image isEqualToString:@"danceMessage1.png"]){
+        message.position = ccp(size.width/2,size.height/2);
+    }
+    else{
+        message.position = ccp(size.width/2,size.height*2/3);
+    }
+    [self addChild:message];
+}
+
+-(void) removeMessage{
+    [self removeChild:message];
+}
+
+- (void) gamePlayLoopCondition {
+    
+    if (self.life<100 && self.aiLife<100) {
+        
+        NSLog(@"The user score %d",self.life);
+        NSLog(@"The AI Score%d",self.aiLife);
+        
+        objectCount=0;
+        
+        touchPointCounter=0;
+        [self addMessage:@"danceMessage1.png"];
+        [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:1];
+        [self schedule:@selector(managingTouchIcons) interval:1.0 repeat:5 delay:1.5];
+    }
+    else {
+        
+        [self scheduleOnce:@selector(initiateBlast) delay:2.0];
+
+        CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"home.png" selectedImage:@"home_pressed.png" target:self selector:@selector(loadHelloWorldLayer)];
+        CCMenu *homeMenu = [CCMenu menuWithItems:homeButton, nil];
+        homeMenu.position = ccp(size.width-homeButton.contentSize.width/2, homeButton.contentSize.height/2);
+        [self addChild:homeMenu];
+        
+    }
+    
+}
+
+-(void) initiateDance {
+
+    [self removeChild: dancer];
+
+    [self initiateUserDance];
+    
+}
+
+-(void) initiateUserDance {
+    
+    NSString *name;
+    NSLog(@"Char name = %@",charHand.charName);
+    
+    if([charHand.charName  isEqual: @"d"]) {
+        name = @"ladydance";
+    }
+    else {
+        name = @"dance";
+        
+    }
+    
+    [self removeChild:userSpriteSheet];
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[name stringByAppendingString:@".plist"]];
+    NSString *BatchName = [name stringByAppendingString:@".png"];
+    userSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:BatchName];
+    
+    NSMutableArray *walkframes = [NSMutableArray array];
+    
+    for (int i=1; i <= 83; ++i) {
+        NSString *lastPart = [NSString stringWithFormat:@"%d.png",i];
+        //        NSLog(@"Last part = %@",lastPart);
+        //        NSLog(@"Char name = %@",charHand.charName);
+        NSString *name = [charHand.charName stringByAppendingString:lastPart];
+        //        NSLog(@"Name = %@",name);
+        
+        NSString *frameName = [NSString stringWithFormat: @"%@",name];
+        [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
+        
+    }
+    
+    CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
+    CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"d1.png"];
+    dance.position = ccp(150,200);
+    CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
+    
+    [dance runAction:[CCSequence actions: danceAction, [CCCallFunc actionWithTarget:self selector:@selector(initiateAIDance)],nil]];
+    [userSpriteSheet addChild:dance];
+    [self addChild:userSpriteSheet];
+}
+
 -(void) initiateAIDance {
     
     [self removeChild:aichar];
@@ -120,8 +213,8 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [aiSpriteSheet addChild:dance];
     [self addChild:aiSpriteSheet];
     
-    [self scheduleOnce:@selector(initiateBlast) delay:2.0];
-   
+    [self scheduleOnce:@selector(gamePlayLoopCondition) delay:0.5];
+    
     // this is to get the score for the AI player
     int aiscore = (int)(([getScore calScore]*100)/2100);
     
@@ -144,122 +237,38 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [self.aiProgressTimer setPercentage:self.aiLife];
 }
 
--(void) addMessage:(NSString *)image{
-    message = [CCSprite spriteWithFile:image];
-    if([image isEqualToString:@"danceMessage1.png"]){
-        message.position = ccp(size.width/2,size.height/2);
-    }
-    else{
-        message.position = ccp(size.width/2,size.height*2/3);
-    }
-    [self addChild:message];
-}
-
--(void) removeMessage{
-    [self removeChild:message];
-}
-
--(void) initiateUserDance {
-
-    NSString *name;
-    NSLog(@"Char name = %@",charHand.charName);
-    
-    if([charHand.charName  isEqual: @"d"]) {
-        name = @"ladydance";
-    }
-    else {
-        name = @"dance";
-        
-    }
-    
-    [self removeChild:userSpriteSheet];
-
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[name stringByAppendingString:@".plist"]];
-    NSString *BatchName = [name stringByAppendingString:@".png"];
-    userSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:BatchName];
-    
-    NSMutableArray *walkframes = [NSMutableArray array];
-    
-    for (int i=1; i <= 83; ++i) {
-        NSString *lastPart = [NSString stringWithFormat:@"%d.png",i];
-//        NSLog(@"Last part = %@",lastPart);
-//        NSLog(@"Char name = %@",charHand.charName);
-        NSString *name = [charHand.charName stringByAppendingString:lastPart];
-//        NSLog(@"Name = %@",name);
-        
-        NSString *frameName = [NSString stringWithFormat: @"%@",name];
-        [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
-       
-    }
-    
-    CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
-    CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"d1.png"];
-    dance.position = ccp(150,200);
-    CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
-    
-    [dance runAction:[CCSequence actions: danceAction, [CCCallFunc actionWithTarget:self selector:@selector(initiateAIDance)],nil]];
-    [userSpriteSheet addChild:dance];
-    [self addChild:userSpriteSheet];    
-}
-
 -(void) initiateBlast {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"bomb.plist"];
     CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"bomb.png"];
     
     NSMutableArray *walkframes = [NSMutableArray array];
-
+    
     for (int i = 1; i <= 21; ++i) {
         NSString *frameName = [NSString stringWithFormat:@"f%d.png",i];
         [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
     }
     
     CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
-    CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"f1.png"];
-    dance.position = ccp(876, 150);
+    CCSprite *blast = [CCSprite spriteWithSpriteFrameName:@"f1.png"];
+    blast.position = ccp(876, 150);
     
-    CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
+    CCAction *blastAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
     
-    [dance runAction:danceAction];
-    [spriteSheet addChild:dance];
+    [blast runAction:blastAction];
+    [spriteSheet addChild:blast];
     [self addChild:spriteSheet];
     
-    if (self.life<100 && self.aiLife<100) {
-        
-        NSLog(@"The user score %d",self.life);
-        NSLog(@"The AI Score%d",self.aiLife);
-        
-        objectCount=0;
-        
-        [self removeChild:spriteSheet];
-        touchPointCounter=0;
-        [self addMessage:@"danceMessage1.png"];
-        [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:1];
-        [self schedule:@selector(managingTouchIcons) interval:1.0 repeat:5 delay:1.5];
-    }
 }
 
--(void) initiateDance {
-
-    [self removeChild: dancer];
-
-    [self initiateUserDance];
-    
-    // this adds a button after the game is over to return to the main menu
-    CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"home.png" selectedImage:@"home_pressed.png" target:self selector:@selector(loadGameLayer)];
-    CCMenu *gameMenu = [CCMenu menuWithItems:homeButton, nil];
-    gameMenu.position = ccp(size.width - homeButton.contentSize.width/2, homeButton.contentSize.height/2);
-    [self addChild:gameMenu];
-}
-
--(void) loadGameLayer {
+-(void) loadHelloWorldLayer {
     // stop game music
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
     // start home background music
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"background.mp3"];
     
-    CCScene *gameLevel = [HelloWorldLayer scene];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.2 scene:gameLevel]];
+    CCScene *helloLayer = [HelloWorldLayer scene];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.2 scene:helloLayer]];
 }
 
 -(void) managingTouchIcons {
@@ -268,10 +277,10 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     
     if(touchPointCounter == 3){
         [self addTouchIcons:1 withArg2:@"touchpoints-blue.png"];
-        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:0.75];
+        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:1.50];
         
         [self addTouchIcons:2 withArg2:@"touchpoints-blue.png"];
-        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:0.75];
+        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:1.50];
     }else if(touchPointCounter == 5){
         [self addTouchIcons:1 withArg2:@"touchpoints-green.png"];
         [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:3.0];
@@ -460,11 +469,11 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
             else {
                // for negative points
             }
-            if(checkIfBothHit == 2){
-                [self addMessage:@"nice.png"];
-                [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:0.5];
-            }
-            checkIfBothHit = 0;
+                       //checkIfBothHit = 0;
+        }
+        if(checkIfBothHit == 2){
+            [self addMessage:@"nice.png"];
+            [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:0.5];
         }
     }
 }

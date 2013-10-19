@@ -31,12 +31,20 @@
     
     // set game layer difficulty
     //InputHandler *ih2 = [sharedManager.inputBundle objectForKey:@"LDAA"];
-    
-    // set move difficulty
-    [ih setMoveDifficulty:3];
 
     // retrieving object with game layer diff, ai accurancy, user accuracy.
     InputHandler *ih3 = [sharedManager.inputBundle objectForKey:@"USERACC"];
+    
+    // set move difficulty
+    [ih setMoveDifficulty:3];
+    
+    if([ih3 userAccuracy] >= 70)
+        [ih setMoveDifficulty:5];
+    else if([ih3 userAccuracy] >= 70 && [ih moveDifficulty] == 5)
+        [ih setMoveDifficulty:7];
+    
+    NSLog(@"this is move difficulty %d", [ih moveDifficulty]);
+
     
     patternDifficulty = ([ih moveDifficulty] * [ih3 gameLevelDifficulty]);
     

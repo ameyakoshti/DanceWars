@@ -56,7 +56,7 @@
 }
 
 +(CCScene *) scene;
--(void) enableGesture;
+-(void) enableGesture:(NSNumber *) value;
 
 @property (nonatomic,retain) CCProgressTimer *progressTimer;
 @property (nonatomic,retain) CCProgressTimer *aiProgressTimer;
