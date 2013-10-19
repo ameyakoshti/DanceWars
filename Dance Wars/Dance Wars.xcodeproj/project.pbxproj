@@ -314,6 +314,7 @@
 		DF4B338117F7C04400A1C5BC /* dancer4.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B338017F7C04400A1C5BC /* dancer4.png */; };
 		DF4B338317F7C0A400A1C5BC /* dancer3.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B338217F7C0A400A1C5BC /* dancer3.png */; };
 		DF4B338517F7C17900A1C5BC /* level_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF4B338417F7C17800A1C5BC /* level_bg.jpg */; };
+		DF50858E1811F7AC00823D45 /* touchpoints-green.png in Resources */ = {isa = PBXBuildFile; fileRef = DF50858D1811F7AC00823D45 /* touchpoints-green.png */; };
 		DF6AA8BA17F4A7F60076B2A5 /* healthbar_green.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8B717F4A7F60076B2A5 /* healthbar_green.png */; };
 		DF6AA8BB17F4A7F60076B2A5 /* healthbar_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8B817F4A7F60076B2A5 /* healthbar_orange.png */; };
 		DF6AA8BC17F4A7F60076B2A5 /* healthbar_red.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8B917F4A7F60076B2A5 /* healthbar_red.png */; };
@@ -869,6 +870,7 @@
 		DF4B338017F7C04400A1C5BC /* dancer4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dancer4.png; sourceTree = "<group>"; };
 		DF4B338217F7C0A400A1C5BC /* dancer3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dancer3.png; sourceTree = "<group>"; };
 		DF4B338417F7C17800A1C5BC /* level_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = level_bg.jpg; sourceTree = "<group>"; };
+		DF50858D1811F7AC00823D45 /* touchpoints-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touchpoints-green.png"; sourceTree = "<group>"; };
 		DF6AA8B717F4A7F60076B2A5 /* healthbar_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_green.png; sourceTree = "<group>"; };
 		DF6AA8B817F4A7F60076B2A5 /* healthbar_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_orange.png; sourceTree = "<group>"; };
 		DF6AA8B917F4A7F60076B2A5 /* healthbar_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_red.png; sourceTree = "<group>"; };
@@ -1547,6 +1549,7 @@
 		DF3E1E9217EA38BC0043593E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DF50858D1811F7AC00823D45 /* touchpoints-green.png */,
 				DFEAFB8B180F96C100308AC0 /* danceMessage1.png */,
 				DFEAFB89180F93EB00308AC0 /* nice.png */,
 				D8BFB8A7180CE36B002DA2E0 /* f1.png */,
@@ -1894,6 +1897,7 @@
 				35D6237E17FF923A0020F299 /* d17.png in Resources */,
 				35D6237F17FF923A0020F299 /* d18.png in Resources */,
 				35D6238017FF923A0020F299 /* d19.png in Resources */,
+				DF50858E1811F7AC00823D45 /* touchpoints-green.png in Resources */,
 				35D6238117FF923A0020F299 /* d20.png in Resources */,
 				35D6238217FF923A0020F299 /* d21.png in Resources */,
 				35D6238317FF923A0020F299 /* d22.png in Resources */,

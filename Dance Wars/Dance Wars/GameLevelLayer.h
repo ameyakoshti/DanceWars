@@ -30,8 +30,10 @@
     CCSprite *message;
     CCSpriteBatchNode *userSpriteSheet;
     CCSpriteBatchNode *aiSpriteSheet;
-    CCSprite *touchHit;
 
+    BOOL swipeHit;
+    
+    int checkIfBothHit;
     int touchPointCounter;
     int hitCount;
     int objectCount;
