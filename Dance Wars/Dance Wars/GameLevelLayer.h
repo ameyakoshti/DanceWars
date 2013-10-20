@@ -21,30 +21,26 @@
 @interface GameLevelLayer : CCLayer <UIGestureRecognizerDelegate> {
     
     CGSize size;
-    NSMutableArray * _patternsGenerated;
     
-    CCSprite *touchIcon[2];
+    CCSprite *touchIcon[3];
     CCSprite *dancer;
     CCSprite *aichar;
-    CCSprite *grid;
     CCSprite *message;
     CCSpriteBatchNode *userSpriteSheet;
     CCSpriteBatchNode *aiSpriteSheet;
 
     BOOL swipeHit;
-    
-    int checkIfBothHit;
+
     int touchPointCounter;
     int hitCount;
     int objectCount;
     int missCount;
     int totalObjects;
-    int visited[6];
+    int visited[3];
     
-    float xLocations[6];
-    float yLocations[6];
+    float xLocations[10];
+    float yLocations[10];
 
-    NSString *score;
     CCLabelTTF *scoreLabel;
     
     InputHandler *ih;

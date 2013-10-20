@@ -98,6 +98,7 @@
 		D807235C17ED0D0400759B73 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D807235B17ED0D0400759B73 /* HelloWorldLayer.m */; };
 		D807236117ED271100759B73 /* GameLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D807236017ED270F00759B73 /* GameLevelLayer.m */; };
 		D84CA37B17FF574D00BC058A /* MyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CA37A17FF574D00BC058A /* MyManager.m */; };
+		D84EF58518133A3C002B5E67 /* hulk1.png in Resources */ = {isa = PBXBuildFile; fileRef = D84EF58418133A3C002B5E67 /* hulk1.png */; };
 		D8597B2A17F619CA003F8B6D /* LevelSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D8597B2917F619CA003F8B6D /* LevelSelectLayer.m */; };
 		D8597B2D17F61A71003F8B6D /* CharacterSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = D8597B2C17F61A71003F8B6D /* CharacterSelect.m */; };
 		D8597B3017F62249003F8B6D /* CharacterHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D8597B2F17F62249003F8B6D /* CharacterHandler.m */; };
@@ -451,6 +452,7 @@
 		D807236017ED270F00759B73 /* GameLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GameLevelLayer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D84CA37917FF574D00BC058A /* MyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyManager.h; sourceTree = "<group>"; };
 		D84CA37A17FF574D00BC058A /* MyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyManager.m; sourceTree = "<group>"; };
+		D84EF58418133A3C002B5E67 /* hulk1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hulk1.png; sourceTree = "<group>"; };
 		D8597B2817F619CA003F8B6D /* LevelSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectLayer.h; sourceTree = "<group>"; };
 		D8597B2917F619CA003F8B6D /* LevelSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectLayer.m; sourceTree = "<group>"; };
 		D8597B2B17F61A71003F8B6D /* CharacterSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterSelect.h; sourceTree = "<group>"; };
@@ -1549,6 +1551,7 @@
 		DF3E1E9217EA38BC0043593E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D84EF58418133A3C002B5E67 /* hulk1.png */,
 				DF50858D1811F7AC00823D45 /* touchpoints-green.png */,
 				DFEAFB8B180F96C100308AC0 /* danceMessage1.png */,
 				DFEAFB89180F93EB00308AC0 /* nice.png */,
@@ -1951,6 +1954,7 @@
 				35D623AB17FF923A0020F299 /* d62.png in Resources */,
 				35D623AC17FF923A0020F299 /* d63.png in Resources */,
 				35D623AD17FF923A0020F299 /* d64.png in Resources */,
+				D84EF58518133A3C002B5E67 /* hulk1.png in Resources */,
 				35D623AE17FF923A0020F299 /* d65.png in Resources */,
 				DFEAFB8C180F96C100308AC0 /* danceMessage1.png in Resources */,
 				D8BFB8C8180CE36C002DA2E0 /* f12.png in Resources */,

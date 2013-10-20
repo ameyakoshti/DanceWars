@@ -56,7 +56,7 @@
         [self addChild:ch.character];
         
         // Adding player 3 in the player selection menu
-        charPath1 = @"dancer3.png";
+        charPath1 = @"hulk1.png";
         [self addSprite:charPath1];
         ch.character.position = ccp(windowSize.width*5/8,windowSize.height/3);
         [self addChild:ch.character];
@@ -154,7 +154,7 @@
             if(location.x > windowSize.width*1/2 && location.x < windowSize.width*3/4 && location.y > 0 && location.y < windowSize.height){
                 [ch2 setSelected:@"3"];
                 if([ch2.selected  isEqual: @"3"]){
-                    NSString *name = [NSString stringWithFormat:@"dancer"];
+                    NSString *name = [NSString stringWithFormat:@"hulk"];
                     [ch setCharName:name];
                 }
                 sharedManager = [MyManager sharedManager];

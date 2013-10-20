@@ -15,7 +15,6 @@
 
 static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKey";
 
-// Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene{
 	CCScene *scene = [CCScene node];
 	GameLevelLayer *layer = [GameLevelLayer node];
@@ -27,35 +26,27 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     
     if((self = [super init])) {
         
-        //self.isTouchEnabled = YES;
         size = [[CCDirector sharedDirector] winSize];
-        score = [[NSString alloc] init];
         
-        // loading game environment
+        // Loading game environment
         sharedManager = [MyManager sharedManager];
         le = [sharedManager.inputBundle objectForKey:@"ENVR"];
         le.background.position = ccp(size.width/2, size.height/2);
         [self addChild:le.background];
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:le.backgroundMusic];
         
-        
+        // Get character selected values from the character selection screen
         charHand = [sharedManager.inputBundle objectForKey:@"ch"];
-        NSLog(@"Char selected in the init = %@", charHand.charName);
         
-        
-        grid = [CCSprite spriteWithFile:@"grid_map.png"];
-        grid.position = ccp(size.width/2, size.height/2);
-        [self addChild:grid];
-        
-        //user sprite as selected from the char sel layer
-        
+        // Player character
         dancer = [CCSprite spriteWithFile:[charHand.charName stringByAppendingString:@"1.png"]];
         dancer.position = ccp(150,200);
-        [self addChild:dancer];
+        [self addChild:dancer z:0 tag:1];
         
+        // AI character
         aichar = [CCSprite spriteWithFile:@"dance1.png"];
         aichar.position = ccp(876,200);
-        [self addChild:aichar];
+        [self addChild:aichar z:0 tag:2];
        
         // Player life bar
         self.life = 0;
@@ -78,20 +69,25 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         self.aiProgressTimer.percentage = self.aiLife;
         self.aiProgressTimer.position = ccp(size.width-120,size.height-50);
         [self addChild:self.aiProgressTimer];
+        
+        // Displaying a home button to return to the main menu screen
+        CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"home.png" selectedImage:@"home_pressed.png" target:self selector:@selector(loadHelloWorldLayer)];
+        CCMenu *homeMenu = [CCMenu menuWithItems:homeButton, nil];
+        homeMenu.position = ccp(size.width-homeButton.contentSize.width/2, homeButton.contentSize.height/2);
+        [self addChild:homeMenu];
+        
+        // Start the game by showing the touch icons
+        touchPointCounter=0;
+        [self schedule:@selector(managingTouchIcons) interval:1.0 repeat:5 delay:1.5];
+        
+        // Enable multi touches and gestures
+        self.touchEnabled = YES;
+        [[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
 
-        // input handler object initialization
+        // Input handler object initialization to set Player and AI properties
         ih = [[InputHandler alloc] init];
     }
     
-    _patternsGenerated = [[NSMutableArray alloc] init];
-    
-    touchPointCounter=0;
-    [self schedule:@selector(managingTouchIcons) interval:1.0 repeat:5 delay:1.5];
-    
-    self.touchEnabled = YES;
-    [[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
-    
-    //[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
     return self;
 }
 
@@ -107,10 +103,10 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 }
 
 -(void) removeMessage{
-    [self removeChild:message];
+    [self removeChild:message cleanup:YES];
 }
 
-- (void) gamePlayLoopCondition {
+-(void) gamePlayLoopCondition {
     
     if (self.life<100 && self.aiLife<100) {
         
@@ -118,8 +114,8 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         NSLog(@"The AI Score%d",self.aiLife);
         
         objectCount=0;
-        
         touchPointCounter=0;
+        
         [self addMessage:@"danceMessage1.png"];
         [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:1];
         [self schedule:@selector(managingTouchIcons) interval:1.0 repeat:5 delay:1.5];
@@ -127,21 +123,8 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     else {
         
         [self scheduleOnce:@selector(initiateBlast) delay:2.0];
-
-        CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"home.png" selectedImage:@"home_pressed.png" target:self selector:@selector(loadHelloWorldLayer)];
-        CCMenu *homeMenu = [CCMenu menuWithItems:homeButton, nil];
-        homeMenu.position = ccp(size.width-homeButton.contentSize.width/2, homeButton.contentSize.height/2);
-        [self addChild:homeMenu];
         
     }
-    
-}
-
--(void) initiateDance {
-
-    [self removeChild: dancer];
-
-    [self initiateUserDance];
     
 }
 
@@ -158,7 +141,9 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         
     }
     
-    [self removeChild:userSpriteSheet];
+    [self removeChildByTag:1 cleanup:YES];
+    [self removeChild:userSpriteSheet cleanup:YES];
+    
     
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[name stringByAppendingString:@".plist"]];
     NSString *BatchName = [name stringByAppendingString:@".png"];
@@ -190,8 +175,8 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 
 -(void) initiateAIDance {
     
-    [self removeChild:aichar];
-    [self removeChild:aiSpriteSheet];
+    [self removeChildByTag:2 cleanup:YES];
+    [self removeChild:aiSpriteSheet cleanup:YES];
     
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"dance.plist"];
     aiSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"dance.png"];
@@ -261,38 +246,39 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 }
 
 -(void) loadHelloWorldLayer {
-    // stop game music
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-    
-    // start home background music
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"background.mp3"];
-    
-    CCScene *helloLayer = [HelloWorldLayer scene];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.2 scene:helloLayer]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.2 scene:[HelloWorldLayer scene]]];
 }
 
 -(void) managingTouchIcons {
-    checkIfBothHit = 0;
+    // to check if both the touch icons are tapped at the same time
+    visited[1] = 0;
+    visited[2] = 0;
+    
     swipeHit = NO;
     
     if(touchPointCounter == 3){
         [self addTouchIcons:1 withArg2:@"touchpoints-blue.png"];
-        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:1.50];
+        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:0.75];
         
         [self addTouchIcons:2 withArg2:@"touchpoints-blue.png"];
-        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:1.50];
-    }else if(touchPointCounter == 5){
+        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:0.75];
+    }
+    else if(touchPointCounter == 5){
         [self addTouchIcons:1 withArg2:@"touchpoints-green.png"];
-        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:3.0];
+        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:2.0];
         
         [self addTouchIcons:2 withArg2:@"touchpoints-blue.png"];
-        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:3.0];
+        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:2.0];
     }
     else{
         [self addTouchIcons:1 withArg2:@"touchpoints.png"];
         [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:0.75];
     }
     
+    // This is counter is for counting the number of times the touch icons will appear
+    // It does not count the total number of touch icons.
     touchPointCounter++;
 }
 
@@ -315,28 +301,24 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     // these variables are used to store the location of the touch points to calculate the score
     xLocations[objectCount] = (float)randomW;
     yLocations[objectCount] = (float)randomH;
-    visited[objectCount] = 0;
     
-    
+    // This is to enable gesture on the 6th tap
     if(touchPointCounter == 5){
-        //allow the user to swipe now.
-        //touchHit = [CCSprite spriteWithFile:@"touchpoints-black.png"];
-        //touchHit.scale = 0.5f;
-        //touchHit.position = ccp(size.width/2,size.height/2);
-        //touchHit.isTouchEnabled=YES;
         touchIcon[touchNumber].isTouchEnabled = YES;
-        
         //enable pan gesture recognizer
         [self enableGesture:[NSNumber numberWithInt:touchNumber]];
     }
     else{
        [self addChild:touchIcon[touchNumber]];
     }
-    //[self scheduleOnce:@selector(removeTouchIcons) delay:0.75];
-    [_patternsGenerated addObject:touchIcon[touchNumber]];
+    
+    // Counts the number of objects in every round
     objectCount ++;
+    
+    // The total number of objects across all the round
     totalObjects ++;
     
+    // Some animation where the icon is generated
     CCParticleSystem *emitter = [CCParticleExplosion node];
     //set the location of the emitter
     emitter.position = touchIcon[touchNumber].position;
@@ -356,11 +338,10 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     
     if(objectCount >= 8){
         
-        // calculate the score and accuracy for user and ai
-        
+        // Calculate the score and accuracy for user and ai
         InputHandler *ih2 = [sharedManager.inputBundle objectForKey:@"LDAA"];
         
-        [ih2 setUserAccuracy:(hitCount*100/objectCount)];
+        [ih2 setUserAccuracy:(hitCount*100/totalObjects)];
         [sharedManager.inputBundle setObject:ih2 forKey:@"USERACC"];
         
         getScore = [[Score alloc] init];
@@ -368,7 +349,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         
         InputHandler *ih3 = [sharedManager.inputBundle objectForKey:@"USERLIFE"];
         
-        //increment progress bar for user
+        // Increment progress bar for user
         if(self.life >= 0 && self.life < 100){
             self.life += (int)[ih3 userLife];
             if(self.life > 25 && self.life < 60){
@@ -382,10 +363,8 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         }
         [self.progressTimer setPercentage:self.life];
         
-        //enable dance show
-        [self initiateDance];
-        
-        [self removeChild:grid];
+        // Enable dance show for Player
+        [self initiateUserDance];
     }
 }
 
@@ -413,20 +392,17 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         
     if(CGRectContainsPoint(touchIcon[1].boundingBox, ccp(touchIcon[2].position.x,touchIcon[2].position.y)) && !swipeHit){
         swipeHit = YES;
+        
+        // Particle effects on a gesture hit
         CCParticleSystem *emitterGesture = [CCParticleExplosion node];
-        //set the location of the emitter
         emitterGesture.position = node.position;
-        //set size of particle animation
         emitterGesture.scale = 0.5;
-        //set an Image for the particle
         emitterGesture.texture = [[CCTextureCache sharedTextureCache] addImage:@"Icon-Small.png"];
-        //set length of particle animation
         [emitterGesture setLife:1.0f];
-        //add to layer ofcourse(effect begins after this step)
         [self addChild: emitterGesture];
         
         if(self.life >= 0 && self.life < 100){
-            self.life += 5;
+            self.life += 1;
             if(self.life > 25 && self.life < 60){
                 [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
                 [self.progressTimer setScale:1];
@@ -440,38 +416,30 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     }
 }
 
--(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController{
-	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissViewControllerAnimated:YES completion:nil];
-}
-
--(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController{
-	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissViewControllerAnimated:YES completion:nil];
-}
-
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    if(touchPointCounter !=5){
+    
+    // Check for taps only when its not the 6th tap
+    // 6th tap is gesture based
+    if(touchPointCounter !=5 ){
         for(UITouch *touch in touches)
         {
             CGPoint location = [[CCDirector sharedDirector] convertTouchToGL:touch];
             
             if((CGRectContainsPoint(touchIcon[1].boundingBox, location))) {
-                checkIfBothHit++;
-                [self removeChild:touchIcon[1] cleanup:YES];
+                visited[1] = 1;
                 hitCount++;
             }
             if((CGRectContainsPoint(touchIcon[2].boundingBox, location))) {
-                checkIfBothHit++;
-                [self removeChild:touchIcon[2] cleanup:YES];
+                visited[2] = 1;
                 hitCount++;
             }
             else {
                // for negative points
             }
-                       //checkIfBothHit = 0;
         }
-        if(checkIfBothHit == 2){
+        
+        //checkIfBothHit = 0;
+        if(visited[1] == 1 && visited[2] == 1){
             [self addMessage:@"nice.png"];
             [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:0.5];
         }
@@ -479,6 +447,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 }
 
 -(void) dealloc {
+
 }
 
 @end

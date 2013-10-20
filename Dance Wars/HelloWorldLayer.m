@@ -62,6 +62,8 @@
     return self;
 }
 
+
+
 - (void) loadCharacterSelectLayer {
     CCScene *charSelect = [CharacterSelect scene];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:charSelect]];
