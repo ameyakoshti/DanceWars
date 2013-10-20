@@ -285,17 +285,37 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 -(void) addTouchIcons:(int) touchNumber withArg2:(NSString *) fileName {
     
     touchIcon[touchNumber] = [CCSprite spriteWithFile:fileName];
-    
+
     // creating the imaginary rectangle in which the icons will appear
+    float randomH,randomW;
     float maxX = size.width * 2/3;
     float minX = size.width * 1/3;
     float maxY = size.height * 2/3;
     float minY = size.height * 1/3;
     float rangeX = maxX - minX;
     float rangeY = maxY - minY;
-    float randomH = (arc4random() % (int)rangeY) + (int)minY;
-    float randomW = (arc4random() % (int)rangeX) + (int)minX;
     
+    // Show the first touch icon randomly
+    if(objectCount == 0){
+        randomH = (arc4random() % (int)rangeY) + (int)minY;
+        randomW = (arc4random() % (int)rangeX) + (int)minX;
+    }
+    else{
+        int halfOfTouchIcon = touchIcon[touchNumber].contentSize.width/2;
+        float previousRangeXFrom = xLocations[objectCount-1]-halfOfTouchIcon;
+        float previousRangeXTo = xLocations[objectCount-1]+halfOfTouchIcon;
+        float previousRangeYFrom = yLocations[objectCount-1]-halfOfTouchIcon;
+        float previousRangeYTo = yLocations[objectCount-1]+halfOfTouchIcon;
+        
+        while(1){
+            randomH = (arc4random() % (int)rangeY) + (int)minY;
+            randomW = (arc4random() % (int)rangeX) + (int)minX;
+            
+            if((randomW < previousRangeXFrom || randomW > previousRangeXTo) && (randomH < previousRangeYFrom || randomH > previousRangeYTo)){
+                break;
+            }
+        }
+    }
     touchIcon[touchNumber].position = ccp(randomW, randomH);
     
     // these variables are used to store the location of the touch points to calculate the score
