@@ -220,12 +220,11 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     
     NSMutableArray *danceFrames = [NSMutableArray array];
     
-    NSMutableDictionary *myDic = [[NSMutableDictionary alloc] init];
-    myDic = [[NSMutableDictionary alloc] initWithContentsOfFile:player_plist];
-    int j =myDic.count;
-    NSLog(@"j =%d",j);
+    // Count the number of frames from the plist
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:player ofType:@"plist"];
+    NSDictionary *Dictionary= [[NSDictionary alloc]initWithContentsOfFile:plistPath];
     
-    for (int i=1; i < player_plist.length; i++) {
+    for (int i=1; i <= [[Dictionary valueForKey:@"frames"] count]; i++) {
         NSString *lastPart = [NSString stringWithFormat:@"_%d.png",i];
         NSString *animation_name = [ player stringByAppendingString:lastPart];
         [danceFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:animation_name]];
