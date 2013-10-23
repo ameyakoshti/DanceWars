@@ -142,13 +142,11 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 }
 
 -(void) initiateBackground:(NSString *)dynamicBackground {
-    //NSString *player = @"background_1";
     NSString *background_plist = [background stringByAppendingString:@".plist"] ;
     NSString *background_spriteList = [background stringByAppendingString:@".png"];
     
     [self removeChildByTag:1 cleanup:YES];
     [self removeChild:userSpriteSheet cleanup:YES];
-    
     
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: background_plist];
     userSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:background_spriteList];
@@ -210,10 +208,6 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     NSString *player = [charHand.charName stringByAppendingString:danceMove];
     NSString *player_plist = [player stringByAppendingString:@".plist"] ;
     NSString *player_spriteList = [player stringByAppendingString:@".png"];
-
-    [self removeChildByTag:1 cleanup:YES];
-    [self removeChild:userSpriteSheet cleanup:YES];
-    
     
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: player_plist];
     userSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:player_spriteList];
@@ -223,23 +217,31 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     // Count the number of frames from the plist
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:player ofType:@"plist"];
     NSDictionary *Dictionary= [[NSDictionary alloc]initWithContentsOfFile:plistPath];
-    
-    for (int i=1; i <= [[Dictionary valueForKey:@"frames"] count]; i++) {
-        NSString *lastPart = [NSString stringWithFormat:@"_%d.png",i];
-        NSString *animation_name = [ player stringByAppendingString:lastPart];
-        [danceFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:animation_name]];
-    }
+    int numberOfFrames = [[Dictionary valueForKey:@"frames"] count];
 
-    CCAnimation *danceDuration = [CCAnimation animationWithSpriteFrames:danceFrames delay:0.1f];
-    
-    NSString *frameName = [player stringByAppendingString:@"_1.png"];
-    CCSprite *dance = [CCSprite spriteWithSpriteFrameName:frameName];
-    dance.position = ccp(150,200);
-    CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:danceDuration] times:1];
-    
-    [dance runAction:[CCSequence actions: danceAction, [CCCallFunc actionWithTarget:self selector:@selector(initiateAIDance)],nil]];
-    [userSpriteSheet addChild:dance];
-    [self addChild:userSpriteSheet];
+    if(numberOfFrames > 0){
+        [self removeChildByTag:1 cleanup:YES];
+        [self removeChild:userSpriteSheet cleanup:YES];
+        
+        for (int i=1; i <= numberOfFrames; i++) {
+            NSString *lastPart = [NSString stringWithFormat:@"_%d.png",i];
+            NSString *animation_name = [ player stringByAppendingString:lastPart];
+            [danceFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:animation_name]];
+        }
+        
+        CCAnimation *danceDuration = [CCAnimation animationWithSpriteFrames:danceFrames delay:0.1f];
+        
+        NSString *frameName = [player stringByAppendingString:@"_1.png"];
+        CCSprite *dance = [CCSprite spriteWithSpriteFrameName:frameName];
+        dance.position = ccp(150,200);
+        CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:danceDuration] times:1];
+        [dance runAction:[CCSequence actions: danceAction, [CCCallFunc actionWithTarget:self selector:@selector(initiateAIDance)],nil]];
+        [userSpriteSheet addChild:dance];
+        [self addChild:userSpriteSheet];
+    }
+    else{
+        [self initiateAIDance];
+    }
 }
 
 -(void) initiateAIDance {

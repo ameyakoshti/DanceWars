@@ -2393,6 +2393,7 @@
 		DFCC18F01817D149009B8EE8 /* player_3 */ = {
 			isa = PBXGroup;
 			children = (
+				DFCC19001817DFDC009B8EE8 /* dance_move_1 */,
 				DFCC18F11817D149009B8EE8 /* player_3.png */,
 				DFCC18FE1817D81C009B8EE8 /* player_3_0.png */,
 			);
@@ -2402,10 +2403,25 @@
 		DFCC18F31817D529009B8EE8 /* player_4 */ = {
 			isa = PBXGroup;
 			children = (
+				DFCC19031817DFEE009B8EE8 /* dance_move_1 */,
 				DFCC18F41817D529009B8EE8 /* player_4.png */,
 				DFCC18FC1817D7C7009B8EE8 /* player_4_0.png */,
 			);
 			path = player_4;
+			sourceTree = "<group>";
+		};
+		DFCC19001817DFDC009B8EE8 /* dance_move_1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = dance_move_1;
+			sourceTree = "<group>";
+		};
+		DFCC19031817DFEE009B8EE8 /* dance_move_1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = dance_move_1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
