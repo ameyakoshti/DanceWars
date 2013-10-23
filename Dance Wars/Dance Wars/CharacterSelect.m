@@ -43,6 +43,16 @@
         //ih = [[InputHandler alloc] init];
         ch = [[CharacterHandler alloc] init];
         
+        // Add background image
+        CCSprite *charBg = [CCSprite spriteWithFile:@"characterselect_bg.png"];
+        charBg.position = ccp(windowSize.width/2, windowSize.height/2);
+        [self addChild:charBg];
+        
+        // Character header
+        CCLabelTTF *label = [CCLabelTTF labelWithString:@"Select Your Character" fontName:@"Papyrus" fontSize:50];
+        label.position = ccp(windowSize.width/2, windowSize.height*6/7);
+        [self addChild:label];
+        
         // Adding player 1 in the player selection menu (chacha: dance1.png)
         NSString *charPath1 = @"player_1.png";
         [self addSprite:charPath1];
@@ -69,14 +79,14 @@
         
         self.touchEnabled = YES;
         [[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
-        //[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];        
     }
     return self;
 }
 
 // This function is for drawing all the default cocos2d geometry on the layer
 // The function name has to be as it is.
--(void)draw
+
+ -(void)draw
 {
     [super draw];
     

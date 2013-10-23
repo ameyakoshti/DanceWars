@@ -53,6 +53,7 @@
 
 +(CCScene *) scene;
 -(void) enableGesture:(NSNumber *) value;
+-(void) initialBackground:(NSString *) dynamicBackground;
 
 @property (nonatomic,retain) CCProgressTimer *progressTimer;
 @property (nonatomic,retain) CCProgressTimer *aiProgressTimer;
