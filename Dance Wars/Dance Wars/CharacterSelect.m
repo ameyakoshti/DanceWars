@@ -53,32 +53,33 @@
         label.position = ccp(windowSize.width/2, windowSize.height*6/7);
         [self addChild:label];
         
-        // Adding player 1 in the player selection menu (chacha: dance1.png)
-        NSString *charPath1 = @"player_1.png";
-        [self addSprite:charPath1];
+        // Adding player 1 in the player selection menu
+        NSString *charPath = @"player_1.png";
+        [self addSprite:charPath];
         ch.character.position = ccp(windowSize.width*1/8,windowSize.height*2/5);
         [self addChild:ch.character];
         
-        // Adding player 2 in the player selection menu(lady: d1.png)
-        charPath1 = @"player_2.png";
-        [self addSprite:charPath1];
+        // Adding player 2 in the player selection menu
+        charPath = @"player_2.png";
+        [self addSprite:charPath];
         ch.character.position = ccp(windowSize.width*3/8,windowSize.height*1/5);
         [self addChild:ch.character];
         
-        // Adding player 3 in the player selection menu (hulk1.png)
-        charPath1 = @"player_3.png";
-        [self addSprite:charPath1];
+        // Adding player 3 in the player selection menu
+        charPath = @"player_3.png";
+        [self addSprite:charPath];
         ch.character.position = ccp(windowSize.width*5/8,windowSize.height*2/5);
         [self addChild:ch.character];
         
-        // Adding player 4 in the player selection menu(random)
-        charPath1 = @"player_4.png";
-        [self addSprite:charPath1];
+        // Adding player 4 in the player selection menu
+        charPath = @"player_4.png";
+        [self addSprite:charPath];
         ch.character.position = ccp(windowSize.width*7/8,windowSize.height*1/5);
         [self addChild:ch.character];
         
         self.touchEnabled = YES;
-        [[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
+        //[[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
+        [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:NO];
     }
     return self;
 }
@@ -112,6 +113,83 @@
     return ch.character;
 }
 
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    CGPoint location = [[CCDirector sharedDirector] convertTouchToGL:touch];
+    
+    for(CharacterHandler *ch2 in charSpriteList) {
+        BOOL playerSelected = false;
+        
+        // creating manual frames for individual players
+        
+        // Frame for player 1 selection
+        if(location.x > 0 && location.x < windowSize.width*1/4 && location.y > 0 && location.y < windowSize.height){
+            playerSelected = TRUE;
+            [ch2 setSelected:@"1"];
+            if([ch2.selected  isEqual: @"1"]){
+                NSString *name = [NSString stringWithFormat:@"player_1"];
+                [ch setCharName:name];
+            }
+            
+            sharedManager = [MyManager sharedManager];
+            [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
+        }
+        
+        // Frame for player 2 selection
+        if(location.x > windowSize.width*1/4 && location.x < windowSize.width*1/2 && location.y > 0 && location.y < windowSize.height){
+            playerSelected = TRUE;
+            [ch2 setSelected:@"2"];
+            if([ch2.selected  isEqual: @"2"]){
+                NSString *name = [NSString stringWithFormat:@"player_2"];
+                [ch setCharName:name];
+            }
+            
+            sharedManager = [MyManager sharedManager];
+            [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
+        }
+        
+        // Frame for player 3 selection
+        if(location.x > windowSize.width*1/2 && location.x < windowSize.width*3/4 && location.y > 0 && location.y < windowSize.height){
+            playerSelected = TRUE;
+            [ch2 setSelected:@"3"];
+            if([ch2.selected  isEqual: @"3"]){
+                NSString *name = [NSString stringWithFormat:@"player_3"];
+                [ch setCharName:name];
+            }
+            sharedManager = [MyManager sharedManager];
+            [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
+        }
+        
+        // Frame for player 4 selection
+        if(location.x > windowSize.width*3/4 && location.x < windowSize.width && location.y > 0 && location.y < windowSize.height){
+            playerSelected = TRUE;
+            [ch2 setSelected:@"4"];
+            if([ch2.selected  isEqual: @"4"]){
+                NSString *name = [NSString stringWithFormat:@"player_4"];
+                [ch setCharName:name];
+            }
+            
+            sharedManager = [MyManager sharedManager];
+            [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
+        }
+        
+        if(playerSelected){
+            CCScene *levelSelect = [LevelSelectLayer scene];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.25 scene:levelSelect]];
+        }
+    }
+
+    return YES;
+}
+
+-(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event{
+
+}
+
+-(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
+
+}
+/*
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     for(UITouch *touch in touches){
         CGPoint location = [[CCDirector sharedDirector] convertTouchToGL:touch];
@@ -180,7 +258,7 @@
         
     }
 }
-
+*/
 - (void) dealloc {
 }
 

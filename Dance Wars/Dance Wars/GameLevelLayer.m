@@ -358,7 +358,6 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 }
 
 -(void) addTouchIcons:(int) touchNumber withArg2:(NSString *) fileName {
-    
     touchIcon[touchNumber] = [CCSprite spriteWithFile:fileName];
 
     // creating the imaginary rectangle in which the icons will appear
