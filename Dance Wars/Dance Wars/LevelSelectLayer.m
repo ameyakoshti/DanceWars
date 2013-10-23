@@ -44,10 +44,10 @@
         [self addChild:label];
         
         // menu to create different levels of difficulty
-        CCMenuItemImage *buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"i_love_clubbing_heart.png" selectedImage:@"i_love_clubbing_heart.png" target:self selector:@selector(loadLevelEasy)];
-        CCMenuItemImage *buttonLevel2 = [CCMenuItemImage itemWithNormalImage:@"i_love_dancing_heart.png" selectedImage:@"i_love_dancing_heart.png" target:self selector:@selector(loadLevelMed)];
-        CCMenuItemImage *buttonLevel3 = [CCMenuItemImage itemWithNormalImage:@"i_love_disco.png" selectedImage:@"i_love_disco.png" target:self selector:@selector(loadLevelDif)];
-        CCMenuItemImage *buttonLevel4 = [CCMenuItemImage itemWithNormalImage:@"i_love_music.png" selectedImage:@"i_love_music.png" target:self selector:@selector(loadLevelDif)];
+        CCMenuItemImage *buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_1.png" selectedImage:@"difficulty_level_1.png" target:self selector:@selector(loadLevelEasy)];
+        CCMenuItemImage *buttonLevel2 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_2.png" selectedImage:@"difficulty_level_2.png" target:self selector:@selector(loadLevelMed)];
+        CCMenuItemImage *buttonLevel3 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_3.png" selectedImage:@"difficulty_level_3.png" target:self selector:@selector(loadLevelDif)];
+        CCMenuItemImage *buttonLevel4 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_4.png" selectedImage:@"difficulty_level_4.png" target:self selector:@selector(loadLevelDif)];
         
         CCMenu *gameMenu = [CCMenu menuWithItems:buttonLevel1, buttonLevel2, buttonLevel3, buttonLevel4, nil];
         NSNumber* itemsPerRow = [NSNumber numberWithInt:4];

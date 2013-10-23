@@ -449,10 +449,10 @@
 		DF3E1EB517EA4A210043593E /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EB417EA4A210043593E /* Score.m */; };
 		DF3E1EB817EA4A2E0043593E /* GenerateMoves.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EB717EA4A2E0043593E /* GenerateMoves.m */; };
 		DF3E1EBB17EA4A8C0043593E /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EBA17EA4A8B0043593E /* Settings.m */; };
-		DF4B337017F7B8FB00A1C5BC /* i_love_clubbing_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336C17F7B8FB00A1C5BC /* i_love_clubbing_heart.png */; };
-		DF4B337117F7B8FB00A1C5BC /* i_love_dancing_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336D17F7B8FB00A1C5BC /* i_love_dancing_heart.png */; };
-		DF4B337217F7B8FB00A1C5BC /* i_love_disco.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336E17F7B8FB00A1C5BC /* i_love_disco.png */; };
-		DF4B337317F7B8FB00A1C5BC /* i_love_music.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336F17F7B8FB00A1C5BC /* i_love_music.png */; };
+		DF4B337017F7B8FB00A1C5BC /* difficulty_level_1.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336C17F7B8FB00A1C5BC /* difficulty_level_1.png */; };
+		DF4B337117F7B8FB00A1C5BC /* difficulty_level_2.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336D17F7B8FB00A1C5BC /* difficulty_level_2.png */; };
+		DF4B337217F7B8FB00A1C5BC /* difficulty_level_3.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336E17F7B8FB00A1C5BC /* difficulty_level_3.png */; };
+		DF4B337317F7B8FB00A1C5BC /* difficulty_level_4.png in Resources */ = {isa = PBXBuildFile; fileRef = DF4B336F17F7B8FB00A1C5BC /* difficulty_level_4.png */; };
 		DF6AA8BA17F4A7F60076B2A5 /* healthbar_green.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8B717F4A7F60076B2A5 /* healthbar_green.png */; };
 		DF6AA8BB17F4A7F60076B2A5 /* healthbar_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8B817F4A7F60076B2A5 /* healthbar_orange.png */; };
 		DF6AA8BC17F4A7F60076B2A5 /* healthbar_red.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8B917F4A7F60076B2A5 /* healthbar_red.png */; };
@@ -1139,10 +1139,10 @@
 		DF3E1EB717EA4A2E0043593E /* GenerateMoves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateMoves.m; sourceTree = "<group>"; };
 		DF3E1EB917EA4A8B0043593E /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		DF3E1EBA17EA4A8B0043593E /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
-		DF4B336C17F7B8FB00A1C5BC /* i_love_clubbing_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i_love_clubbing_heart.png; sourceTree = "<group>"; };
-		DF4B336D17F7B8FB00A1C5BC /* i_love_dancing_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i_love_dancing_heart.png; sourceTree = "<group>"; };
-		DF4B336E17F7B8FB00A1C5BC /* i_love_disco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i_love_disco.png; sourceTree = "<group>"; };
-		DF4B336F17F7B8FB00A1C5BC /* i_love_music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i_love_music.png; sourceTree = "<group>"; };
+		DF4B336C17F7B8FB00A1C5BC /* difficulty_level_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = difficulty_level_1.png; sourceTree = "<group>"; };
+		DF4B336D17F7B8FB00A1C5BC /* difficulty_level_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = difficulty_level_2.png; sourceTree = "<group>"; };
+		DF4B336E17F7B8FB00A1C5BC /* difficulty_level_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = difficulty_level_3.png; sourceTree = "<group>"; };
+		DF4B336F17F7B8FB00A1C5BC /* difficulty_level_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = difficulty_level_4.png; sourceTree = "<group>"; };
 		DF6AA8B717F4A7F60076B2A5 /* healthbar_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_green.png; sourceTree = "<group>"; };
 		DF6AA8B817F4A7F60076B2A5 /* healthbar_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_orange.png; sourceTree = "<group>"; };
 		DF6AA8B917F4A7F60076B2A5 /* healthbar_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_red.png; sourceTree = "<group>"; };
@@ -1439,10 +1439,10 @@
 		B2E9188E18176F4E0063BC73 /* level_difficulty */ = {
 			isa = PBXGroup;
 			children = (
-				DF4B336C17F7B8FB00A1C5BC /* i_love_clubbing_heart.png */,
-				DF4B336D17F7B8FB00A1C5BC /* i_love_dancing_heart.png */,
-				DF4B336E17F7B8FB00A1C5BC /* i_love_disco.png */,
-				DF4B336F17F7B8FB00A1C5BC /* i_love_music.png */,
+				DF4B336C17F7B8FB00A1C5BC /* difficulty_level_1.png */,
+				DF4B336D17F7B8FB00A1C5BC /* difficulty_level_2.png */,
+				DF4B336E17F7B8FB00A1C5BC /* difficulty_level_3.png */,
+				DF4B336F17F7B8FB00A1C5BC /* difficulty_level_4.png */,
 			);
 			name = level_difficulty;
 			sourceTree = "<group>";
@@ -2453,14 +2453,14 @@
 				B2E919031817702C0063BC73 /* player_2_i_53.png in Resources */,
 				DF6AA8D617F4AB920076B2A5 /* dance10.png in Resources */,
 				DF8699711803D028008CB857 /* losangeles.mp3 in Resources */,
-				DF4B337017F7B8FB00A1C5BC /* i_love_clubbing_heart.png in Resources */,
+				DF4B337017F7B8FB00A1C5BC /* difficulty_level_1.png in Resources */,
 				B2E9184418176B290063BC73 /* player_1_d1_26.png in Resources */,
 				B2E918E61817702C0063BC73 /* player_2_i_27.png in Resources */,
 				B2E9183E18176B290063BC73 /* player_1_d1_20.png in Resources */,
-				DF4B337117F7B8FB00A1C5BC /* i_love_dancing_heart.png in Resources */,
+				DF4B337117F7B8FB00A1C5BC /* difficulty_level_2.png in Resources */,
 				B2E9187E18176B290063BC73 /* player_1_d1_79.png in Resources */,
-				DF4B337217F7B8FB00A1C5BC /* i_love_disco.png in Resources */,
-				DF4B337317F7B8FB00A1C5BC /* i_love_music.png in Resources */,
+				DF4B337217F7B8FB00A1C5BC /* difficulty_level_3.png in Resources */,
+				DF4B337317F7B8FB00A1C5BC /* difficulty_level_4.png in Resources */,
 				B2E918F71817702C0063BC73 /* player_2_i_42.png in Resources */,
 				B2E9184618176B290063BC73 /* player_1_d1_28.png in Resources */,
 				DF9586191804F9A8006C9B0F /* touchpoints-blue.png in Resources */,
