@@ -56,25 +56,25 @@
         // Adding player 1 in the player selection menu (chacha: dance1.png)
         NSString *charPath1 = @"player_1.png";
         [self addSprite:charPath1];
-        ch.character.position = ccp(windowSize.width*1/8,windowSize.height/3);
+        ch.character.position = ccp(windowSize.width*1/8,windowSize.height*2/5);
         [self addChild:ch.character];
         
         // Adding player 2 in the player selection menu(lady: d1.png)
         charPath1 = @"player_2.png";
         [self addSprite:charPath1];
-        ch.character.position = ccp(windowSize.width*3/8,windowSize.height/3);
+        ch.character.position = ccp(windowSize.width*3/8,windowSize.height*1/5);
         [self addChild:ch.character];
         
         // Adding player 3 in the player selection menu (hulk1.png)
-        charPath1 = @"player_2.png";
+        charPath1 = @"player_3.png";
         [self addSprite:charPath1];
-        ch.character.position = ccp(windowSize.width*5/8,windowSize.height/3);
+        ch.character.position = ccp(windowSize.width*5/8,windowSize.height*2/5);
         [self addChild:ch.character];
         
         // Adding player 4 in the player selection menu(random)
-        charPath1 = @"player_2.png";
+        charPath1 = @"player_4.png";
         [self addSprite:charPath1];
-        ch.character.position = ccp(windowSize.width*7/8,windowSize.height/3);
+        ch.character.position = ccp(windowSize.width*7/8,windowSize.height*1/5);
         [self addChild:ch.character];
         
         self.touchEnabled = YES;
@@ -85,7 +85,7 @@
 
 // This function is for drawing all the default cocos2d geometry on the layer
 // The function name has to be as it is.
-
+/*
  -(void)draw
 {
     [super draw];
@@ -99,7 +99,7 @@
     ccDrawLine(ccp(windowSize.width*1/2, 0), ccp(windowSize.width*1/2, windowSize.height));
     ccDrawLine(ccp(windowSize.width*3/4, 0), ccp(windowSize.width*3/4, windowSize.height));
 }
-
+*/
 - (CCSprite *) addSprite:(NSString *)spritePath {
     
     [ch setCharacter:[CCSprite spriteWithFile:spritePath]];
@@ -129,8 +129,6 @@
                     NSString *name = [NSString stringWithFormat:@"player_1"];
                     [ch setCharName:name];
                 }
-                NSLog(@"Name = %@",ch.charName);
-                NSLog(@"Selected = %@",ch2.selected);
                 
                 sharedManager = [MyManager sharedManager];
                 [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];

@@ -40,7 +40,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         charHand = [sharedManager.inputBundle objectForKey:@"ch"];
         
         // Player character
-        dancer = [CCSprite spriteWithFile:[charHand.charName stringByAppendingString:@".png"]];
+        dancer = [CCSprite spriteWithFile:[charHand.charName stringByAppendingString:@"_0.png"]];
         dancer.position = ccp(150,200);
         [self addChild:dancer z:0 tag:1];
         
@@ -317,7 +317,6 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [blast runAction:blastAction];
     [spriteSheet addChild:blast];
     [self addChild:spriteSheet];
-    
 }
 
 -(void) loadHelloWorldLayer {
