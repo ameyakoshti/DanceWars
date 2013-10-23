@@ -79,7 +79,7 @@
         
         self.touchEnabled = YES;
         //[[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
-        [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:NO];
+        [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:NO];
     }
     return self;
 }

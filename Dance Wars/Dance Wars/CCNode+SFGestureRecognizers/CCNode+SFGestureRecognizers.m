@@ -20,6 +20,8 @@
 
 //  Krzysztof Zabłocki Added AH_BRIDGE(x) to bridge cast to void*
 
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+
 #ifndef AH_RETAIN
 #if __has_feature(objc_arc)
 #define AH_RETAIN(x) (x)
