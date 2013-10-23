@@ -166,7 +166,7 @@
             
             if(playerSelected){
                 CCScene *levelSelect = [LevelSelectLayer scene];
-                [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:levelSelect]];
+                [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.25 scene:levelSelect]];
             }
         }
         

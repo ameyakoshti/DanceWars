@@ -44,11 +44,10 @@
         [self addChild:label];
         
         // menu to create different levels of difficulty
-        CCMenuItemImage *buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"i_love_clubbing_heart.png" selectedImage:@"i_love_clubbing_heart.png" target:self selector:@selector(loadLevelEasy)];
-        CCMenuItemImage *buttonLevel2 = [CCMenuItemImage itemWithNormalImage:@"i_love_dancing_heart.png" selectedImage:@"i_love_dancing_heart.png" target:self selector:@selector(loadLevelMed)];
-        CCMenuItemImage *buttonLevel3 = [CCMenuItemImage itemWithNormalImage:@"i_love_disco.png" selectedImage:@"i_love_disco.png" target:self selector:@selector(loadLevelDif)];
-        
-        CCMenuItemImage *buttonLevel4 = [CCMenuItemImage itemWithNormalImage:@"i_love_music.png" selectedImage:@"i_love_music.png" target:self selector:@selector(loadLevelDif)];
+        CCMenuItemImage *buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_1.png" selectedImage:@"difficulty_level_1.png" target:self selector:@selector(loadLevelEasy)];
+        CCMenuItemImage *buttonLevel2 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_2.png" selectedImage:@"difficulty_level_2.png" target:self selector:@selector(loadLevelMed)];
+        CCMenuItemImage *buttonLevel3 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_3.png" selectedImage:@"difficulty_level_3.png" target:self selector:@selector(loadLevelDif)];
+        CCMenuItemImage *buttonLevel4 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_4.png" selectedImage:@"difficulty_level_4.png" target:self selector:@selector(loadLevelDif)];
         
         CCMenu *gameMenu = [CCMenu menuWithItems:buttonLevel1, buttonLevel2, buttonLevel3, buttonLevel4, nil];
         NSNumber* itemsPerRow = [NSNumber numberWithInt:4];
@@ -69,7 +68,7 @@
 
 -(void) loadHome {
     CCScene *gameLevel = [HelloWorldLayer scene];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.2 scene:gameLevel]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.25 scene:gameLevel]];
 }
 
 - (void) loadLevelEasy {
@@ -95,34 +94,6 @@
     
     [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
     [self performSelector:@selector(loadGameLayer)];
-    
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"dance.plist"];
-    CCSpriteBatchNode *spriteSheetdance = [CCSpriteBatchNode batchNodeWithFile:@"dance.png"];
-    
-    NSMutableArray *walkframes = [NSMutableArray array];
-    
-    for (int x = 1; x <= 8; ++x) {
-        //            [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"dance%d.png", 1]]];
-        NSString *frameNamedance = [NSString stringWithFormat:@"dance%d.png",x];
-        
-        [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameNamedance]];
-        
-    }
-    
-    CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
-    
-    CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"dance1.png"];
-    dance.position = ccp(1024/2, 768/2);
-    
-    
-    CCAction *danceAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walk restoreOriginalFrame:NO]];
-    
-    
-    [dance runAction:danceAction];
-    [spriteSheetdance addChild:dance];
-    [self addChild:spriteSheetdance];
-    
-    
 }
 
 - (void) loadLevelDif {    
@@ -140,6 +111,6 @@
 - (void) loadGameLayer {
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     CCScene *gameLevel = [GameLevelLayer scene];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:gameLevel]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.25 scene:gameLevel]];
 }
 @end
