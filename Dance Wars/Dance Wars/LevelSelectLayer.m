@@ -39,6 +39,11 @@
         
         CGSize size = [[CCDirector sharedDirector] winSize];
         
+        CCSprite *levelBg = [CCSprite spriteWithFile:@"levelselect_bg.png"];
+        levelBg.position = ccp(size.width/2, size.height/2);
+        
+        [self addChild:levelBg];
+        
         CCLabelTTF *label = [CCLabelTTF labelWithString:@"Select Your Level of Difficulty" fontName:@"Papyrus" fontSize:50];
         label.position = ccp(size.width/2, size.height*3/4);
         [self addChild:label];
@@ -76,7 +81,7 @@
     
     [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
     
-    le.background = [CCSprite spriteWithFile:@"bombay.png"];
+    le.background = [CCSprite spriteWithFile:@"0background.png"];
     le.backgroundMusic = [NSString stringWithFormat:@"bombay.mp3"];
     
     [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
@@ -88,8 +93,7 @@
 
     [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
     
-    le.background = [CCSprite spriteWithFile:@"0background.png"];
-    
+    le.background = [CCSprite spriteWithFile:@"background2.png"];
     le.backgroundMusic = [NSString stringWithFormat:@"losangeles.mp3"];
     
     [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
@@ -101,7 +105,7 @@
 
     [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
     
-    le.background = [CCSprite spriteWithFile:@"madrid.png"];
+    le.background = [CCSprite spriteWithFile:@"background3.png"];
     le.backgroundMusic = [NSString stringWithFormat:@"madrid.mp3"];
     
     [sharedManager.inputBundle setObject:le forKey:@"ENVR"];

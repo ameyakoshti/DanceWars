@@ -42,19 +42,19 @@
         
         CGSize size = [[CCDirector sharedDirector] winSize];
         
-        CCSprite *levelBg = [CCSprite spriteWithFile:@"home_bg.jpg"];
+        CCSprite *levelBg = [CCSprite spriteWithFile:@"home_bg.png"];
         levelBg.position = ccp(size.width/2, size.height/2);
         
         [self addChild:levelBg];
         
-        CCSprite *introName = [CCSprite spriteWithFile:@"intro_name.png"];
-        introName.position = ccp(size.width/2, size.height*3/4);
+        //CCSprite *introName = [CCSprite spriteWithFile:@"intro_name.png"];
+        //introName.position = ccp(size.width/2, size.height*3/4);
                 
         CCMenuItemImage *playButton = [CCMenuItemImage itemWithNormalImage:@"play_button.png" selectedImage:@"play_button_pressed.png" target:self selector:@selector(loadCharacterSelectLayer)];
         CCMenu *gameMenu = [CCMenu menuWithItems:playButton, nil];
-        gameMenu.position = ccp(size.width/2, size.height/4);
+        gameMenu.position = ccp(size.width/2, size.height/2);
         
-        [self addChild:introName];
+        //[self addChild:introName];
         [self addChild:gameMenu];
         
     }
