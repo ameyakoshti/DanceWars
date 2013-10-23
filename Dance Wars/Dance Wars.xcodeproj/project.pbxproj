@@ -491,6 +491,8 @@
 		DF8699721803D028008CB857 /* madrid.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF86996D1803D028008CB857 /* madrid.mp3 */; };
 		DF9586191804F9A8006C9B0F /* touchpoints-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = DF9586181804F9A8006C9B0F /* touchpoints-blue.png */; };
 		DFB8372C17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB8372B17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m */; };
+		DFCC18EE1817CC1C009B8EE8 /* youlose.png in Resources */ = {isa = PBXBuildFile; fileRef = DFCC18EC1817CC1C009B8EE8 /* youlose.png */; };
+		DFCC18EF1817CC1C009B8EE8 /* youwin.png in Resources */ = {isa = PBXBuildFile; fileRef = DFCC18ED1817CC1C009B8EE8 /* youwin.png */; };
 		DFE89BB717FBBC7A007A7468 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BB617FBBC7A007A7468 /* home.png */; };
 		DFE89BB917FBBD6D007A7468 /* home_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BB817FBBD6D007A7468 /* home_pressed.png */; };
 		DFE89BBB17FBBE2E007A7468 /* play_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BBA17FBBE2E007A7468 /* play_button.png */; };
@@ -499,7 +501,7 @@
 		DFE89BCB17FBE0B0007A7468 /* dance.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BC917FBE0B0007A7468 /* dance.png */; };
 		DFE89BCD17FBEFFA007A7468 /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BCC17FBEFFA007A7468 /* fire.png */; };
 		DFEAFB8A180F93EB00308AC0 /* nice.png in Resources */ = {isa = PBXBuildFile; fileRef = DFEAFB89180F93EB00308AC0 /* nice.png */; };
-		DFEAFB8C180F96C100308AC0 /* danceMessage1.png in Resources */ = {isa = PBXBuildFile; fileRef = DFEAFB8B180F96C100308AC0 /* danceMessage1.png */; };
+		DFEAFB8C180F96C100308AC0 /* danceMessage.png in Resources */ = {isa = PBXBuildFile; fileRef = DFEAFB8B180F96C100308AC0 /* danceMessage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1195,6 +1197,8 @@
 		DF9586181804F9A8006C9B0F /* touchpoints-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touchpoints-blue.png"; sourceTree = "<group>"; };
 		DFB8372A17FA9E41002094B4 /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
 		DFB8372B17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+SFGestureRecognizers.m"; sourceTree = "<group>"; };
+		DFCC18EC1817CC1C009B8EE8 /* youlose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youlose.png; sourceTree = "<group>"; };
+		DFCC18ED1817CC1C009B8EE8 /* youwin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youwin.png; sourceTree = "<group>"; };
 		DFE89BB617FBBC7A007A7468 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		DFE89BB817FBBD6D007A7468 /* home_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_pressed.png; sourceTree = "<group>"; };
 		DFE89BBA17FBBE2E007A7468 /* play_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_button.png; sourceTree = "<group>"; };
@@ -1203,7 +1207,7 @@
 		DFE89BC917FBE0B0007A7468 /* dance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dance.png; path = ../dance.png; sourceTree = "<group>"; };
 		DFE89BCC17FBEFFA007A7468 /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
 		DFEAFB89180F93EB00308AC0 /* nice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nice.png; sourceTree = "<group>"; };
-		DFEAFB8B180F96C100308AC0 /* danceMessage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = danceMessage1.png; sourceTree = "<group>"; };
+		DFEAFB8B180F96C100308AC0 /* danceMessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = danceMessage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1561,7 +1565,9 @@
 		B2E9188A18176E910063BC73 /* messages */ = {
 			isa = PBXGroup;
 			children = (
-				DFEAFB8B180F96C100308AC0 /* danceMessage1.png */,
+				DFCC18EC1817CC1C009B8EE8 /* youlose.png */,
+				DFCC18ED1817CC1C009B8EE8 /* youwin.png */,
+				DFEAFB8B180F96C100308AC0 /* danceMessage.png */,
 				DFEAFB89180F93EB00308AC0 /* nice.png */,
 			);
 			name = messages;
@@ -2563,6 +2569,7 @@
 				B2C4D73C1817B5DA000B295E /* player_2_i.png in Resources */,
 				B2C4D6D21817B1DA000B295E /* player_2_d1_33.png in Resources */,
 				B2C4D74F1817B5DA000B295E /* player_2_i_26.png in Resources */,
+				DFCC18EF1817CC1C009B8EE8 /* youwin.png in Resources */,
 				D8BFB8C7180CE36C002DA2E0 /* f11.png in Resources */,
 				B2E9185B18176B290063BC73 /* player_1_d1_47.png in Resources */,
 				B2C4D6BD1817B1DA000B295E /* player_2_d1_14.png in Resources */,
@@ -2577,7 +2584,7 @@
 				B2E9183718176B290063BC73 /* player_1_d1_14.png in Resources */,
 				B2E919141817755A0063BC73 /* touchpoints-green.png in Resources */,
 				B2C4D6D91817B1DA000B295E /* player_2_d1_4.png in Resources */,
-				DFEAFB8C180F96C100308AC0 /* danceMessage1.png in Resources */,
+				DFEAFB8C180F96C100308AC0 /* danceMessage.png in Resources */,
 				D8BFB8C8180CE36C002DA2E0 /* f12.png in Resources */,
 				D8BFB8D0180CE36C002DA2E0 /* f20.png in Resources */,
 				B2C4D7621817B5DA000B295E /* player_2_i_43.png in Resources */,
@@ -2619,6 +2626,7 @@
 				B2C4D7631817B5DA000B295E /* player_2_i_44.png in Resources */,
 				B2C4D6E01817B1DA000B295E /* player_2_d1_46.png in Resources */,
 				B2C4D7491817B5DA000B295E /* player_2_i_20.png in Resources */,
+				DFCC18EE1817CC1C009B8EE8 /* youlose.png in Resources */,
 				B2C4D6E21817B1DA000B295E /* player_2_d1_48.png in Resources */,
 				B2E9185C18176B290063BC73 /* player_1_d1_48.png in Resources */,
 				B2C4D7431817B5DA000B295E /* player_2_i_15.png in Resources */,

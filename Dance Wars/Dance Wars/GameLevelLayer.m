@@ -97,10 +97,16 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 
 -(void) addMessage:(NSString *)image{
     message = [CCSprite spriteWithFile:image];
-    if([image isEqualToString:@"danceMessage1.png"]){
+    if([image isEqualToString:@"danceMessage.png"]){
         message.position = ccp(size.width/2,size.height/2);
     }
-    else{
+    if([image isEqualToString:@"nice.png"]){
+        message.position = ccp(size.width/2,size.height*2/3);
+    }
+    if([image isEqualToString:@"youwin.png"]){
+        message.position = ccp(size.width/2,size.height*2/3);
+    }
+    if([image isEqualToString:@"youlose.png"]){
         message.position = ccp(size.width/2,size.height*2/3);
     }
     [self addChild:message];
@@ -113,20 +119,24 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 -(void) gamePlayLoopCondition {
     
     if (self.life<100 && self.aiLife<100) {
-        
-        NSLog(@"The user score %d",self.life);
-        NSLog(@"The AI Score%d",self.aiLife);
-        
         objectCount=0;
         touchPointCounter=0;
         
-        [self addMessage:@"danceMessage1.png"];
+        [self addMessage:@"danceMessage.png"];
         [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:1];
         [self schedule:@selector(managingTouchIcons) interval:1.0 repeat:5 delay:1.5];
     }
     else {
+        [self scheduleOnce:@selector(initiateBlast) delay:1.0];
         
-        [self scheduleOnce:@selector(initiateBlast) delay:2.0];
+        if(self.life > self.aiLife){
+            [self addMessage:@"youwin.png"];
+            [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:3.5];
+        }
+        else{
+            [self addMessage:@"youlose.png"];
+            [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:3.5];
+        }
     }
     
 }
@@ -295,7 +305,12 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     
     CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
     CCSprite *blast = [CCSprite spriteWithSpriteFrameName:@"f1.png"];
-    blast.position = ccp(876, 150);
+    if(self.life > self.aiLife){
+        blast.position = ccp(876, 150);
+    }
+    else{
+        blast.position = ccp(200, 150);
+    }
     
     CCAction *blastAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
     
