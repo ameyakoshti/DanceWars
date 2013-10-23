@@ -89,11 +89,40 @@
 
     [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
     
-    le.background = [CCSprite spriteWithFile:@"losangeles.png"];
+    le.background = [CCSprite spriteWithFile:@"0background.png"];
+    
     le.backgroundMusic = [NSString stringWithFormat:@"losangeles.mp3"];
     
     [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
     [self performSelector:@selector(loadGameLayer)];
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"dance.plist"];
+    CCSpriteBatchNode *spriteSheetdance = [CCSpriteBatchNode batchNodeWithFile:@"dance.png"];
+    
+    NSMutableArray *walkframes = [NSMutableArray array];
+    
+    for (int x = 1; x <= 8; ++x) {
+        //            [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"dance%d.png", 1]]];
+        NSString *frameNamedance = [NSString stringWithFormat:@"dance%d.png",x];
+        
+        [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameNamedance]];
+        
+    }
+    
+    CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
+    
+    CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"dance1.png"];
+    dance.position = ccp(1024/2, 768/2);
+    
+    
+    CCAction *danceAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walk restoreOriginalFrame:NO]];
+    
+    
+    [dance runAction:danceAction];
+    [spriteSheetdance addChild:dance];
+    [self addChild:spriteSheetdance];
+    
+    
 }
 
 - (void) loadLevelDif {    

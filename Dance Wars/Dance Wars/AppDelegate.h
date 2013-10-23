@@ -19,11 +19,11 @@
 	UIWindow *window_;
 	MyNavigationController *navController_;
 	
-	CCDirectorIOS	*director_;							// weak ref
+	CCDirectorIOS	*__unsafe_unretained_director_;							// weak ref
 }
 
-@property (nonatomic, retain) UIWindow *window;
+@property (nonatomic, strong) UIWindow *window;
 @property (readonly) MyNavigationController *navController;
-@property (readonly) CCDirectorIOS *director;
+@property (unsafe_unretained, readonly) CCDirectorIOS *director;
 
 @end
