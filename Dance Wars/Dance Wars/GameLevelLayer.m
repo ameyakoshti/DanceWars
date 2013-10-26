@@ -279,7 +279,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     // this is to get the score for the AI player
     int aiscore = (int)(([getScore calScore]*100)/2100);
     
-    // AI life bar
+    // update AI progress bar
     if(self.aiLife >= 0 && self.aiLife < 100){
         self.aiLife += aiscore;
         if(self.aiLife > 25 && self.aiLife < 60){
@@ -440,31 +440,37 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         // Calculate the score and accuracy for user and ai
         InputHandler *ih2 = [sharedManager.inputBundle objectForKey:@"LDAA"];
         
-        [ih2 setUserAccuracy:(hitCount*100/totalObjects)];
+        [ih2 setUserAccuracy:(hitCount*100/objectCount)];
         [sharedManager.inputBundle setObject:ih2 forKey:@"USERACC"];
         
         getScore = [[Score alloc] init];
         [getScore calScore];
         
-        InputHandler *ih3 = [sharedManager.inputBundle objectForKey:@"USERLIFE"];
-        
-        // Increment progress bar for user
-        if(self.life >= 0 && self.life < 100){
-            self.life += (int)[ih3 userLife];
-            if(self.life > 25 && self.life < 60){
-                [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
-                [self.progressTimer setScale:1];
-            }
-            if(self.life > 60){
-                [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_green.png"]];
-                [self.progressTimer setScale:1];
-            }
-        }
-        [self.progressTimer setPercentage:self.life];
-        
-        // Enable dance show for Player
-        [self initiateUserDance:@"_d1"];
+        [self updateUserProgressBar];
     }
+}
+
+-(void) updateUserProgressBar {
+    
+    InputHandler *ih3 = [sharedManager.inputBundle objectForKey:@"USERLIFE+MOVEDIFF"];
+    
+    // Increment progress bar for user
+    if(self.life >= 0 && self.life < 100){
+        self.life += (int)[ih3 userLife];
+        if(self.life > 25 && self.life < 60){
+            [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
+            [self.progressTimer setScale:1];
+        }
+        if(self.life > 60){
+            [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_green.png"]];
+            [self.progressTimer setScale:1];
+        }
+    }
+    [self.progressTimer setPercentage:self.life];
+    
+    // Enable dance show for Player
+    [self initiateUserDance:@"_d1"];
+
 }
 
 -(void) enableGesture:(NSNumber *) value{

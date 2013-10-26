@@ -36,50 +36,50 @@
     InputHandler *ih3 = [sharedManager.inputBundle objectForKey:@"USERACC"];
     
     // set move difficulty
-    [ih setMoveDifficulty:3];           //initial move difficulty for each of the three levels
+    [ih3 setMoveDifficulty:3];           //initial move difficulty for each of the three levels
     
     if([ih3 userAccuracy] >= 70)
-        [ih setMoveDifficulty:5];
-    else if([ih3 userAccuracy] >= 70 && [ih moveDifficulty] == 5)
-        [ih setMoveDifficulty:7];
+        [ih3 setMoveDifficulty:5];
+    else if([ih3 userAccuracy] >= 70 && [ih3 moveDifficulty] == 5)
+        [ih3 setMoveDifficulty:7];
     
-    NSLog(@"this is move difficulty %d", [ih moveDifficulty]);
+    NSLog(@"this is move difficulty %d", [ih3 moveDifficulty]);
 
     
-    patternDifficulty = ([ih moveDifficulty] * [ih3 gameLevelDifficulty]);
+    patternDifficulty = ([ih3 moveDifficulty] * [ih3 gameLevelDifficulty]);
     
     // set user score
     [ih setUserScore: (patternDifficulty * [ih3 userAccuracy])];
     NSLog(@"Userscore: %f", [ih userScore]);
+    [sharedManager.inputBundle setObject:ih3 forKey:@"USERLIFE+MOVEDIFF"];
     
     //set user life value
     [ih3 setUserLife:[ih userScore]/21];
-    [sharedManager.inputBundle setObject:ih3 forKey:@"USERLIFE"];
     
     // set ai acurracy based on level difficulty and user move difficulty
     switch([ih3 gameLevelDifficulty]){
         case 1:{
-                    if([ih moveDifficulty] == 3)
+                    if([ih3 moveDifficulty] == 3)
                         [ih3 setAiAccuracy:30];
-                    else if([ih moveDifficulty] == 5)
+                    else if([ih3 moveDifficulty] == 5)
                         [ih3 setAiAccuracy:40];
                     else
                         [ih3 setAiAccuracy:50];
                     break;
                 }
         case 2:{
-                    if([ih moveDifficulty] == 3)
+                    if([ih3 moveDifficulty] == 3)
                         [ih3 setAiAccuracy:60];
-                    else if([ih moveDifficulty] == 5)
+                    else if([ih3 moveDifficulty] == 5)
                         [ih3 setAiAccuracy:70];
                     else
                         [ih3 setAiAccuracy:80];
                     break;
                 }
         case 3:{
-                    if([ih moveDifficulty] == 3)
+                    if([ih3 moveDifficulty] == 3)
                         [ih3 setAiAccuracy:90];
-                    else if([ih moveDifficulty] == 5)
+                    else if([ih3 moveDifficulty] == 5)
                         [ih3 setAiAccuracy:95];
                     else
                         [ih3 setAiAccuracy:100];
