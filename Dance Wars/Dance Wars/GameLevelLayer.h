@@ -48,7 +48,10 @@
     Score *getScore;
     MyManager *sharedManager;
     LevelEnvironment *le;
-
+    
+    NSArray *singleTouches;
+    NSArray *doubleTouches;
+    NSArray *swipes;
 }
 
 +(CCScene *) scene;

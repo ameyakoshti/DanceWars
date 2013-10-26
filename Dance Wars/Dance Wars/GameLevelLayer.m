@@ -15,6 +15,12 @@
 
 static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKey";
 
+// Time between the touch icons
+static float levelDifficulty1Speed = 1.00;
+static float levelDifficulty2Speed = 0.75;
+static float levelDifficulty3Speed = 0.50;
+static float speed;
+
 +(CCScene *) scene{
 	CCScene *scene = [CCScene node];
 	GameLevelLayer *layer = [GameLevelLayer node];
@@ -79,14 +85,29 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         
         // Start the game by showing the touch icons
         touchPointCounter=0;
-        [self schedule:@selector(managingTouchIcons) interval:1.0 repeat:5 delay:1.5];
+        singleTouches = [[NSArray alloc]init];
+        doubleTouches = [[NSArray alloc]init];
+        swipes = [[NSArray alloc]init];
+        [self manageTouchIcons];
         
         // Enable multi touches and gestures
         self.touchEnabled = YES;
         [[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
 
-        // Input handler object initialization to set Player and AI properties
-        ih = [[InputHandler alloc] init];
+        // Input handler object initialization to set the speed of the touch icons
+        ih = [sharedManager.inputBundle objectForKey:@"LDAA"];
+        switch (ih.gameLevelDifficulty)
+        {
+            case 1:
+                speed = levelDifficulty1Speed;
+                break;
+            case 2:
+                speed = levelDifficulty2Speed;
+                break;
+            case 3:
+                speed = levelDifficulty3Speed;
+                break;
+        }
         
         // Initial idle move for user
         //[self initiateIdleDance];
@@ -124,7 +145,8 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         
         [self addMessage:@"danceMessage.png"];
         [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:1];
-        [self schedule:@selector(managingTouchIcons) interval:1.0 repeat:5 delay:1.5];
+        //[self schedule:@selector(manageTouchIcons) interval:1.0 repeat:1 delay:1.5];
+        [self manageTouchIcons];
     }
     else {
         [self scheduleOnce:@selector(initiateBlast) delay:1.0];
@@ -331,7 +353,37 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.2 scene:[HelloWorldLayer scene]]];
 }
 
--(void) managingTouchIcons {
+-(void) manageTouchIcons {
+    // Setting move difficulty
+    NSString *moveDifficulty = @"MoveDifficultyWt3";
+    
+    // Reading from pList
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"TouchPatterns" ofType:@"plist"];
+    NSDictionary *Dictionary = [[NSDictionary alloc]initWithContentsOfFile:plistPath];
+    
+    // Reading move difficulties from pList
+    NSDictionary *DictionaryMoveDifficulty = [Dictionary valueForKey:moveDifficulty];
+
+    // Number of patterns in the current move difficulty
+    int numberOfPatterns = [[Dictionary valueForKey:moveDifficulty] count];
+    
+    // Randomly select a pattern
+    int lowerBound = 1;
+    int upperBound = numberOfPatterns;
+    int randomPattern = lowerBound + arc4random() % (upperBound - lowerBound);
+    
+    // Reading touch pattern from pList based on the randomly selected move
+    NSDictionary *DictionaryMove = [DictionaryMoveDifficulty valueForKey:[NSString stringWithFormat:@"Move%d",randomPattern]];
+
+    singleTouches = [[DictionaryMove valueForKey:@"SingleTouches"] componentsSeparatedByString:@","];
+    doubleTouches = [[DictionaryMove valueForKey:@"DoubleTouches"] componentsSeparatedByString:@","];
+    swipes = [[DictionaryMove valueForKey:@"Swipes"] componentsSeparatedByString:@","];
+    
+    [self schedule:@selector(displayTouchIcons) interval:1.0 repeat:5 delay:1.5];
+    
+}
+
+-(void) displayTouchIcons {
     // to check if both the touch icons are tapped at the same time
     visited[1] = 0;
     visited[2] = 0;
@@ -340,26 +392,27 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     
     if(touchPointCounter == 3){
         [self addTouchIcons:1 withArg2:@"touchpoints-blue.png"];
-        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:0.75];
+        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:speed];
         
         [self addTouchIcons:2 withArg2:@"touchpoints-blue.png"];
-        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:0.75];
+        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:speed];
     }
     else if(touchPointCounter == 5){
         [self addTouchIcons:1 withArg2:@"touchpoints-green.png"];
-        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:2.0];
+        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:speed];
         
         [self addTouchIcons:2 withArg2:@"touchpoints-blue.png"];
-        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:2.0];
+        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:speed];
     }
     else{
         [self addTouchIcons:1 withArg2:@"touchpoints.png"];
-        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:0.75];
+        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:speed];
     }
     
     // This is counter is for counting the number of times the touch icons will appear
     // It does not count the total number of touch icons.
     touchPointCounter++;
+
 }
 
 -(void) addTouchIcons:(int) touchNumber withArg2:(NSString *) fileName {

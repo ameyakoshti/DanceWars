@@ -471,6 +471,7 @@
 		DF3E1EB517EA4A210043593E /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EB417EA4A210043593E /* Score.m */; };
 		DF3E1EB817EA4A2E0043593E /* GenerateMoves.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EB717EA4A2E0043593E /* GenerateMoves.m */; };
 		DF3E1EBB17EA4A8C0043593E /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1EBA17EA4A8B0043593E /* Settings.m */; };
+		DF57B9C1181C637A00564514 /* TouchPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF57B9C0181C637A00564514 /* TouchPatterns.plist */; };
 		DF6AA8BA17F4A7F60076B2A5 /* healthbar_green.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8B717F4A7F60076B2A5 /* healthbar_green.png */; };
 		DF6AA8BB17F4A7F60076B2A5 /* healthbar_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8B817F4A7F60076B2A5 /* healthbar_orange.png */; };
 		DF6AA8BC17F4A7F60076B2A5 /* healthbar_red.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8B917F4A7F60076B2A5 /* healthbar_red.png */; };
@@ -1181,6 +1182,7 @@
 		DF3E1EB717EA4A2E0043593E /* GenerateMoves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateMoves.m; sourceTree = "<group>"; };
 		DF3E1EB917EA4A8B0043593E /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		DF3E1EBA17EA4A8B0043593E /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		DF57B9C0181C637A00564514 /* TouchPatterns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TouchPatterns.plist; sourceTree = "<group>"; };
 		DF6AA8B717F4A7F60076B2A5 /* healthbar_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_green.png; sourceTree = "<group>"; };
 		DF6AA8B817F4A7F60076B2A5 /* healthbar_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_orange.png; sourceTree = "<group>"; };
 		DF6AA8B917F4A7F60076B2A5 /* healthbar_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_red.png; sourceTree = "<group>"; };
@@ -1763,6 +1765,7 @@
 				DF3E1E9117EA38AD0043593E /* Audio */,
 				DF3E1C7017EA363E0043593E /* Info.plist */,
 				DF3E1C7117EA363E0043593E /* iTunesArtwork */,
+				DF57B9C0181C637A00564514 /* TouchPatterns.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -2511,6 +2514,7 @@
 				DF3E1DCB17EA36410043593E /* ChangeLog in Resources */,
 				B2EF47F418179FE600841EB0 /* background_1_10.png in Resources */,
 				B2EF480318179FE600841EB0 /* background_2_3.png in Resources */,
+				DF57B9C1181C637A00564514 /* TouchPatterns.plist in Resources */,
 				D8BFB8CD180CE36C002DA2E0 /* f17.png in Resources */,
 				DF6AA8BA17F4A7F60076B2A5 /* healthbar_green.png in Resources */,
 				B2EF480418179FE600841EB0 /* background_2_4.png in Resources */,
