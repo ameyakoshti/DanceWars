@@ -46,7 +46,7 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
         
         // AI character
         aichar = [CCSprite spriteWithFile:@"dance1.png"];
-        aichar.position = ccp(876,200);
+        aichar.position = ccp(876,230);
         [self addChild:aichar z:0 tag:2];
        
         // Player life bar
@@ -257,9 +257,11 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     
     NSMutableArray *walkframes = [NSMutableArray array];
     
-    for (int i = 1; i <= 10; ++i) {
-        NSString *frameName = [NSString stringWithFormat:@"dance%d.png",i];
-        [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
+    for (int j = 1; j <= 2; j++) {
+        for (int i = 1; i <= 10; ++i) {
+            NSString *frameName = [NSString stringWithFormat:@"dance%d.png",i];
+            [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
+        }
     }
     
     CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
@@ -310,10 +312,10 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
     CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
     CCSprite *blast = [CCSprite spriteWithSpriteFrameName:@"f1.png"];
     if(self.life > self.aiLife){
-        blast.position = ccp(876, 150);
+        blast.position = ccp(876, 250);
     }
     else{
-        blast.position = ccp(200, 150);
+        blast.position = ccp(150, 250);
     }
     
     CCAction *blastAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];

@@ -36,7 +36,7 @@
     InputHandler *ih3 = [sharedManager.inputBundle objectForKey:@"USERACC"];
     
     // set move difficulty
-    [ih setMoveDifficulty:3];
+    [ih setMoveDifficulty:3];           //initial move difficulty for each of the three levels
     
     if([ih3 userAccuracy] >= 70)
         [ih setMoveDifficulty:5];
@@ -56,11 +56,35 @@
     [ih3 setUserLife:[ih userScore]/21];
     [sharedManager.inputBundle setObject:ih3 forKey:@"USERLIFE"];
     
-    // set ai acurracy
+    // set ai acurracy based on level difficulty and user move difficulty
     switch([ih3 gameLevelDifficulty]){
-        case 1:{[ih3 setAiAccuracy:30];break;}
-        case 2:{[ih3 setAiAccuracy:60];break;}
-        case 3:{[ih3 setAiAccuracy:90];}
+        case 1:{
+                    if([ih moveDifficulty] == 3)
+                        [ih3 setAiAccuracy:30];
+                    else if([ih moveDifficulty] == 5)
+                        [ih3 setAiAccuracy:40];
+                    else
+                        [ih3 setAiAccuracy:50];
+                    break;
+                }
+        case 2:{
+                    if([ih moveDifficulty] == 3)
+                        [ih3 setAiAccuracy:60];
+                    else if([ih moveDifficulty] == 5)
+                        [ih3 setAiAccuracy:70];
+                    else
+                        [ih3 setAiAccuracy:80];
+                    break;
+                }
+        case 3:{
+                    if([ih moveDifficulty] == 3)
+                        [ih3 setAiAccuracy:90];
+                    else if([ih moveDifficulty] == 5)
+                        [ih3 setAiAccuracy:95];
+                    else
+                        [ih3 setAiAccuracy:100];
+                    break;
+                }
     }
     
     NSLog(@"Diff: %d",[ih3 gameLevelDifficulty]);

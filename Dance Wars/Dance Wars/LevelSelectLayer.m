@@ -83,7 +83,7 @@
     [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
     
     le.background = [CCSprite spriteWithFile:@"background_1_1.png"];
-    le.backgroundMusic = [NSString stringWithFormat:@"bombay.mp3"];
+    le.backgroundMusic = [NSString stringWithFormat:@"madrid.mp3"];
     
     [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
     [self performSelector:@selector(loadGameLayer)];
@@ -107,7 +107,7 @@
     [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
     
     le.background = [CCSprite spriteWithFile:@"background3.png"];
-    le.backgroundMusic = [NSString stringWithFormat:@"madrid.mp3"];
+    le.backgroundMusic = [NSString stringWithFormat:@"bombay.mp3"];
     
     [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
     [self performSelector:@selector(loadGameLayer)];
