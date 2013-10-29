@@ -37,6 +37,7 @@
     int missCount;
     int totalObjects;
     int visited[3];
+    int totalGeneratedObjects;
     
     float xLocations[10];
     float yLocations[10];

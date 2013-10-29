@@ -16,10 +16,11 @@
 static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKey";
 
 // Time between the touch icons
-static float levelDifficulty1Speed = 1.00;
-static float levelDifficulty2Speed = 0.75;
-static float levelDifficulty3Speed = 0.50;
+static float levelDifficulty1Speed = 1.50;
+static float levelDifficulty2Speed = 1.00;
+static float levelDifficulty3Speed = 0.75;
 static float speed;
+static float swipeSpeed = 2.0;
 
 +(CCScene *) scene{
 	CCScene *scene = [CCScene node];
@@ -84,10 +85,8 @@ static float speed;
         [self addChild:homeMenu];
         
         // Start the game by showing the touch icons
-        touchPointCounter=0;
-        singleTouches = [[NSArray alloc]init];
-        doubleTouches = [[NSArray alloc]init];
-        swipes = [[NSArray alloc]init];
+        touchPointCounter=1;
+        totalGeneratedObjects = 0;
         [self manageTouchIcons];
         
         // Enable multi touches and gestures
@@ -141,7 +140,7 @@ static float speed;
     
     if (self.life<100 && self.aiLife<100) {
         objectCount=0;
-        touchPointCounter=0;
+        touchPointCounter=1;
         
         [self addMessage:@"danceMessage.png"];
         [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:1];
@@ -355,7 +354,14 @@ static float speed;
 
 -(void) manageTouchIcons {
     // Setting move difficulty
-    NSString *moveDifficulty = @"MoveDifficultyWt3";
+    NSString *moveDifficulty;
+    InputHandler *ihMoveDiff = [sharedManager.inputBundle objectForKey:@"USERLIFE+MOVEDIFF"];
+    if ([ihMoveDiff moveDifficulty] == 0){
+        moveDifficulty = @"MoveDifficultyWt3";
+    }
+    else{
+        moveDifficulty = [NSString stringWithFormat:@"MoveDifficultyWt%d",[ihMoveDiff moveDifficulty]];
+    }
     
     // Reading from pList
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"TouchPatterns" ofType:@"plist"];
@@ -374,13 +380,19 @@ static float speed;
     
     // Reading touch pattern from pList based on the randomly selected move
     NSDictionary *DictionaryMove = [DictionaryMoveDifficulty valueForKey:[NSString stringWithFormat:@"Move%d",randomPattern]];
-
+    
+    // Everytime allocate to avoid overlap
+    singleTouches = [[NSArray alloc]init];
+    doubleTouches = [[NSArray alloc]init];
+    swipes = [[NSArray alloc]init];
+    
     singleTouches = [[DictionaryMove valueForKey:@"SingleTouches"] componentsSeparatedByString:@","];
     doubleTouches = [[DictionaryMove valueForKey:@"DoubleTouches"] componentsSeparatedByString:@","];
     swipes = [[DictionaryMove valueForKey:@"Swipes"] componentsSeparatedByString:@","];
     
-    [self schedule:@selector(displayTouchIcons) interval:1.0 repeat:5 delay:1.5];
+    totalGeneratedObjects = (singleTouches.count) + (doubleTouches.count*2) + (swipes.count*2);
     
+    [self schedule:@selector(displayTouchIcons) interval:2.1 repeat:5 delay:1.5];
 }
 
 -(void) displayTouchIcons {
@@ -390,23 +402,35 @@ static float speed;
     
     swipeHit = NO;
     
-    if(touchPointCounter == 3){
-        [self addTouchIcons:1 withArg2:@"touchpoints-blue.png"];
-        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:speed];
-        
-        [self addTouchIcons:2 withArg2:@"touchpoints-blue.png"];
-        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:speed];
+    // touchpointcounter starts with 0 and the Touches array start from 1, hence touchPointCounter+1
+    for (int i = 0 ; i < singleTouches.count ; i++){
+        if([singleTouches[i] intValue] == (touchPointCounter)){
+            [self addTouchIcons:1 withArg2:@"touchpoints.png" withArg3:NO];
+            [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:speed];
+            break;
+        }
     }
-    else if(touchPointCounter == 5){
-        [self addTouchIcons:1 withArg2:@"touchpoints-green.png"];
-        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:speed];
-        
-        [self addTouchIcons:2 withArg2:@"touchpoints-blue.png"];
-        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:speed];
+   
+    for (int i = 0 ; i < doubleTouches.count ; i++){
+        if([doubleTouches[i] intValue] == (touchPointCounter)){
+            [self addTouchIcons:1 withArg2:@"touchpoints-blue.png" withArg3:NO];
+            [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:speed];
+            
+            [self addTouchIcons:2 withArg2:@"touchpoints-blue.png" withArg3:NO];
+            [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:speed];
+            break;
+        }
     }
-    else{
-        [self addTouchIcons:1 withArg2:@"touchpoints.png"];
-        [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:speed];
+    
+    for (int i = 0 ; i < swipes.count ; i++){
+        if([swipes[i] intValue] == (touchPointCounter)){
+            [self addTouchIcons:1 withArg2:@"touchpoints-green.png" withArg3:YES];
+            [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:swipeSpeed];
+            
+            [self addTouchIcons:2 withArg2:@"touchpoints-blue.png" withArg3:YES];
+            [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:swipeSpeed];
+            break;
+        }
     }
     
     // This is counter is for counting the number of times the touch icons will appear
@@ -415,7 +439,7 @@ static float speed;
 
 }
 
--(void) addTouchIcons:(int) touchNumber withArg2:(NSString *) fileName {
+-(void) addTouchIcons:(int) touchNumber withArg2:(NSString *) fileName withArg3:(BOOL) swipeEnable {
     touchIcon[touchNumber] = [CCSprite spriteWithFile:fileName];
 
     // creating the imaginary rectangle in which the icons will appear
@@ -454,14 +478,12 @@ static float speed;
     xLocations[objectCount] = (float)randomW;
     yLocations[objectCount] = (float)randomH;
     
-    // This is to enable gesture on the 6th tap
-    if(touchPointCounter == 5){
+    // This is to enable swipe gesture on touch icon
+    if(swipeEnable){
         touchIcon[touchNumber].isTouchEnabled = YES;
-        //enable pan gesture recognizer
         [self enableGesture:[NSNumber numberWithInt:touchNumber]];
-    }
-    else{
-       [self addChild:touchIcon[touchNumber]];
+    }else{
+        [self addChild:touchIcon[touchNumber]];
     }
     
     // Counts the number of objects in every round
@@ -488,7 +510,7 @@ static float speed;
     int val = [value intValue];
     [self removeChild:touchIcon[val] cleanup:YES];
     
-    if(objectCount >= 8){
+    if(objectCount == totalGeneratedObjects){
         
         // Calculate the score and accuracy for user and ai
         InputHandler *ih2 = [sharedManager.inputBundle objectForKey:@"LDAA"];
