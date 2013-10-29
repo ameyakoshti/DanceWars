@@ -22,7 +22,7 @@
     
     CGSize size;
     
-    CCSprite *touchIcon[3];
+    CCSprite *touchIcon[4];
     CCSprite *dancer;
     CCSprite *aichar;
     CCSprite *message;
@@ -37,11 +37,11 @@
     int objectCount;
     int missCount;
     int totalObjects;
-    int visited[3];
+    int visited[4];
     int totalGeneratedObjects;
     
-    float xLocations[10];
-    float yLocations[10];
+    float xLocations[15];
+    float yLocations[15];
 
     CCLabelTTF *scoreLabel;
     

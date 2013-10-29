@@ -407,7 +407,7 @@ static float swipeSpeed = 2.0;
     // touchpointcounter starts with 0 and the Touches array start from 1, hence touchPointCounter+1
     for (int i = 0 ; i < singleTouches.count ; i++){
         if([singleTouches[i] intValue] == (touchPointCounter)){
-            [self addTouchIcons:1 withArg2:@"touchpoints.png" withArg3:NO];
+            [self addTouchIcons:1 withArg2:@"touchpoints.png" withArg3:NO withArg4:NO];
             [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:speed];
             break;
         }
@@ -415,10 +415,10 @@ static float swipeSpeed = 2.0;
    
     for (int i = 0 ; i < doubleTouches.count ; i++){
         if([doubleTouches[i] intValue] == (touchPointCounter)){
-            [self addTouchIcons:1 withArg2:@"touchpoints-blue.png" withArg3:NO];
+            [self addTouchIcons:1 withArg2:@"touchpoints-blue.png" withArg3:NO withArg4:NO];
             [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:speed];
             
-            [self addTouchIcons:2 withArg2:@"touchpoints-blue.png" withArg3:NO];
+            [self addTouchIcons:2 withArg2:@"touchpoints-blue.png" withArg3:NO withArg4:YES];
             [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:speed];
             break;
         }
@@ -426,10 +426,10 @@ static float swipeSpeed = 2.0;
     
     for (int i = 0 ; i < swipes.count ; i++){
         if([swipes[i] intValue] == (touchPointCounter)){
-            [self addTouchIcons:1 withArg2:@"touchpoints-green.png" withArg3:YES];
+            [self addTouchIcons:1 withArg2:@"touchpoints-green.png" withArg3:YES withArg4:NO];
             [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:swipeSpeed];
             
-            [self addTouchIcons:2 withArg2:@"touchpoints-blue.png" withArg3:YES];
+            [self addTouchIcons:2 withArg2:@"touchpoints-blue.png" withArg3:YES withArg4:NO];
             [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:swipeSpeed];
             break;
         }
@@ -441,15 +441,21 @@ static float swipeSpeed = 2.0;
 
 }
 
--(void) addTouchIcons:(int) touchNumber withArg2:(NSString *) fileName withArg3:(BOOL) swipeEnable {
+-(void) addTouchIcons:(int) touchNumber withArg2:(NSString *) fileName withArg3:(BOOL) swipeEnable withArg4:(BOOL) secondPoint{
     touchIcon[touchNumber] = [CCSprite spriteWithFile:fileName];
 
     // creating the imaginary rectangle in which the icons will appear
     float randomH,randomW;
     float maxX = size.width * 2/3;
     float minX = size.width * 1/3;
-    float maxY = size.height * 2/3;
-    float minY = size.height * 1/3;
+    float maxY,minY;
+    if (secondPoint){
+        maxY = yLocations[objectCount-1] + 100;
+        minY = yLocations[objectCount-1] - 100;
+    }else{
+        maxY = size.height * 2/3;
+        minY = size.height * 1/3;
+    }
     float rangeX = maxX - minX;
     float rangeY = maxY - minY;
     
@@ -462,10 +468,11 @@ static float swipeSpeed = 2.0;
         int halfOfTouchIcon = touchIcon[touchNumber].contentSize.width/2;
         float previousRangeXFrom = xLocations[objectCount-1]-halfOfTouchIcon;
         float previousRangeXTo = xLocations[objectCount-1]+halfOfTouchIcon;
-        float previousRangeYFrom = yLocations[objectCount-1]-halfOfTouchIcon;
-        float previousRangeYTo = yLocations[objectCount-1]+halfOfTouchIcon;
+        float previousRangeYFrom = yLocations[objectCount-1]-(halfOfTouchIcon*2);
+        float previousRangeYTo = yLocations[objectCount-1]+(halfOfTouchIcon*2);
         
-        while(1){
+        // 10 attempts to find a better location for touch point
+        for(int attempts = 0 ; attempts < 10 ; attempts ++){
             randomH = (arc4random() % (int)rangeY) + (int)minY;
             randomW = (arc4random() % (int)rangeX) + (int)minX;
             
@@ -493,19 +500,6 @@ static float swipeSpeed = 2.0;
     
     // The total number of objects across all the round
     totalObjects ++;
-    
-    // Some animation where the icon is generated
-    CCParticleSystem *emitter = [CCParticleExplosion node];
-    //set the location of the emitter
-    emitter.position = touchIcon[touchNumber].position;
-    //set size of particle animation
-    emitter.scale = 0.5;
-    //set an Image for the particle
-    emitter.texture = [[CCTextureCache sharedTextureCache] addImage:@"touchpoints.png"];
-    //set length of particle animation
-    [emitter setLife:0.1f];
-    //add to layer ofcourse(effect begins after this step)
-    [self addChild: emitter];
 }
 
 -(void) removeTouchIcons:(NSNumber *) value{
@@ -600,31 +594,55 @@ static float swipeSpeed = 2.0;
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
-    // Check for taps only when its not the 6th tap
-    // 6th tap is gesture based
-    if(touchPointCounter !=5 ){
-        for(UITouch *touch in touches)
-        {
-            CGPoint location = [[CCDirector sharedDirector] convertTouchToGL:touch];
-            
-            if((CGRectContainsPoint(touchIcon[1].boundingBox, location))) {
-                visited[1] = 1;
-                hitCount++;
-            }
-            if((CGRectContainsPoint(touchIcon[2].boundingBox, location))) {
-                visited[2] = 1;
-                hitCount++;
-            }
-            else {
-               // for negative points
-            }
-        }
+    for(UITouch *touch in touches)
+    {
+        CGPoint location = [[CCDirector sharedDirector] convertTouchToGL:touch];
         
-        //checkIfBothHit = 0;
-        if(visited[1] == 1 && visited[2] == 1){
-            [self addMessage:@"nice.png"];
-            [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:0.5];
+        if((CGRectContainsPoint(touchIcon[1].boundingBox, location))) {
+            visited[1] = 1;
+            hitCount++;
+            
+            // Some animation where the icon is generated
+            CCParticleSystem *emitter = [CCParticleExplosion node];
+            //set the location of the emitter
+            emitter.position = touchIcon[1].position;
+            //set size of particle animation
+            emitter.scale = 0.5;
+            //set an Image for the particle
+            emitter.texture = [[CCTextureCache sharedTextureCache] addImage:@"touchpoints.png"];
+            //set length of particle animation
+            [emitter setLife:0.1f];
+            //add to layer ofcourse(effect begins after this step)
+            [self addChild: emitter];
+
         }
+        if((CGRectContainsPoint(touchIcon[2].boundingBox, location))) {
+            visited[2] = 1;
+            hitCount++;
+            
+            // Some animation where the icon is generated
+            CCParticleSystem *emitter = [CCParticleExplosion node];
+            //set the location of the emitter
+            emitter.position = touchIcon[2].position;
+            //set size of particle animation
+            emitter.scale = 0.5;
+            //set an Image for the particle
+            emitter.texture = [[CCTextureCache sharedTextureCache] addImage:@"touchpoints.png"];
+            //set length of particle animation
+            [emitter setLife:0.1f];
+            //add to layer ofcourse(effect begins after this step)
+            [self addChild: emitter];
+
+        }
+        else {
+           // for negative points
+        }
+    }
+    
+    //checkIfBothHit = 0;
+    if(visited[1] == 1 && visited[2] == 1){
+        [self addMessage:@"nice.png"];
+        [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:0.5];
     }
 }
 
