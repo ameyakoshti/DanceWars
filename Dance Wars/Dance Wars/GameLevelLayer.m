@@ -466,10 +466,10 @@ static float swipeSpeed = 2.0;
     }
     else{
         int halfOfTouchIcon = touchIcon[touchNumber].contentSize.width/2;
-        float previousRangeXFrom = xLocations[objectCount-1]-halfOfTouchIcon;
-        float previousRangeXTo = xLocations[objectCount-1]+halfOfTouchIcon;
-        float previousRangeYFrom = yLocations[objectCount-1]-(halfOfTouchIcon*2);
-        float previousRangeYTo = yLocations[objectCount-1]+(halfOfTouchIcon*2);
+        float previousRangeXFrom = xLocations[objectCount-1]-(halfOfTouchIcon*2);
+        float previousRangeXTo = xLocations[objectCount-1]+(halfOfTouchIcon*2);
+        float previousRangeYFrom = yLocations[objectCount-1]-halfOfTouchIcon;
+        float previousRangeYTo = yLocations[objectCount-1]+halfOfTouchIcon;
         
         // 10 attempts to find a better location for touch point
         for(int attempts = 0 ; attempts < 10 ; attempts ++){
