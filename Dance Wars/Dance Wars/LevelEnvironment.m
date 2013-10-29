@@ -9,6 +9,6 @@
 #import "LevelEnvironment.h"
 
 @implementation LevelEnvironment
-@synthesize background,backgroundMusic;
+@synthesize background,backgroundName,backgroundMusic;
 
 @end

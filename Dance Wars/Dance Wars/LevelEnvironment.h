@@ -13,5 +13,6 @@
     
 }
 @property (nonatomic,assign) CCSprite *background;
+@property (nonatomic,assign) NSString *backgroundName;
 @property (nonatomic,assign) NSString *backgroundMusic;
 @end

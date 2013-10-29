@@ -26,6 +26,7 @@
     CCSprite *dancer;
     CCSprite *aichar;
     CCSprite *message;
+    CCSpriteBatchNode *backgroundSpriteSheet;
     CCSpriteBatchNode *userSpriteSheet;
     CCSpriteBatchNode *aiSpriteSheet;
 

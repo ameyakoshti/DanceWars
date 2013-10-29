@@ -83,6 +83,7 @@
     [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
     
     le.background = [CCSprite spriteWithFile:@"background_1_1.png"];
+    le.backgroundName = [NSString stringWithFormat:@"background_1"];
     le.backgroundMusic = [NSString stringWithFormat:@"madrid.mp3"];
     
     [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
@@ -95,6 +96,7 @@
     [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
     
     le.background = [CCSprite spriteWithFile:@"background_2_1.png"];
+    le.backgroundName = [NSString stringWithFormat:@"background_2"];
     le.backgroundMusic = [NSString stringWithFormat:@"losangeles.mp3"];
     
     [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
@@ -107,6 +109,7 @@
     [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
     
     le.background = [CCSprite spriteWithFile:@"background3.png"];
+    le.backgroundName = [NSString stringWithFormat:@"background_3"];
     le.backgroundMusic = [NSString stringWithFormat:@"bombay.mp3"];
     
     [sharedManager.inputBundle setObject:le forKey:@"ENVR"];

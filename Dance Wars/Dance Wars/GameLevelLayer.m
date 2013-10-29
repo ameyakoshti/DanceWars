@@ -39,9 +39,9 @@ static float swipeSpeed = 2.0;
         sharedManager = [MyManager sharedManager];
         le = [sharedManager.inputBundle objectForKey:@"ENVR"];
         le.background.position = ccp(size.width/2, size.height/2);
-        [self addChild:le.background];
+        [self addChild:le.background z:-10];
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:le.backgroundMusic];
-        //[self performSelector:@selector(initiateBackground:) withObject:le.background afterDelay:0.75];
+        [self performSelector:@selector(initiateBackground:) withObject:le.backgroundName afterDelay:0.75];
 
         // Get character selected values from the character selection screen
         charHand = [sharedManager.inputBundle objectForKey:@"ch"];
@@ -153,43 +153,45 @@ static float swipeSpeed = 2.0;
         if(self.life > self.aiLife){
             [self addMessage:@"youwin.png"];
             [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:3.5];
+            [self removeChild:backgroundSpriteSheet];
         }
         else{
             [self addMessage:@"youlose.png"];
             [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:3.5];
+            [self removeChild:backgroundSpriteSheet];
         }
     }
     
 }
 
--(void) initiateBackground:(NSString *)dynamicBackground {
-    NSString *background_plist = [background stringByAppendingString:@".plist"] ;
-    NSString *background_spriteList = [background stringByAppendingString:@".png"];
+-(void) initiateBackground:(NSString *)dynamicBackground
+{
+    NSLog(@"background value is %@",dynamicBackground);
+    NSString *background_plist = [dynamicBackground stringByAppendingString:@".plist"] ;
+    NSString *background_spriteList = [dynamicBackground stringByAppendingString:@".png"];
     
-    [self removeChildByTag:1 cleanup:YES];
-    [self removeChild:userSpriteSheet cleanup:YES];
+    [self removeChild:backgroundSpriteSheet cleanup:YES];
     
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: background_plist];
-    userSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:background_spriteList];
+    backgroundSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:background_spriteList];
+    NSMutableArray *backgroundFrames = [NSMutableArray array];
     
-    NSMutableArray *danceFrames = [NSMutableArray array];
-    
-    for (int i=1; i < 13; i++) {
+    for (int i=1; i < 13; i++)
+    {
         NSString *lastPart = [NSString stringWithFormat:@"_%d.png",i];
-        NSString *animation_name = [background stringByAppendingString:lastPart];
-        [danceFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:animation_name]];
+        NSString *animation_name = [dynamicBackground stringByAppendingString:lastPart];
+        [backgroundFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:animation_name]];
     }
     
-    CCAnimation *danceDuration = [CCAnimation animationWithSpriteFrames:danceFrames delay:0.1f];
+    CCAnimation *backgroundDuration = [CCAnimation animationWithSpriteFrames:backgroundFrames delay:0.1f];
+    NSString *frameName = [dynamicBackground stringByAppendingString:@"_1.png"];
+    CCSprite *backgroundSprite = [CCSprite spriteWithSpriteFrameName:frameName];
+    backgroundSprite.position = ccp(size.width/2, size.height/2);
+    CCAction *backgroundAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:backgroundDuration]];
     
-    NSString *frameName = [background stringByAppendingString:@"_1.png"];
-    CCSprite *dance = [CCSprite spriteWithSpriteFrameName:frameName];
-    dance.position = ccp(size.width/2, size.height/2);
-    CCFiniteTimeAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:danceDuration] times:1];
-    
-    [dance runAction:[CCSequence actions: danceAction, [CCCallFunc actionWithTarget:self selector:@selector(initiateAIDance)],nil]];
-    [userSpriteSheet addChild:dance];
-    [self addChild:userSpriteSheet];
+    [backgroundSprite runAction:backgroundAction];
+    [backgroundSpriteSheet addChild:backgroundSprite];
+    [self addChild:backgroundSpriteSheet z:-10];
 }
 
 -(void) initiateIdleDance {
