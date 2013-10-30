@@ -78,10 +78,10 @@ static float swipeSpeed = 2.0;
         self.aiProgressTimer.position = ccp(size.width-120,size.height-50);
         [self addChild:self.aiProgressTimer];
         
-        // Displaying a home button to return to the main menu screen
-        CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame.png" target:self selector:@selector(applicationDidEnterBackground)];
+        // Displaying a plause button to return to the main menu screen
+        CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame_pressed.png" target:self selector:@selector(applicationDidEnterBackground)];
         CCMenu *homeMenu = [CCMenu menuWithItems:homeButton, nil];
-        homeMenu.position = ccp(size.width-homeButton.contentSize.width/2, homeButton.contentSize.height/2);
+        homeMenu.position = ccp(homeButton.contentSize.width/2, size.height - homeButton.contentSize.height/2);
         [self addChild:homeMenu];
         
         // Start the game by showing the touch icons

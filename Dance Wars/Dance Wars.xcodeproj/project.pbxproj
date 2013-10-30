@@ -505,6 +505,7 @@
 		DF8699721803D028008CB857 /* madrid.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF86996D1803D028008CB857 /* madrid.mp3 */; };
 		DF9586191804F9A8006C9B0F /* touchpoints-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = DF9586181804F9A8006C9B0F /* touchpoints-blue.png */; };
 		DFB8372C17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB8372B17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m */; };
+		DFC540331820A068006CD16E /* pausegame_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DFC540321820A068006CD16E /* pausegame_pressed.png */; };
 		DFCC18EE1817CC1C009B8EE8 /* youlose.png in Resources */ = {isa = PBXBuildFile; fileRef = DFCC18EC1817CC1C009B8EE8 /* youlose.png */; };
 		DFCC18EF1817CC1C009B8EE8 /* youwin.png in Resources */ = {isa = PBXBuildFile; fileRef = DFCC18ED1817CC1C009B8EE8 /* youwin.png */; };
 		DFCC18F21817D149009B8EE8 /* player_3.png in Resources */ = {isa = PBXBuildFile; fileRef = DFCC18F11817D149009B8EE8 /* player_3.png */; };
@@ -1225,6 +1226,7 @@
 		DF9586181804F9A8006C9B0F /* touchpoints-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touchpoints-blue.png"; sourceTree = "<group>"; };
 		DFB8372A17FA9E41002094B4 /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
 		DFB8372B17FA9E41002094B4 /* CCNode+SFGestureRecognizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+SFGestureRecognizers.m"; sourceTree = "<group>"; };
+		DFC540321820A068006CD16E /* pausegame_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pausegame_pressed.png; sourceTree = "<group>"; };
 		DFCC18EC1817CC1C009B8EE8 /* youlose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youlose.png; sourceTree = "<group>"; };
 		DFCC18ED1817CC1C009B8EE8 /* youwin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youwin.png; sourceTree = "<group>"; };
 		DFCC18F11817D149009B8EE8 /* player_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_3.png; sourceTree = "<group>"; };
@@ -1616,6 +1618,7 @@
 			isa = PBXGroup;
 			children = (
 				3539F2101820977500ACB7FA /* pausegame.png */,
+				DFC540321820A068006CD16E /* pausegame_pressed.png */,
 				3539F2111820977500ACB7FA /* restart.png */,
 				3539F2121820977500ACB7FA /* main_menu_button.png */,
 				3539F2131820977500ACB7FA /* resume_button.png */,
@@ -2571,6 +2574,7 @@
 				B2C4D7741817B5DA000B295E /* player_2_i_6.png in Resources */,
 				DF6AA8D117F4AB920076B2A5 /* dance5.png in Resources */,
 				D8BFB8C0180CE36C002DA2E0 /* f4.png in Resources */,
+				DFC540331820A068006CD16E /* pausegame_pressed.png in Resources */,
 				B2E9186A18176B290063BC73 /* player_1_d1_60.png in Resources */,
 				DF6AA8D217F4AB920076B2A5 /* dance6.png in Resources */,
 				B2C4D73D1817B5DA000B295E /* player_2_i_1.png in Resources */,
@@ -3087,9 +3091,7 @@
 					DEBUG,
 					"COCOS2D_DEBUG=1",
 				);
-				HEADER_SEARCH_PATHS = (
-					"\"Dance Wars/libs/kazmath/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"Dance Wars/libs/kazmath/include\"";
 				INFOPLIST_FILE = "Dance Wars/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = (
@@ -3117,9 +3119,7 @@
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
 				);
-				HEADER_SEARCH_PATHS = (
-					"\"Dance Wars/libs/kazmath/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"Dance Wars/libs/kazmath/include\"";
 				INFOPLIST_FILE = "Dance Wars/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = (
