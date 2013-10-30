@@ -115,7 +115,7 @@ static float swipeSpeed = 2.0;
     return self;
 }
 
--(void) addMessage:(NSString *)image{
+-(void) addMessage:(NSString *)image {
     message = [CCSprite spriteWithFile:image];
     if([image isEqualToString:@"danceMessage.png"]){
         message.position = ccp(size.width/2,size.height/2);
@@ -132,7 +132,7 @@ static float swipeSpeed = 2.0;
     [self addChild:message];
 }
 
--(void) removeMessage{
+-(void) removeMessage {
     [self removeChild:message cleanup:YES];
 }
 
@@ -164,8 +164,7 @@ static float swipeSpeed = 2.0;
     
 }
 
--(void) initiateBackground:(NSString *)dynamicBackground
-{
+-(void) initiateBackground:(NSString *)dynamicBackground {
     NSLog(@"background value is %@",dynamicBackground);
     NSString *background_plist = [dynamicBackground stringByAppendingString:@".plist"] ;
     NSString *background_spriteList = [dynamicBackground stringByAppendingString:@".png"];
@@ -227,7 +226,7 @@ static float swipeSpeed = 2.0;
     [self addChild:userSpriteSheet];
 }
 
--(void) initiateUserDance:(NSString *)danceMove{
+-(void) initiateUserDance:(NSString *)danceMove {
     NSString *player = [charHand.charName stringByAppendingString:danceMove];
     
     // Count the number of frames from the plist
@@ -356,22 +355,13 @@ static float swipeSpeed = 2.0;
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.2 scene:[HelloWorldLayer scene]]];
 }
 
-- (void) applicationDidEnterBackground {
+-(void) applicationDidEnterBackground {
     
     [[CCDirector sharedDirector] pause];
     
-    CGSize windowSize = [[CCDirector sharedDirector] winSize];
-    
-    //    CCSprite *backgrounddialog = [CCSprite node];
-    //    //self.touchEnabled = NO;
-    //    [backgrounddialog initWithFile:@"background_1.png"];
-    //    [backgrounddialog setPosition:ccp(windowSize.width / 2, windowSize.height / 2)];
-    //    //[self addChild:backgrounddialog z:1];
-    
-    
-    CCMenuItemImage *pauseScreen = [CCMenuItemImage itemWithNormalImage:@"paused_resized.png" selectedImage:@"paused_resized.png" target:self selector:@selector(gamePause)];
+    CCMenuItemImage *pauseScreen = [CCMenuItemImage itemWithNormalImage:@"paused_menu_banner.png" selectedImage:@"paused_menu_banner.png" target:self selector:@selector(gamePause)];
     CCMenu *pausemenu1 = [CCMenu menuWithItems:pauseScreen, nil];
-    pausemenu1.position = ccp(windowSize.width / 2, windowSize.height / 2);
+    pausemenu1.position = ccp(510, 500);
     [self addChild:pausemenu1 z:1 tag:23];
     
     CCMenuItemImage *resumebutton = [CCMenuItemImage itemWithNormalImage:@"resume_button.png" selectedImage:@"resume_button.png" target:self selector:@selector(gameResume)];
@@ -390,39 +380,16 @@ static float swipeSpeed = 2.0;
     [self addChild:mainbuttonmenu z:1 tag:20];
 }
 
-
--(void) gamePause
-{
+-(void) gamePause {
     [[CCDirector sharedDirector] pause];
 }
 
 -(void) gameRestart {
     
-    //    [self removeChildByTag:20 cleanup:YES];
-    //    [self removeChildByTag:21 cleanup:YES];
-    //    [self removeChildByTag:22 cleanup:YES];
-    //    [self removeChildByTag:23 cleanup:YES];
-    //  [self removeAllChildrenWithCleanup:YES];
-    //    CCScene *currentScene = [CCDirector sharedDirector].runningScene;
-    //    CCScene *newScene = [[[currentScene class] alloc] init];
-    //     [[CCDirector sharedDirector] replaceScene:[GameLevelLayer scene]];
-    
-    
-    //    int currentSceneTag = [[CCDirector sharedDirector] runningScene].tag;
-    //    NSLog(@"@tag: %d", currentSceneTag);
-    
-    //    CCScene *currentScene = [CCDirector sharedDirector].runningScene;
-    //    [self removeChildByTag:1 cleanup:YES];
-    //    CCScene *newScene = [[[currentScene class] alloc] init];
-    //    [[CCDirector sharedDirector] replaceScene:[GameLevelLayer scene]];
-    
-    
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     CCScene *gameLevel = [GameLevelLayer scene];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.25 scene:gameLevel]];
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.2 scene:[GameLevelLayer scene]]];
-    
-    // [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameLevelLayer node]]];
 }
 
 -(void) gameResume {
@@ -434,7 +401,6 @@ static float swipeSpeed = 2.0;
     
     [[CCDirector sharedDirector] resume];
 }
-
 
 -(void) manageTouchIcons {
     // Setting move difficulty
