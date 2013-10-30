@@ -55,47 +55,47 @@
 		<key>Move1</key>
 		<dict>
 			<key>SingleTouches</key>
-			<string>1,2,4</string>
+			<string>1,3,6</string>
 			<key>DoubleTouches</key>
-			<string>3,5</string>
+			<string>2,5</string>
 			<key>Swipes</key>
-			<string>6</string>
+			<string>4</string>
 		</dict>
 		<key>Move2</key>
 		<dict>
 			<key>SingleTouches</key>
-			<string>1,2</string>
+			<string>1,3</string>
 			<key>DoubleTouches</key>
-			<string>3,5</string>
+			<string>2,4,5</string>
 			<key>Swipes</key>
-			<string>4,6</string>
+			<string>6</string>
 		</dict>
 		<key>Move3</key>
 		<dict>
 			<key>SingleTouches</key>
-			<string>2,4</string>
+			<string>2,4,6</string>
 			<key>DoubleTouches</key>
-			<string>1,3,5</string>
+			<string>3,5</string>
 			<key>Swipes</key>
-			<string>6</string>
+			<string>1</string>
 		</dict>
 		<key>Move4</key>
 		<dict>
 			<key>SingleTouches</key>
 			<string>1</string>
 			<key>DoubleTouches</key>
-			<string>3,5</string>
+			<string>2,3,4,5</string>
 			<key>Swipes</key>
-			<string>2,4,6</string>
+			<string>6</string>
 		</dict>
 		<key>Move5</key>
 		<dict>
 			<key>SingleTouches</key>
-			<string>1,2,4</string>
-			<key>DoubleTouches</key>
-			<string>3,5,6</string>
-			<key>Swipes</key>
 			<string></string>
+			<key>DoubleTouches</key>
+			<string>1,3,5</string>
+			<key>Swipes</key>
+			<string>2,4,6</string>
 		</dict>
 	</dict>
 	<key>MoveDifficultyWt7</key>
@@ -103,47 +103,47 @@
 		<key>Move1</key>
 		<dict>
 			<key>SingleTouches</key>
-			<string>1,2,4</string>
+			<string>2</string>
 			<key>DoubleTouches</key>
-			<string>3,5</string>
+			<string>1,3,5</string>
 			<key>Swipes</key>
-			<string>6</string>
+			<string>4,6</string>
 		</dict>
 		<key>Move2</key>
 		<dict>
 			<key>SingleTouches</key>
-			<string>1,2</string>
+			<string></string>
 			<key>DoubleTouches</key>
-			<string>3,5</string>
+			<string>1,2,3,6</string>
 			<key>Swipes</key>
-			<string>4,6</string>
+			<string>4,5</string>
 		</dict>
 		<key>Move3</key>
 		<dict>
 			<key>SingleTouches</key>
-			<string>2,4</string>
+			<string>3</string>
 			<key>DoubleTouches</key>
-			<string>1,3,5</string>
+			<string>1,2,5,6</string>
 			<key>Swipes</key>
-			<string>6</string>
+			<string>4</string>
 		</dict>
 		<key>Move4</key>
 		<dict>
 			<key>SingleTouches</key>
-			<string>1</string>
+			<string></string>
 			<key>DoubleTouches</key>
-			<string>3,5</string>
+			<string>1,2,3,4,5,6</string>
 			<key>Swipes</key>
-			<string>2,4,6</string>
+			<string></string>
 		</dict>
 		<key>Move5</key>
 		<dict>
 			<key>SingleTouches</key>
-			<string>1,2,4</string>
-			<key>DoubleTouches</key>
-			<string>3,5,6</string>
-			<key>Swipes</key>
 			<string></string>
+			<key>DoubleTouches</key>
+			<string>1,3,5</string>
+			<key>Swipes</key>
+			<string>2,4,6</string>
 		</dict>
 	</dict>
 </dict>
