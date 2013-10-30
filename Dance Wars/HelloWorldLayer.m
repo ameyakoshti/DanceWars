@@ -49,13 +49,21 @@
         
         //CCSprite *introName = [CCSprite spriteWithFile:@"intro_name.png"];
         //introName.position = ccp(size.width/2, size.height*3/4);
-                
+        
         CCMenuItemImage *playButton = [CCMenuItemImage itemWithNormalImage:@"play_button.png" selectedImage:@"play_button_pressed.png" target:self selector:@selector(loadCharacterSelectLayer)];
+        CCMenuItemImage *optionsButton = [CCMenuItemImage itemWithNormalImage:@"options.png" selectedImage:@"options.png" target:self selector:@selector(loadCharacterSelectLayer)];
+        CCMenuItemImage *settingsButton = [CCMenuItemImage itemWithNormalImage:@"settings.png" selectedImage:@"settings.png" target:self selector:@selector(loadCharacterSelectLayer)];
         CCMenu *gameMenu = [CCMenu menuWithItems:playButton, nil];
-        gameMenu.position = ccp(size.width/2, size.height/2);
+        CCMenu *optionsMenu = [CCMenu menuWithItems:optionsButton, nil];
+        CCMenu *settingsMenu = [CCMenu menuWithItems:settingsButton, nil];
+        gameMenu.position = ccp(185,580);
+        optionsMenu.position = ccp(185,460);
+        settingsMenu.position = ccp(185, 340);
         
         //[self addChild:introName];
         [self addChild:gameMenu];
+        [self addChild:optionsMenu];
+        [self addChild:settingsMenu];
         
     }
     

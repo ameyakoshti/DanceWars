@@ -42,7 +42,7 @@ static float swipeSpeed = 2.0;
         [self addChild:le.background z:-10];
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:le.backgroundMusic];
         [self performSelector:@selector(initiateBackground:) withObject:le.backgroundName afterDelay:0.75];
-
+        
         // Get character selected values from the character selection screen
         charHand = [sharedManager.inputBundle objectForKey:@"ch"];
         
@@ -55,7 +55,7 @@ static float swipeSpeed = 2.0;
         aichar = [CCSprite spriteWithFile:@"dance1.png"];
         aichar.position = ccp(876,230);
         [self addChild:aichar z:0 tag:2];
-       
+        
         // Player life bar
         self.life = 0;
         self.progressTimer = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"healthbar_red.png"]];
@@ -65,8 +65,8 @@ static float swipeSpeed = 2.0;
         [self.progressTimer setScale:1];
         self.progressTimer.percentage = self.life;
         self.progressTimer.position = ccp(120 ,size.height-50);
-        [self addChild:self.progressTimer];        
-
+        [self addChild:self.progressTimer];
+        
         // AI life bar
         self.aiLife = 0;
         self.aiProgressTimer = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"healthbar_red.png"]];
@@ -79,7 +79,7 @@ static float swipeSpeed = 2.0;
         [self addChild:self.aiProgressTimer];
         
         // Displaying a home button to return to the main menu screen
-        CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"home.png" selectedImage:@"home_pressed.png" target:self selector:@selector(loadHelloWorldLayer)];
+        CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame.png" target:self selector:@selector(applicationDidEnterBackground)];
         CCMenu *homeMenu = [CCMenu menuWithItems:homeButton, nil];
         homeMenu.position = ccp(size.width-homeButton.contentSize.width/2, homeButton.contentSize.height/2);
         [self addChild:homeMenu];
@@ -92,7 +92,7 @@ static float swipeSpeed = 2.0;
         // Enable multi touches and gestures
         self.touchEnabled = YES;
         [[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
-
+        
         // Input handler object initialization to set the speed of the touch icons
         ih = [sharedManager.inputBundle objectForKey:@"LDAA"];
         switch (ih.gameLevelDifficulty)
@@ -234,7 +234,7 @@ static float swipeSpeed = 2.0;
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:player ofType:@"plist"];
     NSDictionary *Dictionary= [[NSDictionary alloc]initWithContentsOfFile:plistPath];
     int numberOfFrames = [[Dictionary valueForKey:@"frames"] count];
-
+    
     if(numberOfFrames > 0){
         // Remove previous player sprite and add the new dance sprite
         [self removeChildByTag:1 cleanup:YES];
@@ -349,10 +349,92 @@ static float swipeSpeed = 2.0;
 }
 
 -(void) loadHelloWorldLayer {
+    [[CCDirector sharedDirector] resume];
+    
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"background.mp3"];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.2 scene:[HelloWorldLayer scene]]];
 }
+
+- (void) applicationDidEnterBackground {
+    
+    [[CCDirector sharedDirector] pause];
+    
+    CGSize windowSize = [[CCDirector sharedDirector] winSize];
+    
+    //    CCSprite *backgrounddialog = [CCSprite node];
+    //    //self.touchEnabled = NO;
+    //    [backgrounddialog initWithFile:@"background_1.png"];
+    //    [backgrounddialog setPosition:ccp(windowSize.width / 2, windowSize.height / 2)];
+    //    //[self addChild:backgrounddialog z:1];
+    
+    
+    CCMenuItemImage *pauseScreen = [CCMenuItemImage itemWithNormalImage:@"paused_resized.png" selectedImage:@"paused_resized.png" target:self selector:@selector(gamePause)];
+    CCMenu *pausemenu1 = [CCMenu menuWithItems:pauseScreen, nil];
+    pausemenu1.position = ccp(windowSize.width / 2, windowSize.height / 2);
+    [self addChild:pausemenu1 z:1 tag:23];
+    
+    CCMenuItemImage *resumebutton = [CCMenuItemImage itemWithNormalImage:@"resume_button.png" selectedImage:@"resume_button.png" target:self selector:@selector(gameResume)];
+    CCMenu *resumebuttonmenu = [CCMenu menuWithItems:resumebutton, nil];
+    resumebuttonmenu.position = ccp(510,440);
+    [self addChild:resumebuttonmenu z:1 tag:21];
+    
+    CCMenuItemImage *restartbutton = [CCMenuItemImage itemWithNormalImage:@"restart.png" selectedImage:@"restart.png" target:self selector:@selector(gameRestart)];
+    CCMenu *restartmenu = [CCMenu menuWithItems:restartbutton, nil];
+    restartmenu.position = ccp(510,340);
+    [self addChild:restartmenu z:1 tag:22];
+    
+    CCMenuItemImage *mainbutton = [CCMenuItemImage itemWithNormalImage:@"main_menu_button.png" selectedImage:@"main_menu_button.png" target:self selector:@selector(loadHelloWorldLayer)];
+    CCMenu *mainbuttonmenu = [CCMenu menuWithItems:mainbutton, nil];
+    mainbuttonmenu.position = ccp(510,240);
+    [self addChild:mainbuttonmenu z:1 tag:20];
+}
+
+
+-(void) gamePause
+{
+    [[CCDirector sharedDirector] pause];
+}
+
+-(void) gameRestart {
+    
+    //    [self removeChildByTag:20 cleanup:YES];
+    //    [self removeChildByTag:21 cleanup:YES];
+    //    [self removeChildByTag:22 cleanup:YES];
+    //    [self removeChildByTag:23 cleanup:YES];
+    //  [self removeAllChildrenWithCleanup:YES];
+    //    CCScene *currentScene = [CCDirector sharedDirector].runningScene;
+    //    CCScene *newScene = [[[currentScene class] alloc] init];
+    //     [[CCDirector sharedDirector] replaceScene:[GameLevelLayer scene]];
+    
+    
+    //    int currentSceneTag = [[CCDirector sharedDirector] runningScene].tag;
+    //    NSLog(@"@tag: %d", currentSceneTag);
+    
+    //    CCScene *currentScene = [CCDirector sharedDirector].runningScene;
+    //    [self removeChildByTag:1 cleanup:YES];
+    //    CCScene *newScene = [[[currentScene class] alloc] init];
+    //    [[CCDirector sharedDirector] replaceScene:[GameLevelLayer scene]];
+    
+    
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    CCScene *gameLevel = [GameLevelLayer scene];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.25 scene:gameLevel]];
+    //[[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.2 scene:[GameLevelLayer scene]]];
+    
+    // [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameLevelLayer node]]];
+}
+
+-(void) gameResume {
+    //[[CCDirector sharedDirector] stopAnimation];
+    [self removeChildByTag:20 cleanup:YES];
+    [self removeChildByTag:21 cleanup:YES];
+    [self removeChildByTag:22 cleanup:YES];
+    [self removeChildByTag:23 cleanup:YES];
+    
+    [[CCDirector sharedDirector] resume];
+}
+
 
 -(void) manageTouchIcons {
     // Setting move difficulty
@@ -371,7 +453,7 @@ static float swipeSpeed = 2.0;
     
     // Reading move difficulties from pList
     NSDictionary *DictionaryMoveDifficulty = [Dictionary valueForKey:moveDifficulty];
-
+    
     // Number of patterns in the current move difficulty
     int numberOfPatterns = [[Dictionary valueForKey:moveDifficulty] count];
     
@@ -412,7 +494,7 @@ static float swipeSpeed = 2.0;
             break;
         }
     }
-   
+    
     for (int i = 0 ; i < doubleTouches.count ; i++){
         if([doubleTouches[i] intValue] == (touchPointCounter)){
             [self addTouchIcons:1 withArg2:@"touchpoints-blue.png" withArg3:NO withArg4:NO];
@@ -438,12 +520,12 @@ static float swipeSpeed = 2.0;
     // This is counter is for counting the number of times the touch icons will appear
     // It does not count the total number of touch icons.
     touchPointCounter++;
-
+    
 }
 
 -(void) addTouchIcons:(int) touchNumber withArg2:(NSString *) fileName withArg3:(BOOL) swipeEnable withArg4:(BOOL) secondPoint{
     touchIcon[touchNumber] = [CCSprite spriteWithFile:fileName];
-
+    
     // creating the imaginary rectangle in which the icons will appear
     float randomH,randomW;
     float maxX = size.width * 2/3;
@@ -541,7 +623,7 @@ static float swipeSpeed = 2.0;
     
     // Enable dance show for Player
     [self initiateUserDance:@"_d1"];
-
+    
 }
 
 -(void) enableGesture:(NSNumber *) value{
@@ -565,7 +647,7 @@ static float swipeSpeed = 2.0;
     node.position = ccpAdd(node.position, translation);
     
     // this is to check if the touch gesture has been through the other point
-        
+    
     if(CGRectContainsPoint(touchIcon[1].boundingBox, ccp(touchIcon[2].position.x,touchIcon[2].position.y)) && !swipeHit){
         swipeHit = YES;
         
@@ -588,7 +670,7 @@ static float swipeSpeed = 2.0;
                 [self.progressTimer setScale:1];
             }
         }
-       [self.progressTimer setPercentage:self.life];
+        [self.progressTimer setPercentage:self.life];
     }
 }
 
@@ -614,7 +696,7 @@ static float swipeSpeed = 2.0;
             [emitter setLife:0.1f];
             //add to layer ofcourse(effect begins after this step)
             [self addChild: emitter];
-
+            
         }
         if((CGRectContainsPoint(touchIcon[2].boundingBox, location))) {
             visited[2] = 1;
@@ -632,10 +714,10 @@ static float swipeSpeed = 2.0;
             [emitter setLife:0.1f];
             //add to layer ofcourse(effect begins after this step)
             [self addChild: emitter];
-
+            
         }
         else {
-           // for negative points
+            // for negative points
         }
     }
     
@@ -647,7 +729,7 @@ static float swipeSpeed = 2.0;
 }
 
 -(void) dealloc {
-
+    
 }
 
 @end
