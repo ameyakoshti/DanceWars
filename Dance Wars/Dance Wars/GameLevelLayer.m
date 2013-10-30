@@ -487,11 +487,11 @@ static float swipeSpeed = 2.0;
     
     for (int i = 0 ; i < swipes.count ; i++){
         if([swipes[i] intValue] == (touchPointCounter)){
+            [self addTouchIcons:2 withArg2:@"touchpoints-blue.png" withArg3:NO withArg4:NO];
+            [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:swipeSpeed];
+            
             [self addTouchIcons:1 withArg2:@"touchpoints-green.png" withArg3:YES withArg4:NO];
             [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:1] afterDelay:swipeSpeed];
-            
-            [self addTouchIcons:2 withArg2:@"touchpoints-blue.png" withArg3:YES withArg4:NO];
-            [self performSelector:@selector(removeTouchIcons:) withObject:[NSNumber numberWithInt:2] afterDelay:swipeSpeed];
             break;
         }
     }
@@ -552,6 +552,60 @@ static float swipeSpeed = 2.0;
     if(swipeEnable){
         touchIcon[touchNumber].isTouchEnabled = YES;
         [self enableGesture:[NSNumber numberWithInt:touchNumber]];
+        
+        //calculate position of the arrow and scale
+        
+        
+        arrow = [CCSprite spriteWithFile:@"arrow.png"];
+        CGPoint touchIconFirst,touchIconSecond;
+        touchIconFirst.x = xLocations[objectCount-1];
+        touchIconFirst.y = yLocations[objectCount-1];
+        touchIconSecond.x = xLocations[objectCount];
+        touchIconSecond.y = yLocations[objectCount];
+        
+        float dist = ccpDistance(touchIconFirst,touchIconSecond);
+        float degrees = atan2(touchIconFirst.x - touchIconSecond.x , touchIconFirst.y - touchIconSecond.y)  * 180/3.14159265;
+        if(degrees < 0) degrees+=360;
+        int x,y;
+        degrees += 270;
+        
+//        if(360 - degrees > 0){
+//            // between 0 - 180
+//            arrow.position = ccp(xLocations[objectCount] + touchIcon[1].contentSize.width , yLocations[objectCount] + touchIcon[1].contentSize.height);
+//        }else{
+//            // between 180 - 360
+//            arrow.position = ccp(xLocations[objectCount] - touchIcon[1].contentSize.width , yLocations[objectCount] + touchIcon[1].contentSize.height);
+//        }'
+        
+        if(xLocations[objectCount] > xLocations[objectCount-1] && yLocations[objectCount] > yLocations[objectCount-1]){
+            //quad 1
+             x = xLocations[objectCount-1] + abs((xLocations[objectCount] - xLocations[objectCount-1])/2);
+             y = yLocations[objectCount-1] + abs((yLocations[objectCount] - yLocations[objectCount-1])/2);
+        }
+        if(xLocations[objectCount] > xLocations[objectCount-1] && yLocations[objectCount] < yLocations[objectCount-1]){
+            //quad 4
+            x = xLocations[objectCount-1] + abs((xLocations[objectCount] - xLocations[objectCount-1])/2);
+            y = yLocations[objectCount-1] - abs((yLocations[objectCount] - yLocations[objectCount-1])/2);
+        }
+        if(xLocations[objectCount] < xLocations[objectCount-1] && yLocations[objectCount] > yLocations[objectCount-1]){
+            //quad 2
+            x = xLocations[objectCount-1] - abs((xLocations[objectCount] - xLocations[objectCount-1])/2);
+            y = yLocations[objectCount-1] + abs((yLocations[objectCount] - yLocations[objectCount-1])/2);
+
+        }
+        if(xLocations[objectCount] < xLocations[objectCount-1] && yLocations[objectCount] < yLocations[objectCount-1]){
+            //quad 3
+            x = xLocations[objectCount-1] - abs((xLocations[objectCount] - xLocations[objectCount-1])/2);
+            y = yLocations[objectCount-1] - abs((yLocations[objectCount] - yLocations[objectCount-1])/2);
+        }
+        arrow.position = ccp(x,y);
+        NSLog(@" Degrees = %f ", degrees);
+        arrow.rotation = degrees;
+        arrow.scaleX = dist/arrow.boundingBox.size.width;
+        [self addChild:arrow];
+        
+        
+        
     }else{
         [self addChild:touchIcon[touchNumber]];
     }
@@ -654,6 +708,8 @@ static float swipeSpeed = 2.0;
 }
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+  
+    [self removeChild:arrow cleanup: YES];
     
     for(UITouch *touch in touches)
     {
