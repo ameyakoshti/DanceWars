@@ -569,13 +569,6 @@ static float swipeSpeed = 2.0;
         int x,y;
         degrees += 270;
         
-//        if(360 - degrees > 0){
-//            // between 0 - 180
-//            arrow.position = ccp(xLocations[objectCount] + touchIcon[1].contentSize.width , yLocations[objectCount] + touchIcon[1].contentSize.height);
-//        }else{
-//            // between 180 - 360
-//            arrow.position = ccp(xLocations[objectCount] - touchIcon[1].contentSize.width , yLocations[objectCount] + touchIcon[1].contentSize.height);
-//        }'
         
         if(xLocations[objectCount] > xLocations[objectCount-1] && yLocations[objectCount] > yLocations[objectCount-1]){
             //quad 1
@@ -619,6 +612,7 @@ static float swipeSpeed = 2.0;
 
 -(void) removeTouchIcons:(NSNumber *) value{
     int val = [value intValue];
+    [self removeChild:arrow cleanup:YES];
     [self removeChild:touchIcon[val] cleanup:YES];
     
     if(objectCount == totalGeneratedObjects){
