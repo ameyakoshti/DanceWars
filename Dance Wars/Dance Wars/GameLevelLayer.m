@@ -82,7 +82,9 @@ static float swipeSpeed = 2.0;
         CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame_pressed.png" target:self selector:@selector(applicationDidEnterBackground)];
         CCMenu *homeMenu = [CCMenu menuWithItems:homeButton, nil];
         homeMenu.position = ccp(homeButton.contentSize.width/2, size.height - homeButton.contentSize.height/2);
-        [self addChild:homeMenu];
+        //[homeButton setEnabled:NO];
+        //homeButton.isEnabled=NO;
+        [self addChild:homeMenu z:1 tag:13];
         
         // Start the game by showing the touch icons
         touchPointCounter=1;
@@ -358,6 +360,7 @@ static float swipeSpeed = 2.0;
 -(void) applicationDidEnterBackground {
     
     [[CCDirector sharedDirector] pause];
+    [self removeChildByTag:13 cleanup:YES];
     
     CCMenuItemImage *pauseScreen = [CCMenuItemImage itemWithNormalImage:@"paused_menu_banner.png" selectedImage:@"paused_menu_banner.png" target:self selector:@selector(gamePause)];
     CCMenu *pausemenu1 = [CCMenu menuWithItems:pauseScreen, nil];
@@ -366,7 +369,7 @@ static float swipeSpeed = 2.0;
     
     CCMenuItemImage *resumebutton = [CCMenuItemImage itemWithNormalImage:@"resume_button.png" selectedImage:@"resume_button.png" target:self selector:@selector(gameResume)];
     CCMenu *resumebuttonmenu = [CCMenu menuWithItems:resumebutton, nil];
-    resumebuttonmenu.position = ccp(510,440);
+    resumebuttonmenu.position = ccp(510,240);
     [self addChild:resumebuttonmenu z:1 tag:21];
     
     /*
@@ -395,10 +398,18 @@ static float swipeSpeed = 2.0;
 }
 
 -(void) gameResume {
+    
+    CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame_pressed.png" target:self selector:@selector(applicationDidEnterBackground)];
+    CCMenu *homeMenu = [CCMenu menuWithItems:homeButton, nil];
+    homeMenu.position = ccp(homeButton.contentSize.width/2, size.height - homeButton.contentSize.height/2);
+    //[homeButton setEnabled:NO];
+    //homeButton.isEnabled=NO;
+    [self addChild:homeMenu z:1 tag:13];
+    
     //[[CCDirector sharedDirector] stopAnimation];
     [self removeChildByTag:20 cleanup:YES];
     [self removeChildByTag:21 cleanup:YES];
-    [self removeChildByTag:22 cleanup:YES];
+    //[self removeChildByTag:22 cleanup:YES];
     [self removeChildByTag:23 cleanup:YES];
     
     [[CCDirector sharedDirector] resume];
