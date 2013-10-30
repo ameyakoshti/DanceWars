@@ -369,14 +369,16 @@ static float swipeSpeed = 2.0;
     resumebuttonmenu.position = ccp(510,440);
     [self addChild:resumebuttonmenu z:1 tag:21];
     
+    /*
     CCMenuItemImage *restartbutton = [CCMenuItemImage itemWithNormalImage:@"restart.png" selectedImage:@"restart.png" target:self selector:@selector(gameRestart)];
     CCMenu *restartmenu = [CCMenu menuWithItems:restartbutton, nil];
     restartmenu.position = ccp(510,340);
     [self addChild:restartmenu z:1 tag:22];
+    */
     
     CCMenuItemImage *mainbutton = [CCMenuItemImage itemWithNormalImage:@"main_menu_button.png" selectedImage:@"main_menu_button.png" target:self selector:@selector(loadHelloWorldLayer)];
     CCMenu *mainbuttonmenu = [CCMenu menuWithItems:mainbutton, nil];
-    mainbuttonmenu.position = ccp(510,240);
+    mainbuttonmenu.position = ccp(510,340);
     [self addChild:mainbuttonmenu z:1 tag:20];
 }
 
