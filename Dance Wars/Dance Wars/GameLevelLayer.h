@@ -46,6 +46,8 @@
 
     CCLabelTTF *scoreLabel;
     
+    CCMenu *pauseMenu;
+    
     InputHandler *ih;
     CharacterHandler *charHand;
     Score *getScore;
