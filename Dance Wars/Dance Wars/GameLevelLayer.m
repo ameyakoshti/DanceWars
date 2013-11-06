@@ -78,10 +78,10 @@ static float swipeSpeed = 2.0;
         self.aiProgressTimer.position = ccp(size.width-120,size.height-50);
         [self addChild:self.aiProgressTimer];
         
-        // Displaying a plause button to return to the main menu screen
+        // Displaying a pause button to return to the main menu screen
         CCMenuItemImage *pauseButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame_pressed.png" target:self selector:@selector(gamePause)];
         CCMenu *pauseButtonMenu = [CCMenu menuWithItems:pauseButton, nil];
-        pauseButtonMenu.position = ccp(pauseButton.contentSize.width/2, size.height - pauseButton.contentSize.height/2);
+        pauseButtonMenu.position = ccp(size.width - pauseButton.contentSize.width/2, pauseButton.contentSize.height/2);
         //[homeButton setEnabled:NO];
         //homeButton.isEnabled=NO;
         [self addChild:pauseButtonMenu z:1 tag:13];
@@ -377,7 +377,8 @@ static float swipeSpeed = 2.0;
 
     //[[CCDirector sharedDirector] pause];
     [self removeChildByTag:13 cleanup:YES];
-
+    
+    [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
     [self pauseSchedulerAndActions];
     for(CCSprite *sprite in [self children]) {
         [[[CCDirector sharedDirector] actionManager] pauseTarget:sprite];
@@ -400,9 +401,10 @@ static float swipeSpeed = 2.0;
     
     CCMenuItemImage *pauseButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame_pressed.png" target:self selector:@selector(gamePause)];
     CCMenu *pauseButtonMenu = [CCMenu menuWithItems:pauseButton, nil];
-    pauseButtonMenu.position = ccp(pauseButton.contentSize.width/2, size.height - pauseButton.contentSize.height/2);
+    pauseButtonMenu.position = ccp(size.width - pauseButton.contentSize.width/2, pauseButton.contentSize.height/2);
     [self addChild:pauseButtonMenu z:1 tag:13];
 
+    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
     [self resumeSchedulerAndActions];
     for(CCSprite *sprite in [self children]) {
         [[[CCDirector sharedDirector] actionManager] resumeTarget:sprite];
