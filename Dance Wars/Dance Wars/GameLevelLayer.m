@@ -79,7 +79,7 @@ static float swipeSpeed = 2.0;
         [self addChild:self.aiProgressTimer];
         
         // Displaying a pause button to return to the main menu screen
-        CCMenuItemImage *pauseButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame_pressed.png" target:self selector:@selector(gamePause)];
+        CCMenuItemImage *pauseButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame_pressed.png" target:self selector:@selector(initiatePause)];
         CCMenu *pauseButtonMenu = [CCMenu menuWithItems:pauseButton, nil];
         pauseButtonMenu.position = ccp(size.width - pauseButton.contentSize.width/2, pauseButton.contentSize.height/2);
         //[homeButton setEnabled:NO];
@@ -87,7 +87,7 @@ static float swipeSpeed = 2.0;
         [self addChild:pauseButtonMenu z:1 tag:13];
         
         //Creating and adding pause menu
-        CCMenuItemImage *pauseScreen = [CCMenuItemImage itemWithNormalImage:@"paused_menu_banner.png" selectedImage:@"paused_menu_banner.png" target:self selector:@selector(gamePause)];
+        CCMenuItemImage *pauseScreen = [CCMenuItemImage itemWithNormalImage:@"paused_menu_banner.png" selectedImage:@"paused_menu_banner.png" target:self selector:nil];
         
         CCMenuItemImage *resumebutton = [CCMenuItemImage itemWithNormalImage:@"resume_button.png" selectedImage:@"resume_button.png" target:self selector:@selector(gameResume)];
         
@@ -373,17 +373,17 @@ static float swipeSpeed = 2.0;
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.2 scene:[HelloWorldLayer scene]]];
 }
 
+-(void) initiatePause {
+    
+    [self removeChildByTag:13 cleanup:YES];
+    [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
+    [pauseMenu runAction:[CCMoveTo actionWithDuration:0.75 position:ccp(size.width/2, size.height/2)]];
+    [self performSelector:@selector(gamePause) withObject:nil afterDelay:0.80];
+}
+
 -(void) gamePause {
 
-    //[[CCDirector sharedDirector] pause];
-    [self removeChildByTag:13 cleanup:YES];
-    
-    [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
-    [self pauseSchedulerAndActions];
-    for(CCSprite *sprite in [self children]) {
-        [[[CCDirector sharedDirector] actionManager] pauseTarget:sprite];
-    }
-    [pauseMenu runAction:[CCMoveTo actionWithDuration:0.75 position:ccp(size.width/2, size.height/2)]];
+    [[CCDirector sharedDirector] pause];
 }
 
 -(void) gameRestart: (CCMenuItem *) menuItem {
@@ -399,18 +399,13 @@ static float swipeSpeed = 2.0;
 
 -(void) gameResume {
     
-    CCMenuItemImage *pauseButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame_pressed.png" target:self selector:@selector(gamePause)];
+    [[CCDirector sharedDirector] resume];
+    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+    CCMenuItemImage *pauseButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame_pressed.png" target:self selector:@selector(initiatePause)];
     CCMenu *pauseButtonMenu = [CCMenu menuWithItems:pauseButton, nil];
     pauseButtonMenu.position = ccp(size.width - pauseButton.contentSize.width/2, pauseButton.contentSize.height/2);
     [self addChild:pauseButtonMenu z:1 tag:13];
-
-    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
-    [self resumeSchedulerAndActions];
-    for(CCSprite *sprite in [self children]) {
-        [[[CCDirector sharedDirector] actionManager] resumeTarget:sprite];
-    }
     [pauseMenu runAction:[CCMoveTo actionWithDuration:0.5 position:ccp(size.width/2,size.height+300)]];
-    //[[CCDirector sharedDirector] resume];
 }
 
 -(void) manageTouchIcons {
