@@ -40,34 +40,38 @@
     
     if((self = [super initWithColor:ccc4(0, 0, 0, 0)])) {
         
-        CGSize size = [[CCDirector sharedDirector] winSize];
+        size = [[CCDirector sharedDirector] winSize];
         
         CCSprite *levelBg = [CCSprite spriteWithFile:@"home_bg.png"];
         levelBg.position = ccp(size.width/2, size.height/2);
         
         [self addChild:levelBg];
         
-        //CCSprite *introName = [CCSprite spriteWithFile:@"intro_name.png"];
-        //introName.position = ccp(size.width/2, size.height*3/4);
+        introName = [CCSprite spriteWithFile:@"dance_wars_label.png"];
+        introName.position = ccp(size.width/2, size.height + introName.contentSize.height);
         
-        CCMenuItemImage *playButton = [CCMenuItemImage itemWithNormalImage:@"play_button.png" selectedImage:@"play_button_pressed.png" target:self selector:@selector(loadCharacterSelectLayer)];
-        CCMenuItemImage *optionsButton = [CCMenuItemImage itemWithNormalImage:@"options.png" selectedImage:@"options.png" target:self selector:@selector(loadCharacterSelectLayer)];
-        CCMenuItemImage *settingsButton = [CCMenuItemImage itemWithNormalImage:@"settings.png" selectedImage:@"settings.png" target:self selector:@selector(loadCharacterSelectLayer)];
-        CCMenu *gameMenu = [CCMenu menuWithItems:playButton, nil];
-        CCMenu *optionsMenu = [CCMenu menuWithItems:optionsButton, nil];
-        CCMenu *settingsMenu = [CCMenu menuWithItems:settingsButton, nil];
-        gameMenu.position = ccp(185,580);
-        optionsMenu.position = ccp(185,460);
-        settingsMenu.position = ccp(185, 340);
+
+        CCMenuItemImage *playButton = [CCMenuItemImage itemWithNormalImage:@"play.png" selectedImage:@"play_pressed.png" target:self selector:@selector(loadCharacterSelectLayer)];
+        CCMenuItemImage *optionsButton = [CCMenuItemImage itemWithNormalImage:@"options.png" selectedImage:@"options_pressed.png" target:self selector:@selector(loadCharacterSelectLayer)];
+
+        MainMenu = [CCMenu menuWithItems:playButton, optionsButton, nil];
+        MainMenu.position = ccp(0 - MainMenu.contentSize.width, size.height - MainMenu.contentSize.height/2);
+        [MainMenu alignItemsVertically];
+    
         
-        //[self addChild:introName];
-        [self addChild:gameMenu];
-        [self addChild:optionsMenu];
-        [self addChild:settingsMenu];
-        
+        [self addChild:introName];
+        [self addChild:MainMenu];
+        [self displayMenuElements];
     }
     
     return self;
+}
+
+- (void) displayMenuElements {
+    
+    [introName runAction:[CCMoveTo actionWithDuration:1.75 position:ccp(size.width/2, size.height/2)]];
+    [MainMenu runAction:[CCMoveTo actionWithDuration:1.75 position:ccp(size.width - 150, 150)]];
+
 }
 
 
