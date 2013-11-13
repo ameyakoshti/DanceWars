@@ -108,7 +108,7 @@
 
     [sharedManager.inputBundle setObject:ih forKey:@"LDAA"];
     
-    le.background = [CCSprite spriteWithFile:@"background3.png"];
+    le.background = [CCSprite spriteWithFile:@"background_3_1.png"];
     le.backgroundName = [NSString stringWithFormat:@"background_3"];
     le.backgroundMusic = [NSString stringWithFormat:@"bombay.mp3"];
     

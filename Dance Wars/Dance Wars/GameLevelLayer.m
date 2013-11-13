@@ -59,12 +59,13 @@ static float swipeSpeed = 2.0;
         
         // Player character
         dancer = [CCSprite spriteWithFile:[charHand.charName stringByAppendingString:@"_0.png"]];
-        dancer.position = ccp(150,200);
+        dancer.position = ccp(225,150);
         [self addChild:dancer z:0 tag:1];
         
         // AI character
-        aichar = [CCSprite spriteWithFile:@"dance1.png"];
-        aichar.position = ccp(876,230);
+        aichar = [CCSprite spriteWithFile:@"Hulk_1_1.png"];
+        aichar.position = ccp(801,150);
+        aichar.flipX = 180;
         [self addChild:aichar z:0 tag:2];
         
         // Player life bar
@@ -198,11 +199,17 @@ static float swipeSpeed = 2.0;
     
     [self removeChildByTag:102 cleanup:YES];
     
+    // Count the number of frames from the plist
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:dynamicBackground ofType:@"plist"];
+    NSDictionary *Dictionary= [[NSDictionary alloc]initWithContentsOfFile:plistPath];
+    int numberOfFrames = [[Dictionary valueForKey:@"frames"] count];
+
+    
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: background_plist];
     backgroundSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:background_spriteList];
     NSMutableArray *backgroundFrames = [NSMutableArray array];
     
-    for (int i=1; i < 13; i++)
+    for (int i=1; i < numberOfFrames; i++)
     {
         NSString *lastPart = [NSString stringWithFormat:@"_%d.png",i];
         NSString *animation_name = [dynamicBackground stringByAppendingString:lastPart];
@@ -284,7 +291,7 @@ static float swipeSpeed = 2.0;
         
         NSString *frameName = [player stringByAppendingString:@"_1.png"];
         CCSprite *dance = [CCSprite spriteWithSpriteFrameName:frameName];
-        dance.position = ccp(150,200);
+        dance.position = ccp(225,200);
         CCFiniteTimeAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:danceDuration] times:1];
         
         [dance runAction:[CCSequence actions: danceAction, [CCCallFunc actionWithTarget:self selector:@selector(initiateAIDance)],nil]];
@@ -301,21 +308,20 @@ static float swipeSpeed = 2.0;
     [self removeChildByTag:2 cleanup:YES];
     [self removeChildByTag:104 cleanup:YES];
     
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"dance.plist"];
-    aiSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"dance.png"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Hulk_3.plist"];
+    aiSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"Hulk_3.png"];
     
     NSMutableArray *walkframes = [NSMutableArray array];
     
-    for (int j = 1; j <= 2; j++) {
-        for (int i = 1; i <= 10; ++i) {
-            NSString *frameName = [NSString stringWithFormat:@"dance%d.png",i];
+        for (int i = 1; i <= 47; i++) {
+            NSString *frameName = [NSString stringWithFormat:@"Hulk_3_%d.png",i];
             [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
         }
-    }
     
     CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
-    CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"dance1.png"];
-    dance.position = ccp(876, 200);
+    CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"Hulk_3_1.png"];
+    dance.position = ccp(801, 150);
+    dance.flipX = 180;
     
     CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
     
@@ -353,7 +359,7 @@ static float swipeSpeed = 2.0;
     
     NSMutableArray *walkframes = [NSMutableArray array];
     
-    for (int i = 1; i <= 21; ++i) {
+    for (int i = 1; i <= 21; i++) {
         NSString *frameName = [NSString stringWithFormat:@"f%d.png",i];
         [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
     }
