@@ -10,6 +10,8 @@
 	<string>Dance Wars</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>3658B3F2-A3F4-45CA-90B0-2C76FB6E0E67</key>
+		<string>https://github.com/donsalari/Dance-Wars</string>
 		<key>8DB77AAC-28B8-49E1-A234-3374B939288F</key>
 		<string>https://github.com/donsalari/Dance-Wars.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>Dance Wars/Dance Wars.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>3658B3F2-A3F4-45CA-90B0-2C76FB6E0E67</key>
+		<string>../../../../../Desktop/desktop/gitclone/Dance-Wars</string>
 		<key>8DB77AAC-28B8-49E1-A234-3374B939288F</key>
 		<string>../../..</string>
 	</dict>
@@ -33,6 +37,14 @@
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>8DB77AAC-28B8-49E1-A234-3374B939288F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Dance-Wars</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3658B3F2-A3F4-45CA-90B0-2C76FB6E0E67</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Dance-Wars</string>
 		</dict>

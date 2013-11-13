@@ -43,6 +43,17 @@ static float swipeSpeed = 2.0;
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:le.backgroundMusic];
         [self performSelector:@selector(initiateBackground:) withObject:le.backgroundName afterDelay:0.75];
         
+        InputHandler *ihvol = [sharedManager.inputBundle objectForKey:@"VOLCONTROL"];
+        InputHandler *ihvolchanged = [sharedManager.inputBundle objectForKey:@"VOLCHANGED"];
+        NSLog(@"vol object: %f", ihvol.volumeLevel);
+        NSLog(ihvolchanged.checkvolumeAltered ? @"Yes" : @"No");
+        
+        if(ihvolchanged.checkvolumeAltered && ihvol.volumeLevel < 1.0) {
+            [[SimpleAudioEngine sharedEngine] setEffectsVolume:1.0];
+            [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:1.0];
+        }
+        
+        
         // Get character selected values from the character selection screen
         charHand = [sharedManager.inputBundle objectForKey:@"ch"];
         
@@ -366,6 +377,17 @@ static float swipeSpeed = 2.0;
 }
 
 -(void) loadHelloWorldLayer {
+    
+    InputHandler *ihvol = [sharedManager.inputBundle objectForKey:@"VOLCONTROL"];
+    InputHandler *ihvolchanged = [sharedManager.inputBundle objectForKey:@"VOLCHANGED"];
+    NSLog(@"vol object: %f", ihvol.volumeLevel);
+    NSLog(ihvolchanged.checkvolumeAltered ? @"Yes" : @"No");
+    
+    if(ihvolchanged.checkvolumeAltered && ihvol.volumeLevel < 1.0) {
+        [[SimpleAudioEngine sharedEngine] setEffectsVolume:ihvol.volumeLevel];
+        [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:ihvol.volumeLevel];
+    }
+    
     [[CCDirector sharedDirector] resume];
     
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];

@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3539F20F1820975200ACB7FA /* home_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F20E1820975200ACB7FA /* home_bg.png */; };
+		3508373F18332E9400DC76D2 /* dance_wars_label.png in Resources */ = {isa = PBXBuildFile; fileRef = 3508373918332E9400DC76D2 /* dance_wars_label.png */; };
+		3508374018332E9400DC76D2 /* home_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3508373A18332E9400DC76D2 /* home_bg.png */; };
+		3508374318332E9400DC76D2 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 3508373D18332E9400DC76D2 /* play.png */; };
+		3508374418332E9400DC76D2 /* play_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3508373E18332E9400DC76D2 /* play_pressed.png */; };
 		3539F2211820977500ACB7FA /* pausegame.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F2101820977500ACB7FA /* pausegame.png */; };
 		3539F2221820977500ACB7FA /* restart.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F2111820977500ACB7FA /* restart.png */; };
 		3539F2231820977500ACB7FA /* main_menu_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F2121820977500ACB7FA /* main_menu_button.png */; };
 		3539F2241820977500ACB7FA /* resume_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F2131820977500ACB7FA /* resume_button.png */; };
 		3539F2251820977500ACB7FA /* paused_menu_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F2141820977500ACB7FA /* paused_menu_banner.png */; };
-		3539F2261820977500ACB7FA /* options.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F2151820977500ACB7FA /* options.png */; };
-		3539F2271820977500ACB7FA /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F2161820977500ACB7FA /* settings.png */; };
-		3539F2281820977500ACB7FA /* play_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F2171820977500ACB7FA /* play_button_pressed.png */; };
-		3539F2291820977500ACB7FA /* play_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F2181820977500ACB7FA /* play_button.png */; };
 		3539F22A1820977500ACB7FA /* home_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F2191820977500ACB7FA /* home_pressed.png */; };
 		3539F22B1820977500ACB7FA /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F21A1820977500ACB7FA /* home.png */; };
 		3539F22C1820977500ACB7FA /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F21B1820977500ACB7FA /* Icon-72.png */; };
@@ -25,6 +24,21 @@
 		3539F22F1820977500ACB7FA /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F21E1820977500ACB7FA /* Icon-Small@2x.png */; };
 		3539F2301820977500ACB7FA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F21F1820977500ACB7FA /* Icon.png */; };
 		3539F2311820977500ACB7FA /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F2201820977500ACB7FA /* Icon@2x.png */; };
+		35CD083B183332AB006C73B8 /* options.png in Resources */ = {isa = PBXBuildFile; fileRef = 35CD0839183332AB006C73B8 /* options.png */; };
+		35CD0840183333D6006C73B8 /* OptionsSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD083F183333D6006C73B8 /* OptionsSelectLayer.m */; };
+		35CD085F183334E8006C73B8 /* CCControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD0844183334E8006C73B8 /* CCControl.m */; };
+		35CD0860183334E8006C73B8 /* CCControlButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD0846183334E8006C73B8 /* CCControlButton.m */; };
+		35CD0861183334E8006C73B8 /* CCControlColourPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD0848183334E8006C73B8 /* CCControlColourPicker.m */; };
+		35CD0862183334E8006C73B8 /* CCControlPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD084A183334E8006C73B8 /* CCControlPicker.m */; };
+		35CD0863183334E8006C73B8 /* CCControlPotentiometer.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD084C183334E8006C73B8 /* CCControlPotentiometer.m */; };
+		35CD0864183334E8006C73B8 /* CCControlSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD084E183334E8006C73B8 /* CCControlSlider.m */; };
+		35CD0865183334E8006C73B8 /* CCControlStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD0850183334E8006C73B8 /* CCControlStepper.m */; };
+		35CD0866183334E8006C73B8 /* CCControlSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD0852183334E8006C73B8 /* CCControlSwitch.m */; };
+		35CD0867183334E8006C73B8 /* ccControlShaders.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD0855183334E8006C73B8 /* ccControlShaders.m */; };
+		35CD0868183334E8006C73B8 /* CCColourUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD085A183334E8006C73B8 /* CCColourUtils.m */; };
+		35CD0869183334E8006C73B8 /* CCScale9Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD085C183334E8006C73B8 /* CCScale9Sprite.m */; };
+		35CD086A183334E8006C73B8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 35CD085E183334E8006C73B8 /* README.md */; };
+		35CD086C18333670006C73B8 /* options_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 35CD086B18333670006C73B8 /* options_pressed.png */; };
 		35D623F217FF96500020F299 /* bomb.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D623F117FF96500020F299 /* bomb.png */; };
 		35D623F417FF96570020F299 /* bomb.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35D623F317FF96570020F299 /* bomb.plist */; };
 		B2A69B64182175930040B4DC /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B2A69B63182175930040B4DC /* arrow.png */; };
@@ -556,16 +570,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3539F20E1820975200ACB7FA /* home_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_bg.png; sourceTree = "<group>"; };
+		3508373918332E9400DC76D2 /* dance_wars_label.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dance_wars_label.png; sourceTree = "<group>"; };
+		3508373A18332E9400DC76D2 /* home_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_bg.png; sourceTree = "<group>"; };
+		3508373D18332E9400DC76D2 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		3508373E18332E9400DC76D2 /* play_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_pressed.png; sourceTree = "<group>"; };
 		3539F2101820977500ACB7FA /* pausegame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pausegame.png; sourceTree = "<group>"; };
 		3539F2111820977500ACB7FA /* restart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restart.png; sourceTree = "<group>"; };
 		3539F2121820977500ACB7FA /* main_menu_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_menu_button.png; sourceTree = "<group>"; };
 		3539F2131820977500ACB7FA /* resume_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resume_button.png; sourceTree = "<group>"; };
 		3539F2141820977500ACB7FA /* paused_menu_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paused_menu_banner.png; sourceTree = "<group>"; };
-		3539F2151820977500ACB7FA /* options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = options.png; sourceTree = "<group>"; };
-		3539F2161820977500ACB7FA /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
-		3539F2171820977500ACB7FA /* play_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_button_pressed.png; sourceTree = "<group>"; };
-		3539F2181820977500ACB7FA /* play_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_button.png; sourceTree = "<group>"; };
 		3539F2191820977500ACB7FA /* home_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_pressed.png; sourceTree = "<group>"; };
 		3539F21A1820977500ACB7FA /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		3539F21B1820977500ACB7FA /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -574,6 +587,36 @@
 		3539F21E1820977500ACB7FA /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		3539F21F1820977500ACB7FA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		3539F2201820977500ACB7FA /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		35CD0839183332AB006C73B8 /* options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = options.png; sourceTree = "<group>"; };
+		35CD083E183333C0006C73B8 /* OptionsSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsSelectLayer.h; sourceTree = "<group>"; };
+		35CD083F183333D6006C73B8 /* OptionsSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsSelectLayer.m; sourceTree = "<group>"; };
+		35CD0843183334E8006C73B8 /* CCControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCControl.h; sourceTree = "<group>"; };
+		35CD0844183334E8006C73B8 /* CCControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCControl.m; sourceTree = "<group>"; };
+		35CD0845183334E8006C73B8 /* CCControlButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCControlButton.h; sourceTree = "<group>"; };
+		35CD0846183334E8006C73B8 /* CCControlButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCControlButton.m; sourceTree = "<group>"; };
+		35CD0847183334E8006C73B8 /* CCControlColourPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCControlColourPicker.h; sourceTree = "<group>"; };
+		35CD0848183334E8006C73B8 /* CCControlColourPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCControlColourPicker.m; sourceTree = "<group>"; };
+		35CD0849183334E8006C73B8 /* CCControlPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCControlPicker.h; sourceTree = "<group>"; };
+		35CD084A183334E8006C73B8 /* CCControlPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCControlPicker.m; sourceTree = "<group>"; };
+		35CD084B183334E8006C73B8 /* CCControlPotentiometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCControlPotentiometer.h; sourceTree = "<group>"; };
+		35CD084C183334E8006C73B8 /* CCControlPotentiometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCControlPotentiometer.m; sourceTree = "<group>"; };
+		35CD084D183334E8006C73B8 /* CCControlSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCControlSlider.h; sourceTree = "<group>"; };
+		35CD084E183334E8006C73B8 /* CCControlSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCControlSlider.m; sourceTree = "<group>"; };
+		35CD084F183334E8006C73B8 /* CCControlStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCControlStepper.h; sourceTree = "<group>"; };
+		35CD0850183334E8006C73B8 /* CCControlStepper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCControlStepper.m; sourceTree = "<group>"; };
+		35CD0851183334E8006C73B8 /* CCControlSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCControlSwitch.h; sourceTree = "<group>"; };
+		35CD0852183334E8006C73B8 /* CCControlSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCControlSwitch.m; sourceTree = "<group>"; };
+		35CD0854183334E8006C73B8 /* ccControlShaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccControlShaders.h; sourceTree = "<group>"; };
+		35CD0855183334E8006C73B8 /* ccControlShaders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccControlShaders.m; sourceTree = "<group>"; };
+		35CD0856183334E8006C73B8 /* ccShader_ControlSwitchMask_frag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccShader_ControlSwitchMask_frag.h; sourceTree = "<group>"; };
+		35CD0858183334E8006C73B8 /* ARCMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacro.h; sourceTree = "<group>"; };
+		35CD0859183334E8006C73B8 /* CCColourUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCColourUtils.h; sourceTree = "<group>"; };
+		35CD085A183334E8006C73B8 /* CCColourUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCColourUtils.m; sourceTree = "<group>"; };
+		35CD085B183334E8006C73B8 /* CCScale9Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScale9Sprite.h; sourceTree = "<group>"; };
+		35CD085C183334E8006C73B8 /* CCScale9Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCScale9Sprite.m; sourceTree = "<group>"; };
+		35CD085D183334E8006C73B8 /* CCControlExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCControlExtension.h; sourceTree = "<group>"; };
+		35CD085E183334E8006C73B8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		35CD086B18333670006C73B8 /* options_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = options_pressed.png; path = ../../../../../Desktop/desktop/options_pressed.png; sourceTree = "<group>"; };
 		35D623F117FF96500020F299 /* bomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomb.png; sourceTree = "<group>"; };
 		35D623F317FF96570020F299 /* bomb.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bomb.plist; sourceTree = "<group>"; };
 		B2A69B63182175930040B4DC /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
@@ -1333,6 +1376,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3508373818332E9400DC76D2 /* Home Layer */ = {
+			isa = PBXGroup;
+			children = (
+				35CD086B18333670006C73B8 /* options_pressed.png */,
+				35CD0839183332AB006C73B8 /* options.png */,
+				3508373918332E9400DC76D2 /* dance_wars_label.png */,
+				3508373A18332E9400DC76D2 /* home_bg.png */,
+				3508373D18332E9400DC76D2 /* play.png */,
+				3508373E18332E9400DC76D2 /* play_pressed.png */,
+			);
+			path = "Home Layer";
+			sourceTree = "<group>";
+		};
+		35CD0841183334E8006C73B8 /* CCControlExtension */ = {
+			isa = PBXGroup;
+			children = (
+				35CD0842183334E8006C73B8 /* CCControl */,
+				35CD085D183334E8006C73B8 /* CCControlExtension.h */,
+				35CD085E183334E8006C73B8 /* README.md */,
+			);
+			name = CCControlExtension;
+			path = "../../../../Desktop/desktop/gitclone/Dance-Wars/Dance Wars/Dance Wars/CCControlExtension";
+			sourceTree = "<group>";
+		};
+		35CD0842183334E8006C73B8 /* CCControl */ = {
+			isa = PBXGroup;
+			children = (
+				35CD0843183334E8006C73B8 /* CCControl.h */,
+				35CD0844183334E8006C73B8 /* CCControl.m */,
+				35CD0845183334E8006C73B8 /* CCControlButton.h */,
+				35CD0846183334E8006C73B8 /* CCControlButton.m */,
+				35CD0847183334E8006C73B8 /* CCControlColourPicker.h */,
+				35CD0848183334E8006C73B8 /* CCControlColourPicker.m */,
+				35CD0849183334E8006C73B8 /* CCControlPicker.h */,
+				35CD084A183334E8006C73B8 /* CCControlPicker.m */,
+				35CD084B183334E8006C73B8 /* CCControlPotentiometer.h */,
+				35CD084C183334E8006C73B8 /* CCControlPotentiometer.m */,
+				35CD084D183334E8006C73B8 /* CCControlSlider.h */,
+				35CD084E183334E8006C73B8 /* CCControlSlider.m */,
+				35CD084F183334E8006C73B8 /* CCControlStepper.h */,
+				35CD0850183334E8006C73B8 /* CCControlStepper.m */,
+				35CD0851183334E8006C73B8 /* CCControlSwitch.h */,
+				35CD0852183334E8006C73B8 /* CCControlSwitch.m */,
+				35CD0853183334E8006C73B8 /* Shaders */,
+				35CD0857183334E8006C73B8 /* Utils */,
+			);
+			path = CCControl;
+			sourceTree = "<group>";
+		};
+		35CD0853183334E8006C73B8 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				35CD0854183334E8006C73B8 /* ccControlShaders.h */,
+				35CD0855183334E8006C73B8 /* ccControlShaders.m */,
+				35CD0856183334E8006C73B8 /* ccShader_ControlSwitchMask_frag.h */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		35CD0857183334E8006C73B8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				35CD0858183334E8006C73B8 /* ARCMacro.h */,
+				35CD0859183334E8006C73B8 /* CCColourUtils.h */,
+				35CD085A183334E8006C73B8 /* CCColourUtils.m */,
+				35CD085B183334E8006C73B8 /* CCScale9Sprite.h */,
+				35CD085C183334E8006C73B8 /* CCScale9Sprite.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		B2C4D6761817B1DA000B295E /* dance_move_1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1696,10 +1810,6 @@
 				3539F2121820977500ACB7FA /* main_menu_button.png */,
 				3539F2131820977500ACB7FA /* resume_button.png */,
 				3539F2141820977500ACB7FA /* paused_menu_banner.png */,
-				3539F2151820977500ACB7FA /* options.png */,
-				3539F2161820977500ACB7FA /* settings.png */,
-				3539F2171820977500ACB7FA /* play_button_pressed.png */,
-				3539F2181820977500ACB7FA /* play_button.png */,
 				3539F2191820977500ACB7FA /* home_pressed.png */,
 				3539F21A1820977500ACB7FA /* home.png */,
 				3539F21B1820977500ACB7FA /* Icon-72.png */,
@@ -1820,6 +1930,7 @@
 		DF3E1C5A17EA363E0043593E /* Dance Wars */ = {
 			isa = PBXGroup;
 			children = (
+				35CD0841183334E8006C73B8 /* CCControlExtension */,
 				DFB8372917FA9E40002094B4 /* GestureRecognizer */,
 				DF3E1EAE17EA44FF0043593E /* AI */,
 				DF3E1E9517EA3A840043593E /* Scenes */,
@@ -1844,6 +1955,8 @@
 				DF3E1E7A17EA36420043593E /* Supporting Files */,
 				DF3E1EB917EA4A8B0043593E /* Settings.h */,
 				DF3E1EBA17EA4A8B0043593E /* Settings.m */,
+				35CD083E183333C0006C73B8 /* OptionsSelectLayer.h */,
+				35CD083F183333D6006C73B8 /* OptionsSelectLayer.m */,
 			);
 			path = "Dance Wars";
 			sourceTree = "<group>";
@@ -2395,7 +2508,7 @@
 		DF3E1E9217EA38BC0043593E /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				3539F20E1820975200ACB7FA /* home_bg.png */,
+				3508373818332E9400DC76D2 /* Home Layer */,
 				B2E9188E18176F4E0063BC73 /* level_difficulty */,
 				B2E9188D18176F130063BC73 /* touch_icons */,
 				B2E9188C18176EC80063BC73 /* icons */,
@@ -2724,6 +2837,7 @@
 				B2E9184618176B290063BC73 /* player_1_d1_28.png in Resources */,
 				DF9586191804F9A8006C9B0F /* touchpoints-blue.png in Resources */,
 				DFCD0AD0182F103A0084868F /* player_2_d2_18.png in Resources */,
+				3508374318332E9400DC76D2 /* play.png in Resources */,
 				B2E9184F18176B290063BC73 /* player_1_d1_36.png in Resources */,
 				B2C4D6BF1817B1DA000B295E /* player_2_d1_16.png in Resources */,
 				B2C4D77A1817B5DA000B295E /* player_2_i_8.png in Resources */,
@@ -2841,6 +2955,7 @@
 				B2E9185318176B290063BC73 /* player_1_d1_4.png in Resources */,
 				B2EF47FA18179FE600841EB0 /* background_1_5.png in Resources */,
 				B2C4D7581817B5DA000B295E /* player_2_i_34.png in Resources */,
+				3508374418332E9400DC76D2 /* play_pressed.png in Resources */,
 				B2C4D7661817B5DA000B295E /* player_2_i_47.png in Resources */,
 				B2E9188418176B290063BC73 /* player_1_d1_9.png in Resources */,
 				B2EF47F518179FE600841EB0 /* background_1_11.png in Resources */,
@@ -2893,10 +3008,13 @@
 				B2E9187918176B290063BC73 /* player_1_d1_74.png in Resources */,
 				B2E9186F18176B290063BC73 /* player_1_d1_65.png in Resources */,
 				B2C4D74C1817B5DA000B295E /* player_2_i_23.png in Resources */,
+				35CD086A183334E8006C73B8 /* README.md in Resources */,
 				B2E9187D18176B290063BC73 /* player_1_d1_78.png in Resources */,
+				3508374018332E9400DC76D2 /* home_bg.png in Resources */,
 				B2C4D6C21817B1DA000B295E /* player_2_d1_19.png in Resources */,
 				B2E9186418176B290063BC73 /* player_1_d1_55.png in Resources */,
 				B2C4D7451817B5DA000B295E /* player_2_i_17.png in Resources */,
+				35CD083B183332AB006C73B8 /* options.png in Resources */,
 				B2C4D7721817B5DA000B295E /* player_2_i_58.png in Resources */,
 				B2E9184A18176B290063BC73 /* player_1_d1_31.png in Resources */,
 				B2E9183A18176B290063BC73 /* player_1_d1_17.png in Resources */,
@@ -2958,24 +3076,21 @@
 				B2E919121817702C0063BC73 /* player_2.png in Resources */,
 				B2E9188118176B290063BC73 /* player_1_d1_81.png in Resources */,
 				B2EF479F181797AA00841EB0 /* difficulty_level_1.png in Resources */,
-				3539F20F1820975200ACB7FA /* home_bg.png in Resources */,
 				DFCD0ACA182F103A0084868F /* player_2_d2_12.png in Resources */,
 				3539F2211820977500ACB7FA /* pausegame.png in Resources */,
 				3539F2221820977500ACB7FA /* restart.png in Resources */,
 				3539F2231820977500ACB7FA /* main_menu_button.png in Resources */,
 				3539F2241820977500ACB7FA /* resume_button.png in Resources */,
 				3539F2251820977500ACB7FA /* paused_menu_banner.png in Resources */,
-				3539F2261820977500ACB7FA /* options.png in Resources */,
-				3539F2271820977500ACB7FA /* settings.png in Resources */,
-				3539F2281820977500ACB7FA /* play_button_pressed.png in Resources */,
-				3539F2291820977500ACB7FA /* play_button.png in Resources */,
 				3539F22A1820977500ACB7FA /* home_pressed.png in Resources */,
+				35CD086C18333670006C73B8 /* options_pressed.png in Resources */,
 				DFCD0ACE182F103A0084868F /* player_2_d2_16.png in Resources */,
 				3539F22B1820977500ACB7FA /* home.png in Resources */,
 				3539F22C1820977500ACB7FA /* Icon-72.png in Resources */,
 				3539F22D1820977500ACB7FA /* Icon-Small-50.png in Resources */,
 				3539F22E1820977500ACB7FA /* Icon-Small.png in Resources */,
 				3539F22F1820977500ACB7FA /* Icon-Small@2x.png in Resources */,
+				3508373F18332E9400DC76D2 /* dance_wars_label.png in Resources */,
 				3539F2301820977500ACB7FA /* Icon.png in Resources */,
 				3539F2311820977500ACB7FA /* Icon@2x.png in Resources */,
 			);
@@ -3023,6 +3138,7 @@
 				DF3E1CD817EA363F0043593E /* CCLayer.m in Sources */,
 				DF3E1CDC17EA363F0043593E /* CCMenu.m in Sources */,
 				DF3E1CDF17EA363F0043593E /* CCMenuItem.m in Sources */,
+				35CD0860183334E8006C73B8 /* CCControlButton.m in Sources */,
 				DF3E1CE217EA363F0043593E /* CCMotionStreak.m in Sources */,
 				DF3E1CE517EA363F0043593E /* CCNode+Debug.m in Sources */,
 				DF3E1CE817EA36400043593E /* CCNode.m in Sources */,
@@ -3040,6 +3156,7 @@
 				DF3E1D1C17EA36400043593E /* CCShaderCache.m in Sources */,
 				DF3E1D1F17EA36400043593E /* ccShaders.m in Sources */,
 				DF3E1D2217EA36400043593E /* CCSprite.m in Sources */,
+				35CD0863183334E8006C73B8 /* CCControlPotentiometer.m in Sources */,
 				DF3E1D2517EA36400043593E /* CCSpriteBatchNode.m in Sources */,
 				DF3E1D2817EA36400043593E /* CCSpriteFrame.m in Sources */,
 				DF3E1D2B17EA36400043593E /* CCSpriteFrameCache.m in Sources */,
@@ -3055,6 +3172,8 @@
 				DF3E1D4917EA36400043593E /* CCTransition.m in Sources */,
 				DF3E1D4C17EA36400043593E /* CCTransitionPageTurn.m in Sources */,
 				DF3E1D4F17EA36400043593E /* CCTransitionProgress.m in Sources */,
+				35CD0861183334E8006C73B8 /* CCControlColourPicker.m in Sources */,
+				35CD0864183334E8006C73B8 /* CCControlSlider.m in Sources */,
 				DF3E1D5317EA36400043593E /* cocos2d.m in Sources */,
 				DF3E1D5A17EA36400043593E /* CCDirectorIOS.m in Sources */,
 				DF3E1D5D17EA36400043593E /* CCES2Renderer.m in Sources */,
@@ -3085,7 +3204,9 @@
 				DF3E1DB317EA36410043593E /* SimpleAudioEngine.m in Sources */,
 				DF3E1DC917EA36410043593E /* aabb.c in Sources */,
 				DF3E1DCF17EA36410043593E /* mat4stack.c in Sources */,
+				35CD0862183334E8006C73B8 /* CCControlPicker.m in Sources */,
 				DF3E1DD117EA36410043593E /* matrix.c in Sources */,
+				35CD0866183334E8006C73B8 /* CCControlSwitch.m in Sources */,
 				DF3E1DD317EA36410043593E /* mat3.c in Sources */,
 				DF3E1DD517EA36410043593E /* mat4.c in Sources */,
 				DF3E1DD717EA36410043593E /* neon_matrix_impl.c in Sources */,
@@ -3126,9 +3247,12 @@
 				DF3E1E3F17EA36420043593E /* b2CircleContact.cpp in Sources */,
 				DF3E1E4217EA36420043593E /* b2Contact.cpp in Sources */,
 				DF3E1E4517EA36420043593E /* b2ContactSolver.cpp in Sources */,
+				35CD0840183333D6006C73B8 /* OptionsSelectLayer.m in Sources */,
+				35CD085F183334E8006C73B8 /* CCControl.m in Sources */,
 				DF3E1E4817EA36420043593E /* b2EdgeAndCircleContact.cpp in Sources */,
 				DF3E1E4B17EA36420043593E /* b2EdgeAndPolygonContact.cpp in Sources */,
 				DF3E1E4E17EA36420043593E /* b2PolygonAndCircleContact.cpp in Sources */,
+				35CD0868183334E8006C73B8 /* CCColourUtils.m in Sources */,
 				DF3E1E5117EA36420043593E /* b2PolygonContact.cpp in Sources */,
 				DF3E1E5517EA36420043593E /* b2DistanceJoint.cpp in Sources */,
 				DF3E1E5817EA36420043593E /* b2FrictionJoint.cpp in Sources */,
@@ -3139,6 +3263,7 @@
 				DF3E1E6717EA36420043593E /* b2PulleyJoint.cpp in Sources */,
 				DF3E1E6A17EA36420043593E /* b2RevoluteJoint.cpp in Sources */,
 				DF3E1E6D17EA36420043593E /* b2RopeJoint.cpp in Sources */,
+				35CD0867183334E8006C73B8 /* ccControlShaders.m in Sources */,
 				DF3E1E7017EA36420043593E /* b2WeldJoint.cpp in Sources */,
 				DF3E1E7317EA36420043593E /* b2WheelJoint.cpp in Sources */,
 				DF3E1E7717EA36420043593E /* b2Rope.cpp in Sources */,
@@ -3149,8 +3274,10 @@
 				DF3E1E9B17EA3B2B0043593E /* InputHandler.m in Sources */,
 				DF3E1E9E17EA3B410043593E /* NetworkHandler.m in Sources */,
 				DF3E1EB517EA4A210043593E /* Score.m in Sources */,
+				35CD0869183334E8006C73B8 /* CCScale9Sprite.m in Sources */,
 				DF3E1EB817EA4A2E0043593E /* GenerateMoves.m in Sources */,
 				DF3E1EBB17EA4A8C0043593E /* Settings.m in Sources */,
+				35CD0865183334E8006C73B8 /* CCControlStepper.m in Sources */,
 				D807235C17ED0D0400759B73 /* HelloWorldLayer.m in Sources */,
 				D807236117ED271100759B73 /* GameLevelLayer.m in Sources */,
 				D8597B2A17F619CA003F8B6D /* LevelSelectLayer.m in Sources */,

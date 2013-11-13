@@ -21,5 +21,6 @@
 @property (nonatomic) int aiAccuracy;         //accuracy of AI depending on the level selected
 @property (nonatomic) float aiScore;          //ai response points
 @property (nonatomic) float userLife;         //corresponds to value obtained from user score being used to update progress bar
-
+@property (nonatomic) float volumeLevel;      //set volume level, and update in gamelevellayer
+@property (nonatomic) bool checkvolumeAltered;//check if volume is modified
 @end

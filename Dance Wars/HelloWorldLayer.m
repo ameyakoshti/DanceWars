@@ -13,6 +13,7 @@
 
 #import "GameLevelLayer.h"
 #import "CharacterSelect.h"
+#import "OptionsSelectLayer.h"
 
 #pragma mark - HelloWorldLayer
 
@@ -52,7 +53,7 @@
         
 
         CCMenuItemImage *playButton = [CCMenuItemImage itemWithNormalImage:@"play.png" selectedImage:@"play_pressed.png" target:self selector:@selector(loadCharacterSelectLayer)];
-        CCMenuItemImage *optionsButton = [CCMenuItemImage itemWithNormalImage:@"options.png" selectedImage:@"options_pressed.png" target:self selector:@selector(loadCharacterSelectLayer)];
+        CCMenuItemImage *optionsButton = [CCMenuItemImage itemWithNormalImage:@"options.png" selectedImage:@"options_pressed.png" target:self selector:@selector(loadOptionsLayer)];
 
         MainMenu = [CCMenu menuWithItems:playButton, optionsButton, nil];
         MainMenu.position = ccp(0 - MainMenu.contentSize.width, size.height - MainMenu.contentSize.height/2);
@@ -80,5 +81,11 @@
     CCScene *charSelect = [CharacterSelect scene];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:charSelect]];
 }
+
+- (void) loadOptionsLayer {
+    CCScene *optionsSelect = [OptionsSelectLayer scene];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:optionsSelect]];
+}
+
 
 @end
