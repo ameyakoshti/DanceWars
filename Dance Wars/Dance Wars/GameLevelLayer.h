@@ -32,13 +32,13 @@
     CCSpriteBatchNode *aiSpriteSheet;
 
     BOOL swipeHit;
-
+    BOOL visited[4];
+    
     int touchPointCounter;
     int hitCount;
     int objectCount;
     int missCount;
     int totalObjects;
-    int visited[4];
     int totalGeneratedObjects;
     
     float xLocations[15];

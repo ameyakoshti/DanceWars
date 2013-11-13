@@ -453,8 +453,8 @@ static float swipeSpeed = 2.0;
 
 -(void) displayTouchIcons {
     // to check if both the touch icons are tapped at the same time
-    visited[1] = 0;
-    visited[2] = 0;
+    visited[1] = NO;
+    visited[2] = NO;
     
     swipeHit = NO;
     
@@ -703,40 +703,16 @@ static float swipeSpeed = 2.0;
         CGPoint location = [[CCDirector sharedDirector] convertTouchToGL:touch];
         
         if((CGRectContainsPoint(touchIcon[1].boundingBox, location))) {
-            visited[1] = 1;
+            visited[1] = YES;
             hitCount++;
             
-            // Some animation where the icon is generated
-            CCParticleSystem *emitter = [CCParticleExplosion node];
-            //set the location of the emitter
-            emitter.position = touchIcon[1].position;
-            //set size of particle animation
-            emitter.scale = 0.5;
-            //set an Image for the particle
-            emitter.texture = [[CCTextureCache sharedTextureCache] addImage:@"touchpoints.png"];
-            //set length of particle animation
-            [emitter setLife:0.1f];
-            //add to layer ofcourse(effect begins after this step)
-            [self addChild: emitter];
-            
+            [self showBlastEffect:touchIcon[1].position];
         }
         if((CGRectContainsPoint(touchIcon[2].boundingBox, location))) {
-            visited[2] = 1;
+            visited[2] = YES;
             hitCount++;
             
-            // Some animation where the icon is generated
-            CCParticleSystem *emitter = [CCParticleExplosion node];
-            //set the location of the emitter
-            emitter.position = touchIcon[2].position;
-            //set size of particle animation
-            emitter.scale = 0.5;
-            //set an Image for the particle
-            emitter.texture = [[CCTextureCache sharedTextureCache] addImage:@"touchpoints.png"];
-            //set length of particle animation
-            [emitter setLife:0.1f];
-            //add to layer ofcourse(effect begins after this step)
-            [self addChild: emitter];
-            
+            [self showBlastEffect:touchIcon[2].position];
         }
         else {
             // for negative points
@@ -744,10 +720,25 @@ static float swipeSpeed = 2.0;
     }
     
     //checkIfBothHit = 0;
-    if(visited[1] == 1 && visited[2] == 1){
+    if(visited[1] == YES && visited[2] == YES){
         [self addMessage:@"nice.png"];
         [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:0.5];
     }
+}
+
+-(void) showBlastEffect:(CGPoint) location{
+    // Some animation where the icon is generated
+    CCParticleSystem *emitter = [CCParticleExplosion node];
+    //set the location of the emitter
+    emitter.position = location;
+    //set size of particle animation
+    emitter.scale = 0.5;
+    //set an Image for the particle
+    emitter.texture = [[CCTextureCache sharedTextureCache] addImage:@"touchpoints.png"];
+    //set length of particle animation
+    [emitter setLife:0.1f];
+    //add to layer ofcourse(effect begins after this step)
+    [self addChild: emitter];
 }
 
 -(void) dealloc {
