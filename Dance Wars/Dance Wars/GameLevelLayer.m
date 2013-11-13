@@ -104,9 +104,7 @@ static float swipeSpeed = 2.0;
         
         CCMenuItemImage *mainbutton = [CCMenuItemImage itemWithNormalImage:@"main_menu_button.png" selectedImage:@"main_menu_button.png" target:self selector:@selector(loadHelloWorldLayer)];
         
-        CCMenuItemImage *restartbutton = [CCMenuItemImage itemWithNormalImage:@"restart.png" selectedImage:@"restart.png" target:self selector:@selector(gameRestart:)];
-        
-        pauseMenu = [CCMenu menuWithItems:pauseScreen, resumebutton, mainbutton, restartbutton, nil];
+        pauseMenu = [CCMenu menuWithItems:pauseScreen, resumebutton, mainbutton, nil];
         [pauseMenu alignItemsVertically];
         pauseMenu.position = ccp(size.width/2, size.height + 300);
         [self addChild:pauseMenu z:1000 tag:23];
@@ -406,17 +404,6 @@ static float swipeSpeed = 2.0;
 -(void) gamePause {
 
     [[CCDirector sharedDirector] pause];
-}
-
--(void) gameRestart: (CCMenuItem *) menuItem {
-
-//    [self removeChildByTag:102 cleanup:YES];
-//    [self removeChildByTag:103 cleanup:YES];
-//    [self removeChildByTag:104 cleanup:YES];
-//    [self removeChildByTag:23 cleanup:YES];
-    
-//    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[GameLevelLayer scene]]];
 }
 
 -(void) gameResume {
