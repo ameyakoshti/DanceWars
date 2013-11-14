@@ -52,7 +52,7 @@
         introName.position = ccp(size.width/2, size.height + introName.contentSize.height);
         
 
-        CCMenuItemImage *playButton = [CCMenuItemImage itemWithNormalImage:@"play.png" selectedImage:@"play_pressed.png" target:self selector:@selector(loadCharacterSelectLayer)];
+        CCMenuItemImage *playButton = [CCMenuItemImage itemWithNormalImage:@"play_button.png" selectedImage:@"play_button_pressed.png" target:self selector:@selector(loadCharacterSelectLayer)];
         CCMenuItemImage *optionsButton = [CCMenuItemImage itemWithNormalImage:@"options.png" selectedImage:@"options_pressed.png" target:self selector:@selector(loadOptionsLayer)];
 
         MainMenu = [CCMenu menuWithItems:playButton, optionsButton, nil];
