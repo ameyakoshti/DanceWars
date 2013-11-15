@@ -70,7 +70,7 @@ static float swipeSpeed = 2.0;
         
         // Player life bar
         self.life = 0;
-        self.progressTimer = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"healthbar_red.png"]];
+        self.progressTimer = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"home_icon.png"]];
         self.progressTimer.type = kCCProgressTimerTypeBar;
         self.progressTimer.midpoint = ccp(0,0);
         self.progressTimer.barChangeRate = ccp(1,0);
@@ -81,12 +81,13 @@ static float swipeSpeed = 2.0;
         
         // AI life bar
         self.aiLife = 0;
-        self.aiProgressTimer = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"healthbar_red.png"]];
+        self.aiProgressTimer = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"home-icon.png"]];
         self.aiProgressTimer.type = kCCProgressTimerTypeBar;
         self.aiProgressTimer.midpoint = ccp(0,0);
         self.aiProgressTimer.barChangeRate = ccp(1,0);
         [self.aiProgressTimer setScale:1];
         self.aiProgressTimer.percentage = self.aiLife;
+        self.progressTimer.rotationY = 180;
         self.aiProgressTimer.position = ccp(size.width-120,size.height-50);
         [self addChild:self.aiProgressTimer];
         
@@ -337,20 +338,11 @@ static float swipeSpeed = 2.0;
     // update AI progress bar
     if(self.aiLife >= 0 && self.aiLife < 100){
         self.aiLife += aiscore;
-        if(self.aiLife > 25 && self.aiLife < 60){
-            [self.aiProgressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
-            [self.aiProgressTimer setScale:1];
-        }
-        if(self.aiLife > 60){
-            [self.aiProgressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_green.png"]];
-            [self.aiProgressTimer setScale:1];
-        }
-        if(self.aiLife < 25){
-            [self.aiProgressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_red.png"]];
-            [self.aiProgressTimer setScale:1];
-        }
+        [self.aiProgressTimer setSprite:[CCSprite spriteWithFile:@"home-icon.png"]];
+        [self.aiProgressTimer setScale:0.2];
+        [self.aiProgressTimer setPercentage:self.aiLife];
     }
-    [self.aiProgressTimer setPercentage:self.aiLife];
+   
 }
 
 -(void) initiateBlast {
@@ -645,17 +637,18 @@ static float swipeSpeed = 2.0;
     // Increment progress bar for user
     if(self.life >= 0 && self.life < 100){
         self.life += (int)[ih3 userLife];
-        if(self.life > 25 && self.life < 60){
-            [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
-            [self.progressTimer setScale:1];
-        }
-        if(self.life > 60){
-            [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_green.png"]];
-            [self.progressTimer setScale:1];
-        }
+        [self.progressTimer setSprite:[CCSprite spriteWithFile:@"home-icon.png"]];
+        [self.progressTimer setScale:0.2];
+        [self.progressTimer setPercentage:self.life];
+//        if(self.life > 25 && self.life < 60){
+//            [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
+//            [self.progressTimer setScale:1];
+//        }
+//        if(self.life > 60){
+//            [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_green.png"]];
+//            [self.progressTimer setScale:1];
+//        }
     }
-    [self.progressTimer setPercentage:self.life];
-    
     // Enable dance show for Player
     [self initiateUserDance:@"_d1"];
     
