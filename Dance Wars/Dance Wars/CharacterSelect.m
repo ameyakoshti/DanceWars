@@ -15,20 +15,15 @@
 @synthesize charSpriteList;
 
 
-
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
 {
-	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
-	// 'layer' is an autorelease object.
 	CharacterSelect *layer = [CharacterSelect node];
 	
-	// add layer as a child to scene
 	[scene addChild: layer];
 	
-	// return the scene
 	return scene;
 }
 
@@ -58,8 +53,10 @@
         CCMenuItemImage *characterFour = [CCMenuItemImage itemWithNormalImage:@"player_4.png" selectedImage:@"player_4.png" target:self selector:@selector(selectCharacterFour)];
         
         MainMenu = [CCMenu menuWithItems:characterOne, characterTwo, characterThree, characterFour, nil];
-        MainMenu.position = ccp(windowSize.width/2,windowSize.height/2);
-        [MainMenu alignItemsHorizontally];
+        MainMenu.position = ccp(windowSize.width/2,windowSize.height*1/3);
+        NSNumber* itemsPerRow = [NSNumber numberWithInt:2];
+        [MainMenu alignItemsInColumns:itemsPerRow, itemsPerRow, itemsPerRow, nil];
+        //[MainMenu alignItemsHorizontally];
         
         [self addChild:MainMenu];
         

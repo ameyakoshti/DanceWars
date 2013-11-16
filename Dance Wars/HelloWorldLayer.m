@@ -51,7 +51,6 @@
         introName = [CCSprite spriteWithFile:@"dance_wars_label.png"];
         introName.position = ccp(size.width/2, size.height + introName.contentSize.height);
         
-
         CCMenuItemImage *playButton = [CCMenuItemImage itemWithNormalImage:@"play_button.png" selectedImage:@"play_button_pressed.png" target:self selector:@selector(loadCharacterSelectLayer)];
         CCMenuItemImage *optionsButton = [CCMenuItemImage itemWithNormalImage:@"options.png" selectedImage:@"options_pressed.png" target:self selector:@selector(loadOptionsLayer)];
 

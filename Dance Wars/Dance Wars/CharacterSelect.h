@@ -15,7 +15,6 @@
 
 @interface CharacterSelect : CCLayer {
 
-    //InputHandler *ih;
     CharacterHandler *ch;
     int counter;
     CGSize windowSize;

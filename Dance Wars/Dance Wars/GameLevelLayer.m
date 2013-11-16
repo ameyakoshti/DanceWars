@@ -33,7 +33,7 @@ static bool swipeEnableGlobal = NO;
 -(id) init {
     
     if((self = [super init])) {
-        
+  
         // Enable multi touches and gestures
         self.touchEnabled = YES;
         [[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
