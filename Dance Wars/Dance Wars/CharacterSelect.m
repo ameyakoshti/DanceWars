@@ -14,6 +14,8 @@
 
 @synthesize charSpriteList;
 
+
+
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
 {
@@ -36,11 +38,8 @@
         
         windowSize = [[CCDirector sharedDirector] winSize];
         
-        counter=1;
-        
         charSpriteList = [[NSMutableArray alloc] init];
         
-        //ih = [[InputHandler alloc] init];
         ch = [[CharacterHandler alloc] init];
         
         // Add background image
@@ -53,54 +52,37 @@
         label.position = ccp(windowSize.width/2, windowSize.height*6/7);
         [self addChild:label];
         
+        CCMenuItemImage *characterOne = [CCMenuItemImage itemWithNormalImage:@"player_1.png" selectedImage:@"player_1.png" target:self selector:@selector(selectCharacterOne)];
+        CCMenuItemImage *characterTwo = [CCMenuItemImage itemWithNormalImage:@"player_2.png" selectedImage:@"player_2.png" target:self selector:@selector(selectCharacterTwo)];
+        CCMenuItemImage *characterThree = [CCMenuItemImage itemWithNormalImage:@"player_3.png" selectedImage:@"player_3.png" target:self selector:@selector(selectCharacterThree)];
+        CCMenuItemImage *characterFour = [CCMenuItemImage itemWithNormalImage:@"player_4.png" selectedImage:@"player_4.png" target:self selector:@selector(selectCharacterFour)];
+        
+        MainMenu = [CCMenu menuWithItems:characterOne, characterTwo, characterThree, characterFour, nil];
+        MainMenu.position = ccp(windowSize.width/2,windowSize.height/2);
+        [MainMenu alignItemsHorizontally];
+        
+        [self addChild:MainMenu];
+        
         // Adding player 1 in the player selection menu
         NSString *charPath = @"player_1.png";
         [self addSprite:charPath];
-        ch.character.position = ccp(windowSize.width*1/8,windowSize.height*2/5);
-        [self addChild:ch.character];
         
         // Adding player 2 in the player selection menu
         charPath = @"player_2.png";
         [self addSprite:charPath];
-        ch.character.position = ccp(windowSize.width*3/8,windowSize.height*1/5);
-        [self addChild:ch.character];
         
         // Adding player 3 in the player selection menu
         charPath = @"player_3.png";
         [self addSprite:charPath];
-        ch.character.position = ccp(windowSize.width*5/8,windowSize.height*2/5);
-        [self addChild:ch.character];
         
         // Adding player 4 in the player selection menu
         charPath = @"player_4.png";
         [self addSprite:charPath];
-        ch.character.position = ccp(windowSize.width*7/8,windowSize.height*1/5);
-        [self addChild:ch.character];
         
-        self.touchEnabled = YES;
-        //[[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
-        [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:NO];
     }
     return self;
 }
 
-// This function is for drawing all the default cocos2d geometry on the layer
-// The function name has to be as it is.
-/*
- -(void)draw
-{
-    [super draw];
-    
-    // Color and width of the line
-    ccDrawColor4B(255, 255, 255, 255);
-    glLineWidth(5.0f);
-    
-    // Drwing 3 vertical lines for player selsection
-    ccDrawLine(ccp(windowSize.width*1/4, 0), ccp(windowSize.width*1/4, windowSize.height));
-    ccDrawLine(ccp(windowSize.width*1/2, 0), ccp(windowSize.width*1/2, windowSize.height));
-    ccDrawLine(ccp(windowSize.width*3/4, 0), ccp(windowSize.width*3/4, windowSize.height));
-}
-*/
 - (CCSprite *) addSprite:(NSString *)spritePath {
     
     [ch setCharacter:[CCSprite spriteWithFile:spritePath]];
@@ -113,152 +95,100 @@
     return ch.character;
 }
 
--(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
-{
-    CGPoint location = [[CCDirector sharedDirector] convertTouchToGL:touch];
-    
+- (void) selectCharacterOne {
     for(CharacterHandler *ch2 in charSpriteList) {
         BOOL playerSelected = false;
         
         // creating manual frames for individual players
         
         // Frame for player 1 selection
-        if(location.x > 0 && location.x < windowSize.width*1/4 && location.y > 0 && location.y < windowSize.height){
-            playerSelected = TRUE;
-            [ch2 setSelected:@"1"];
-            if([ch2.selected  isEqual: @"1"]){
-                NSString *name = [NSString stringWithFormat:@"player_1"];
-                [ch setCharName:name];
-            }
-            
-            sharedManager = [MyManager sharedManager];
-            [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
+       
+        playerSelected = TRUE;
+        [ch2 setSelected:@"1"];
+        if([ch2.selected  isEqual: @"1"]){
+            NSString *name = [NSString stringWithFormat:@"player_1"];
+            [ch setCharName:name];
         }
         
-        // Frame for player 2 selection
-        if(location.x > windowSize.width*1/4 && location.x < windowSize.width*1/2 && location.y > 0 && location.y < windowSize.height){
-            playerSelected = TRUE;
-            [ch2 setSelected:@"2"];
-            if([ch2.selected  isEqual: @"2"]){
-                NSString *name = [NSString stringWithFormat:@"player_2"];
-                [ch setCharName:name];
-            }
-            
-            sharedManager = [MyManager sharedManager];
-            [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
-        }
-        
-        // Frame for player 3 selection
-        if(location.x > windowSize.width*1/2 && location.x < windowSize.width*3/4 && location.y > 0 && location.y < windowSize.height){
-            playerSelected = TRUE;
-            [ch2 setSelected:@"3"];
-            if([ch2.selected  isEqual: @"3"]){
-                NSString *name = [NSString stringWithFormat:@"player_3"];
-                [ch setCharName:name];
-            }
-            sharedManager = [MyManager sharedManager];
-            [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
-        }
-        
-        // Frame for player 4 selection
-        if(location.x > windowSize.width*3/4 && location.x < windowSize.width && location.y > 0 && location.y < windowSize.height){
-            playerSelected = TRUE;
-            [ch2 setSelected:@"4"];
-            if([ch2.selected  isEqual: @"4"]){
-                NSString *name = [NSString stringWithFormat:@"player_4"];
-                [ch setCharName:name];
-            }
-            
-            sharedManager = [MyManager sharedManager];
-            [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
-        }
+        sharedManager = [MyManager sharedManager];
+        [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
         
         if(playerSelected){
             CCScene *levelSelect = [LevelSelectLayer scene];
             [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.25 scene:levelSelect]];
         }
     }
-
-    return YES;
 }
 
--(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event{
+- (void) selectCharacterTwo {
+    for(CharacterHandler *ch2 in charSpriteList) {
+        BOOL playerSelected = false;
 
-}
-
--(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
-
-}
-/*
--(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    for(UITouch *touch in touches){
-        CGPoint location = [[CCDirector sharedDirector] convertTouchToGL:touch];
+        // Frame for player 2 selection
         
-        for(CharacterHandler *ch2 in charSpriteList) {
-            BOOL playerSelected = false;
-            
-            // creating manual frames for individual players
-            
-            // Frame for player 1 selection
-            if(location.x > 0 && location.x < windowSize.width*1/4 && location.y > 0 && location.y < windowSize.height){
-                playerSelected = TRUE;
-                [ch2 setSelected:@"1"];
-                if([ch2.selected  isEqual: @"1"]){
-                    NSString *name = [NSString stringWithFormat:@"player_1"];
-                    [ch setCharName:name];
-                }
-                
-                sharedManager = [MyManager sharedManager];
-                [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
-            }
-            
-            // Frame for player 2 selection
-            if(location.x > windowSize.width*1/4 && location.x < windowSize.width*1/2 && location.y > 0 && location.y < windowSize.height){
-                playerSelected = TRUE;
-                [ch2 setSelected:@"2"];
-                if([ch2.selected  isEqual: @"2"]){
-                    NSString *name = [NSString stringWithFormat:@"player_2"];
-                    [ch setCharName:name];
-                }
-                
-                sharedManager = [MyManager sharedManager];
-                [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
-            }
-            
-            // Frame for player 3 selection
-            if(location.x > windowSize.width*1/2 && location.x < windowSize.width*3/4 && location.y > 0 && location.y < windowSize.height){
-                playerSelected = TRUE;
-                [ch2 setSelected:@"3"];
-                if([ch2.selected  isEqual: @"3"]){
-                    NSString *name = [NSString stringWithFormat:@"player_3"];
-                    [ch setCharName:name];
-                }
-                sharedManager = [MyManager sharedManager];
-                [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
-            }
-            
-            // Frame for player 4 selection
-            if(location.x > windowSize.width*3/4 && location.x < windowSize.width && location.y > 0 && location.y < windowSize.height){
-                playerSelected = TRUE;
-                [ch2 setSelected:@"4"];
-                if([ch2.selected  isEqual: @"4"]){
-                    NSString *name = [NSString stringWithFormat:@"player_4"];
-                    [ch setCharName:name];
-                }
-                
-                sharedManager = [MyManager sharedManager];
-                [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
-            }
-            
-            if(playerSelected){
-                CCScene *levelSelect = [LevelSelectLayer scene];
-                [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.25 scene:levelSelect]];
-            }
+        playerSelected = TRUE;
+        [ch2 setSelected:@"2"];
+        if([ch2.selected  isEqual: @"2"]){
+            NSString *name = [NSString stringWithFormat:@"player_2"];
+            [ch setCharName:name];
         }
         
+        sharedManager = [MyManager sharedManager];
+        [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
+        
+        if(playerSelected){
+            CCScene *levelSelect = [LevelSelectLayer scene];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.25 scene:levelSelect]];
+        }
     }
 }
-*/
+
+- (void) selectCharacterThree {
+    for(CharacterHandler *ch2 in charSpriteList) {
+        BOOL playerSelected = false;
+        
+        // Frame for player 3 selection
+        
+        playerSelected = TRUE;
+        [ch2 setSelected:@"3"];
+        if([ch2.selected  isEqual: @"3"]){
+            NSString *name = [NSString stringWithFormat:@"player_3"];
+            [ch setCharName:name];
+        }
+        
+        sharedManager = [MyManager sharedManager];
+        [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
+        
+        if(playerSelected){
+            CCScene *levelSelect = [LevelSelectLayer scene];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.25 scene:levelSelect]];
+        }
+    }
+}
+
+- (void) selectCharacterFour {
+    for(CharacterHandler *ch2 in charSpriteList) {
+        BOOL playerSelected = false;
+        
+        // Frame for player 4 selection
+        
+        playerSelected = TRUE;
+        [ch2 setSelected:@"4"];
+        if([ch2.selected  isEqual: @"4"]){
+            NSString *name = [NSString stringWithFormat:@"player_4"];
+            [ch setCharName:name];
+        }
+        
+        sharedManager = [MyManager sharedManager];
+        [sharedManager.inputBundle setObject:ch2 forKey:@"ch"];
+        
+        if(playerSelected){
+            CCScene *levelSelect = [LevelSelectLayer scene];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.25 scene:levelSelect]];
+        }
+    }
+}
+
 - (void) dealloc {
 }
 

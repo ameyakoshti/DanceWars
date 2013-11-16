@@ -21,6 +21,7 @@ static float levelDifficulty2Speed = 1.00;
 static float levelDifficulty3Speed = 0.75;
 static float speed;
 static float swipeSpeed = 2.0;
+static bool swipeEnableGlobal = NO;
 
 +(CCScene *) scene{
 	CCScene *scene = [CCScene node];
@@ -32,6 +33,10 @@ static float swipeSpeed = 2.0;
 -(id) init {
     
     if((self = [super init])) {
+        
+        // Enable multi touches and gestures
+        self.touchEnabled = YES;
+        [[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
         
         size = [[CCDirector sharedDirector] winSize];
         
@@ -52,7 +57,6 @@ static float swipeSpeed = 2.0;
             [[SimpleAudioEngine sharedEngine] setEffectsVolume:1.0];
             [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:1.0];
         }
-        
         
         // Get character selected values from the character selection screen
         charHand = [sharedManager.inputBundle objectForKey:@"ch"];
@@ -116,10 +120,6 @@ static float swipeSpeed = 2.0;
         touchPointCounter=1;
         totalGeneratedObjects = 0;
         [self manageTouchIcons];
-        
-        // Enable multi touches and gestures
-        self.touchEnabled = YES;
-        [[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
         
         // Input handler object initialization to set the speed of the touch icons
         ih = [sharedManager.inputBundle objectForKey:@"LDAA"];
@@ -504,6 +504,7 @@ static float swipeSpeed = 2.0;
 
 -(void) addTouchIcons:(int) touchNumber withArg2:(NSString *) fileName withArg3:(BOOL) swipeEnable withArg4:(BOOL) secondPoint{
     touchIcon[touchNumber] = [CCSprite spriteWithFile:fileName];
+    swipeEnableGlobal = swipeEnable;
     
     // creating the imaginary rectangle in which the icons will appear
     float randomH,randomW;
@@ -612,8 +613,11 @@ static float swipeSpeed = 2.0;
 
 -(void) removeTouchIcons:(NSNumber *) value{
     int val = [value intValue];
-    [self removeChild:arrow cleanup:YES];
     [self removeChild:touchIcon[val] cleanup:YES];
+    
+    if(swipeEnableGlobal){
+        [self removeChild:arrow cleanup:YES];
+    }
     
     if(objectCount == totalGeneratedObjects){
         
@@ -679,6 +683,10 @@ static float swipeSpeed = 2.0;
     if(CGRectContainsPoint(touchIcon[1].boundingBox, ccp(touchIcon[2].position.x,touchIcon[2].position.y)) && !swipeHit){
         swipeHit = YES;
         
+        touchIcon[1].visible = FALSE;
+        touchIcon[2].visible = FALSE;
+        arrow.visible = FALSE;
+        
         // Particle effects on a gesture hit
         CCParticleSystem *emitterGesture = [CCParticleExplosion node];
         emitterGesture.position = node.position;
@@ -703,8 +711,6 @@ static float swipeSpeed = 2.0;
 }
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-  
-    [self removeChild:arrow cleanup: YES];
     
     for(UITouch *touch in touches)
     {

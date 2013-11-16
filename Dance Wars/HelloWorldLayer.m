@@ -70,12 +70,10 @@
 
 - (void) displayMenuElements {
     
-    [introName runAction:[CCMoveTo actionWithDuration:1.75 position:ccp(size.width/2, size.height/2)]];
-    [MainMenu runAction:[CCMoveTo actionWithDuration:1.75 position:ccp(size.width - 150, 150)]];
+    [introName runAction:[CCMoveTo actionWithDuration:1 position:ccp(size.width/2, size.height/2)]];
+    [MainMenu runAction:[CCMoveTo actionWithDuration:1 position:ccp(size.width - 150, 150)]];
 
 }
-
-
 
 - (void) loadCharacterSelectLayer {
     CCScene *charSelect = [CharacterSelect scene];

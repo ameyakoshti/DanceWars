@@ -20,7 +20,7 @@
     int counter;
     CGSize windowSize;
     MyManager *sharedManager;
-
+    CCMenu *MainMenu;
 }
 
 @property (nonatomic, retain) NSMutableArray *charSpriteList;
