@@ -99,13 +99,13 @@ static bool swipeEnableGlobal = NO;
         [self addChild:pauseButtonMenu z:1 tag:13];
         
         //Creating and adding pause menu
-        CCMenuItemImage *pauseScreen = [CCMenuItemImage itemWithNormalImage:@"paused_menu_banner.png" selectedImage:@"paused_menu_banner.png" target:self selector:nil];
+        //CCMenuItemImage *pauseScreen = [CCMenuItemImage itemWithNormalImage:@"paused_menu_banner.png" selectedImage:@"paused_menu_banner.png" target:self selector:nil];
         
-        CCMenuItemImage *resumebutton = [CCMenuItemImage itemWithNormalImage:@"resume_button.png" selectedImage:@"resume_button.png" target:self selector:@selector(gameResume)];
+        CCMenuItemImage *resumebutton = [CCMenuItemImage itemWithNormalImage:@"resume.png" selectedImage:@"resume_pressed.png" target:self selector:@selector(gameResume)];
         
-        CCMenuItemImage *mainbutton = [CCMenuItemImage itemWithNormalImage:@"main_menu_button.png" selectedImage:@"main_menu_button.png" target:self selector:@selector(loadHelloWorldLayer)];
+        CCMenuItemImage *mainbutton = [CCMenuItemImage itemWithNormalImage:@"main-menu.png" selectedImage:@"main-menu_pressed.png" target:self selector:@selector(loadHelloWorldLayer)];
         
-        pauseMenu = [CCMenu menuWithItems:pauseScreen, resumebutton, mainbutton, nil];
+        pauseMenu = [CCMenu menuWithItems:resumebutton, mainbutton, nil];
         [pauseMenu alignItemsVertically];
         pauseMenu.position = ccp(size.width/2, size.height + 300);
         [self addChild:pauseMenu z:1000 tag:23];
@@ -144,13 +144,17 @@ static bool swipeEnableGlobal = NO;
     return self;
 }
 
-- (void)onEnter
-{
+- (void)onEnter {
     // Enable multi touches and gestures
     self.touchEnabled = YES;
     [[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
 
     [super onEnter];
+}
+
+- (void)onExit {
+    [self removeChild:pauseMenu cleanup:YES];
+    
 }
 
 /*

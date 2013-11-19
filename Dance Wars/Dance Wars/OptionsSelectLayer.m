@@ -39,7 +39,7 @@
         [self addChild:charBg];
         
         // Create the slider
-        CCControlSlider *slider = [CCControlSlider sliderWithBackgroundFile:@"slidebar_bg.png" progressFile:@"slider_filler.png" thumbFile:@"slider_roundButton1.png"];
+        CCControlSlider *slider = [CCControlSlider sliderWithBackgroundFile:@"slidebar2_bg.png" progressFile:@"slider2_filler.png" thumbFile:@"slider2_sliderButton.png"];
         slider.minimumValue = 0.0f; // Sets the min value of range
         slider.maximumValue = 1.0f; // Sets the max value of range
         slider.position = ccp(windowSize.width/2, windowSize.height/2);
@@ -49,10 +49,10 @@
         
         [self addChild:slider];
         
-        CCMenuItemImage *mainbutton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame.png" target:self selector:@selector(loadHelloWorldLayer11)];
-        CCMenu *mainMenu = [CCMenu menuWithItems:mainbutton, nil];
-        mainMenu.position = ccp(200,200);
-        [self addChild:mainMenu];
+        CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"home.png" selectedImage:@"home_pressed.png" target:self selector:@selector(loadHelloWorldLayer11)];
+        CCMenu *goHome = [CCMenu menuWithItems:homeButton, nil];
+        goHome.position = ccp(windowSize.width - homeButton.contentSize.width/2, homeButton.contentSize.height/2);
+        [self addChild:goHome];
         
     }
     return self;

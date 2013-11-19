@@ -43,7 +43,7 @@
         
         size = [[CCDirector sharedDirector] winSize];
         
-        CCSprite *levelBg = [CCSprite spriteWithFile:@"home_bg.png"];
+        CCSprite *levelBg = [CCSprite spriteWithFile:@"background_main.png"];
         levelBg.position = ccp(size.width/2, size.height/2);
         
         [self addChild:levelBg];
@@ -69,7 +69,7 @@
 
 - (void) displayMenuElements {
     
-    [introName runAction:[CCMoveTo actionWithDuration:1 position:ccp(size.width/2, size.height/2)]];
+    //[introName runAction:[CCMoveTo actionWithDuration:1 position:ccp(size.width/2, size.height/2)]];
     [MainMenu runAction:[CCMoveTo actionWithDuration:1 position:ccp(size.width - 150, 150)]];
 
 }
