@@ -39,7 +39,7 @@
         [self addChild:charBg];
         
         // Create the slider
-        CCControlSlider *slider = [CCControlSlider sliderWithBackgroundFile:@"restart.png" progressFile:@"pausegame.png" thumbFile:@"home_pressed.png"];
+        CCControlSlider *slider = [CCControlSlider sliderWithBackgroundFile:@"slidebar_bg.png" progressFile:@"slider_filler.png" thumbFile:@"slider_roundButton1.png"];
         slider.minimumValue = 0.0f; // Sets the min value of range
         slider.maximumValue = 1.0f; // Sets the max value of range
         slider.position = ccp(windowSize.width/2, windowSize.height/2);

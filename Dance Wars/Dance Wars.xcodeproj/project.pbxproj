@@ -201,6 +201,14 @@
 		3539F22F1820977500ACB7FA /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F21E1820977500ACB7FA /* Icon-Small@2x.png */; };
 		3539F2301820977500ACB7FA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F21F1820977500ACB7FA /* Icon.png */; };
 		3539F2311820977500ACB7FA /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3539F2201820977500ACB7FA /* Icon@2x.png */; };
+		35A9AC12183AF9A90001A974 /* slidebar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 35A9AC0A183AF9A90001A974 /* slidebar_bg.png */; };
+		35A9AC13183AF9A90001A974 /* slider_filler.png in Resources */ = {isa = PBXBuildFile; fileRef = 35A9AC0B183AF9A90001A974 /* slider_filler.png */; };
+		35A9AC14183AF9A90001A974 /* slider_roundButton1.png in Resources */ = {isa = PBXBuildFile; fileRef = 35A9AC0C183AF9A90001A974 /* slider_roundButton1.png */; };
+		35A9AC15183AF9A90001A974 /* slider_roundSlider.png in Resources */ = {isa = PBXBuildFile; fileRef = 35A9AC0D183AF9A90001A974 /* slider_roundSlider.png */; };
+		35A9AC16183AF9A90001A974 /* slider_roundSlider2.png in Resources */ = {isa = PBXBuildFile; fileRef = 35A9AC0E183AF9A90001A974 /* slider_roundSlider2.png */; };
+		35A9AC17183AF9A90001A974 /* slider_sliderButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 35A9AC0F183AF9A90001A974 /* slider_sliderButton.png */; };
+		35A9AC18183AF9A90001A974 /* slider_sliderButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 35A9AC10183AF9A90001A974 /* slider_sliderButton2.png */; };
+		35A9AC19183AF9A90001A974 /* volume-control-slider.psd in Resources */ = {isa = PBXBuildFile; fileRef = 35A9AC11183AF9A90001A974 /* volume-control-slider.psd */; };
 		35CD083B183332AB006C73B8 /* options.png in Resources */ = {isa = PBXBuildFile; fileRef = 35CD0839183332AB006C73B8 /* options.png */; };
 		35CD0840183333D6006C73B8 /* OptionsSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD083F183333D6006C73B8 /* OptionsSelectLayer.m */; };
 		35D623F217FF96500020F299 /* bomb.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D623F117FF96500020F299 /* bomb.png */; };
@@ -922,6 +930,14 @@
 		3539F21E1820977500ACB7FA /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		3539F21F1820977500ACB7FA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		3539F2201820977500ACB7FA /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		35A9AC0A183AF9A90001A974 /* slidebar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slidebar_bg.png; sourceTree = "<group>"; };
+		35A9AC0B183AF9A90001A974 /* slider_filler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider_filler.png; sourceTree = "<group>"; };
+		35A9AC0C183AF9A90001A974 /* slider_roundButton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider_roundButton1.png; sourceTree = "<group>"; };
+		35A9AC0D183AF9A90001A974 /* slider_roundSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider_roundSlider.png; sourceTree = "<group>"; };
+		35A9AC0E183AF9A90001A974 /* slider_roundSlider2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider_roundSlider2.png; sourceTree = "<group>"; };
+		35A9AC0F183AF9A90001A974 /* slider_sliderButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider_sliderButton.png; sourceTree = "<group>"; };
+		35A9AC10183AF9A90001A974 /* slider_sliderButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider_sliderButton2.png; sourceTree = "<group>"; };
+		35A9AC11183AF9A90001A974 /* volume-control-slider.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "volume-control-slider.psd"; sourceTree = "<group>"; };
 		35CD0839183332AB006C73B8 /* options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = options.png; sourceTree = "<group>"; };
 		35CD083E183333C0006C73B8 /* OptionsSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsSelectLayer.h; sourceTree = "<group>"; };
 		35CD083F183333D6006C73B8 /* OptionsSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsSelectLayer.m; sourceTree = "<group>"; };
@@ -1943,6 +1959,21 @@
 				3508373A18332E9400DC76D2 /* home_bg.png */,
 			);
 			path = "Home Layer";
+			sourceTree = "<group>";
+		};
+		35A9AC09183AF9690001A974 /* slider_image */ = {
+			isa = PBXGroup;
+			children = (
+				35A9AC0A183AF9A90001A974 /* slidebar_bg.png */,
+				35A9AC0B183AF9A90001A974 /* slider_filler.png */,
+				35A9AC0C183AF9A90001A974 /* slider_roundButton1.png */,
+				35A9AC0D183AF9A90001A974 /* slider_roundSlider.png */,
+				35A9AC0E183AF9A90001A974 /* slider_roundSlider2.png */,
+				35A9AC0F183AF9A90001A974 /* slider_sliderButton.png */,
+				35A9AC10183AF9A90001A974 /* slider_sliderButton2.png */,
+				35A9AC11183AF9A90001A974 /* volume-control-slider.psd */,
+			);
+			name = slider_image;
 			sourceTree = "<group>";
 		};
 		B2B3FBB3183593610060775A /* health_bar_images */ = {
@@ -2977,6 +3008,7 @@
 		DF3E1E9217EA38BC0043593E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				35A9AC09183AF9690001A974 /* slider_image */,
 				B2B3FBB3183593610060775A /* health_bar_images */,
 				07C95B44183404AE000B329A /* player_ai */,
 				3508373818332E9400DC76D2 /* Home Layer */,
@@ -3380,6 +3412,7 @@
 				B2E9185D18176B290063BC73 /* player_1_d1_49.png in Resources */,
 				B2C4D73E1817B5DA000B295E /* player_2_i_10.png in Resources */,
 				DF8699541803C6B4008CB857 /* background4.png in Resources */,
+				35A9AC12183AF9A90001A974 /* slidebar_bg.png in Resources */,
 				DFCD0AE7182F103A0084868F /* player_2_d2_9.png in Resources */,
 				07C95C35183404AE000B329A /* Hulk_2_43.png in Resources */,
 				B2EF47FC18179FE600841EB0 /* background_1_7.png in Resources */,
@@ -3395,6 +3428,7 @@
 				B2C4D6D21817B1DA000B295E /* player_2_d1_33.png in Resources */,
 				07C95C5F183404AE000B329A /* Hulk_3_39.png in Resources */,
 				B2C4D74F1817B5DA000B295E /* player_2_i_26.png in Resources */,
+				35A9AC15183AF9A90001A974 /* slider_roundSlider.png in Resources */,
 				07C95CB91834053D000B329A /* background_3.png in Resources */,
 				DFCD0AE0182F103A0084868F /* player_2_d2_32.png in Resources */,
 				07C95C02183404AE000B329A /* Hulk_1_43.png in Resources */,
@@ -3487,6 +3521,7 @@
 				B2E9187F18176B290063BC73 /* player_1_d1_8.png in Resources */,
 				DFCD0ADD182F103A0084868F /* player_2_d2_3.png in Resources */,
 				B2E9186818176B290063BC73 /* player_1_d1_59.png in Resources */,
+				35A9AC19183AF9A90001A974 /* volume-control-slider.psd in Resources */,
 				B2E9186518176B290063BC73 /* player_1_d1_56.png in Resources */,
 				B2E9185318176B290063BC73 /* player_1_d1_4.png in Resources */,
 				B2EF47FA18179FE600841EB0 /* background_1_5.png in Resources */,
@@ -3518,6 +3553,7 @@
 				07C95C10183404AE000B329A /* Hulk_2_1.png in Resources */,
 				07C95BE8183404AE000B329A /* Hulk_1_2.png in Resources */,
 				B2E9186618176B290063BC73 /* player_1_d1_57.png in Resources */,
+				35A9AC18183AF9A90001A974 /* slider_sliderButton2.png in Resources */,
 				07C95C07183404AE000B329A /* Hulk_1_48.png in Resources */,
 				B2C4D6E71817B1DA000B295E /* player_2_d1_52.png in Resources */,
 				B2EF47A2181797AA00841EB0 /* difficulty_level_4.png in Resources */,
@@ -3546,6 +3582,7 @@
 				B2C4D6CF1817B1DA000B295E /* player_2_d1_30.png in Resources */,
 				B2EF47F318179FE600841EB0 /* background_1_1.png in Resources */,
 				B2E9186118176B290063BC73 /* player_1_d1_52.png in Resources */,
+				35A9AC14183AF9A90001A974 /* slider_roundButton1.png in Resources */,
 				B2E9184118176B290063BC73 /* player_1_d1_23.png in Resources */,
 				B2C4D75E1817B5DA000B295E /* player_2_i_4.png in Resources */,
 				07C95BE9183404AE000B329A /* Hulk_1_20.png in Resources */,
@@ -3666,6 +3703,7 @@
 				B2EF479F181797AA00841EB0 /* difficulty_level_1.png in Resources */,
 				07C95C68183404AE000B329A /* Hulk_3_47.png in Resources */,
 				07C95BED183404AE000B329A /* Hulk_1_24.png in Resources */,
+				35A9AC13183AF9A90001A974 /* slider_filler.png in Resources */,
 				07C95CB11834053D000B329A /* background_2_3.png in Resources */,
 				07C95BF1183404AE000B329A /* Hulk_1_28.png in Resources */,
 				DFCD0ACA182F103A0084868F /* player_2_d2_12.png in Resources */,
@@ -3677,6 +3715,7 @@
 				07C95C24183404AE000B329A /* Hulk_2_28.png in Resources */,
 				3539F2231820977500ACB7FA /* main_menu_button.png in Resources */,
 				3539F2241820977500ACB7FA /* resume_button.png in Resources */,
+				35A9AC17183AF9A90001A974 /* slider_sliderButton.png in Resources */,
 				3539F2251820977500ACB7FA /* paused_menu_banner.png in Resources */,
 				07C95C52183404AE000B329A /* Hulk_3_27.png in Resources */,
 				07C95BF7183404AE000B329A /* Hulk_1_33.png in Resources */,
@@ -3687,6 +3726,7 @@
 				3539F22C1820977500ACB7FA /* Icon-72.png in Resources */,
 				3539F22D1820977500ACB7FA /* Icon-Small-50.png in Resources */,
 				3539F22E1820977500ACB7FA /* Icon-Small.png in Resources */,
+				35A9AC16183AF9A90001A974 /* slider_roundSlider2.png in Resources */,
 				07C95C5A183404AE000B329A /* Hulk_3_34.png in Resources */,
 				07C95BFE183404AE000B329A /* Hulk_1_4.png in Resources */,
 				3539F22F1820977500ACB7FA /* Icon-Small@2x.png in Resources */,
