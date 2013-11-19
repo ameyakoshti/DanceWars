@@ -40,6 +40,7 @@
     int objectCount;
     int missCount;
     int totalObjects;
+    int totalHitCount;
     int totalGeneratedObjects;
     
     float xLocations[15];

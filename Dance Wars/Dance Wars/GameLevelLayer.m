@@ -38,6 +38,8 @@ static bool swipeEnableGlobal = NO;
         size = [[CCDirector sharedDirector] winSize];
         
         // Loading game environment
+        totalObjects = 0;
+        totalHitCount = 0;
         sharedManager = [MyManager sharedManager];
         le = [sharedManager.inputBundle objectForKey:@"ENVR"];
         le.background.position = ccp(size.width/2, size.height/2);
@@ -144,7 +146,7 @@ static bool swipeEnableGlobal = NO;
     return self;
 }
 
-- (void)onEnter {
+-(void)onEnter {
     // Enable multi touches and gestures
     self.touchEnabled = YES;
     [[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
@@ -152,17 +154,10 @@ static bool swipeEnableGlobal = NO;
     [super onEnter];
 }
 
-- (void)onExit {
+-(void)onExit {
     [self removeChild:pauseMenu cleanup:YES];
     
 }
-
-/*
--(void) registerWithTouchDispatcher
-{
-    //[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:INT_MIN + 1 swallowsTouches:YES];
-}
-*/
 
 -(void) addMessage:(NSString *)image {
     message = [CCSprite spriteWithFile:image];
@@ -209,6 +204,36 @@ static bool swipeEnableGlobal = NO;
             //[self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:3.5];
             [self removeChild:backgroundSpriteSheet];
         }
+        
+        // Displaying score
+        int scoreHeight = size.height*1/3 + 50;
+        
+        scoreLabel = [CCLabelTTF labelWithString:@"%d" fontName:@"Papyrus" fontSize:50];
+        scoreLabel.position =CGPointMake(size.width/2,scoreHeight);
+        scoreLabel.color=ccc3(240, 255, 255);
+        [scoreLabel setString :[NSString stringWithFormat:@"%s", "Score"]];
+        [self addChild:scoreLabel z:1];
+        
+        scoreHeight = scoreHeight - 50;
+        scoreLabel = [CCLabelTTF labelWithString:@"%d" fontName:@"Papyrus" fontSize:50];
+        scoreLabel.position =CGPointMake(size.width/2,scoreHeight);
+        scoreLabel.color=ccc3(240, 255, 255);
+        [scoreLabel setString :[NSString stringWithFormat:@"Accuracy %i%%", (totalHitCount*100)/totalObjects]];
+        [self addChild:scoreLabel z:1];
+        
+        scoreHeight = scoreHeight - 50;
+        scoreLabel = [CCLabelTTF labelWithString:@"%d" fontName:@"Papyrus" fontSize:50];
+        scoreLabel.position =CGPointMake(size.width/2,scoreHeight);
+        scoreLabel.color=ccc3(240, 255, 255);
+        [scoreLabel setString :[NSString stringWithFormat:@"Total Hits %i of %i", totalHitCount,totalObjects]];
+        [self addChild:scoreLabel z:1];
+        
+        scoreHeight = scoreHeight - 50;
+        scoreLabel = [CCLabelTTF labelWithString:@"%d" fontName:@"Papyrus" fontSize:50];
+        scoreLabel.position =CGPointMake(size.width/2,scoreHeight);
+        scoreLabel.color=ccc3(240, 255, 255);
+        [scoreLabel setString :[NSString stringWithFormat:@"Total Misses %i of %i", (totalObjects-totalHitCount),totalObjects]];
+        [self addChild:scoreLabel z:1];
     }
     
 }
@@ -703,6 +728,7 @@ static bool swipeEnableGlobal = NO;
     
     if(CGRectContainsPoint(touchIcon[1].boundingBox, ccp(touchIcon[2].position.x,touchIcon[2].position.y)) && !swipeHit){
         swipeHit = YES;
+        totalHitCount = totalHitCount + 2;
         
         touchIcon[1].visible = FALSE;
         touchIcon[2].visible = FALSE;
@@ -740,18 +766,20 @@ static bool swipeEnableGlobal = NO;
         if((CGRectContainsPoint(touchIcon[1].boundingBox, location)) && visited[1] == NO) {
             visited[1] = YES;
             hitCount++;
+            totalHitCount++;
             
             [self showBlastEffect:touchIcon[1].position];
         }
         if((CGRectContainsPoint(touchIcon[2].boundingBox, location)) && visited[2] == NO) {
             visited[2] = YES;
             hitCount++;
+            totalHitCount++;
             
             [self showBlastEffect:touchIcon[2].position];
         }
     }
     
-    //checkIfBothHit = 0;
+    // Check If Both Hit = 0;
     if(visited[1] == YES && visited[2] == YES){
         messageNice.visible = TRUE;
         //[self addMessage:@"nice.png"];
