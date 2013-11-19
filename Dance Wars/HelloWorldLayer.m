@@ -68,13 +68,12 @@
 }
 
 - (void) displayMenuElements {
-    
-    //[introName runAction:[CCMoveTo actionWithDuration:1 position:ccp(size.width/2, size.height/2)]];
-    [MainMenu runAction:[CCMoveTo actionWithDuration:1 position:ccp(size.width - 150, 150)]];
+    [MainMenu runAction:[CCMoveTo actionWithDuration:1 position:ccp(440, 260)]];
 
 }
 
 - (void) loadCharacterSelectLayer {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"drum.mp3"];
     CCScene *charSelect = [CharacterSelect scene];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:charSelect]];
 }
