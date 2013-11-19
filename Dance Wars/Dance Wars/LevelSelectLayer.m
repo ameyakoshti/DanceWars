@@ -55,7 +55,7 @@
         CCMenuItemImage *buttonLevel3 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_3.png" selectedImage:@"difficulty_level_3.png" target:self selector:@selector(loadLevelDif)];
         CCMenuItemImage *buttonLevel4 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_4.png" selectedImage:@"difficulty_level_4.png" target:self selector:@selector(loadLevelDif)];
         
-        CCMenu *gameMenu = [CCMenu menuWithItems:buttonLevel1, buttonLevel2, buttonLevel3, buttonLevel4, nil];
+        gameMenu = [CCMenu menuWithItems:buttonLevel1, buttonLevel2, buttonLevel3, buttonLevel4, nil];
         NSNumber* itemsPerRow = [NSNumber numberWithInt:4];
         [gameMenu alignItemsInColumns:itemsPerRow, itemsPerRow, itemsPerRow, nil];
         gameMenu.position = ccp(size.width/2, size.height/3);
@@ -114,6 +114,10 @@
     
     [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
     [self performSelector:@selector(loadGameLayer)];
+}
+
+-(void)onExit{
+    [self removeChild:gameMenu cleanup:YES];
 }
 
 - (void) loadGameLayer {

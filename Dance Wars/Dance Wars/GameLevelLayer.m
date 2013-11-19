@@ -16,11 +16,12 @@
 static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKey";
 
 // Time between the touch icons
-static float levelDifficulty1Speed = 1.50;
+static float levelDifficulty1Speed = 1.45;
 static float levelDifficulty2Speed = 1.00;
 static float levelDifficulty3Speed = 0.75;
 static float speed;
-static float swipeSpeed = 2.0;
+static float swipeSpeed = 1.45;
+static float displayTouchIconsDelay = 1.50;
 static bool swipeEnableGlobal = NO;
 
 +(CCScene *) scene{
@@ -33,10 +34,6 @@ static bool swipeEnableGlobal = NO;
 -(id) init {
     
     if((self = [super init])) {
-  
-        // Enable multi touches and gestures
-        self.touchEnabled = YES;
-        [[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
         
         size = [[CCDirector sharedDirector] winSize];
         
@@ -99,8 +96,6 @@ static bool swipeEnableGlobal = NO;
         CCMenuItemImage *pauseButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame_pressed.png" target:self selector:@selector(initiatePause)];
         CCMenu *pauseButtonMenu = [CCMenu menuWithItems:pauseButton, nil];
         pauseButtonMenu.position = ccp(size.width - pauseButton.contentSize.width/2, pauseButton.contentSize.height/2);
-        //[homeButton setEnabled:NO];
-        //homeButton.isEnabled=NO;
         [self addChild:pauseButtonMenu z:1 tag:13];
         
         //Creating and adding pause menu
@@ -138,10 +133,32 @@ static bool swipeEnableGlobal = NO;
         
         // Initial idle move for user
         //[self initiateIdleDance];
+        
+        messageNice = [CCSprite spriteWithFile:@"nice.png"];
+        messageNice.position = ccp(size.width/2,size.height/2);
+        [self addChild:messageNice];
+        messageNice.visible = FALSE;
+        
     }
     
     return self;
 }
+
+- (void)onEnter
+{
+    // Enable multi touches and gestures
+    self.touchEnabled = YES;
+    [[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
+
+    [super onEnter];
+}
+
+/*
+-(void) registerWithTouchDispatcher
+{
+    //[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:INT_MIN + 1 swallowsTouches:YES];
+}
+*/
 
 -(void) addMessage:(NSString *)image {
     message = [CCSprite spriteWithFile:image];
@@ -171,22 +188,21 @@ static bool swipeEnableGlobal = NO;
         touchPointCounter=1;
         hitCount=0;
         
-        [self addMessage:@"danceMessage.png"];
-        [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:1];
-        //[self schedule:@selector(manageTouchIcons) interval:1.0 repeat:1 delay:1.5];
+        //[self addMessage:@"danceMessage.png"];
+        //[self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:1];
         [self manageTouchIcons];
     }
     else {
-        [self scheduleOnce:@selector(initiateBlast) delay:1.0];
+        //[self scheduleOnce:@selector(initiateBlast) delay:1.0];
         
         if(self.life > self.aiLife){
             [self addMessage:@"youwin.png"];
-            [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:3.5];
+            //[self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:3.5];
             [self removeChild:backgroundSpriteSheet];
         }
         else{
             [self addMessage:@"youlose.png"];
-            [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:3.5];
+            //[self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:3.5];
             [self removeChild:backgroundSpriteSheet];
         }
     }
@@ -455,11 +471,12 @@ static bool swipeEnableGlobal = NO;
     
     totalGeneratedObjects = (singleTouches.count) + (doubleTouches.count*2) + (swipes.count*2);
     
-    [self schedule:@selector(displayTouchIcons) interval:2.1 repeat:5 delay:1.5];
+    [self schedule:@selector(displayTouchIcons) interval:2.1 repeat:5 delay:displayTouchIconsDelay];
 }
 
 -(void) displayTouchIcons {
     // to check if both the touch icons are tapped at the same time
+    messageNice.visible = FALSE;
     visited[1] = NO;
     visited[2] = NO;
     
@@ -716,27 +733,25 @@ static bool swipeEnableGlobal = NO;
     {
         CGPoint location = [[CCDirector sharedDirector] convertTouchToGL:touch];
         
-        if((CGRectContainsPoint(touchIcon[1].boundingBox, location))) {
+        if((CGRectContainsPoint(touchIcon[1].boundingBox, location)) && visited[1] == NO) {
             visited[1] = YES;
             hitCount++;
             
             [self showBlastEffect:touchIcon[1].position];
         }
-        if((CGRectContainsPoint(touchIcon[2].boundingBox, location))) {
+        if((CGRectContainsPoint(touchIcon[2].boundingBox, location)) && visited[2] == NO) {
             visited[2] = YES;
             hitCount++;
             
             [self showBlastEffect:touchIcon[2].position];
         }
-        else {
-            // for negative points
-        }
     }
     
     //checkIfBothHit = 0;
     if(visited[1] == YES && visited[2] == YES){
-        [self addMessage:@"nice.png"];
-        [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:0.5];
+        messageNice.visible = TRUE;
+        //[self addMessage:@"nice.png"];
+        //[self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:removeMessageSpeed];
     }
 }
 
@@ -746,11 +761,11 @@ static bool swipeEnableGlobal = NO;
     //set the location of the emitter
     emitter.position = location;
     //set size of particle animation
-    emitter.scale = 0.5;
+    emitter.scale = 0.3;
     //set an Image for the particle
     emitter.texture = [[CCTextureCache sharedTextureCache] addImage:@"touchpoints.png"];
     //set length of particle animation
-    [emitter setLife:0.1f];
+    [emitter setLife:0.08f];
     //add to layer ofcourse(effect begins after this step)
     [self addChild: emitter];
 }

@@ -21,6 +21,7 @@
     GameLevelLayer *gll;
     MyManager *sharedManager;
     LevelEnvironment *le;
+    CCMenu *gameMenu;
 }
 
 +(CCScene *) scene;

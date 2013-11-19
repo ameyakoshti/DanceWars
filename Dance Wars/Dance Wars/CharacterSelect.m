@@ -80,6 +80,11 @@
     return self;
 }
 
+-(void)onExit{
+    [self removeChild:MainMenu cleanup:YES];
+    //[self removeChild:[self getChildByTag:MainMenu] cleanup:YES];
+}
+
 - (CCSprite *) addSprite:(NSString *)spritePath {
     
     [ch setCharacter:[CCSprite spriteWithFile:spritePath]];
