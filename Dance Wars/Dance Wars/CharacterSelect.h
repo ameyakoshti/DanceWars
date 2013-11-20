@@ -23,6 +23,7 @@
 }
 
 @property (nonatomic, retain) NSMutableArray *charSpriteList;
+@property (nonatomic, assign) int num;
 -(CCSprite *) addSprite:(NSString *)spritePath;
 +(CCScene *) scene;
 

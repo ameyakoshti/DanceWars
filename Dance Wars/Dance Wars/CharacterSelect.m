@@ -12,7 +12,7 @@
 
 @implementation CharacterSelect
 
-@synthesize charSpriteList;
+@synthesize charSpriteList,num;
 
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
@@ -98,6 +98,7 @@
 }
 
 - (void) selectCharacterOne {
+
     for(CharacterHandler *ch2 in charSpriteList) {
         BOOL playerSelected = false;
         
@@ -110,6 +111,12 @@
         if([ch2.selected  isEqual: @"1"]){
             NSString *name = [NSString stringWithFormat:@"player_1"];
             [ch setCharName:name];
+            do
+            {
+                num=arc4random()%3;
+            }while(num==0 || num==1);
+            NSString *aiName = [NSString stringWithFormat:@"player_%d",num];
+            [ch setAiName:aiName];
         }
         
         sharedManager = [MyManager sharedManager];
@@ -133,6 +140,13 @@
         if([ch2.selected  isEqual: @"2"]){
             NSString *name = [NSString stringWithFormat:@"player_2"];
             [ch setCharName:name];
+            do
+            {
+                num=arc4random()%3;
+            }while(num==0 || num==2);
+            NSString *aiName = [NSString stringWithFormat:@"player_%d",num];
+            [ch setAiName:aiName];
+
         }
         
         sharedManager = [MyManager sharedManager];
@@ -156,6 +170,12 @@
         if([ch2.selected  isEqual: @"3"]){
             NSString *name = [NSString stringWithFormat:@"player_3"];
             [ch setCharName:name];
+            do
+            {
+                num=arc4random()%3;
+            }while(num==0 || num==3);
+            NSString *aiName = [NSString stringWithFormat:@"player_%d",num];
+            [ch setAiName:aiName];
         }
         
         sharedManager = [MyManager sharedManager];
@@ -179,6 +199,12 @@
         if([ch2.selected  isEqual: @"4"]){
             NSString *name = [NSString stringWithFormat:@"player_4"];
             [ch setCharName:name];
+            do
+            {
+                num=arc4random()%3;
+            }while(num==0 || num==4);
+            NSString *aiName = [NSString stringWithFormat:@"player_%d",num];
+            [ch setAiName:aiName];
         }
         
         sharedManager = [MyManager sharedManager];

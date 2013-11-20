@@ -62,12 +62,12 @@ static bool swipeEnableGlobal = NO;
         
         // Player character
         dancer = [CCSprite spriteWithFile:[charHand.charName stringByAppendingString:@"_0.png"]];
-        dancer.position = ccp(225,150);
+        dancer.position = ccp(225,175);
         [self addChild:dancer z:0 tag:1];
         
         // AI character
-        aichar = [CCSprite spriteWithFile:@"Hulk_1_1.png"];
-        aichar.position = ccp(801,150);
+        aichar = [CCSprite spriteWithFile:[charHand.aiName stringByAppendingString:@"_0.png"]];
+        aichar.position = ccp(801,175);
         aichar.flipX = 180;
         [self addChild:aichar z:0 tag:2];
         
@@ -327,15 +327,18 @@ static bool swipeEnableGlobal = NO;
     [self addChild:userSpriteSheet];
 }
 
--(void) initiateUserDance:(NSString *)danceMove {
+-(void) initiateUserDance {
+    NSString *danceMove = [NSString stringWithFormat:@"_d1"];
     NSString *player = [charHand.charName stringByAppendingString:danceMove];
+    NSLog(@"This is %@",player);
     
     // Count the number of frames from the plist
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:player ofType:@"plist"];
     NSDictionary *Dictionary= [[NSDictionary alloc]initWithContentsOfFile:plistPath];
     int numberOfFrames = [[Dictionary valueForKey:@"frames"] count];
     
-    if(numberOfFrames > 0){
+    if(numberOfFrames > 0)
+    {
         // Remove previous player sprite and add the new dance sprite
         [self removeChildByTag:1 cleanup:YES];
         [self removeChildByTag:103 cleanup:YES];
@@ -358,14 +361,16 @@ static bool swipeEnableGlobal = NO;
         
         NSString *frameName = [player stringByAppendingString:@"_1.png"];
         CCSprite *dance = [CCSprite spriteWithSpriteFrameName:frameName];
-        dance.position = ccp(225,200);
+        dance.position = ccp(225,175);
         CCFiniteTimeAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:danceDuration] times:1];
         
         [dance runAction:[CCSequence actions: danceAction, [CCCallFunc actionWithTarget:self selector:@selector(initiateAIDance)],nil]];
         [userSpriteSheet addChild:dance];
         [self addChild:userSpriteSheet z:1 tag:103];
     }
-    else{
+    
+    else
+    {
         [self initiateAIDance];
     }
 }
@@ -375,67 +380,52 @@ static bool swipeEnableGlobal = NO;
     [self removeChildByTag:2 cleanup:YES];
     [self removeChildByTag:104 cleanup:YES];
     
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Hulk_3.plist"];
-    aiSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"Hulk_3.png"];
+    NSString *danceMove = [NSString stringWithFormat:@"_d1"];
+    NSString *aiPlayer = [charHand.aiName stringByAppendingString:danceMove];
+    NSLog(@"This is %@",aiPlayer);
+    
+    // Count the number of frames from the plist
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:aiPlayer ofType:@"plist"];
+    NSDictionary *Dictionary= [[NSDictionary alloc]initWithContentsOfFile:plistPath];
+    int numberOfFrames = [[Dictionary valueForKey:@"frames"] count];
+
+    NSString *ai_plist=[aiPlayer stringByAppendingString:@".plist"];
+    NSString *aiSheetName = [aiPlayer stringByAppendingString:@".png"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:ai_plist];
+    aiSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:aiSheetName];
     
     NSMutableArray *walkframes = [NSMutableArray array];
     
-        for (int i = 1; i <= 47; i++) {
-            NSString *frameName = [NSString stringWithFormat:@"Hulk_3_%d.png",i];
-            [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
-        }
+    for (int i = 1; i <=numberOfFrames; i++)
+    {
+        NSString *lastPart = [NSString stringWithFormat:@"_%d.png",i];
+        NSString *animation_name = [aiPlayer stringByAppendingString:lastPart];
+        [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:animation_name]];
+    }
     
     CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
-    CCSprite *dance = [CCSprite spriteWithSpriteFrameName:@"Hulk_3_1.png"];
-    dance.position = ccp(801, 150);
+    NSString *danceFrameName = [aiPlayer stringByAppendingString:@"_1.png"];
+    CCSprite *dance = [CCSprite spriteWithSpriteFrameName:danceFrameName];
+    dance.position = ccp(801, 175);
     dance.flipX = 180;
     
     CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
-    
     [dance runAction:danceAction];
     [aiSpriteSheet addChild:dance];
     [self addChild:aiSpriteSheet z:1 tag:104];
-    
     [self scheduleOnce:@selector(gamePlayLoopCondition) delay:0.5];
     
     // this is to get the score for the AI player
     int aiscore = (int)(([getScore calScore]*100)/2100);
     
     // update AI progress bar
-    if(self.aiLife >= 0 && self.aiLife < 100){
+    if(self.aiLife >= 0 && self.aiLife < 100)
+    {
         self.aiLife += aiscore;
         [self.aiProgressTimer setSprite:[CCSprite spriteWithFile:@"health_bar.png"]];
         [self.aiProgressTimer setScale:0.2];
         [self.aiProgressTimer setPercentage:self.aiLife];
     }
-   
-}
-
--(void) initiateBlast {
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"bomb.plist"];
-    CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"bomb.png"];
-    
-    NSMutableArray *walkframes = [NSMutableArray array];
-    
-    for (int i = 1; i <= 21; i++) {
-        NSString *frameName = [NSString stringWithFormat:@"f%d.png",i];
-        [walkframes addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
-    }
-    
-    CCAnimation *walk = [CCAnimation animationWithSpriteFrames:walkframes delay:0.1f];
-    CCSprite *blast = [CCSprite spriteWithSpriteFrameName:@"f1.png"];
-    if(self.life > self.aiLife){
-        blast.position = ccp(876, 250);
-    }
-    else{
-        blast.position = ccp(150, 250);
-    }
-    
-    CCAction *blastAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
-    
-    [blast runAction:blastAction];
-    [spriteSheet addChild:blast];
-    [self addChild:spriteSheet];
 }
 
 -(void) loadHelloWorldLayer {
@@ -721,7 +711,15 @@ static bool swipeEnableGlobal = NO;
 //        }
     }
     // Enable dance show for Player
-    [self initiateUserDance:@"_d1"];
+ /*   int num=0;
+    
+    do
+    {
+        num=arc4random()%4;
+    }
+    while(num==0);
+    NSString *danceMove = [NSString stringWithFormat:@"_d%d",num];*/
+    [self initiateUserDance];
     
 }
 

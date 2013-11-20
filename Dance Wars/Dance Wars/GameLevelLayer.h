@@ -21,6 +21,7 @@
 @interface GameLevelLayer : CCLayer <UIGestureRecognizerDelegate> {
     
     CGSize size;
+    NSString *charName;
     
     CCSprite *touchIcon[4];
     CCSprite *dancer;

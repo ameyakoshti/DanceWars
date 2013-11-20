@@ -11,8 +11,6 @@
 
 @implementation CharacterHandler
 
-@synthesize selected, character, charName;
-
-
+@synthesize selected, character, charName, aiName;
 
 @end

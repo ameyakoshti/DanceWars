@@ -16,5 +16,6 @@
 @property (nonatomic, retain) NSString *selected;
 @property (nonatomic, retain) CCSprite *character;
 @property (nonatomic, retain) NSString *charName;
+@property (nonatomic, retain) NSString *aiName;
 
 @end
