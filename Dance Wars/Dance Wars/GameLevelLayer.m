@@ -71,27 +71,40 @@ static bool swipeEnableGlobal = NO;
         aichar.flipX = 180;
         [self addChild:aichar z:0 tag:2];
         
+        //static Player life bar:
+        CCSprite* UserLifeWrapper = [CCSprite spriteWithFile:@"outline_health_bar.png"];
+        UserLifeWrapper.scale = 0.3;
+        UserLifeWrapper.position = ccp(130 ,size.height-50);
+        [self addChild:UserLifeWrapper];
+        
+        
         // Player life bar
         self.life = 0;
-        self.progressTimer = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"home_icon.png"]];
+        self.progressTimer = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"health_bar.png"]];
         self.progressTimer.type = kCCProgressTimerTypeBar;
         self.progressTimer.midpoint = ccp(0,0);
         self.progressTimer.barChangeRate = ccp(1,0);
         [self.progressTimer setScale:1];
         self.progressTimer.percentage = self.life;
-        self.progressTimer.position = ccp(120 ,size.height-50);
+        self.progressTimer.position = ccp(130 ,size.height-50);
         [self addChild:self.progressTimer];
+        
+        CCSprite *AILifeWrapper = [CCSprite spriteWithFile:@"outline_health_bar.png"];
+        AILifeWrapper.position = ccp(size.width-130,size.height-50);
+        AILifeWrapper.scale = 0.3;
+        AILifeWrapper.flipX = 180;
+        [self addChild:AILifeWrapper];
         
         // AI life bar
         self.aiLife = 0;
-        self.aiProgressTimer = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"home-icon.png"]];
+        self.aiProgressTimer = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"health_bar.png"]];
         self.aiProgressTimer.type = kCCProgressTimerTypeBar;
         self.aiProgressTimer.midpoint = ccp(0,0);
         self.aiProgressTimer.barChangeRate = ccp(1,0);
         [self.aiProgressTimer setScale:1];
         self.aiProgressTimer.percentage = self.aiLife;
         self.progressTimer.rotationY = 180;
-        self.aiProgressTimer.position = ccp(size.width-120,size.height-50);
+        self.aiProgressTimer.position = ccp(size.width-130,size.height-50);
         [self addChild:self.aiProgressTimer];
         
         // Displaying a pause button to return to the main menu screen
@@ -383,7 +396,7 @@ static bool swipeEnableGlobal = NO;
     // update AI progress bar
     if(self.aiLife >= 0 && self.aiLife < 100){
         self.aiLife += aiscore;
-        [self.aiProgressTimer setSprite:[CCSprite spriteWithFile:@"home-icon.png"]];
+        [self.aiProgressTimer setSprite:[CCSprite spriteWithFile:@"health_bar.png"]];
         [self.aiProgressTimer setScale:0.2];
         [self.aiProgressTimer setPercentage:self.aiLife];
     }
@@ -687,7 +700,7 @@ static bool swipeEnableGlobal = NO;
     // Increment progress bar for user
     if(self.life >= 0 && self.life < 100){
         self.life += (int)[ih3 userLife];
-        [self.progressTimer setSprite:[CCSprite spriteWithFile:@"home-icon.png"]];
+        [self.progressTimer setSprite:[CCSprite spriteWithFile:@"health_bar.png"]];
         [self.progressTimer setScale:0.2];
         [self.progressTimer setPercentage:self.life];
 //        if(self.life > 25 && self.life < 60){
