@@ -113,7 +113,7 @@
             [ch setCharName:name];
             do
             {
-                num=arc4random()%3;
+                num=arc4random()%5;
             }while(num==0 || num==1);
             NSString *aiName = [NSString stringWithFormat:@"player_%d",num];
             [ch setAiName:aiName];
@@ -142,7 +142,7 @@
             [ch setCharName:name];
             do
             {
-                num=arc4random()%3;
+                num=arc4random()%5;
             }while(num==0 || num==2);
             NSString *aiName = [NSString stringWithFormat:@"player_%d",num];
             [ch setAiName:aiName];
@@ -172,7 +172,7 @@
             [ch setCharName:name];
             do
             {
-                num=arc4random()%3;
+                num=arc4random()%5;
             }while(num==0 || num==3);
             NSString *aiName = [NSString stringWithFormat:@"player_%d",num];
             [ch setAiName:aiName];
@@ -201,7 +201,7 @@
             [ch setCharName:name];
             do
             {
-                num=arc4random()%3;
+                num=arc4random()%5;
             }while(num==0 || num==4);
             NSString *aiName = [NSString stringWithFormat:@"player_%d",num];
             [ch setAiName:aiName];

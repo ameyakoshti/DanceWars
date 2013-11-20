@@ -341,12 +341,22 @@ static bool swipeEnableGlobal = NO;
 }
 
 -(void) initiateUserDance {
-    NSString *danceMove = [NSString stringWithFormat:@"_d1"];
-    NSString *player = [charHand.charName stringByAppendingString:danceMove];
-    NSLog(@"This is %@",player);
     
-    // Count the number of frames from the plist
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:player ofType:@"plist"];
+    int num;
+    NSString *danceMove;
+    NSString *plistPath;
+    NSString *player;
+    do
+    {
+        num = arc4random()%6;
+        //NSLog(@"Num is: %d",num);
+        danceMove = [NSString stringWithFormat:@"_d%d",num];
+        player = [charHand.charName stringByAppendingString:danceMove];
+        plistPath = [[NSBundle mainBundle] pathForResource:player ofType:@"plist"];
+    }
+    while ([plistPath length]==0);
+    
+    //Count number of frames from plist
     NSDictionary *Dictionary= [[NSDictionary alloc]initWithContentsOfFile:plistPath];
     int numberOfFrames = [[Dictionary valueForKey:@"frames"] count];
     
@@ -393,15 +403,24 @@ static bool swipeEnableGlobal = NO;
     [self removeChildByTag:2 cleanup:YES];
     [self removeChildByTag:104 cleanup:YES];
     
-    NSString *danceMove = [NSString stringWithFormat:@"_d1"];
-    NSString *aiPlayer = [charHand.aiName stringByAppendingString:danceMove];
-    NSLog(@"This is %@",aiPlayer);
+    int num;
+    NSString *danceMove;
+    NSString *plistPath;
+    NSString *aiPlayer;
+    do
+    {
+        num = arc4random()%6;
+        NSLog(@"Num is: %d",num);
+        danceMove = [NSString stringWithFormat:@"_d%d",num];
+        aiPlayer = [charHand.aiName stringByAppendingString:danceMove];
+        plistPath = [[NSBundle mainBundle] pathForResource:aiPlayer ofType:@"plist"];
+    }
+    while ([plistPath length]==0);
     
     // Count the number of frames from the plist
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:aiPlayer ofType:@"plist"];
     NSDictionary *Dictionary= [[NSDictionary alloc]initWithContentsOfFile:plistPath];
     int numberOfFrames = [[Dictionary valueForKey:@"frames"] count];
-
+    
     NSString *ai_plist=[aiPlayer stringByAppendingString:@".plist"];
     NSString *aiSheetName = [aiPlayer stringByAppendingString:@".png"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:ai_plist];
@@ -440,6 +459,7 @@ static bool swipeEnableGlobal = NO;
         [self.aiProgressTimer setPercentage:self.aiLife];
     }
 }
+
 
 -(void) loadHelloWorldLayer {
     
