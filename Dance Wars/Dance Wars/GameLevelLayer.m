@@ -767,14 +767,14 @@ static bool swipeEnableGlobal = NO;
             visited[1] = YES;
             hitCount++;
             totalHitCount++;
-            
+            //AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
             [self showBlastEffect:touchIcon[1].position];
         }
         if((CGRectContainsPoint(touchIcon[2].boundingBox, location)) && visited[2] == NO) {
             visited[2] = YES;
             hitCount++;
             totalHitCount++;
-            
+            //AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
             [self showBlastEffect:touchIcon[2].position];
         }
     }
