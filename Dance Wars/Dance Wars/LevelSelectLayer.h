@@ -22,6 +22,8 @@
     MyManager *sharedManager;
     LevelEnvironment *le;
     CCMenu *gameMenu;
+    CCSprite *label;
+    CGSize size;
 }
 
 +(CCScene *) scene;

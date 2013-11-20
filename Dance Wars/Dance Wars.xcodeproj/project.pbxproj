@@ -418,7 +418,6 @@
 		B2EF479F181797AA00841EB0 /* difficulty_level_1.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF479B181797AA00841EB0 /* difficulty_level_1.png */; };
 		B2EF47A0181797AA00841EB0 /* difficulty_level_2.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF479C181797AA00841EB0 /* difficulty_level_2.png */; };
 		B2EF47A1181797AA00841EB0 /* difficulty_level_3.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF479D181797AA00841EB0 /* difficulty_level_3.png */; };
-		B2EF47A2181797AA00841EB0 /* difficulty_level_4.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF479E181797AA00841EB0 /* difficulty_level_4.png */; };
 		B2EF47F118179FE600841EB0 /* background_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2EF47D818179FE500841EB0 /* background_1.plist */; };
 		B2EF47F218179FE600841EB0 /* background_1.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF47D918179FE500841EB0 /* background_1.png */; };
 		B2EF47F318179FE600841EB0 /* background_1_1.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF47DA18179FE500841EB0 /* background_1_1.png */; };
@@ -461,6 +460,157 @@
 		D8D62683183C72C200C0356C /* settings_screen_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D62680183C72C200C0356C /* settings_screen_bg.png */; };
 		D8D62684183C72C200C0356C /* settings_text.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D62681183C72C200C0356C /* settings_text.png */; };
 		D8D62685183C72C200C0356C /* volume_text.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D62682183C72C200C0356C /* volume_text.png */; };
+		DF166827183C98B90047394C /* player_4_d1.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF166792183C98B80047394C /* player_4_d1.plist */; };
+		DF166828183C98B90047394C /* player_4_d1.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166793183C98B80047394C /* player_4_d1.png */; };
+		DF166829183C98B90047394C /* player_4_d1_1.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166794183C98B80047394C /* player_4_d1_1.png */; };
+		DF16682A183C98B90047394C /* player_4_d1_10.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166795183C98B80047394C /* player_4_d1_10.png */; };
+		DF16682B183C98B90047394C /* player_4_d1_11.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166796183C98B80047394C /* player_4_d1_11.png */; };
+		DF16682C183C98B90047394C /* player_4_d1_12.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166797183C98B80047394C /* player_4_d1_12.png */; };
+		DF16682D183C98B90047394C /* player_4_d1_13.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166798183C98B80047394C /* player_4_d1_13.png */; };
+		DF16682E183C98B90047394C /* player_4_d1_14.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166799183C98B80047394C /* player_4_d1_14.png */; };
+		DF16682F183C98B90047394C /* player_4_d1_15.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16679A183C98B80047394C /* player_4_d1_15.png */; };
+		DF166830183C98B90047394C /* player_4_d1_16.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16679B183C98B80047394C /* player_4_d1_16.png */; };
+		DF166831183C98B90047394C /* player_4_d1_17.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16679C183C98B80047394C /* player_4_d1_17.png */; };
+		DF166832183C98B90047394C /* player_4_d1_18.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16679D183C98B80047394C /* player_4_d1_18.png */; };
+		DF166833183C98B90047394C /* player_4_d1_19.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16679E183C98B80047394C /* player_4_d1_19.png */; };
+		DF166834183C98B90047394C /* player_4_d1_2.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16679F183C98B80047394C /* player_4_d1_2.png */; };
+		DF166835183C98B90047394C /* player_4_d1_20.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667A0183C98B80047394C /* player_4_d1_20.png */; };
+		DF166836183C98B90047394C /* player_4_d1_21.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667A1183C98B80047394C /* player_4_d1_21.png */; };
+		DF166837183C98B90047394C /* player_4_d1_22.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667A2183C98B80047394C /* player_4_d1_22.png */; };
+		DF166838183C98B90047394C /* player_4_d1_23.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667A3183C98B80047394C /* player_4_d1_23.png */; };
+		DF166839183C98B90047394C /* player_4_d1_24.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667A4183C98B80047394C /* player_4_d1_24.png */; };
+		DF16683A183C98B90047394C /* player_4_d1_25.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667A5183C98B80047394C /* player_4_d1_25.png */; };
+		DF16683B183C98B90047394C /* player_4_d1_26.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667A6183C98B80047394C /* player_4_d1_26.png */; };
+		DF16683C183C98B90047394C /* player_4_d1_27.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667A7183C98B80047394C /* player_4_d1_27.png */; };
+		DF16683D183C98B90047394C /* player_4_d1_28.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667A8183C98B80047394C /* player_4_d1_28.png */; };
+		DF16683E183C98B90047394C /* player_4_d1_29.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667A9183C98B80047394C /* player_4_d1_29.png */; };
+		DF16683F183C98B90047394C /* player_4_d1_3.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667AA183C98B80047394C /* player_4_d1_3.png */; };
+		DF166840183C98B90047394C /* player_4_d1_30.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667AB183C98B80047394C /* player_4_d1_30.png */; };
+		DF166841183C98B90047394C /* player_4_d1_31.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667AC183C98B80047394C /* player_4_d1_31.png */; };
+		DF166842183C98B90047394C /* player_4_d1_32.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667AD183C98B80047394C /* player_4_d1_32.png */; };
+		DF166843183C98B90047394C /* player_4_d1_33.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667AE183C98B80047394C /* player_4_d1_33.png */; };
+		DF166844183C98B90047394C /* player_4_d1_34.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667AF183C98B80047394C /* player_4_d1_34.png */; };
+		DF166845183C98B90047394C /* player_4_d1_35.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667B0183C98B80047394C /* player_4_d1_35.png */; };
+		DF166846183C98B90047394C /* player_4_d1_36.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667B1183C98B80047394C /* player_4_d1_36.png */; };
+		DF166847183C98B90047394C /* player_4_d1_37.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667B2183C98B80047394C /* player_4_d1_37.png */; };
+		DF166848183C98B90047394C /* player_4_d1_38.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667B3183C98B80047394C /* player_4_d1_38.png */; };
+		DF166849183C98B90047394C /* player_4_d1_39.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667B4183C98B80047394C /* player_4_d1_39.png */; };
+		DF16684A183C98B90047394C /* player_4_d1_4.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667B5183C98B80047394C /* player_4_d1_4.png */; };
+		DF16684B183C98B90047394C /* player_4_d1_40.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667B6183C98B80047394C /* player_4_d1_40.png */; };
+		DF16684C183C98B90047394C /* player_4_d1_41.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667B7183C98B80047394C /* player_4_d1_41.png */; };
+		DF16684D183C98B90047394C /* player_4_d1_42.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667B8183C98B80047394C /* player_4_d1_42.png */; };
+		DF16684E183C98B90047394C /* player_4_d1_43.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667B9183C98B80047394C /* player_4_d1_43.png */; };
+		DF16684F183C98B90047394C /* player_4_d1_44.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667BA183C98B80047394C /* player_4_d1_44.png */; };
+		DF166850183C98B90047394C /* player_4_d1_45.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667BB183C98B80047394C /* player_4_d1_45.png */; };
+		DF166851183C98B90047394C /* player_4_d1_46.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667BC183C98B80047394C /* player_4_d1_46.png */; };
+		DF166852183C98B90047394C /* player_4_d1_47.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667BD183C98B80047394C /* player_4_d1_47.png */; };
+		DF166853183C98B90047394C /* player_4_d1_48.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667BE183C98B80047394C /* player_4_d1_48.png */; };
+		DF166854183C98B90047394C /* player_4_d1_49.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667BF183C98B80047394C /* player_4_d1_49.png */; };
+		DF166855183C98B90047394C /* player_4_d1_5.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667C0183C98B80047394C /* player_4_d1_5.png */; };
+		DF166856183C98B90047394C /* player_4_d1_6.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667C1183C98B80047394C /* player_4_d1_6.png */; };
+		DF166857183C98B90047394C /* player_4_d1_7.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667C2183C98B80047394C /* player_4_d1_7.png */; };
+		DF166858183C98B90047394C /* player_4_d1_8.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667C3183C98B80047394C /* player_4_d1_8.png */; };
+		DF166859183C98B90047394C /* player_4_d1_9.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667C4183C98B80047394C /* player_4_d1_9.png */; };
+		DF16685A183C98B90047394C /* player_4_d2.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF1667C6183C98B80047394C /* player_4_d2.plist */; };
+		DF16685B183C98B90047394C /* player_4_d2.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667C7183C98B80047394C /* player_4_d2.png */; };
+		DF16685C183C98B90047394C /* player_4_d2_1.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667C8183C98B80047394C /* player_4_d2_1.png */; };
+		DF16685D183C98B90047394C /* player_4_d2_10.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667C9183C98B80047394C /* player_4_d2_10.png */; };
+		DF16685E183C98B90047394C /* player_4_d2_11.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667CA183C98B80047394C /* player_4_d2_11.png */; };
+		DF16685F183C98B90047394C /* player_4_d2_12.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667CB183C98B80047394C /* player_4_d2_12.png */; };
+		DF166860183C98B90047394C /* player_4_d2_13.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667CC183C98B80047394C /* player_4_d2_13.png */; };
+		DF166861183C98B90047394C /* player_4_d2_14.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667CD183C98B80047394C /* player_4_d2_14.png */; };
+		DF166862183C98B90047394C /* player_4_d2_15.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667CE183C98B80047394C /* player_4_d2_15.png */; };
+		DF166863183C98B90047394C /* player_4_d2_16.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667CF183C98B80047394C /* player_4_d2_16.png */; };
+		DF166864183C98B90047394C /* player_4_d2_17.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667D0183C98B80047394C /* player_4_d2_17.png */; };
+		DF166865183C98B90047394C /* player_4_d2_18.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667D1183C98B80047394C /* player_4_d2_18.png */; };
+		DF166866183C98B90047394C /* player_4_d2_19.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667D2183C98B80047394C /* player_4_d2_19.png */; };
+		DF166867183C98B90047394C /* player_4_d2_2.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667D3183C98B80047394C /* player_4_d2_2.png */; };
+		DF166868183C98B90047394C /* player_4_d2_20.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667D4183C98B80047394C /* player_4_d2_20.png */; };
+		DF166869183C98B90047394C /* player_4_d2_21.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667D5183C98B80047394C /* player_4_d2_21.png */; };
+		DF16686A183C98B90047394C /* player_4_d2_22.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667D6183C98B80047394C /* player_4_d2_22.png */; };
+		DF16686B183C98B90047394C /* player_4_d2_23.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667D7183C98B80047394C /* player_4_d2_23.png */; };
+		DF16686C183C98B90047394C /* player_4_d2_24.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667D8183C98B80047394C /* player_4_d2_24.png */; };
+		DF16686D183C98B90047394C /* player_4_d2_25.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667D9183C98B80047394C /* player_4_d2_25.png */; };
+		DF16686E183C98B90047394C /* player_4_d2_26.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667DA183C98B80047394C /* player_4_d2_26.png */; };
+		DF16686F183C98B90047394C /* player_4_d2_27.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667DB183C98B80047394C /* player_4_d2_27.png */; };
+		DF166870183C98B90047394C /* player_4_d2_28.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667DC183C98B80047394C /* player_4_d2_28.png */; };
+		DF166871183C98B90047394C /* player_4_d2_29.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667DD183C98B80047394C /* player_4_d2_29.png */; };
+		DF166872183C98B90047394C /* player_4_d2_3.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667DE183C98B80047394C /* player_4_d2_3.png */; };
+		DF166873183C98B90047394C /* player_4_d2_30.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667DF183C98B80047394C /* player_4_d2_30.png */; };
+		DF166874183C98B90047394C /* player_4_d2_31.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667E0183C98B80047394C /* player_4_d2_31.png */; };
+		DF166875183C98B90047394C /* player_4_d2_32.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667E1183C98B80047394C /* player_4_d2_32.png */; };
+		DF166876183C98B90047394C /* player_4_d2_33.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667E2183C98B80047394C /* player_4_d2_33.png */; };
+		DF166877183C98B90047394C /* player_4_d2_34.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667E3183C98B80047394C /* player_4_d2_34.png */; };
+		DF166878183C98B90047394C /* player_4_d2_35.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667E4183C98B80047394C /* player_4_d2_35.png */; };
+		DF166879183C98B90047394C /* player_4_d2_36.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667E5183C98B80047394C /* player_4_d2_36.png */; };
+		DF16687A183C98B90047394C /* player_4_d2_37.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667E6183C98B80047394C /* player_4_d2_37.png */; };
+		DF16687B183C98B90047394C /* player_4_d2_38.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667E7183C98B80047394C /* player_4_d2_38.png */; };
+		DF16687C183C98B90047394C /* player_4_d2_39.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667E8183C98B80047394C /* player_4_d2_39.png */; };
+		DF16687D183C98B90047394C /* player_4_d2_4.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667E9183C98B80047394C /* player_4_d2_4.png */; };
+		DF16687E183C98B90047394C /* player_4_d2_40.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667EA183C98B80047394C /* player_4_d2_40.png */; };
+		DF16687F183C98B90047394C /* player_4_d2_41.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667EB183C98B80047394C /* player_4_d2_41.png */; };
+		DF166880183C98B90047394C /* player_4_d2_42.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667EC183C98B80047394C /* player_4_d2_42.png */; };
+		DF166881183C98B90047394C /* player_4_d2_43.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667ED183C98B80047394C /* player_4_d2_43.png */; };
+		DF166882183C98B90047394C /* player_4_d2_44.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667EE183C98B80047394C /* player_4_d2_44.png */; };
+		DF166883183C98B90047394C /* player_4_d2_45.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667EF183C98B80047394C /* player_4_d2_45.png */; };
+		DF166884183C98B90047394C /* player_4_d2_5.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667F0183C98B80047394C /* player_4_d2_5.png */; };
+		DF166885183C98B90047394C /* player_4_d2_6.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667F1183C98B80047394C /* player_4_d2_6.png */; };
+		DF166886183C98B90047394C /* player_4_d2_7.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667F2183C98B80047394C /* player_4_d2_7.png */; };
+		DF166887183C98B90047394C /* player_4_d2_8.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667F3183C98B80047394C /* player_4_d2_8.png */; };
+		DF166888183C98B90047394C /* player_4_d2_9.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667F4183C98B80047394C /* player_4_d2_9.png */; };
+		DF166889183C98B90047394C /* player_4_d3.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF1667F6183C98B80047394C /* player_4_d3.plist */; };
+		DF16688A183C98B90047394C /* player_4_d3.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667F7183C98B80047394C /* player_4_d3.png */; };
+		DF16688B183C98B90047394C /* player_4_d3_1.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667F8183C98B80047394C /* player_4_d3_1.png */; };
+		DF16688C183C98B90047394C /* player_4_d3_10.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667F9183C98B80047394C /* player_4_d3_10.png */; };
+		DF16688D183C98B90047394C /* player_4_d3_11.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667FA183C98B80047394C /* player_4_d3_11.png */; };
+		DF16688E183C98B90047394C /* player_4_d3_12.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667FB183C98B80047394C /* player_4_d3_12.png */; };
+		DF16688F183C98B90047394C /* player_4_d3_13.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667FC183C98B80047394C /* player_4_d3_13.png */; };
+		DF166890183C98B90047394C /* player_4_d3_14.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667FD183C98B80047394C /* player_4_d3_14.png */; };
+		DF166891183C98B90047394C /* player_4_d3_15.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667FE183C98B80047394C /* player_4_d3_15.png */; };
+		DF166892183C98B90047394C /* player_4_d3_16.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1667FF183C98B80047394C /* player_4_d3_16.png */; };
+		DF166893183C98B90047394C /* player_4_d3_17.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166800183C98B80047394C /* player_4_d3_17.png */; };
+		DF166894183C98B90047394C /* player_4_d3_18.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166801183C98B80047394C /* player_4_d3_18.png */; };
+		DF166895183C98B90047394C /* player_4_d3_19.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166802183C98B80047394C /* player_4_d3_19.png */; };
+		DF166896183C98B90047394C /* player_4_d3_2.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166803183C98B80047394C /* player_4_d3_2.png */; };
+		DF166897183C98B90047394C /* player_4_d3_20.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166804183C98B80047394C /* player_4_d3_20.png */; };
+		DF166898183C98B90047394C /* player_4_d3_21.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166805183C98B80047394C /* player_4_d3_21.png */; };
+		DF166899183C98B90047394C /* player_4_d3_22.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166806183C98B80047394C /* player_4_d3_22.png */; };
+		DF16689A183C98B90047394C /* player_4_d3_23.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166807183C98B80047394C /* player_4_d3_23.png */; };
+		DF16689B183C98B90047394C /* player_4_d3_24.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166808183C98B80047394C /* player_4_d3_24.png */; };
+		DF16689C183C98B90047394C /* player_4_d3_25.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166809183C98B80047394C /* player_4_d3_25.png */; };
+		DF16689D183C98B90047394C /* player_4_d3_26.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16680A183C98B80047394C /* player_4_d3_26.png */; };
+		DF16689E183C98B90047394C /* player_4_d3_27.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16680B183C98B80047394C /* player_4_d3_27.png */; };
+		DF16689F183C98B90047394C /* player_4_d3_28.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16680C183C98B80047394C /* player_4_d3_28.png */; };
+		DF1668A0183C98B90047394C /* player_4_d3_29.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16680D183C98B80047394C /* player_4_d3_29.png */; };
+		DF1668A1183C98B90047394C /* player_4_d3_3.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16680E183C98B80047394C /* player_4_d3_3.png */; };
+		DF1668A2183C98B90047394C /* player_4_d3_30.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16680F183C98B80047394C /* player_4_d3_30.png */; };
+		DF1668A3183C98B90047394C /* player_4_d3_31.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166810183C98B90047394C /* player_4_d3_31.png */; };
+		DF1668A4183C98B90047394C /* player_4_d3_32.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166811183C98B90047394C /* player_4_d3_32.png */; };
+		DF1668A5183C98B90047394C /* player_4_d3_33.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166812183C98B90047394C /* player_4_d3_33.png */; };
+		DF1668A6183C98B90047394C /* player_4_d3_34.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166813183C98B90047394C /* player_4_d3_34.png */; };
+		DF1668A7183C98B90047394C /* player_4_d3_35.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166814183C98B90047394C /* player_4_d3_35.png */; };
+		DF1668A8183C98B90047394C /* player_4_d3_36.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166815183C98B90047394C /* player_4_d3_36.png */; };
+		DF1668A9183C98B90047394C /* player_4_d3_37.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166816183C98B90047394C /* player_4_d3_37.png */; };
+		DF1668AA183C98B90047394C /* player_4_d3_38.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166817183C98B90047394C /* player_4_d3_38.png */; };
+		DF1668AB183C98B90047394C /* player_4_d3_39.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166818183C98B90047394C /* player_4_d3_39.png */; };
+		DF1668AC183C98B90047394C /* player_4_d3_4.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166819183C98B90047394C /* player_4_d3_4.png */; };
+		DF1668AD183C98B90047394C /* player_4_d3_40.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16681A183C98B90047394C /* player_4_d3_40.png */; };
+		DF1668AE183C98B90047394C /* player_4_d3_41.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16681B183C98B90047394C /* player_4_d3_41.png */; };
+		DF1668AF183C98B90047394C /* player_4_d3_42.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16681C183C98B90047394C /* player_4_d3_42.png */; };
+		DF1668B0183C98B90047394C /* player_4_d3_43.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16681D183C98B90047394C /* player_4_d3_43.png */; };
+		DF1668B1183C98B90047394C /* player_4_d3_44.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16681E183C98B90047394C /* player_4_d3_44.png */; };
+		DF1668B2183C98B90047394C /* player_4_d3_45.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16681F183C98B90047394C /* player_4_d3_45.png */; };
+		DF1668B3183C98B90047394C /* player_4_d3_46.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166820183C98B90047394C /* player_4_d3_46.png */; };
+		DF1668B4183C98B90047394C /* player_4_d3_47.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166821183C98B90047394C /* player_4_d3_47.png */; };
+		DF1668B5183C98B90047394C /* player_4_d3_5.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166822183C98B90047394C /* player_4_d3_5.png */; };
+		DF1668B6183C98B90047394C /* player_4_d3_6.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166823183C98B90047394C /* player_4_d3_6.png */; };
+		DF1668B7183C98B90047394C /* player_4_d3_7.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166824183C98B90047394C /* player_4_d3_7.png */; };
+		DF1668B8183C98B90047394C /* player_4_d3_8.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166825183C98B90047394C /* player_4_d3_8.png */; };
+		DF1668B9183C98B90047394C /* player_4_d3_9.png in Resources */ = {isa = PBXBuildFile; fileRef = DF166826183C98B90047394C /* player_4_d3_9.png */; };
+		DF1668BD183C99F00047394C /* difficulty_level_1_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1668BA183C99F00047394C /* difficulty_level_1_pressed.png */; };
+		DF1668BE183C99F00047394C /* difficulty_level_2_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1668BB183C99F00047394C /* difficulty_level_2_pressed.png */; };
+		DF1668BF183C99F00047394C /* difficulty_level_3_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1668BC183C99F00047394C /* difficulty_level_3_pressed.png */; };
+		DF1668C1183C9C0B0047394C /* select_difficulty.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1668C0183C9C0B0047394C /* select_difficulty.png */; };
 		DF3E1C4717EA363E0043593E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3E1C4617EA363E0043593E /* QuartzCore.framework */; };
 		DF3E1C4917EA363E0043593E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3E1C4817EA363E0043593E /* OpenGLES.framework */; };
 		DF3E1C4B17EA363E0043593E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3E1C4A17EA363E0043593E /* OpenAL.framework */; };
@@ -1127,7 +1277,6 @@
 		B2EF479B181797AA00841EB0 /* difficulty_level_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = difficulty_level_1.png; sourceTree = "<group>"; };
 		B2EF479C181797AA00841EB0 /* difficulty_level_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = difficulty_level_2.png; sourceTree = "<group>"; };
 		B2EF479D181797AA00841EB0 /* difficulty_level_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = difficulty_level_3.png; sourceTree = "<group>"; };
-		B2EF479E181797AA00841EB0 /* difficulty_level_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = difficulty_level_4.png; sourceTree = "<group>"; };
 		B2EF47D818179FE500841EB0 /* background_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = background_1.plist; sourceTree = "<group>"; };
 		B2EF47D918179FE500841EB0 /* background_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_1.png; sourceTree = "<group>"; };
 		B2EF47DA18179FE500841EB0 /* background_1_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_1_1.png; sourceTree = "<group>"; };
@@ -1176,6 +1325,157 @@
 		D8D62680183C72C200C0356C /* settings_screen_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_screen_bg.png; sourceTree = "<group>"; };
 		D8D62681183C72C200C0356C /* settings_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_text.png; sourceTree = "<group>"; };
 		D8D62682183C72C200C0356C /* volume_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volume_text.png; sourceTree = "<group>"; };
+		DF166792183C98B80047394C /* player_4_d1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = player_4_d1.plist; sourceTree = "<group>"; };
+		DF166793183C98B80047394C /* player_4_d1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1.png; sourceTree = "<group>"; };
+		DF166794183C98B80047394C /* player_4_d1_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_1.png; sourceTree = "<group>"; };
+		DF166795183C98B80047394C /* player_4_d1_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_10.png; sourceTree = "<group>"; };
+		DF166796183C98B80047394C /* player_4_d1_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_11.png; sourceTree = "<group>"; };
+		DF166797183C98B80047394C /* player_4_d1_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_12.png; sourceTree = "<group>"; };
+		DF166798183C98B80047394C /* player_4_d1_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_13.png; sourceTree = "<group>"; };
+		DF166799183C98B80047394C /* player_4_d1_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_14.png; sourceTree = "<group>"; };
+		DF16679A183C98B80047394C /* player_4_d1_15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_15.png; sourceTree = "<group>"; };
+		DF16679B183C98B80047394C /* player_4_d1_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_16.png; sourceTree = "<group>"; };
+		DF16679C183C98B80047394C /* player_4_d1_17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_17.png; sourceTree = "<group>"; };
+		DF16679D183C98B80047394C /* player_4_d1_18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_18.png; sourceTree = "<group>"; };
+		DF16679E183C98B80047394C /* player_4_d1_19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_19.png; sourceTree = "<group>"; };
+		DF16679F183C98B80047394C /* player_4_d1_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_2.png; sourceTree = "<group>"; };
+		DF1667A0183C98B80047394C /* player_4_d1_20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_20.png; sourceTree = "<group>"; };
+		DF1667A1183C98B80047394C /* player_4_d1_21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_21.png; sourceTree = "<group>"; };
+		DF1667A2183C98B80047394C /* player_4_d1_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_22.png; sourceTree = "<group>"; };
+		DF1667A3183C98B80047394C /* player_4_d1_23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_23.png; sourceTree = "<group>"; };
+		DF1667A4183C98B80047394C /* player_4_d1_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_24.png; sourceTree = "<group>"; };
+		DF1667A5183C98B80047394C /* player_4_d1_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_25.png; sourceTree = "<group>"; };
+		DF1667A6183C98B80047394C /* player_4_d1_26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_26.png; sourceTree = "<group>"; };
+		DF1667A7183C98B80047394C /* player_4_d1_27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_27.png; sourceTree = "<group>"; };
+		DF1667A8183C98B80047394C /* player_4_d1_28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_28.png; sourceTree = "<group>"; };
+		DF1667A9183C98B80047394C /* player_4_d1_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_29.png; sourceTree = "<group>"; };
+		DF1667AA183C98B80047394C /* player_4_d1_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_3.png; sourceTree = "<group>"; };
+		DF1667AB183C98B80047394C /* player_4_d1_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_30.png; sourceTree = "<group>"; };
+		DF1667AC183C98B80047394C /* player_4_d1_31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_31.png; sourceTree = "<group>"; };
+		DF1667AD183C98B80047394C /* player_4_d1_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_32.png; sourceTree = "<group>"; };
+		DF1667AE183C98B80047394C /* player_4_d1_33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_33.png; sourceTree = "<group>"; };
+		DF1667AF183C98B80047394C /* player_4_d1_34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_34.png; sourceTree = "<group>"; };
+		DF1667B0183C98B80047394C /* player_4_d1_35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_35.png; sourceTree = "<group>"; };
+		DF1667B1183C98B80047394C /* player_4_d1_36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_36.png; sourceTree = "<group>"; };
+		DF1667B2183C98B80047394C /* player_4_d1_37.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_37.png; sourceTree = "<group>"; };
+		DF1667B3183C98B80047394C /* player_4_d1_38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_38.png; sourceTree = "<group>"; };
+		DF1667B4183C98B80047394C /* player_4_d1_39.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_39.png; sourceTree = "<group>"; };
+		DF1667B5183C98B80047394C /* player_4_d1_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_4.png; sourceTree = "<group>"; };
+		DF1667B6183C98B80047394C /* player_4_d1_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_40.png; sourceTree = "<group>"; };
+		DF1667B7183C98B80047394C /* player_4_d1_41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_41.png; sourceTree = "<group>"; };
+		DF1667B8183C98B80047394C /* player_4_d1_42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_42.png; sourceTree = "<group>"; };
+		DF1667B9183C98B80047394C /* player_4_d1_43.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_43.png; sourceTree = "<group>"; };
+		DF1667BA183C98B80047394C /* player_4_d1_44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_44.png; sourceTree = "<group>"; };
+		DF1667BB183C98B80047394C /* player_4_d1_45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_45.png; sourceTree = "<group>"; };
+		DF1667BC183C98B80047394C /* player_4_d1_46.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_46.png; sourceTree = "<group>"; };
+		DF1667BD183C98B80047394C /* player_4_d1_47.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_47.png; sourceTree = "<group>"; };
+		DF1667BE183C98B80047394C /* player_4_d1_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_48.png; sourceTree = "<group>"; };
+		DF1667BF183C98B80047394C /* player_4_d1_49.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_49.png; sourceTree = "<group>"; };
+		DF1667C0183C98B80047394C /* player_4_d1_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_5.png; sourceTree = "<group>"; };
+		DF1667C1183C98B80047394C /* player_4_d1_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_6.png; sourceTree = "<group>"; };
+		DF1667C2183C98B80047394C /* player_4_d1_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_7.png; sourceTree = "<group>"; };
+		DF1667C3183C98B80047394C /* player_4_d1_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_8.png; sourceTree = "<group>"; };
+		DF1667C4183C98B80047394C /* player_4_d1_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d1_9.png; sourceTree = "<group>"; };
+		DF1667C6183C98B80047394C /* player_4_d2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = player_4_d2.plist; sourceTree = "<group>"; };
+		DF1667C7183C98B80047394C /* player_4_d2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2.png; sourceTree = "<group>"; };
+		DF1667C8183C98B80047394C /* player_4_d2_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_1.png; sourceTree = "<group>"; };
+		DF1667C9183C98B80047394C /* player_4_d2_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_10.png; sourceTree = "<group>"; };
+		DF1667CA183C98B80047394C /* player_4_d2_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_11.png; sourceTree = "<group>"; };
+		DF1667CB183C98B80047394C /* player_4_d2_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_12.png; sourceTree = "<group>"; };
+		DF1667CC183C98B80047394C /* player_4_d2_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_13.png; sourceTree = "<group>"; };
+		DF1667CD183C98B80047394C /* player_4_d2_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_14.png; sourceTree = "<group>"; };
+		DF1667CE183C98B80047394C /* player_4_d2_15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_15.png; sourceTree = "<group>"; };
+		DF1667CF183C98B80047394C /* player_4_d2_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_16.png; sourceTree = "<group>"; };
+		DF1667D0183C98B80047394C /* player_4_d2_17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_17.png; sourceTree = "<group>"; };
+		DF1667D1183C98B80047394C /* player_4_d2_18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_18.png; sourceTree = "<group>"; };
+		DF1667D2183C98B80047394C /* player_4_d2_19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_19.png; sourceTree = "<group>"; };
+		DF1667D3183C98B80047394C /* player_4_d2_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_2.png; sourceTree = "<group>"; };
+		DF1667D4183C98B80047394C /* player_4_d2_20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_20.png; sourceTree = "<group>"; };
+		DF1667D5183C98B80047394C /* player_4_d2_21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_21.png; sourceTree = "<group>"; };
+		DF1667D6183C98B80047394C /* player_4_d2_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_22.png; sourceTree = "<group>"; };
+		DF1667D7183C98B80047394C /* player_4_d2_23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_23.png; sourceTree = "<group>"; };
+		DF1667D8183C98B80047394C /* player_4_d2_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_24.png; sourceTree = "<group>"; };
+		DF1667D9183C98B80047394C /* player_4_d2_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_25.png; sourceTree = "<group>"; };
+		DF1667DA183C98B80047394C /* player_4_d2_26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_26.png; sourceTree = "<group>"; };
+		DF1667DB183C98B80047394C /* player_4_d2_27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_27.png; sourceTree = "<group>"; };
+		DF1667DC183C98B80047394C /* player_4_d2_28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_28.png; sourceTree = "<group>"; };
+		DF1667DD183C98B80047394C /* player_4_d2_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_29.png; sourceTree = "<group>"; };
+		DF1667DE183C98B80047394C /* player_4_d2_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_3.png; sourceTree = "<group>"; };
+		DF1667DF183C98B80047394C /* player_4_d2_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_30.png; sourceTree = "<group>"; };
+		DF1667E0183C98B80047394C /* player_4_d2_31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_31.png; sourceTree = "<group>"; };
+		DF1667E1183C98B80047394C /* player_4_d2_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_32.png; sourceTree = "<group>"; };
+		DF1667E2183C98B80047394C /* player_4_d2_33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_33.png; sourceTree = "<group>"; };
+		DF1667E3183C98B80047394C /* player_4_d2_34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_34.png; sourceTree = "<group>"; };
+		DF1667E4183C98B80047394C /* player_4_d2_35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_35.png; sourceTree = "<group>"; };
+		DF1667E5183C98B80047394C /* player_4_d2_36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_36.png; sourceTree = "<group>"; };
+		DF1667E6183C98B80047394C /* player_4_d2_37.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_37.png; sourceTree = "<group>"; };
+		DF1667E7183C98B80047394C /* player_4_d2_38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_38.png; sourceTree = "<group>"; };
+		DF1667E8183C98B80047394C /* player_4_d2_39.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_39.png; sourceTree = "<group>"; };
+		DF1667E9183C98B80047394C /* player_4_d2_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_4.png; sourceTree = "<group>"; };
+		DF1667EA183C98B80047394C /* player_4_d2_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_40.png; sourceTree = "<group>"; };
+		DF1667EB183C98B80047394C /* player_4_d2_41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_41.png; sourceTree = "<group>"; };
+		DF1667EC183C98B80047394C /* player_4_d2_42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_42.png; sourceTree = "<group>"; };
+		DF1667ED183C98B80047394C /* player_4_d2_43.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_43.png; sourceTree = "<group>"; };
+		DF1667EE183C98B80047394C /* player_4_d2_44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_44.png; sourceTree = "<group>"; };
+		DF1667EF183C98B80047394C /* player_4_d2_45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_45.png; sourceTree = "<group>"; };
+		DF1667F0183C98B80047394C /* player_4_d2_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_5.png; sourceTree = "<group>"; };
+		DF1667F1183C98B80047394C /* player_4_d2_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_6.png; sourceTree = "<group>"; };
+		DF1667F2183C98B80047394C /* player_4_d2_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_7.png; sourceTree = "<group>"; };
+		DF1667F3183C98B80047394C /* player_4_d2_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_8.png; sourceTree = "<group>"; };
+		DF1667F4183C98B80047394C /* player_4_d2_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d2_9.png; sourceTree = "<group>"; };
+		DF1667F6183C98B80047394C /* player_4_d3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = player_4_d3.plist; sourceTree = "<group>"; };
+		DF1667F7183C98B80047394C /* player_4_d3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3.png; sourceTree = "<group>"; };
+		DF1667F8183C98B80047394C /* player_4_d3_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_1.png; sourceTree = "<group>"; };
+		DF1667F9183C98B80047394C /* player_4_d3_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_10.png; sourceTree = "<group>"; };
+		DF1667FA183C98B80047394C /* player_4_d3_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_11.png; sourceTree = "<group>"; };
+		DF1667FB183C98B80047394C /* player_4_d3_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_12.png; sourceTree = "<group>"; };
+		DF1667FC183C98B80047394C /* player_4_d3_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_13.png; sourceTree = "<group>"; };
+		DF1667FD183C98B80047394C /* player_4_d3_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_14.png; sourceTree = "<group>"; };
+		DF1667FE183C98B80047394C /* player_4_d3_15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_15.png; sourceTree = "<group>"; };
+		DF1667FF183C98B80047394C /* player_4_d3_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_16.png; sourceTree = "<group>"; };
+		DF166800183C98B80047394C /* player_4_d3_17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_17.png; sourceTree = "<group>"; };
+		DF166801183C98B80047394C /* player_4_d3_18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_18.png; sourceTree = "<group>"; };
+		DF166802183C98B80047394C /* player_4_d3_19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_19.png; sourceTree = "<group>"; };
+		DF166803183C98B80047394C /* player_4_d3_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_2.png; sourceTree = "<group>"; };
+		DF166804183C98B80047394C /* player_4_d3_20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_20.png; sourceTree = "<group>"; };
+		DF166805183C98B80047394C /* player_4_d3_21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_21.png; sourceTree = "<group>"; };
+		DF166806183C98B80047394C /* player_4_d3_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_22.png; sourceTree = "<group>"; };
+		DF166807183C98B80047394C /* player_4_d3_23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_23.png; sourceTree = "<group>"; };
+		DF166808183C98B80047394C /* player_4_d3_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_24.png; sourceTree = "<group>"; };
+		DF166809183C98B80047394C /* player_4_d3_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_25.png; sourceTree = "<group>"; };
+		DF16680A183C98B80047394C /* player_4_d3_26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_26.png; sourceTree = "<group>"; };
+		DF16680B183C98B80047394C /* player_4_d3_27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_27.png; sourceTree = "<group>"; };
+		DF16680C183C98B80047394C /* player_4_d3_28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_28.png; sourceTree = "<group>"; };
+		DF16680D183C98B80047394C /* player_4_d3_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_29.png; sourceTree = "<group>"; };
+		DF16680E183C98B80047394C /* player_4_d3_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_3.png; sourceTree = "<group>"; };
+		DF16680F183C98B80047394C /* player_4_d3_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_30.png; sourceTree = "<group>"; };
+		DF166810183C98B90047394C /* player_4_d3_31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_31.png; sourceTree = "<group>"; };
+		DF166811183C98B90047394C /* player_4_d3_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_32.png; sourceTree = "<group>"; };
+		DF166812183C98B90047394C /* player_4_d3_33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_33.png; sourceTree = "<group>"; };
+		DF166813183C98B90047394C /* player_4_d3_34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_34.png; sourceTree = "<group>"; };
+		DF166814183C98B90047394C /* player_4_d3_35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_35.png; sourceTree = "<group>"; };
+		DF166815183C98B90047394C /* player_4_d3_36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_36.png; sourceTree = "<group>"; };
+		DF166816183C98B90047394C /* player_4_d3_37.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_37.png; sourceTree = "<group>"; };
+		DF166817183C98B90047394C /* player_4_d3_38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_38.png; sourceTree = "<group>"; };
+		DF166818183C98B90047394C /* player_4_d3_39.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_39.png; sourceTree = "<group>"; };
+		DF166819183C98B90047394C /* player_4_d3_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_4.png; sourceTree = "<group>"; };
+		DF16681A183C98B90047394C /* player_4_d3_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_40.png; sourceTree = "<group>"; };
+		DF16681B183C98B90047394C /* player_4_d3_41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_41.png; sourceTree = "<group>"; };
+		DF16681C183C98B90047394C /* player_4_d3_42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_42.png; sourceTree = "<group>"; };
+		DF16681D183C98B90047394C /* player_4_d3_43.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_43.png; sourceTree = "<group>"; };
+		DF16681E183C98B90047394C /* player_4_d3_44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_44.png; sourceTree = "<group>"; };
+		DF16681F183C98B90047394C /* player_4_d3_45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_45.png; sourceTree = "<group>"; };
+		DF166820183C98B90047394C /* player_4_d3_46.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_46.png; sourceTree = "<group>"; };
+		DF166821183C98B90047394C /* player_4_d3_47.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_47.png; sourceTree = "<group>"; };
+		DF166822183C98B90047394C /* player_4_d3_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_5.png; sourceTree = "<group>"; };
+		DF166823183C98B90047394C /* player_4_d3_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_6.png; sourceTree = "<group>"; };
+		DF166824183C98B90047394C /* player_4_d3_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_7.png; sourceTree = "<group>"; };
+		DF166825183C98B90047394C /* player_4_d3_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_8.png; sourceTree = "<group>"; };
+		DF166826183C98B90047394C /* player_4_d3_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_d3_9.png; sourceTree = "<group>"; };
+		DF1668BA183C99F00047394C /* difficulty_level_1_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = difficulty_level_1_pressed.png; sourceTree = "<group>"; };
+		DF1668BB183C99F00047394C /* difficulty_level_2_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = difficulty_level_2_pressed.png; sourceTree = "<group>"; };
+		DF1668BC183C99F00047394C /* difficulty_level_3_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = difficulty_level_3_pressed.png; sourceTree = "<group>"; };
+		DF1668C0183C9C0B0047394C /* select_difficulty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_difficulty.png; sourceTree = "<group>"; };
 		DF3E1C4317EA363E0043593E /* Dance Wars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dance Wars.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF3E1C4617EA363E0043593E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DF3E1C4817EA363E0043593E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -2280,10 +2580,13 @@
 		B2E9188E18176F4E0063BC73 /* level_difficulty */ = {
 			isa = PBXGroup;
 			children = (
+				DF1668C0183C9C0B0047394C /* select_difficulty.png */,
+				DF1668BA183C99F00047394C /* difficulty_level_1_pressed.png */,
+				DF1668BB183C99F00047394C /* difficulty_level_2_pressed.png */,
+				DF1668BC183C99F00047394C /* difficulty_level_3_pressed.png */,
 				B2EF479B181797AA00841EB0 /* difficulty_level_1.png */,
 				B2EF479C181797AA00841EB0 /* difficulty_level_2.png */,
 				B2EF479D181797AA00841EB0 /* difficulty_level_3.png */,
-				B2EF479E181797AA00841EB0 /* difficulty_level_4.png */,
 			);
 			name = level_difficulty;
 			sourceTree = "<group>";
@@ -2329,6 +2632,174 @@
 				D8D62682183C72C200C0356C /* volume_text.png */,
 			);
 			path = settings_layer;
+			sourceTree = "<group>";
+		};
+		DF166791183C98B80047394C /* dance_move_1 */ = {
+			isa = PBXGroup;
+			children = (
+				DF166792183C98B80047394C /* player_4_d1.plist */,
+				DF166793183C98B80047394C /* player_4_d1.png */,
+				DF166794183C98B80047394C /* player_4_d1_1.png */,
+				DF166795183C98B80047394C /* player_4_d1_10.png */,
+				DF166796183C98B80047394C /* player_4_d1_11.png */,
+				DF166797183C98B80047394C /* player_4_d1_12.png */,
+				DF166798183C98B80047394C /* player_4_d1_13.png */,
+				DF166799183C98B80047394C /* player_4_d1_14.png */,
+				DF16679A183C98B80047394C /* player_4_d1_15.png */,
+				DF16679B183C98B80047394C /* player_4_d1_16.png */,
+				DF16679C183C98B80047394C /* player_4_d1_17.png */,
+				DF16679D183C98B80047394C /* player_4_d1_18.png */,
+				DF16679E183C98B80047394C /* player_4_d1_19.png */,
+				DF16679F183C98B80047394C /* player_4_d1_2.png */,
+				DF1667A0183C98B80047394C /* player_4_d1_20.png */,
+				DF1667A1183C98B80047394C /* player_4_d1_21.png */,
+				DF1667A2183C98B80047394C /* player_4_d1_22.png */,
+				DF1667A3183C98B80047394C /* player_4_d1_23.png */,
+				DF1667A4183C98B80047394C /* player_4_d1_24.png */,
+				DF1667A5183C98B80047394C /* player_4_d1_25.png */,
+				DF1667A6183C98B80047394C /* player_4_d1_26.png */,
+				DF1667A7183C98B80047394C /* player_4_d1_27.png */,
+				DF1667A8183C98B80047394C /* player_4_d1_28.png */,
+				DF1667A9183C98B80047394C /* player_4_d1_29.png */,
+				DF1667AA183C98B80047394C /* player_4_d1_3.png */,
+				DF1667AB183C98B80047394C /* player_4_d1_30.png */,
+				DF1667AC183C98B80047394C /* player_4_d1_31.png */,
+				DF1667AD183C98B80047394C /* player_4_d1_32.png */,
+				DF1667AE183C98B80047394C /* player_4_d1_33.png */,
+				DF1667AF183C98B80047394C /* player_4_d1_34.png */,
+				DF1667B0183C98B80047394C /* player_4_d1_35.png */,
+				DF1667B1183C98B80047394C /* player_4_d1_36.png */,
+				DF1667B2183C98B80047394C /* player_4_d1_37.png */,
+				DF1667B3183C98B80047394C /* player_4_d1_38.png */,
+				DF1667B4183C98B80047394C /* player_4_d1_39.png */,
+				DF1667B5183C98B80047394C /* player_4_d1_4.png */,
+				DF1667B6183C98B80047394C /* player_4_d1_40.png */,
+				DF1667B7183C98B80047394C /* player_4_d1_41.png */,
+				DF1667B8183C98B80047394C /* player_4_d1_42.png */,
+				DF1667B9183C98B80047394C /* player_4_d1_43.png */,
+				DF1667BA183C98B80047394C /* player_4_d1_44.png */,
+				DF1667BB183C98B80047394C /* player_4_d1_45.png */,
+				DF1667BC183C98B80047394C /* player_4_d1_46.png */,
+				DF1667BD183C98B80047394C /* player_4_d1_47.png */,
+				DF1667BE183C98B80047394C /* player_4_d1_48.png */,
+				DF1667BF183C98B80047394C /* player_4_d1_49.png */,
+				DF1667C0183C98B80047394C /* player_4_d1_5.png */,
+				DF1667C1183C98B80047394C /* player_4_d1_6.png */,
+				DF1667C2183C98B80047394C /* player_4_d1_7.png */,
+				DF1667C3183C98B80047394C /* player_4_d1_8.png */,
+				DF1667C4183C98B80047394C /* player_4_d1_9.png */,
+			);
+			path = dance_move_1;
+			sourceTree = "<group>";
+		};
+		DF1667C5183C98B80047394C /* dance_move_2 */ = {
+			isa = PBXGroup;
+			children = (
+				DF1667C6183C98B80047394C /* player_4_d2.plist */,
+				DF1667C7183C98B80047394C /* player_4_d2.png */,
+				DF1667C8183C98B80047394C /* player_4_d2_1.png */,
+				DF1667C9183C98B80047394C /* player_4_d2_10.png */,
+				DF1667CA183C98B80047394C /* player_4_d2_11.png */,
+				DF1667CB183C98B80047394C /* player_4_d2_12.png */,
+				DF1667CC183C98B80047394C /* player_4_d2_13.png */,
+				DF1667CD183C98B80047394C /* player_4_d2_14.png */,
+				DF1667CE183C98B80047394C /* player_4_d2_15.png */,
+				DF1667CF183C98B80047394C /* player_4_d2_16.png */,
+				DF1667D0183C98B80047394C /* player_4_d2_17.png */,
+				DF1667D1183C98B80047394C /* player_4_d2_18.png */,
+				DF1667D2183C98B80047394C /* player_4_d2_19.png */,
+				DF1667D3183C98B80047394C /* player_4_d2_2.png */,
+				DF1667D4183C98B80047394C /* player_4_d2_20.png */,
+				DF1667D5183C98B80047394C /* player_4_d2_21.png */,
+				DF1667D6183C98B80047394C /* player_4_d2_22.png */,
+				DF1667D7183C98B80047394C /* player_4_d2_23.png */,
+				DF1667D8183C98B80047394C /* player_4_d2_24.png */,
+				DF1667D9183C98B80047394C /* player_4_d2_25.png */,
+				DF1667DA183C98B80047394C /* player_4_d2_26.png */,
+				DF1667DB183C98B80047394C /* player_4_d2_27.png */,
+				DF1667DC183C98B80047394C /* player_4_d2_28.png */,
+				DF1667DD183C98B80047394C /* player_4_d2_29.png */,
+				DF1667DE183C98B80047394C /* player_4_d2_3.png */,
+				DF1667DF183C98B80047394C /* player_4_d2_30.png */,
+				DF1667E0183C98B80047394C /* player_4_d2_31.png */,
+				DF1667E1183C98B80047394C /* player_4_d2_32.png */,
+				DF1667E2183C98B80047394C /* player_4_d2_33.png */,
+				DF1667E3183C98B80047394C /* player_4_d2_34.png */,
+				DF1667E4183C98B80047394C /* player_4_d2_35.png */,
+				DF1667E5183C98B80047394C /* player_4_d2_36.png */,
+				DF1667E6183C98B80047394C /* player_4_d2_37.png */,
+				DF1667E7183C98B80047394C /* player_4_d2_38.png */,
+				DF1667E8183C98B80047394C /* player_4_d2_39.png */,
+				DF1667E9183C98B80047394C /* player_4_d2_4.png */,
+				DF1667EA183C98B80047394C /* player_4_d2_40.png */,
+				DF1667EB183C98B80047394C /* player_4_d2_41.png */,
+				DF1667EC183C98B80047394C /* player_4_d2_42.png */,
+				DF1667ED183C98B80047394C /* player_4_d2_43.png */,
+				DF1667EE183C98B80047394C /* player_4_d2_44.png */,
+				DF1667EF183C98B80047394C /* player_4_d2_45.png */,
+				DF1667F0183C98B80047394C /* player_4_d2_5.png */,
+				DF1667F1183C98B80047394C /* player_4_d2_6.png */,
+				DF1667F2183C98B80047394C /* player_4_d2_7.png */,
+				DF1667F3183C98B80047394C /* player_4_d2_8.png */,
+				DF1667F4183C98B80047394C /* player_4_d2_9.png */,
+			);
+			path = dance_move_2;
+			sourceTree = "<group>";
+		};
+		DF1667F5183C98B80047394C /* dance_move_3 */ = {
+			isa = PBXGroup;
+			children = (
+				DF1667F6183C98B80047394C /* player_4_d3.plist */,
+				DF1667F7183C98B80047394C /* player_4_d3.png */,
+				DF1667F8183C98B80047394C /* player_4_d3_1.png */,
+				DF1667F9183C98B80047394C /* player_4_d3_10.png */,
+				DF1667FA183C98B80047394C /* player_4_d3_11.png */,
+				DF1667FB183C98B80047394C /* player_4_d3_12.png */,
+				DF1667FC183C98B80047394C /* player_4_d3_13.png */,
+				DF1667FD183C98B80047394C /* player_4_d3_14.png */,
+				DF1667FE183C98B80047394C /* player_4_d3_15.png */,
+				DF1667FF183C98B80047394C /* player_4_d3_16.png */,
+				DF166800183C98B80047394C /* player_4_d3_17.png */,
+				DF166801183C98B80047394C /* player_4_d3_18.png */,
+				DF166802183C98B80047394C /* player_4_d3_19.png */,
+				DF166803183C98B80047394C /* player_4_d3_2.png */,
+				DF166804183C98B80047394C /* player_4_d3_20.png */,
+				DF166805183C98B80047394C /* player_4_d3_21.png */,
+				DF166806183C98B80047394C /* player_4_d3_22.png */,
+				DF166807183C98B80047394C /* player_4_d3_23.png */,
+				DF166808183C98B80047394C /* player_4_d3_24.png */,
+				DF166809183C98B80047394C /* player_4_d3_25.png */,
+				DF16680A183C98B80047394C /* player_4_d3_26.png */,
+				DF16680B183C98B80047394C /* player_4_d3_27.png */,
+				DF16680C183C98B80047394C /* player_4_d3_28.png */,
+				DF16680D183C98B80047394C /* player_4_d3_29.png */,
+				DF16680E183C98B80047394C /* player_4_d3_3.png */,
+				DF16680F183C98B80047394C /* player_4_d3_30.png */,
+				DF166810183C98B90047394C /* player_4_d3_31.png */,
+				DF166811183C98B90047394C /* player_4_d3_32.png */,
+				DF166812183C98B90047394C /* player_4_d3_33.png */,
+				DF166813183C98B90047394C /* player_4_d3_34.png */,
+				DF166814183C98B90047394C /* player_4_d3_35.png */,
+				DF166815183C98B90047394C /* player_4_d3_36.png */,
+				DF166816183C98B90047394C /* player_4_d3_37.png */,
+				DF166817183C98B90047394C /* player_4_d3_38.png */,
+				DF166818183C98B90047394C /* player_4_d3_39.png */,
+				DF166819183C98B90047394C /* player_4_d3_4.png */,
+				DF16681A183C98B90047394C /* player_4_d3_40.png */,
+				DF16681B183C98B90047394C /* player_4_d3_41.png */,
+				DF16681C183C98B90047394C /* player_4_d3_42.png */,
+				DF16681D183C98B90047394C /* player_4_d3_43.png */,
+				DF16681E183C98B90047394C /* player_4_d3_44.png */,
+				DF16681F183C98B90047394C /* player_4_d3_45.png */,
+				DF166820183C98B90047394C /* player_4_d3_46.png */,
+				DF166821183C98B90047394C /* player_4_d3_47.png */,
+				DF166822183C98B90047394C /* player_4_d3_5.png */,
+				DF166823183C98B90047394C /* player_4_d3_6.png */,
+				DF166824183C98B90047394C /* player_4_d3_7.png */,
+				DF166825183C98B90047394C /* player_4_d3_8.png */,
+				DF166826183C98B90047394C /* player_4_d3_9.png */,
+			);
+			path = dance_move_3;
 			sourceTree = "<group>";
 		};
 		DF3E1C3A17EA363E0043593E = {
@@ -3041,7 +3512,9 @@
 		DFCC18F31817D529009B8EE8 /* player_4 */ = {
 			isa = PBXGroup;
 			children = (
-				DFCC19031817DFEE009B8EE8 /* dance_move_1 */,
+				DF166791183C98B80047394C /* dance_move_1 */,
+				DF1667C5183C98B80047394C /* dance_move_2 */,
+				DF1667F5183C98B80047394C /* dance_move_3 */,
 				DFCC18F41817D529009B8EE8 /* player_4.png */,
 				DFCC18FC1817D7C7009B8EE8 /* player_4_0.png */,
 			);
@@ -3049,13 +3522,6 @@
 			sourceTree = "<group>";
 		};
 		DFCC19001817DFDC009B8EE8 /* dance_move_1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = dance_move_1;
-			sourceTree = "<group>";
-		};
-		DFCC19031817DFEE009B8EE8 /* dance_move_1 */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -3158,40 +3624,60 @@
 			files = (
 				DFE89BCD17FBEFFA007A7468 /* fire.png in Resources */,
 				B2C4D7471817B5DA000B295E /* player_2_i_19.png in Resources */,
+				DF166867183C98B90047394C /* player_4_d2_2.png in Resources */,
 				B2C4D6D41817B1DA000B295E /* player_2_d1_35.png in Resources */,
 				07C95C0D183404AE000B329A /* Hulk_1_9.png in Resources */,
 				B2C4D7731817B5DA000B295E /* player_2_i_59.png in Resources */,
 				DFCC18F71817D5F8009B8EE8 /* player_2_0.png in Resources */,
+				DF1668BF183C99F00047394C /* difficulty_level_3_pressed.png in Resources */,
 				B2E9187C18176B290063BC73 /* player_1_d1_77.png in Resources */,
 				B2C4D6CC1817B1DA000B295E /* player_2_d1_28.png in Resources */,
+				DF166870183C98B90047394C /* player_4_d2_28.png in Resources */,
 				B2C4D6B71817B1DA000B295E /* player_2_d1.plist in Resources */,
 				B2C4D6F41817B1DA000B295E /* player_2_d1_7.png in Resources */,
 				B2E9188618176B290063BC73 /* player_1_d1.png in Resources */,
+				DF1668AA183C98B90047394C /* player_4_d3_38.png in Resources */,
+				DF166898183C98B90047394C /* player_4_d3_21.png in Resources */,
 				07C95C59183404AE000B329A /* Hulk_3_33.png in Resources */,
 				B2C4D6C51817B1DA000B295E /* player_2_d1_21.png in Resources */,
+				DF166880183C98B90047394C /* player_4_d2_42.png in Resources */,
+				DF166842183C98B90047394C /* player_4_d1_32.png in Resources */,
 				B2C4D6BE1817B1DA000B295E /* player_2_d1_15.png in Resources */,
 				07C95C17183404AE000B329A /* Hulk_2_16.png in Resources */,
 				B2C4D6BB1817B1DA000B295E /* player_2_d1_12.png in Resources */,
 				DFCD0AD1182F103A0084868F /* player_2_d2_19.png in Resources */,
 				B2EF47FD18179FE600841EB0 /* background_1_8.png in Resources */,
 				07C95CB41834053D000B329A /* background_2_6.png in Resources */,
+				DF166896183C98B90047394C /* player_4_d3_2.png in Resources */,
 				B2C4D7611817B5DA000B295E /* player_2_i_42.png in Resources */,
+				DF1668B3183C98B90047394C /* player_4_d3_46.png in Resources */,
+				DF166831183C98B90047394C /* player_4_d1_17.png in Resources */,
+				DF16689D183C98B90047394C /* player_4_d3_26.png in Resources */,
 				B2C4D6C61817B1DA000B295E /* player_2_d1_22.png in Resources */,
 				B2C4D75F1817B5DA000B295E /* player_2_i_40.png in Resources */,
 				DFE5858C183C48940000BCE9 /* leftHB_bg.png in Resources */,
+				DF166854183C98B90047394C /* player_4_d1_49.png in Resources */,
+				DF16689A183C98B90047394C /* player_4_d3_23.png in Resources */,
 				B2E9186018176B290063BC73 /* player_1_d1_51.png in Resources */,
 				DF3E1C7217EA363E0043593E /* iTunesArtwork in Resources */,
+				DF16686E183C98B90047394C /* player_4_d2_26.png in Resources */,
 				B2C4D6DB1817B1DA000B295E /* player_2_d1_41.png in Resources */,
+				DF166892183C98B90047394C /* player_4_d3_16.png in Resources */,
 				DFCD0AE1182F103A0084868F /* player_2_d2_33.png in Resources */,
 				DF3E1DCB17EA36410043593E /* ChangeLog in Resources */,
+				DF166855183C98B90047394C /* player_4_d1_5.png in Resources */,
 				DFCD0AC7182F103A0084868F /* player_2_d2_1.png in Resources */,
 				07C95C50183404AE000B329A /* Hulk_3_25.png in Resources */,
 				B2EF47F418179FE600841EB0 /* background_1_10.png in Resources */,
 				07C95CAC1834053D000B329A /* background_2.png in Resources */,
+				DF1668AF183C98B90047394C /* player_4_d3_42.png in Resources */,
 				DF57B9C1181C637A00564514 /* TouchPatterns.plist in Resources */,
+				DF16688C183C98B90047394C /* player_4_d3_10.png in Resources */,
 				07C95C36183404AE000B329A /* Hulk_2_44.png in Resources */,
 				DF6AA8BA17F4A7F60076B2A5 /* healthbar_green.png in Resources */,
+				DF1668A8183C98B90047394C /* player_4_d3_36.png in Resources */,
 				DFCD0AD7182F103A0084868F /* player_2_d2_24.png in Resources */,
+				DF16687A183C98B90047394C /* player_4_d2_37.png in Resources */,
 				B2C4D6C81817B1DA000B295E /* player_2_d1_24.png in Resources */,
 				B2C4D6EF1817B1DA000B295E /* player_2_d1_6.png in Resources */,
 				07C95C5B183404AE000B329A /* Hulk_3_35.png in Resources */,
@@ -3210,12 +3696,15 @@
 				07C95BF2183404AE000B329A /* Hulk_1_29.png in Resources */,
 				07C95C44183404AE000B329A /* Hulk_3_14.png in Resources */,
 				DF6AA8BB17F4A7F60076B2A5 /* healthbar_orange.png in Resources */,
+				DF166853183C98B90047394C /* player_4_d1_48.png in Resources */,
 				B2C4D7411817B5DA000B295E /* player_2_i_13.png in Resources */,
 				B2C4D73F1817B5DA000B295E /* player_2_i_11.png in Resources */,
 				B2C4D6B81817B1DA000B295E /* player_2_d1_1.png in Resources */,
 				07C95BE7183404AE000B329A /* Hulk_1_19.png in Resources */,
 				DF6AA8BC17F4A7F60076B2A5 /* healthbar_red.png in Resources */,
+				DF166885183C98B90047394C /* player_4_d2_6.png in Resources */,
 				B2EF480A1817A41900841EB0 /* levelselect_bg.png in Resources */,
+				DF166887183C98B90047394C /* player_4_d2_8.png in Resources */,
 				07C95C38183404AE000B329A /* Hulk_2_5.png in Resources */,
 				07C95BDD183404AE000B329A /* Hulk_1_1.png in Resources */,
 				B2C4D6DA1817B1DA000B295E /* player_2_d1_40.png in Resources */,
@@ -3230,29 +3719,45 @@
 				B2C4D6DF1817B1DA000B295E /* player_2_d1_45.png in Resources */,
 				07C95C23183404AE000B329A /* Hulk_2_27.png in Resources */,
 				B2C4D7531817B5DA000B295E /* player_2_i_3.png in Resources */,
+				DF16686B183C98B90047394C /* player_4_d2_23.png in Resources */,
 				DFCD0AE4182F103A0084868F /* player_2_d2_6.png in Resources */,
 				B2EF479A1817974D00841EB0 /* Default-Landscape~ipad.png in Resources */,
 				B2C4D6BC1817B1DA000B295E /* player_2_d1_13.png in Resources */,
+				DF1668B2183C98B90047394C /* player_4_d3_45.png in Resources */,
 				07C95CB31834053D000B329A /* background_2_5.png in Resources */,
 				07C95C66183404AE000B329A /* Hulk_3_45.png in Resources */,
+				DF1668AB183C98B90047394C /* player_4_d3_39.png in Resources */,
 				DFCD0AE3182F103A0084868F /* player_2_d2_5.png in Resources */,
 				07C95BE4183404AE000B329A /* Hulk_1_16.png in Resources */,
 				07C95C58183404AE000B329A /* Hulk_3_32.png in Resources */,
 				B2E9183418176B290063BC73 /* player_1_d1_11.png in Resources */,
 				B2C4D6C31817B1DA000B295E /* player_2_d1_2.png in Resources */,
+				DF166873183C98B90047394C /* player_4_d2_30.png in Resources */,
+				DF1668A3183C98B90047394C /* player_4_d3_31.png in Resources */,
 				B2C4D6EB1817B1DA000B295E /* player_2_d1_56.png in Resources */,
+				DF16685D183C98B90047394C /* player_4_d2_10.png in Resources */,
 				B2C4D7481817B5DA000B295E /* player_2_i_2.png in Resources */,
+				DF166829183C98B90047394C /* player_4_d1_1.png in Resources */,
 				07C95C1A183404AE000B329A /* Hulk_2_19.png in Resources */,
+				DF16688F183C98B90047394C /* player_4_d3_13.png in Resources */,
 				B2C4D7551817B5DA000B295E /* player_2_i_31.png in Resources */,
+				DF16684E183C98B90047394C /* player_4_d1_43.png in Resources */,
 				DFCD0AD9182F103A0084868F /* player_2_d2_26.png in Resources */,
 				B2C4D6E31817B1DA000B295E /* player_2_d1_49.png in Resources */,
+				DF1668B4183C98B90047394C /* player_4_d3_47.png in Resources */,
 				07C95C18183404AE000B329A /* Hulk_2_17.png in Resources */,
 				B2C4D7741817B5DA000B295E /* player_2_i_6.png in Resources */,
+				DF16686A183C98B90047394C /* player_4_d2_22.png in Resources */,
 				07C95C56183404AE000B329A /* Hulk_3_30.png in Resources */,
 				07C95C0C183404AE000B329A /* Hulk_1_8.png in Resources */,
+				DF1668AC183C98B90047394C /* player_4_d3_4.png in Resources */,
 				DFC540331820A068006CD16E /* pausegame_pressed.png in Resources */,
+				DF166832183C98B90047394C /* player_4_d1_18.png in Resources */,
 				B2E9186A18176B290063BC73 /* player_1_d1_60.png in Resources */,
+				DF166884183C98B90047394C /* player_4_d2_5.png in Resources */,
+				DF16685A183C98B90047394C /* player_4_d2.plist in Resources */,
 				07C95CBA1834053D000B329A /* background_3_1.png in Resources */,
+				DF166833183C98B90047394C /* player_4_d1_19.png in Resources */,
 				07C95BEC183404AE000B329A /* Hulk_1_23.png in Resources */,
 				07C95C3E183404AE000B329A /* Hulk_3.png in Resources */,
 				DFCD0AD3182F103A0084868F /* player_2_d2_20.png in Resources */,
@@ -3260,12 +3765,17 @@
 				B2E9188018176B290063BC73 /* player_1_d1_80.png in Resources */,
 				B2C4D7401817B5DA000B295E /* player_2_i_12.png in Resources */,
 				B2E9185118176B290063BC73 /* player_1_d1_38.png in Resources */,
+				DF166848183C98B90047394C /* player_4_d1_38.png in Resources */,
 				B2C4D76B1817B5DA000B295E /* player_2_i_51.png in Resources */,
 				DFCD0ACB182F103A0084868F /* player_2_d2_13.png in Resources */,
+				DF166844183C98B90047394C /* player_4_d1_34.png in Resources */,
+				DF166845183C98B90047394C /* player_4_d1_35.png in Resources */,
 				DFCD0AC5182F103A0084868F /* player_2_d2.plist in Resources */,
 				07C95C20183404AE000B329A /* Hulk_2_24.png in Resources */,
+				DF16687E183C98B90047394C /* player_4_d2_40.png in Resources */,
 				B2C4D7751817B5DA000B295E /* player_2_i_60.png in Resources */,
 				07C95C00183404AE000B329A /* Hulk_1_41.png in Resources */,
+				DF166893183C98B90047394C /* player_4_d3_17.png in Resources */,
 				B2C4D6E11817B1DA000B295E /* player_2_d1_47.png in Resources */,
 				07C95C0E183404AE000B329A /* Hulk_2.plist in Resources */,
 				B2C4D6CE1817B1DA000B295E /* player_2_d1_3.png in Resources */,
@@ -3274,27 +3784,37 @@
 				07C95C19183404AE000B329A /* Hulk_2_18.png in Resources */,
 				07C95BE3183404AE000B329A /* Hulk_1_15.png in Resources */,
 				B2E9184918176B290063BC73 /* player_1_d1_30.png in Resources */,
+				DF166881183C98B90047394C /* player_4_d2_43.png in Resources */,
+				DF16686C183C98B90047394C /* player_4_d2_24.png in Resources */,
 				07C95C04183404AE000B329A /* Hulk_1_45.png in Resources */,
+				DF16683E183C98B90047394C /* player_4_d1_29.png in Resources */,
+				DF1668A7183C98B90047394C /* player_4_d3_35.png in Resources */,
 				DFCD0ACC182F103A0084868F /* player_2_d2_14.png in Resources */,
 				07C95C4B183404AE000B329A /* Hulk_3_20.png in Resources */,
+				DF166897183C98B90047394C /* player_4_d3_20.png in Resources */,
 				07C95BDB183404AE000B329A /* Hulk_1.plist in Resources */,
 				B2C4D6C11817B1DA000B295E /* player_2_d1_18.png in Resources */,
+				DF1668A0183C98B90047394C /* player_4_d3_29.png in Resources */,
 				07C95C45183404AE000B329A /* Hulk_3_15.png in Resources */,
 				B2C4D7681817B5DA000B295E /* player_2_i_49.png in Resources */,
+				DF166846183C98B90047394C /* player_4_d1_36.png in Resources */,
 				07C95CB81834053D000B329A /* background_3.plist in Resources */,
 				07C95C43183404AE000B329A /* Hulk_3_13.png in Resources */,
+				DF1668B9183C98B90047394C /* player_4_d3_9.png in Resources */,
 				07C95C64183404AE000B329A /* Hulk_3_43.png in Resources */,
 				B2E9185018176B290063BC73 /* player_1_d1_37.png in Resources */,
 				B2E9184418176B290063BC73 /* player_1_d1_26.png in Resources */,
 				B2C4D76E1817B5DA000B295E /* player_2_i_54.png in Resources */,
 				B2E9183E18176B290063BC73 /* player_1_d1_20.png in Resources */,
 				07C95C01183404AE000B329A /* Hulk_1_42.png in Resources */,
+				DF1668B6183C98B90047394C /* player_4_d3_6.png in Resources */,
 				B2E9187E18176B290063BC73 /* player_1_d1_79.png in Resources */,
 				07C95BF0183404AE000B329A /* Hulk_1_27.png in Resources */,
 				B2E9184618176B290063BC73 /* player_1_d1_28.png in Resources */,
 				DF9586191804F9A8006C9B0F /* touchpoints-blue.png in Resources */,
 				DFCD0AD0182F103A0084868F /* player_2_d2_18.png in Resources */,
 				B2E9184F18176B290063BC73 /* player_1_d1_36.png in Resources */,
+				DF166888183C98B90047394C /* player_4_d2_9.png in Resources */,
 				07C95C65183404AE000B329A /* Hulk_3_44.png in Resources */,
 				07C95BE1183404AE000B329A /* Hulk_1_13.png in Resources */,
 				B2C4D6BF1817B1DA000B295E /* player_2_d1_16.png in Resources */,
@@ -3305,31 +3825,42 @@
 				07C95CAE1834053D000B329A /* background_2_10.png in Resources */,
 				B2E9184D18176B290063BC73 /* player_1_d1_34.png in Resources */,
 				07C95BF4183404AE000B329A /* Hulk_1_30.png in Resources */,
+				DF166860183C98B90047394C /* player_4_d2_13.png in Resources */,
 				B2EF48121817AE8D00841EB0 /* characterselect_bg.png in Resources */,
+				DF166850183C98B90047394C /* player_4_d1_45.png in Resources */,
 				DF8699701803D028008CB857 /* intro.mp3 in Resources */,
 				B2C4D7541817B5DA000B295E /* player_2_i_30.png in Resources */,
 				B2C4D6D01817B1DA000B295E /* player_2_d1_31.png in Resources */,
+				DF166834183C98B90047394C /* player_4_d1_2.png in Resources */,
+				DF16689F183C98B90047394C /* player_4_d3_28.png in Resources */,
+				DF1668B8183C98B90047394C /* player_4_d3_8.png in Resources */,
 				07C95C15183404AE000B329A /* Hulk_2_14.png in Resources */,
 				B2C4D7711817B5DA000B295E /* player_2_i_57.png in Resources */,
 				B2EF47FB18179FE600841EB0 /* background_1_6.png in Resources */,
+				DF16686F183C98B90047394C /* player_4_d2_27.png in Resources */,
 				07C95BEB183404AE000B329A /* Hulk_1_22.png in Resources */,
 				DFCD0AC6182F103A0084868F /* player_2_d2.png in Resources */,
 				B2C4D6EA1817B1DA000B295E /* player_2_d1_55.png in Resources */,
 				07C95BDE183404AE000B329A /* Hulk_1_10.png in Resources */,
 				07C95BF9183404AE000B329A /* Hulk_1_35.png in Resources */,
 				07C95CAF1834053D000B329A /* background_2_11.png in Resources */,
+				DF1668B0183C98B90047394C /* player_4_d3_43.png in Resources */,
 				B2E9183F18176B290063BC73 /* player_1_d1_21.png in Resources */,
 				B2E9185518176B290063BC73 /* player_1_d1_41.png in Resources */,
 				B2E9184B18176B290063BC73 /* player_1_d1_32.png in Resources */,
 				B2C4D6E41817B1DA000B295E /* player_2_d1_5.png in Resources */,
+				DF166838183C98B90047394C /* player_4_d1_23.png in Resources */,
 				DF86996E1803D028008CB857 /* background.mp3 in Resources */,
 				DFCD0AD4182F103A0084868F /* player_2_d2_21.png in Resources */,
+				DF16682E183C98B90047394C /* player_4_d1_14.png in Resources */,
 				07C95CEB183405E5000B329A /* README.md in Resources */,
 				B2E9188318176B290063BC73 /* player_1_d1_83.png in Resources */,
+				DF1668BD183C99F00047394C /* difficulty_level_1_pressed.png in Resources */,
 				B2EF47F918179FE600841EB0 /* background_1_4.png in Resources */,
 				07C95C40183404AE000B329A /* Hulk_3_10.png in Resources */,
 				07C95BFC183404AE000B329A /* Hulk_1_38.png in Resources */,
 				07C95C5D183404AE000B329A /* Hulk_3_37.png in Resources */,
+				DF166891183C98B90047394C /* player_4_d3_15.png in Resources */,
 				B2C4D6DE1817B1DA000B295E /* player_2_d1_44.png in Resources */,
 				07C95C32183404AE000B329A /* Hulk_2_40.png in Resources */,
 				B2E9185D18176B290063BC73 /* player_1_d1_49.png in Resources */,
@@ -3340,6 +3871,7 @@
 				07C95C35183404AE000B329A /* Hulk_2_43.png in Resources */,
 				B2EF47FC18179FE600841EB0 /* background_1_7.png in Resources */,
 				07C95BE5183404AE000B329A /* Hulk_1_17.png in Resources */,
+				DF1668AD183C98B90047394C /* player_4_d3_40.png in Resources */,
 				07C95C42183404AE000B329A /* Hulk_3_12.png in Resources */,
 				B2E9183918176B290063BC73 /* player_1_d1_16.png in Resources */,
 				B2C4D6D71817B1DA000B295E /* player_2_d1_38.png in Resources */,
@@ -3351,19 +3883,30 @@
 				B2C4D6D21817B1DA000B295E /* player_2_d1_33.png in Resources */,
 				07C95C5F183404AE000B329A /* Hulk_3_39.png in Resources */,
 				B2C4D74F1817B5DA000B295E /* player_2_i_26.png in Resources */,
+				DF166847183C98B90047394C /* player_4_d1_37.png in Resources */,
 				07C95CB91834053D000B329A /* background_3.png in Resources */,
 				DFCD0AE0182F103A0084868F /* player_2_d2_32.png in Resources */,
+				DF166866183C98B90047394C /* player_4_d2_19.png in Resources */,
+				DF166895183C98B90047394C /* player_4_d3_19.png in Resources */,
+				DF166868183C98B90047394C /* player_4_d2_20.png in Resources */,
 				07C95C02183404AE000B329A /* Hulk_1_43.png in Resources */,
 				DFCC18EF1817CC1C009B8EE8 /* youwin.png in Resources */,
 				07C95C49183404AE000B329A /* Hulk_3_19.png in Resources */,
 				DFCC18FF1817D81C009B8EE8 /* player_3_0.png in Resources */,
 				B2E9185B18176B290063BC73 /* player_1_d1_47.png in Resources */,
+				DF16682C183C98B90047394C /* player_4_d1_12.png in Resources */,
 				B2C4D6BD1817B1DA000B295E /* player_2_d1_14.png in Resources */,
 				B2E9187118176B290063BC73 /* player_1_d1_67.png in Resources */,
+				DF166857183C98B90047394C /* player_4_d1_7.png in Resources */,
+				DF166858183C98B90047394C /* player_4_d1_8.png in Resources */,
+				DF16684A183C98B90047394C /* player_4_d1_4.png in Resources */,
 				B2C4D7691817B5DA000B295E /* player_2_i_5.png in Resources */,
 				07C95C13183404AE000B329A /* Hulk_2_12.png in Resources */,
 				07C95BFB183404AE000B329A /* Hulk_1_37.png in Resources */,
 				B2E9184E18176B290063BC73 /* player_1_d1_35.png in Resources */,
+				DF166863183C98B90047394C /* player_4_d2_16.png in Resources */,
+				DF166830183C98B90047394C /* player_4_d1_16.png in Resources */,
+				DF166852183C98B90047394C /* player_4_d1_47.png in Resources */,
 				07C95C03183404AE000B329A /* Hulk_1_44.png in Resources */,
 				B2EF47F618179FE600841EB0 /* background_1_12.png in Resources */,
 				07C95C51183404AE000B329A /* Hulk_3_26.png in Resources */,
@@ -3372,11 +3915,14 @@
 				07C95C1D183404AE000B329A /* Hulk_2_21.png in Resources */,
 				B2E919141817755A0063BC73 /* touchpoints-green.png in Resources */,
 				D85E34F9183B23C300520E3C /* slidebar2_bg.png in Resources */,
+				DF166828183C98B90047394C /* player_4_d1.png in Resources */,
 				B2C4D6D91817B1DA000B295E /* player_2_d1_4.png in Resources */,
 				DFEAFB8C180F96C100308AC0 /* danceMessage.png in Resources */,
+				DF1668A1183C98B90047394C /* player_4_d3_3.png in Resources */,
 				B2C4D7621817B5DA000B295E /* player_2_i_43.png in Resources */,
 				B2E9186C18176B290063BC73 /* player_1_d1_62.png in Resources */,
 				07C95C3F183404AE000B329A /* Hulk_3_1.png in Resources */,
+				DF16687F183C98B90047394C /* player_4_d2_41.png in Resources */,
 				B2C4D7501817B5DA000B295E /* player_2_i_27.png in Resources */,
 				B2C4D6E81817B1DA000B295E /* player_2_d1_53.png in Resources */,
 				07C95C55183404AE000B329A /* Hulk_3_3.png in Resources */,
@@ -3384,21 +3930,28 @@
 				B2C4D76C1817B5DA000B295E /* player_2_i_52.png in Resources */,
 				07C95CB61834053D000B329A /* background_2_8.png in Resources */,
 				DFCD0ADE182F103A0084868F /* player_2_d2_30.png in Resources */,
+				DF16687D183C98B90047394C /* player_4_d2_4.png in Resources */,
+				DF166869183C98B90047394C /* player_4_d2_21.png in Resources */,
 				07C95C0F183404AE000B329A /* Hulk_2.png in Resources */,
 				D8D6267E183C6A4200C0356C /* main_menu_background.png in Resources */,
+				DF1668B5183C98B90047394C /* player_4_d3_5.png in Resources */,
 				DFCD0ADC182F103A0084868F /* player_2_d2_29.png in Resources */,
 				B2E9186D18176B290063BC73 /* player_1_d1_63.png in Resources */,
 				D8D62676183C636C00C0356C /* play_label.png in Resources */,
+				DF16687C183C98B90047394C /* player_4_d2_39.png in Resources */,
 				DF8699721803D028008CB857 /* madrid.mp3 in Resources */,
 				B2C4D6C71817B1DA000B295E /* player_2_d1_23.png in Resources */,
 				07C95CB51834053D000B329A /* background_2_7.png in Resources */,
+				DF16688A183C98B90047394C /* player_4_d3.png in Resources */,
 				07C95C5C183404AE000B329A /* Hulk_3_36.png in Resources */,
 				B2C4D73B1817B5DA000B295E /* player_2_i.plist in Resources */,
 				B2C4D74A1817B5DA000B295E /* player_2_i_21.png in Resources */,
 				B2C4D7591817B5DA000B295E /* player_2_i_35.png in Resources */,
 				D85E34FA183B23C300520E3C /* slider2_filler.png in Resources */,
 				B2C4D6E51817B1DA000B295E /* player_2_d1_50.png in Resources */,
+				DF16689B183C98B90047394C /* player_4_d3_24.png in Resources */,
 				B2C4D76F1817B5DA000B295E /* player_2_i_55.png in Resources */,
+				DF16688B183C98B90047394C /* player_4_d3_1.png in Resources */,
 				B2EF47F818179FE600841EB0 /* background_1_3.png in Resources */,
 				B2E9185418176B290063BC73 /* player_1_d1_40.png in Resources */,
 				07C95C5E183404AE000B329A /* Hulk_3_38.png in Resources */,
@@ -3409,16 +3962,23 @@
 				07C95C6A183404AE000B329A /* Hulk_3_6.png in Resources */,
 				B2E9184718176B290063BC73 /* player_1_d1_29.png in Resources */,
 				07C95BF8183404AE000B329A /* Hulk_1_34.png in Resources */,
+				DF166837183C98B90047394C /* player_4_d1_22.png in Resources */,
+				DF166876183C98B90047394C /* player_4_d2_33.png in Resources */,
 				B2C4D74D1817B5DA000B295E /* player_2_i_24.png in Resources */,
 				B2C4D6D61817B1DA000B295E /* player_2_d1_37.png in Resources */,
 				DFCD0ADF182F103A0084868F /* player_2_d2_31.png in Resources */,
 				07C95C54183404AE000B329A /* Hulk_3_29.png in Resources */,
 				B2A69B64182175930040B4DC /* arrow.png in Resources */,
+				DF166872183C98B90047394C /* player_4_d2_3.png in Resources */,
+				DF16684B183C98B90047394C /* player_4_d1_40.png in Resources */,
 				B2C4D6D11817B1DA000B295E /* player_2_d1_32.png in Resources */,
 				B2C4D74B1817B5DA000B295E /* player_2_i_22.png in Resources */,
 				B2C4D6F11817B1DA000B295E /* player_2_d1_61.png in Resources */,
+				DF1668B1183C98B90047394C /* player_4_d3_44.png in Resources */,
 				B2C4D7641817B5DA000B295E /* player_2_i_45.png in Resources */,
+				DF166875183C98B90047394C /* player_4_d2_32.png in Resources */,
 				07C95C34183404AE000B329A /* Hulk_2_42.png in Resources */,
+				DF166865183C98B90047394C /* player_4_d2_18.png in Resources */,
 				07C95BE0183404AE000B329A /* Hulk_1_12.png in Resources */,
 				B2E9187318176B290063BC73 /* player_1_d1_69.png in Resources */,
 				07C95CAB1834053D000B329A /* background_2.plist in Resources */,
@@ -3428,8 +3988,10 @@
 				B2EF47F718179FE600841EB0 /* background_1_2.png in Resources */,
 				B2C4D7631817B5DA000B295E /* player_2_i_44.png in Resources */,
 				07C95C4F183404AE000B329A /* Hulk_3_24.png in Resources */,
+				DF166841183C98B90047394C /* player_4_d1_31.png in Resources */,
 				07C95C33183404AE000B329A /* Hulk_2_41.png in Resources */,
 				B2C4D6E01817B1DA000B295E /* player_2_d1_46.png in Resources */,
+				DF166890183C98B90047394C /* player_4_d3_14.png in Resources */,
 				B2C4D7491817B5DA000B295E /* player_2_i_20.png in Resources */,
 				DFCC18EE1817CC1C009B8EE8 /* youlose.png in Resources */,
 				DFCD0AD6182F103A0084868F /* player_2_d2_23.png in Resources */,
@@ -3438,30 +4000,39 @@
 				B2C4D7431817B5DA000B295E /* player_2_i_15.png in Resources */,
 				B2E9187F18176B290063BC73 /* player_1_d1_8.png in Resources */,
 				DFCD0ADD182F103A0084868F /* player_2_d2_3.png in Resources */,
+				DF166886183C98B90047394C /* player_4_d2_7.png in Resources */,
 				B2E9186818176B290063BC73 /* player_1_d1_59.png in Resources */,
 				DFE5858D183C48940000BCE9 /* rightHB_bg.png in Resources */,
 				B2E9186518176B290063BC73 /* player_1_d1_56.png in Resources */,
+				DF1668A9183C98B90047394C /* player_4_d3_37.png in Resources */,
 				B2E9185318176B290063BC73 /* player_1_d1_4.png in Resources */,
 				B2EF47FA18179FE600841EB0 /* background_1_5.png in Resources */,
+				DF166827183C98B90047394C /* player_4_d1.plist in Resources */,
 				07C95C48183404AE000B329A /* Hulk_3_18.png in Resources */,
 				B2C4D7581817B5DA000B295E /* player_2_i_34.png in Resources */,
 				07C95C22183404AE000B329A /* Hulk_2_26.png in Resources */,
 				B2C4D7661817B5DA000B295E /* player_2_i_47.png in Resources */,
+				DF166899183C98B90047394C /* player_4_d3_22.png in Resources */,
 				B2E9188418176B290063BC73 /* player_1_d1_9.png in Resources */,
 				07C95C11183404AE000B329A /* Hulk_2_10.png in Resources */,
 				B2EF47F518179FE600841EB0 /* background_1_11.png in Resources */,
 				B2E9183218176B290063BC73 /* player_1_d1_1.png in Resources */,
 				B2C4D7441817B5DA000B295E /* player_2_i_16.png in Resources */,
 				B2EF47F118179FE600841EB0 /* background_1.plist in Resources */,
+				DF16686D183C98B90047394C /* player_4_d2_25.png in Resources */,
 				B2C4D7601817B5DA000B295E /* player_2_i_41.png in Resources */,
 				07C95C0A183404AE000B329A /* Hulk_1_6.png in Resources */,
+				DF16683A183C98B90047394C /* player_4_d1_25.png in Resources */,
 				07C95C4C183404AE000B329A /* Hulk_3_21.png in Resources */,
 				B2C4D6F51817B1DA000B295E /* player_2_d1_8.png in Resources */,
+				DF166859183C98B90047394C /* player_4_d1_9.png in Resources */,
+				DF1668A6183C98B90047394C /* player_4_d3_34.png in Resources */,
 				B2C4D7651817B5DA000B295E /* player_2_i_46.png in Resources */,
 				B2E9186718176B290063BC73 /* player_1_d1_58.png in Resources */,
 				07C95C1F183404AE000B329A /* Hulk_2_23.png in Resources */,
 				D85E34FB183B23C300520E3C /* slider2_sliderButton.png in Resources */,
 				B2E9184218176B290063BC73 /* player_1_d1_24.png in Resources */,
+				DF166851183C98B90047394C /* player_4_d1_46.png in Resources */,
 				07C95C62183404AE000B329A /* Hulk_3_41.png in Resources */,
 				07C95C4A183404AE000B329A /* Hulk_3_2.png in Resources */,
 				B2C4D6F81817B415000B295E /* player_2_d1.png in Resources */,
@@ -3469,20 +4040,30 @@
 				07C95C16183404AE000B329A /* Hulk_2_15.png in Resources */,
 				B2C4D75B1817B5DA000B295E /* player_2_i_37.png in Resources */,
 				B2C4D7511817B5DA000B295E /* player_2_i_28.png in Resources */,
+				DF1668A2183C98B90047394C /* player_4_d3_30.png in Resources */,
 				07C95C10183404AE000B329A /* Hulk_2_1.png in Resources */,
 				D85E34F4183B227D00520E3C /* resume.png in Resources */,
 				07C95BE8183404AE000B329A /* Hulk_1_2.png in Resources */,
+				DF166894183C98B90047394C /* player_4_d3_18.png in Resources */,
 				B2E9186618176B290063BC73 /* player_1_d1_57.png in Resources */,
+				DF16689E183C98B90047394C /* player_4_d3_27.png in Resources */,
+				DF1668C1183C9C0B0047394C /* select_difficulty.png in Resources */,
+				DF166877183C98B90047394C /* player_4_d2_34.png in Resources */,
 				07C95C07183404AE000B329A /* Hulk_1_48.png in Resources */,
 				B2C4D6E71817B1DA000B295E /* player_2_d1_52.png in Resources */,
-				B2EF47A2181797AA00841EB0 /* difficulty_level_4.png in Resources */,
+				DF166883183C98B90047394C /* player_4_d2_45.png in Resources */,
 				B2C4D6DD1817B1DA000B295E /* player_2_d1_43.png in Resources */,
 				B2C4D7771817B5DA000B295E /* player_2_i_62.png in Resources */,
 				07C95C0B183404AE000B329A /* Hulk_1_7.png in Resources */,
 				B2E9183B18176B290063BC73 /* player_1_d1_18.png in Resources */,
 				07C95C3B183404AE000B329A /* Hulk_2_8.png in Resources */,
+				DF1668A4183C98B90047394C /* player_4_d3_32.png in Resources */,
+				DF166839183C98B90047394C /* player_4_d1_24.png in Resources */,
 				B2E9186B18176B290063BC73 /* player_1_d1_61.png in Resources */,
+				DF166856183C98B90047394C /* player_4_d1_6.png in Resources */,
 				07C95C63183404AE000B329A /* Hulk_3_42.png in Resources */,
+				DF16684C183C98B90047394C /* player_4_d1_41.png in Resources */,
+				DF1668B7183C98B90047394C /* player_4_d3_7.png in Resources */,
 				B2E9185A18176B290063BC73 /* player_1_d1_46.png in Resources */,
 				D86BFBF818182FBE00D75553 /* losangeles.mp3 in Resources */,
 				07C95C12183404AE000B329A /* Hulk_2_11.png in Resources */,
@@ -3490,6 +4071,7 @@
 				B2E9184518176B290063BC73 /* player_1_d1_27.png in Resources */,
 				B2C4D6CA1817B1DA000B295E /* player_2_d1_26.png in Resources */,
 				07C95BF5183404AE000B329A /* Hulk_1_31.png in Resources */,
+				DF166843183C98B90047394C /* player_4_d1_33.png in Resources */,
 				B2E9185718176B290063BC73 /* player_1_d1_43.png in Resources */,
 				B2E9184C18176B290063BC73 /* player_1_d1_33.png in Resources */,
 				07C95BFA183404AE000B329A /* Hulk_1_36.png in Resources */,
@@ -3497,20 +4079,28 @@
 				B2E9183318176B290063BC73 /* player_1_d1_10.png in Resources */,
 				B2E9187B18176B290063BC73 /* player_1_d1_76.png in Resources */,
 				B2EF47A0181797AA00841EB0 /* difficulty_level_2.png in Resources */,
+				DF166878183C98B90047394C /* player_4_d2_35.png in Resources */,
 				07C95BE2183404AE000B329A /* Hulk_1_14.png in Resources */,
 				B2C4D6CF1817B1DA000B295E /* player_2_d1_30.png in Resources */,
 				B2EF47F318179FE600841EB0 /* background_1_1.png in Resources */,
+				DF166864183C98B90047394C /* player_4_d2_17.png in Resources */,
 				B2E9186118176B290063BC73 /* player_1_d1_52.png in Resources */,
 				B2E9184118176B290063BC73 /* player_1_d1_23.png in Resources */,
 				B2C4D75E1817B5DA000B295E /* player_2_i_4.png in Resources */,
 				D85E34F2183B227D00520E3C /* main-menu.png in Resources */,
+				DF16685E183C98B90047394C /* player_4_d2_11.png in Resources */,
 				07C95BE9183404AE000B329A /* Hulk_1_20.png in Resources */,
+				DF16689C183C98B90047394C /* player_4_d3_25.png in Resources */,
 				07C95C6C183404AE000B329A /* Hulk_3_8.png in Resources */,
 				07C95BFF183404AE000B329A /* Hulk_1_40.png in Resources */,
+				DF16683D183C98B90047394C /* player_4_d1_28.png in Resources */,
+				DF166874183C98B90047394C /* player_4_d2_31.png in Resources */,
 				B2C4D6CB1817B1DA000B295E /* player_2_d1_27.png in Resources */,
 				B2C4D7521817B5DA000B295E /* player_2_i_29.png in Resources */,
+				DF16682F183C98B90047394C /* player_4_d1_15.png in Resources */,
 				B2C4D6B91817B1DA000B295E /* player_2_d1_10.png in Resources */,
 				B2C4D7761817B5DA000B295E /* player_2_i_61.png in Resources */,
+				DF16685F183C98B90047394C /* player_4_d2_12.png in Resources */,
 				07C95CBD1834053D000B329A /* background_3_4.png in Resources */,
 				B2E9183818176B290063BC73 /* player_1_d1_15.png in Resources */,
 				DFCC18FD1817D7C7009B8EE8 /* player_4_0.png in Resources */,
@@ -3526,6 +4116,7 @@
 				B2E9186F18176B290063BC73 /* player_1_d1_65.png in Resources */,
 				B2C4D74C1817B5DA000B295E /* player_2_i_23.png in Resources */,
 				D8D6267B183C636C00C0356C /* settings.png in Resources */,
+				DF16683C183C98B90047394C /* player_4_d1_27.png in Resources */,
 				07C95C6B183404AE000B329A /* Hulk_3_7.png in Resources */,
 				07C95C30183404AE000B329A /* Hulk_2_39.png in Resources */,
 				07C95CB21834053D000B329A /* background_2_4.png in Resources */,
@@ -3551,6 +4142,7 @@
 				D8D62678183C636C00C0356C /* play_pressed.png in Resources */,
 				B2C4D6DC1817B1DA000B295E /* player_2_d1_42.png in Resources */,
 				B2C4D6C01817B1DA000B295E /* player_2_d1_17.png in Resources */,
+				DF16684D183C98B90047394C /* player_4_d1_42.png in Resources */,
 				07C95C2F183404AE000B329A /* Hulk_2_38.png in Resources */,
 				07C95BEF183404AE000B329A /* Hulk_1_26.png in Resources */,
 				B2E9184018176B290063BC73 /* player_1_d1_22.png in Resources */,
@@ -3564,9 +4156,12 @@
 				DFCD0AD8182F103A0084868F /* player_2_d2_25.png in Resources */,
 				B2C4D75C1817B5DA000B295E /* player_2_i_38.png in Resources */,
 				07C95C2E183404AE000B329A /* Hulk_2_37.png in Resources */,
+				DF16685B183C98B90047394C /* player_4_d2.png in Resources */,
 				B2E9187818176B290063BC73 /* player_1_d1_73.png in Resources */,
+				DF1668AE183C98B90047394C /* player_4_d3_41.png in Resources */,
 				D8D62677183C636C00C0356C /* settings_label.png in Resources */,
 				07C95C3D183404AE000B329A /* Hulk_3.plist in Resources */,
+				DF166889183C98B90047394C /* player_4_d3.plist in Resources */,
 				B2C4D6ED1817B1DA000B295E /* player_2_d1_58.png in Resources */,
 				07C95BF3183404AE000B329A /* Hulk_1_3.png in Resources */,
 				07C95C4D183404AE000B329A /* Hulk_3_22.png in Resources */,
@@ -3578,29 +4173,40 @@
 				B2E9187418176B290063BC73 /* player_1_d1_7.png in Resources */,
 				B2E9187518176B290063BC73 /* player_1_d1_70.png in Resources */,
 				B2C4D7701817B5DA000B295E /* player_2_i_56.png in Resources */,
+				DF166882183C98B90047394C /* player_4_d2_44.png in Resources */,
 				07C95C2A183404AE000B329A /* Hulk_2_33.png in Resources */,
 				07C95C37183404AE000B329A /* Hulk_2_45.png in Resources */,
 				B2C4D74E1817B5DA000B295E /* player_2_i_25.png in Resources */,
 				B2E9186E18176B290063BC73 /* player_1_d1_64.png in Resources */,
 				B2E9185818176B290063BC73 /* player_1_d1_44.png in Resources */,
+				DF16688E183C98B90047394C /* player_4_d3_12.png in Resources */,
+				DF166879183C98B90047394C /* player_4_d2_36.png in Resources */,
 				B2E9188518176B290063BC73 /* player_1_d1.plist in Resources */,
 				B2E9185218176B290063BC73 /* player_1_d1_39.png in Resources */,
 				B2C4D6D31817B1DA000B295E /* player_2_d1_34.png in Resources */,
+				DF16682A183C98B90047394C /* player_4_d1_10.png in Resources */,
+				DF1668A5183C98B90047394C /* player_4_d3_33.png in Resources */,
 				B2E9183C18176B290063BC73 /* player_1_d1_19.png in Resources */,
 				B2EF47FE18179FE600841EB0 /* background_1_9.png in Resources */,
+				DF16682B183C98B90047394C /* player_4_d1_11.png in Resources */,
 				07C95C3C183404AE000B329A /* Hulk_2_9.png in Resources */,
 				B2E9185918176B290063BC73 /* player_1_d1_45.png in Resources */,
 				B2C4D6CD1817B1DA000B295E /* player_2_d1_29.png in Resources */,
 				B2E9183618176B290063BC73 /* player_1_d1_13.png in Resources */,
 				DFCD0AE5182F103A0084868F /* player_2_d2_7.png in Resources */,
 				07C95C57183404AE000B329A /* Hulk_3_31.png in Resources */,
+				DF16687B183C98B90047394C /* player_4_d2_38.png in Resources */,
+				DF166849183C98B90047394C /* player_4_d1_39.png in Resources */,
 				DFCC18F21817D149009B8EE8 /* player_3.png in Resources */,
+				DF16685C183C98B90047394C /* player_4_d2_1.png in Resources */,
 				B2E9187018176B290063BC73 /* player_1_d1_66.png in Resources */,
 				B2E9184318176B290063BC73 /* player_1_d1_25.png in Resources */,
 				07C95C61183404AE000B329A /* Hulk_3_40.png in Resources */,
 				DFCD0AC9182F103A0084868F /* player_2_d2_11.png in Resources */,
 				B2C4D6BA1817B1DA000B295E /* player_2_d1_11.png in Resources */,
+				DF166862183C98B90047394C /* player_4_d2_15.png in Resources */,
 				B2C4D76D1817B5DA000B295E /* player_2_i_53.png in Resources */,
+				DF16684F183C98B90047394C /* player_4_d1_44.png in Resources */,
 				DFCD0ADA182F103A0084868F /* player_2_d2_27.png in Resources */,
 				B2E9187618176B290063BC73 /* player_1_d1_71.png in Resources */,
 				07C95CBB1834053D000B329A /* background_3_2.png in Resources */,
@@ -3611,15 +4217,19 @@
 				B2E9185E18176B290063BC73 /* player_1_d1_5.png in Resources */,
 				B2C4D7781817B5DA000B295E /* player_2_i_63.png in Resources */,
 				B2C4D6F31817B1DA000B295E /* player_2_d1_63.png in Resources */,
+				DF166840183C98B90047394C /* player_4_d1_30.png in Resources */,
 				B2C4D7791817B5DA000B295E /* player_2_i_7.png in Resources */,
 				07C95C67183404AE000B329A /* Hulk_3_46.png in Resources */,
+				DF166861183C98B90047394C /* player_4_d2_14.png in Resources */,
 				DFCD0AE2182F103A0084868F /* player_2_d2_4.png in Resources */,
+				DF166835183C98B90047394C /* player_4_d1_20.png in Resources */,
 				D8D62685183C72C200C0356C /* volume_text.png in Resources */,
 				B2C4D6EC1817B1DA000B295E /* player_2_d1_57.png in Resources */,
 				B2E9186218176B290063BC73 /* player_1_d1_53.png in Resources */,
 				B2C4D77B1817B5DA000B295E /* player_2_i_9.png in Resources */,
 				B2E9183D18176B290063BC73 /* player_1_d1_2.png in Resources */,
 				B2C4D6F01817B1DA000B295E /* player_2_d1_60.png in Resources */,
+				DF16683F183C98B90047394C /* player_4_d1_3.png in Resources */,
 				B2E9188218176B290063BC73 /* player_1_d1_82.png in Resources */,
 				B2E919121817702C0063BC73 /* player_2.png in Resources */,
 				B2E9188118176B290063BC73 /* player_1_d1_81.png in Resources */,
@@ -3630,6 +4240,7 @@
 				07C95BF1183404AE000B329A /* Hulk_1_28.png in Resources */,
 				DFCD0ACA182F103A0084868F /* player_2_d2_12.png in Resources */,
 				3539F2211820977500ACB7FA /* pausegame.png in Resources */,
+				DF16683B183C98B90047394C /* player_4_d1_26.png in Resources */,
 				07C95C2C183404AE000B329A /* Hulk_2_35.png in Resources */,
 				07C95C41183404AE000B329A /* Hulk_3_11.png in Resources */,
 				07C95C21183404AE000B329A /* Hulk_2_25.png in Resources */,
@@ -3638,11 +4249,16 @@
 				07C95BF7183404AE000B329A /* Hulk_1_33.png in Resources */,
 				3539F22A1820977500ACB7FA /* home_pressed.png in Resources */,
 				D85E34F3183B227D00520E3C /* main-menu_pressed.png in Resources */,
+				DF1668BE183C99F00047394C /* difficulty_level_2_pressed.png in Resources */,
 				DFCD0ACE182F103A0084868F /* player_2_d2_16.png in Resources */,
+				DF166871183C98B90047394C /* player_4_d2_29.png in Resources */,
 				07C95C25183404AE000B329A /* Hulk_2_29.png in Resources */,
 				3539F22B1820977500ACB7FA /* home.png in Resources */,
+				DF166836183C98B90047394C /* player_4_d1_21.png in Resources */,
+				DF16688D183C98B90047394C /* player_4_d3_11.png in Resources */,
 				3539F22C1820977500ACB7FA /* Icon-72.png in Resources */,
 				3539F22D1820977500ACB7FA /* Icon-Small-50.png in Resources */,
+				DF16682D183C98B90047394C /* player_4_d1_13.png in Resources */,
 				3539F22E1820977500ACB7FA /* Icon-Small.png in Resources */,
 				DFE58590183C51A60000BCE9 /* health_bar.png in Resources */,
 				07C95C5A183404AE000B329A /* Hulk_3_34.png in Resources */,

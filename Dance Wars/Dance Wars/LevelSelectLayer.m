@@ -37,7 +37,7 @@
         // Initializing level env
         le = [[LevelEnvironment alloc]init];
         
-        CGSize size = [[CCDirector sharedDirector] winSize];
+        size = [[CCDirector sharedDirector] winSize];
         
         // Add background image
         CCSprite *levelBg = [CCSprite spriteWithFile:@"levelselect_bg.png"];
@@ -45,18 +45,17 @@
         [self addChild:levelBg];
         
         // Level header
-        CCLabelTTF *label = [CCLabelTTF labelWithString:@"Select Your Difficulty" fontName:@"Papyrus" fontSize:50];
-        label.position = ccp(size.width/2, size.height*3/4);
+        label = [CCSprite spriteWithFile:@"select_difficulty.png"];
+        label.position = ccp(size.width/2, 768);
         [self addChild:label];
         
         // menu to create different levels of difficulty
-        CCMenuItemImage *buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_1.png" selectedImage:@"difficulty_level_1.png" target:self selector:@selector(loadLevelEasy)];
-        CCMenuItemImage *buttonLevel2 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_2.png" selectedImage:@"difficulty_level_2.png" target:self selector:@selector(loadLevelMed)];
-        CCMenuItemImage *buttonLevel3 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_3.png" selectedImage:@"difficulty_level_3.png" target:self selector:@selector(loadLevelDif)];
-        CCMenuItemImage *buttonLevel4 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_4.png" selectedImage:@"difficulty_level_4.png" target:self selector:@selector(loadLevelDif)];
+        CCMenuItemImage *buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_1.png" selectedImage:@"difficulty_level_1_pressed.png" target:self selector:@selector(loadLevelEasy)];
+        CCMenuItemImage *buttonLevel2 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_2.png" selectedImage:@"difficulty_level_2_pressed.png" target:self selector:@selector(loadLevelMed)];
+        CCMenuItemImage *buttonLevel3 = [CCMenuItemImage itemWithNormalImage:@"difficulty_level_3.png" selectedImage:@"difficulty_level_3_pressed.png" target:self selector:@selector(loadLevelDif)];
         
-        gameMenu = [CCMenu menuWithItems:buttonLevel1, buttonLevel2, buttonLevel3, buttonLevel4, nil];
-        NSNumber* itemsPerRow = [NSNumber numberWithInt:4];
+        gameMenu = [CCMenu menuWithItems:buttonLevel1, buttonLevel2, buttonLevel3, nil];
+        NSNumber* itemsPerRow = [NSNumber numberWithInt:3];
         [gameMenu alignItemsInColumns:itemsPerRow, itemsPerRow, itemsPerRow, nil];
         gameMenu.position = ccp(size.width/2, size.height/3);
         
@@ -67,9 +66,14 @@
         CCMenu *homeMenu = [CCMenu menuWithItems:homeButton, nil];
         homeMenu.position = ccp(size.width - homeButton.contentSize.width/2, homeButton.contentSize.height/2);
         [self addChild:homeMenu];
-
+        
+        [self displayMenuElements];
     }
     return self;
+}
+
+- (void) displayMenuElements {
+    [label runAction:[CCMoveTo actionWithDuration:1 position:ccp(size.width/2, size.height*3/4)]];
 }
 
 -(void) loadHome {
