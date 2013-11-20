@@ -204,7 +204,6 @@
 		B2A69B64182175930040B4DC /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B2A69B63182175930040B4DC /* arrow.png */; };
 		B2B3FBB1183592240060775A /* play_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B3FBAF183592240060775A /* play_button_pressed.png */; };
 		B2B3FBB2183592240060775A /* play_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B3FBB0183592240060775A /* play_button.png */; };
-		B2B3FBC7183593610060775A /* home-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B3FBBD183593610060775A /* home-icon.png */; };
 		B2C4D6B71817B1DA000B295E /* player_2_d1.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2C4D6771817B1DA000B295E /* player_2_d1.plist */; };
 		B2C4D6B81817B1DA000B295E /* player_2_d1_1.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C4D6781817B1DA000B295E /* player_2_d1_1.png */; };
 		B2C4D6B91817B1DA000B295E /* player_2_d1_10.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C4D6791817B1DA000B295E /* player_2_d1_10.png */; };
@@ -444,6 +443,8 @@
 		B2EF47FE18179FE600841EB0 /* background_1_9.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF47E518179FE500841EB0 /* background_1_9.png */; };
 		B2EF480A1817A41900841EB0 /* levelselect_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF48091817A41900841EB0 /* levelselect_bg.png */; };
 		B2EF48121817AE8D00841EB0 /* characterselect_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EF48111817AE8D00841EB0 /* characterselect_bg.png */; };
+		B2F939F1183C497E00606B33 /* health_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = B2F939EF183C497E00606B33 /* health_bar.png */; };
+		B2F939F2183C497E00606B33 /* outline_health_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = B2F939F0183C497E00606B33 /* outline_health_bar.png */; };
 		D807235C17ED0D0400759B73 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D807235B17ED0D0400759B73 /* HelloWorldLayer.m */; };
 		D807236117ED271100759B73 /* GameLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D807236017ED270F00759B73 /* GameLevelLayer.m */; };
 		D84CA37B17FF574D00BC058A /* MyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CA37A17FF574D00BC058A /* MyManager.m */; };
@@ -931,7 +932,6 @@
 		B2A69B63182175930040B4DC /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		B2B3FBAF183592240060775A /* play_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_button_pressed.png; sourceTree = "<group>"; };
 		B2B3FBB0183592240060775A /* play_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_button.png; sourceTree = "<group>"; };
-		B2B3FBBD183593610060775A /* home-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-icon.png"; sourceTree = "<group>"; };
 		B2C4D6771817B1DA000B295E /* player_2_d1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = player_2_d1.plist; sourceTree = "<group>"; };
 		B2C4D6781817B1DA000B295E /* player_2_d1_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_2_d1_1.png; sourceTree = "<group>"; };
 		B2C4D6791817B1DA000B295E /* player_2_d1_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_2_d1_10.png; sourceTree = "<group>"; };
@@ -1171,6 +1171,8 @@
 		B2EF47E518179FE500841EB0 /* background_1_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_1_9.png; sourceTree = "<group>"; };
 		B2EF48091817A41900841EB0 /* levelselect_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = levelselect_bg.png; sourceTree = "<group>"; };
 		B2EF48111817AE8D00841EB0 /* characterselect_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = characterselect_bg.png; sourceTree = "<group>"; };
+		B2F939EF183C497E00606B33 /* health_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health_bar.png; sourceTree = "<group>"; };
+		B2F939F0183C497E00606B33 /* outline_health_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outline_health_bar.png; sourceTree = "<group>"; };
 		D807235A17ED0D0400759B73 /* HelloWorldLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelloWorldLayer.h; path = ../HelloWorldLayer.h; sourceTree = "<group>"; };
 		D807235B17ED0D0400759B73 /* HelloWorldLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelloWorldLayer.m; path = ../HelloWorldLayer.m; sourceTree = "<group>"; };
 		D807235F17ED270F00759B73 /* GameLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLevelLayer.h; sourceTree = "<group>"; };
@@ -1969,7 +1971,8 @@
 		B2B3FBB3183593610060775A /* health_bar_images */ = {
 			isa = PBXGroup;
 			children = (
-				B2B3FBBD183593610060775A /* home-icon.png */,
+				B2F939EF183C497E00606B33 /* health_bar.png */,
+				B2F939F0183C497E00606B33 /* outline_health_bar.png */,
 			);
 			path = health_bar_images;
 			sourceTree = "<group>";
@@ -3239,7 +3242,6 @@
 				DF3E1C7217EA363E0043593E /* iTunesArtwork in Resources */,
 				B2C4D6DB1817B1DA000B295E /* player_2_d1_41.png in Resources */,
 				DFCD0AE1182F103A0084868F /* player_2_d2_33.png in Resources */,
-				B2B3FBC7183593610060775A /* home-icon.png in Resources */,
 				D8BFB8BD180CE36C002DA2E0 /* f1.png in Resources */,
 				DF3E1DCB17EA36410043593E /* ChangeLog in Resources */,
 				DFCD0AC7182F103A0084868F /* player_2_d2_1.png in Resources */,
@@ -3619,6 +3621,7 @@
 				B2C4D7721817B5DA000B295E /* player_2_i_58.png in Resources */,
 				B2E9184A18176B290063BC73 /* player_1_d1_31.png in Resources */,
 				07C95C47183404AE000B329A /* Hulk_3_17.png in Resources */,
+				B2F939F2183C497E00606B33 /* outline_health_bar.png in Resources */,
 				07C95C1B183404AE000B329A /* Hulk_2_2.png in Resources */,
 				B2E9183A18176B290063BC73 /* player_1_d1_17.png in Resources */,
 				07C95C39183404AE000B329A /* Hulk_2_6.png in Resources */,
@@ -3676,6 +3679,7 @@
 				B2C4D76D1817B5DA000B295E /* player_2_i_53.png in Resources */,
 				DFCD0ADA182F103A0084868F /* player_2_d2_27.png in Resources */,
 				B2E9187618176B290063BC73 /* player_1_d1_71.png in Resources */,
+				B2F939F1183C497E00606B33 /* health_bar.png in Resources */,
 				07C95CBB1834053D000B329A /* background_3_2.png in Resources */,
 				B2EF47F218179FE600841EB0 /* background_1.png in Resources */,
 				B2C4D6F61817B1DA000B295E /* player_2_d1_9.png in Resources */,
