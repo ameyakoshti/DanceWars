@@ -32,7 +32,6 @@ static bool swipeEnableGlobal = NO;
 }
 
 -(id) init {
-    
     if((self = [super init])) {
         
         size = [[CCDirector sharedDirector] winSize];
@@ -72,21 +71,19 @@ static bool swipeEnableGlobal = NO;
         [self addChild:aichar z:0 tag:2];
         
         // Static Player life bar:
-        CCSprite *healthBarBGPlayer = [CCSprite spriteWithFile:@"leftHB_bg.png"];
-        healthBarBGPlayer.position = ccp(size.width-125,size.height-50);
-        [self addChild:healthBarBGPlayer];
+        //CCSprite *healthBarBGPlayer = [CCSprite spriteWithFile:@"leftHB_bg.png"];
+        //healthBarBGPlayer.position = ccp(size.width-125,size.height-50);
+        //[self addChild:healthBarBGPlayer];
+        //CCSprite *healthBarBGAI = [CCSprite spriteWithFile:@"rightHB_bg.png"];
+        //healthBarBGAI.position = ccp(125,size.height-50);
+        //[self addChild:healthBarBGAI];
         
+        // Player life bar
         CCSprite* UserLifeWrapper = [CCSprite spriteWithFile:@"outline_health_bar.png"];
         UserLifeWrapper.scale = 0.2;
         UserLifeWrapper.position = ccp(125 ,size.height-50);
         [self addChild:UserLifeWrapper];
-        
-        // Player life bar
-        
-        CCSprite *healthBarBGAI = [CCSprite spriteWithFile:@"rightHB_bg.png"];
-        healthBarBGAI.position = ccp(125,size.height-50);
-        [self addChild:healthBarBGAI];
-        
+
         self.life = 0;
         self.progressTimer = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"health_bar.png"]];
         self.progressTimer.type = kCCProgressTimerTypeBar;
@@ -97,13 +94,13 @@ static bool swipeEnableGlobal = NO;
         self.progressTimer.position = ccp(125 ,size.height-50);
         [self addChild:self.progressTimer];
         
+        // AI life bar
         CCSprite *AILifeWrapper = [CCSprite spriteWithFile:@"outline_health_bar.png"];
         AILifeWrapper.position = ccp(size.width-125,size.height-50);
         AILifeWrapper.scale = 0.2;
         AILifeWrapper.flipX = 180;
         [self addChild:AILifeWrapper];
         
-        // AI life bar
         self.aiLife = 0;
         self.aiProgressTimer = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"health_bar.png"]];
         self.aiProgressTimer.type = kCCProgressTimerTypeBar;
@@ -128,9 +125,11 @@ static bool swipeEnableGlobal = NO;
         
         CCMenuItemImage *mainbutton = [CCMenuItemImage itemWithNormalImage:@"main-menu.png" selectedImage:@"main-menu_pressed.png" target:self selector:@selector(loadHelloWorldLayer)];
         
-        pauseMenu = [CCMenu menuWithItems:resumebutton, mainbutton, nil];
+        CCMenuItemImage *restartbutton = [CCMenuItemImage itemWithNormalImage:@"restart.png" selectedImage:@"restart.png" target:self selector:@selector(gameRestart)];
+        
+        pauseMenu = [CCMenu menuWithItems:resumebutton, mainbutton, restartbutton, nil];
         [pauseMenu alignItemsVertically];
-        pauseMenu.position = ccp(size.width/2, size.height + 300);
+        pauseMenu.position = ccp(size.width/2, size.height + 450);
         [self addChild:pauseMenu z:1000 tag:23];
         
         
@@ -167,7 +166,7 @@ static bool swipeEnableGlobal = NO;
     return self;
 }
 
--(void)onEnter {
+-(void) onEnter {
     // Enable multi touches and gestures
     self.touchEnabled = YES;
     [[[CCDirector sharedDirector]view]setMultipleTouchEnabled:YES];
@@ -175,9 +174,9 @@ static bool swipeEnableGlobal = NO;
     [super onEnter];
 }
 
--(void)onExit {
+-(void) onExit {
     [self removeChild:pauseMenu cleanup:YES];
-    
+    [self removeChildByTag:100 cleanup:YES];
 }
 
 -(void) addMessage:(NSString *)image {
@@ -204,6 +203,7 @@ static bool swipeEnableGlobal = NO;
 -(void) gamePlayLoopCondition {
     
     if (self.life<100 && self.aiLife<100) {
+
         objectCount=0;
         touchPointCounter=1;
         hitCount=0;
@@ -214,49 +214,62 @@ static bool swipeEnableGlobal = NO;
     }
     else {
         //[self scheduleOnce:@selector(initiateBlast) delay:1.0];
-        
         if(self.life > self.aiLife){
-            [self addMessage:@"youwin.png"];
+            [self winGame];
+            CCDelayTime *delayloadlayergame =  [CCDelayTime actionWithDuration:3];
+            CCCallFunc *callFunclayergame = [CCCallFunc actionWithTarget:self selector:@selector(changeGameLayer)];
+            CCCallFunc *removetext = [CCCallFunc actionWithTarget:self selector:@selector(winGameRemove)];
+            [self runAction:[CCSequence actions:delayloadlayergame, callFunclayergame, nil]];
+            [self runAction:[CCSequence actions:delayloadlayergame, removetext, nil]];
             //[self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:3.5];
             [self removeChild:backgroundSpriteSheet];
         }
         else{
-            [self addMessage:@"youlose.png"];
+            [self loseGame];
+            CCDelayTime *delayloadlayergame =  [CCDelayTime actionWithDuration:3];
+            CCCallFunc *callFunclayergame = [CCCallFunc actionWithTarget:self selector:@selector(playSameGameLayer)];
+            CCCallFunc *removetext = [CCCallFunc actionWithTarget:self selector:@selector(loseGameRemove)];
+            [self runAction:[CCSequence actions:delayloadlayergame, callFunclayergame, nil]];
+            [self runAction:[CCSequence actions:delayloadlayergame, removetext, nil]];
             //[self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:3.5];
             [self removeChild:backgroundSpriteSheet];
         }
-        
+
         // Displaying score
+        
         int scoreHeight = size.height*1/3 + 50;
         
         scoreLabel = [CCLabelTTF labelWithString:@"%d" fontName:@"Papyrus" fontSize:50];
         scoreLabel.position =CGPointMake(size.width/2,scoreHeight);
         scoreLabel.color=ccc3(240, 255, 255);
         [scoreLabel setString :[NSString stringWithFormat:@"%s", "Score"]];
-        [self addChild:scoreLabel z:1];
-        
+        [self addChild:scoreLabel z:1 tag:30];
+     
         scoreHeight = scoreHeight - 50;
         scoreLabel = [CCLabelTTF labelWithString:@"%d" fontName:@"Papyrus" fontSize:50];
         scoreLabel.position =CGPointMake(size.width/2,scoreHeight);
         scoreLabel.color=ccc3(240, 255, 255);
         [scoreLabel setString :[NSString stringWithFormat:@"Accuracy %i%%", (totalHitCount*100)/totalObjects]];
-        [self addChild:scoreLabel z:1];
-        
+        [self addChild:scoreLabel z:1 tag:31];
+
         scoreHeight = scoreHeight - 50;
         scoreLabel = [CCLabelTTF labelWithString:@"%d" fontName:@"Papyrus" fontSize:50];
         scoreLabel.position =CGPointMake(size.width/2,scoreHeight);
         scoreLabel.color=ccc3(240, 255, 255);
         [scoreLabel setString :[NSString stringWithFormat:@"Total Hits %i of %i", totalHitCount,totalObjects]];
-        [self addChild:scoreLabel z:1];
+        [self addChild:scoreLabel z:1 tag:32];
         
         scoreHeight = scoreHeight - 50;
         scoreLabel = [CCLabelTTF labelWithString:@"%d" fontName:@"Papyrus" fontSize:50];
         scoreLabel.position =CGPointMake(size.width/2,scoreHeight);
         scoreLabel.color=ccc3(240, 255, 255);
         [scoreLabel setString :[NSString stringWithFormat:@"Total Misses %i of %i", (totalObjects-totalHitCount),totalObjects]];
-        [self addChild:scoreLabel z:1];
+        [self addChild:scoreLabel z:1 tag:33];
+ 
+        CCDelayTime *delay =  [CCDelayTime actionWithDuration:3];
+        CCCallFunc *callFunc = [CCCallFunc actionWithTarget:self selector:@selector(removeSprite)];
+        [self runAction:[CCSequence actions:delay, callFunc, nil]];
     }
-    
 }
 
 -(void) initiateBackground:(NSString *)dynamicBackground {
@@ -460,6 +473,27 @@ static bool swipeEnableGlobal = NO;
     [[CCDirector sharedDirector] pause];
 }
 
+-(void) gameRestart {
+    
+    [[CCDirector sharedDirector] resume];
+    InputHandler *ih2 = [sharedManager.inputBundle objectForKey:@"LDAA"];
+    [self removeAllChildrenWithCleanup:YES];
+    if(ih2.gameLevelDifficulty == 1) {
+        [self loadLevelEasy];
+    } else if (ih2.gameLevelDifficulty == 2) {
+        [self loadLevelMed];
+    } else if(ih2.gameLevelDifficulty == 3) {
+        [self loadLevelDif];
+    }
+    
+    //    gameMenu = [CCMenu menuWithItems:buttonrestart, nil];
+    //    [gameMenu alignItemsVertically];
+    //    [gameMenu runAction:[CCMoveTo actionWithDuration:0.75 position:ccp(size.width/2, size.height/2)]];
+    //    [self addChild:gameMenu z:1 tag:100];
+    
+    [pauseMenu runAction:[CCMoveTo actionWithDuration:0.5 position:ccp(size.width/2,size.height+450)]];
+}
+
 -(void) gameResume {
     
     [[CCDirector sharedDirector] resume];
@@ -468,7 +502,7 @@ static bool swipeEnableGlobal = NO;
     CCMenu *pauseButtonMenu = [CCMenu menuWithItems:pauseButton, nil];
     pauseButtonMenu.position = ccp(size.width - pauseButton.contentSize.width/2, pauseButton.contentSize.height/2);
     [self addChild:pauseButtonMenu z:1 tag:13];
-    [pauseMenu runAction:[CCMoveTo actionWithDuration:0.5 position:ccp(size.width/2,size.height+300)]];
+    [pauseMenu runAction:[CCMoveTo actionWithDuration:0.5 position:ccp(size.width/2,size.height+450)]];
 }
 
 -(void) manageTouchIcons {
@@ -559,7 +593,7 @@ static bool swipeEnableGlobal = NO;
     
 }
 
--(void) addTouchIcons:(int) touchNumber withArg2:(NSString *) fileName withArg3:(BOOL) swipeEnable withArg4:(BOOL) secondPoint{
+-(void) addTouchIcons:(int) touchNumber withArg2:(NSString *) fileName withArg3:(BOOL) swipeEnable withArg4:(BOOL) secondPoint {
     touchIcon[touchNumber] = [CCSprite spriteWithFile:fileName];
     swipeEnableGlobal = swipeEnable;
     
@@ -668,7 +702,7 @@ static bool swipeEnableGlobal = NO;
     totalObjects ++;
 }
 
--(void) removeTouchIcons:(NSNumber *) value{
+-(void) removeTouchIcons:(NSNumber *) value {
     int val = [value intValue];
     [self removeChild:touchIcon[val] cleanup:YES];
     
@@ -692,7 +726,6 @@ static bool swipeEnableGlobal = NO;
 }
 
 -(void) updateUserProgressBar {
-    
     InputHandler *ih3 = [sharedManager.inputBundle objectForKey:@"USERLIFE+MOVEDIFF"];
     
     // Increment progress bar for user
@@ -723,7 +756,7 @@ static bool swipeEnableGlobal = NO;
     
 }
 
--(void) enableGesture:(NSNumber *) value{
+-(void) enableGesture:(NSNumber *) value {
     // pan gesture recognizer
     UIGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
     panGestureRecognizer.delegate = self;
@@ -731,11 +764,11 @@ static bool swipeEnableGlobal = NO;
     [self addChild:touchIcon[[value intValue]]];
 }
 
--(BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+-(BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return YES;
 }
 
--(void) handlePanGesture:(UIPanGestureRecognizer*)aPanGestureRecognizer{
+-(void) handlePanGesture:(UIPanGestureRecognizer*)aPanGestureRecognizer {
     CCNode *node = aPanGestureRecognizer.node;
     CGPoint translation = [aPanGestureRecognizer translationInView:aPanGestureRecognizer.view];
     translation.y *= -1;
@@ -764,11 +797,11 @@ static bool swipeEnableGlobal = NO;
         if(self.life >= 0 && self.life < 100){
             self.life += 1;
             if(self.life > 25 && self.life < 60){
-                [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
+                [self.progressTimer setSprite:[CCSprite spriteWithFile:@"health_bar.png"]];
                 [self.progressTimer setScale:1];
             }
             if(self.life > 60){
-                [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_green.png"]];
+                [self.progressTimer setSprite:[CCSprite spriteWithFile:@"health_bar.png"]];
                 [self.progressTimer setScale:1];
             }
         }
@@ -776,7 +809,7 @@ static bool swipeEnableGlobal = NO;
     }
 }
 
--(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+-(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     for(UITouch *touch in touches)
     {
@@ -806,7 +839,7 @@ static bool swipeEnableGlobal = NO;
     }
 }
 
--(void) showBlastEffect:(CGPoint) location{
+-(void) showBlastEffect:(CGPoint) location {
     // Some animation where the icon is generated
     CCParticleSystem *emitter = [CCParticleExplosion node];
     //set the location of the emitter
@@ -819,6 +852,116 @@ static bool swipeEnableGlobal = NO;
     [emitter setLife:0.08f];
     //add to layer ofcourse(effect begins after this step)
     [self addChild: emitter];
+}
+
+-(void) loadLevelEasy {
+    le.background = [CCSprite spriteWithFile:@"background_1_1.png"];
+    le.backgroundName = [NSString stringWithFormat:@"background_1"];
+    le.backgroundMusic = [NSString stringWithFormat:@"madrid.mp3"];
+    
+    [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
+    
+    [self performSelector:@selector(loadGameLayer)];
+}
+
+-(void) loadLevelMed {
+    
+    le.background = [CCSprite spriteWithFile:@"background_2_1.png"];
+    le.backgroundName = [NSString stringWithFormat:@"background_2"];
+    le.backgroundMusic = [NSString stringWithFormat:@"losangeles.mp3"];
+    
+    [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
+    
+    [self performSelector:@selector(loadGameLayer)];
+}
+
+-(void) loadLevelDif {
+    
+    le.background = [CCSprite spriteWithFile:@"background_3_1.png"];
+    le.backgroundName = [NSString stringWithFormat:@"background_3"];
+    le.backgroundMusic = [NSString stringWithFormat:@"bombay.mp3"];
+    
+    [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
+    
+    [self performSelector:@selector(loadGameLayer)];
+}
+
+-(void) loadGameLayer {
+    
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    CCScene *gameLevel = [GameLevelLayer scene];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.25 scene:gameLevel]];
+}
+
+-(void) changeGameLayer {
+ 
+    InputHandler *ih2 = [sharedManager.inputBundle objectForKey:@"LDAA"];
+    CCMenuItemImage *buttonLevel1;
+    
+    if(ih2.gameLevelDifficulty == 1) {
+        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"next.png" selectedImage:@"next.png" target:self selector:@selector(loadLevelMed)];
+    } else if (ih2.gameLevelDifficulty == 2) {
+        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"next.png" selectedImage:@"next.png" target:self selector:@selector(loadLevelDif)];
+    }
+    
+    CCMenuItemImage *mainbutton = [CCMenuItemImage itemWithNormalImage:@"main-menu.png" selectedImage:@"main-menu_pressed.png" target:self selector:@selector(loadHelloWorldLayer)];
+    
+    if (ih2.gameLevelDifficulty == 1 || ih2.gameLevelDifficulty == 2) {
+        gameMenu = [CCMenu menuWithItems:buttonLevel1, mainbutton, nil];
+    } else if (ih2.gameLevelDifficulty == 3) {
+        gameMenu = [CCMenu menuWithItems:mainbutton, nil];
+    }
+
+    [gameMenu alignItemsVertically];
+
+    //gameMenu.position = ccp(size.width/2, size.height);
+    [gameMenu runAction:[CCMoveTo actionWithDuration:0.75 position:ccp(size.width/2, size.height/2)]];
+    [self addChild:gameMenu z:1 tag:100];
+    
+}
+
+-(void) playSameGameLayer {
+
+    InputHandler *ih2 = [sharedManager.inputBundle objectForKey:@"LDAA"];
+    CCMenuItemImage *buttonLevel1;
+    
+    if(ih2.gameLevelDifficulty == 1) {
+        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"restart.png" selectedImage:@"restart.png" target:self selector:@selector(loadLevelEasy)];
+    } else if (ih2.gameLevelDifficulty == 2) {
+        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"restart.png" selectedImage:@"restart.png" target:self selector:@selector(loadLevelMed)];
+    } else if(ih2.gameLevelDifficulty == 3) {
+        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"restart.png" selectedImage:@"restart.png" target:self selector:@selector(loadLevelDif)];
+    }
+    
+    CCMenuItemImage *mainbutton = [CCMenuItemImage itemWithNormalImage:@"main-menu.png" selectedImage:@"main-menu_pressed.png" target:self selector:@selector(loadHelloWorldLayer)];
+    
+    gameMenu = [CCMenu menuWithItems:buttonLevel1, mainbutton, nil];
+    [gameMenu alignItemsVertically];
+    [gameMenu runAction:[CCMoveTo actionWithDuration:0.75 position:ccp(size.width/2, size.height/2)]];
+    [self addChild:gameMenu z:1 tag:100];
+}
+
+-(void) winGame {
+    [self addMessage:@"youwin.png"];
+}
+
+-(void) winGameRemove {
+    [self removeMessage];
+}
+
+-(void) loseGame {
+    [self addMessage:@"youlose.png"];
+}
+
+-(void) loseGameRemove {
+    [self removeMessage];
+}
+
+-(void) removeSprite {
+    [self removeChildByTag:31 cleanup:YES];
+    [self removeChildByTag:32 cleanup:YES];
+    [self removeChildByTag:33 cleanup:YES];
+    [self removeChildByTag:30 cleanup:YES];
 }
 
 -(void) dealloc {

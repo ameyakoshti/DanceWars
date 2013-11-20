@@ -32,6 +32,7 @@
     CCSpriteBatchNode *backgroundSpriteSheet;
     CCSpriteBatchNode *userSpriteSheet;
     CCSpriteBatchNode *aiSpriteSheet;
+    CCMenuItem *buttonrestart;
 
     BOOL swipeHit;
     BOOL visited[4];
@@ -50,6 +51,7 @@
     CCLabelTTF *scoreLabel;
     
     CCMenu *pauseMenu;
+    CCMenu *gameMenu;
     
     InputHandler *ih;
     CharacterHandler *charHand;

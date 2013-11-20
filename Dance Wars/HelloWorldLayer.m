@@ -64,7 +64,6 @@
         MainMenuSettings = [CCMenu menuWithItems:optionsButton, nil];
         MainMenuPlay.position = ccp(445, 302);
         MainMenuSettings.position = ccp(550, 188);
-    
         
         [self addChild:introName];
         [self addChild:MainMenuPlay];
@@ -95,5 +94,9 @@
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:optionsSelect]];
 }
 
+-(void)onExit{
+    [self removeChild:MainMenuPlay cleanup:YES];
+    [self removeChild:MainMenuSettings cleanup:YES];
+}
 
 @end
