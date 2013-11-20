@@ -71,14 +71,22 @@ static bool swipeEnableGlobal = NO;
         aichar.flipX = 180;
         [self addChild:aichar z:0 tag:2];
         
-        //static Player life bar:
+        // Static Player life bar:
+        CCSprite *healthBarBGPlayer = [CCSprite spriteWithFile:@"leftHB_bg.png"];
+        healthBarBGPlayer.position = ccp(size.width-125,size.height-50);
+        [self addChild:healthBarBGPlayer];
+        
         CCSprite* UserLifeWrapper = [CCSprite spriteWithFile:@"outline_health_bar.png"];
         UserLifeWrapper.scale = 0.2;
         UserLifeWrapper.position = ccp(125 ,size.height-50);
         [self addChild:UserLifeWrapper];
         
-        
         // Player life bar
+        
+        CCSprite *healthBarBGAI = [CCSprite spriteWithFile:@"rightHB_bg.png"];
+        healthBarBGAI.position = ccp(125,size.height-50);
+        [self addChild:healthBarBGAI];
+        
         self.life = 0;
         self.progressTimer = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"health_bar.png"]];
         self.progressTimer.type = kCCProgressTimerTypeBar;
