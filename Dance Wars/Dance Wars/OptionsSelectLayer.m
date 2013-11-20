@@ -34,15 +34,23 @@
         windowSize = [[CCDirector sharedDirector] winSize];
         
         // Add background image
-        CCSprite *charBg = [CCSprite spriteWithFile:@"home_bg.png"];
+        CCSprite *charBg = [CCSprite spriteWithFile:@"settings_screen_bg.png"];
         charBg.position = ccp(windowSize.width/2, windowSize.height/2);
         [self addChild:charBg];
+        
+        //add labels for settings and volume
+        settingsLabel = [CCSprite spriteWithFile:@"settings_text.png"];
+        settingsLabel.position = ccp(windowSize.width/2, windowSize.height + settingsLabel.contentSize.height);
+        
+        volumeLabel = [CCSprite spriteWithFile:@"volume_text.png"];
+        volumeLabel.position = ccp(0 - volumeLabel.contentSize.width, windowSize.height - volumeLabel.contentSize.height/2);
+        
         
         // Create the slider
         CCControlSlider *slider = [CCControlSlider sliderWithBackgroundFile:@"slidebar2_bg.png" progressFile:@"slider2_filler.png" thumbFile:@"slider2_sliderButton.png"];
         slider.minimumValue = 0.0f; // Sets the min value of range
         slider.maximumValue = 1.0f; // Sets the max value of range
-        slider.position = ccp(windowSize.width/2, windowSize.height/2);
+        slider.position = ccp(windowSize.width/2, windowSize.height*3/5);
         
         // When the value of the slider will change, the given selector will be call
         [slider addTarget:self action:@selector(valueChanged:) forControlEvents:CCControlEventValueChanged];
@@ -54,8 +62,17 @@
         goHome.position = ccp(windowSize.width - homeButton.contentSize.width/2, homeButton.contentSize.height/2);
         [self addChild:goHome];
         
+        [self addChild:settingsLabel];
+        [self addChild:volumeLabel];
+        [self displaySettingsElements];
+        
     }
     return self;
+}
+
+- (void) displaySettingsElements {
+    [volumeLabel runAction:[CCMoveTo actionWithDuration:1 position:ccp(300, windowSize.height*7/10)]];
+    [settingsLabel runAction:[CCMoveTo actionWithDuration:1 position:ccp(windowSize.width/2, 675)]];
 }
 
 - (void)valueChanged:(CCControlSlider *)sender

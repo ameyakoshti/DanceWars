@@ -43,24 +43,34 @@
         
         size = [[CCDirector sharedDirector] winSize];
         
-        CCSprite *levelBg = [CCSprite spriteWithFile:@"background_main.png"];
+        CCSprite *levelBg = [CCSprite spriteWithFile:@"main_menu_background.png"];
         levelBg.position = ccp(size.width/2, size.height/2);
         
         [self addChild:levelBg];
         
-        introName = [CCSprite spriteWithFile:@"dance_wars_label.png"];
+        introName = [CCSprite spriteWithFile:@"dance-wars_text.png"];
         introName.position = ccp(size.width/2, size.height + introName.contentSize.height);
         
-        CCMenuItemImage *playButton = [CCMenuItemImage itemWithNormalImage:@"play_button.png" selectedImage:@"play_button_pressed.png" target:self selector:@selector(loadCharacterSelectLayer)];
-        CCMenuItemImage *optionsButton = [CCMenuItemImage itemWithNormalImage:@"options.png" selectedImage:@"options_pressed.png" target:self selector:@selector(loadOptionsLayer)];
+        playLabel = [CCSprite spriteWithFile:@"play_label.png"];
+        playLabel.position = ccp(0 - playLabel.contentSize.width, size.height - playLabel.contentSize.height/2);
+        
+        settingsLabel = [CCSprite spriteWithFile:@"settings_label.png"];
+        settingsLabel.position = ccp(0 - settingsLabel.contentSize.width, size.height - settingsLabel.contentSize.height/2);
+        
+        CCMenuItemImage *playButton = [CCMenuItemImage itemWithNormalImage:@"play.png" selectedImage:@"play_pressed.png" target:self selector:@selector(loadCharacterSelectLayer)];
+        CCMenuItemImage *optionsButton = [CCMenuItemImage itemWithNormalImage:@"settings.png" selectedImage:@"settings_pressed.png" target:self selector:@selector(loadOptionsLayer)];
 
-        MainMenu = [CCMenu menuWithItems:playButton, optionsButton, nil];
-        MainMenu.position = ccp(0 - MainMenu.contentSize.width, size.height - MainMenu.contentSize.height/2);
-        [MainMenu alignItemsVertically];
+        MainMenuPlay = [CCMenu menuWithItems:playButton, nil];
+        MainMenuSettings = [CCMenu menuWithItems:optionsButton, nil];
+        MainMenuPlay.position = ccp(445, 302);
+        MainMenuSettings.position = ccp(550, 188);
     
         
         [self addChild:introName];
-        [self addChild:MainMenu];
+        [self addChild:MainMenuPlay];
+        [self addChild:MainMenuSettings];
+        [self addChild:playLabel];
+        [self addChild:settingsLabel];
         [self displayMenuElements];
     }
     
@@ -68,7 +78,9 @@
 }
 
 - (void) displayMenuElements {
-    [MainMenu runAction:[CCMoveTo actionWithDuration:1 position:ccp(440, 260)]];
+    [playLabel runAction:[CCMoveTo actionWithDuration:1 position:ccp(445, 350)]];
+    [settingsLabel runAction:[CCMoveTo actionWithDuration:1 position:ccp(550, 140)]];
+    [introName runAction:[CCMoveTo actionWithDuration:1 position:ccp(size.width/2, 650)]];
 
 }
 

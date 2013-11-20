@@ -13,8 +13,11 @@
 @interface HelloWorldLayer : CCLayerColor {
     
     CGSize size;
-    CCMenu *MainMenu;
+    CCMenu *MainMenuPlay;
+    CCMenu *MainMenuSettings;
     CCSprite *introName;
+    CCSprite *playLabel;
+    CCSprite *settingsLabel;
     
 }
 

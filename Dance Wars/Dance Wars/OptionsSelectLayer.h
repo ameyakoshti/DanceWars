@@ -16,9 +16,13 @@
 #import "InputHandler.h"
 
 @interface OptionsSelectLayer : CCLayer {
+    
     CGSize windowSize;
     MyManager *sharedManager;
     InputHandler *ih, *ih2;
+    CCSprite *settingsLabel;
+    CCSprite *volumeLabel;
+
 }
 
 +(CCScene *) scene;
