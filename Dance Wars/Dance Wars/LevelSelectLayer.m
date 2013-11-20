@@ -61,7 +61,7 @@
         
         [self addChild:gameMenu];
         
-        // this adds a button after the game is over to return to the main menu
+        // Adds a button after the game is over to return to the main menu
         CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"home.png" selectedImage:@"home_pressed.png" target:self selector:@selector(loadHome)];
         CCMenu *homeMenu = [CCMenu menuWithItems:homeButton, nil];
         homeMenu.position = ccp(size.width - homeButton.contentSize.width/2, homeButton.contentSize.height/2);
@@ -77,8 +77,8 @@
 }
 
 -(void) loadHome {
-    CCScene *gameLevel = [HelloWorldLayer scene];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.25 scene:gameLevel]];
+    CCScene *home = [HelloWorldLayer scene];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.25 scene:home]];
 }
 
 - (void) loadLevelEasy {

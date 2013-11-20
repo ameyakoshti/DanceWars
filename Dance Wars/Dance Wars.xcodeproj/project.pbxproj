@@ -459,7 +459,9 @@
 		DF1668BF183C99F00047394C /* difficulty_level_3_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1668BC183C99F00047394C /* difficulty_level_3_pressed.png */; };
 		DF1668C1183C9C0B0047394C /* select_difficulty.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1668C0183C9C0B0047394C /* select_difficulty.png */; };
 		DF1668C5183D41380047394C /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1668C3183D41380047394C /* next.png */; };
-		DF1668C6183D41380047394C /* restart.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1668C4183D41380047394C /* restart.png */; };
+		DF1668C9183D4AED0047394C /* next_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1668C7183D4AED0047394C /* next_pressed.png */; };
+		DF1668CA183D4AED0047394C /* replay_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1668C8183D4AED0047394C /* replay_pressed.png */; };
+		DF1668CC183D4D760047394C /* replay.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1668CB183D4D760047394C /* replay.png */; };
 		DF3E1C4717EA363E0043593E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3E1C4617EA363E0043593E /* QuartzCore.framework */; };
 		DF3E1C4917EA363E0043593E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3E1C4817EA363E0043593E /* OpenGLES.framework */; };
 		DF3E1C4B17EA363E0043593E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3E1C4A17EA363E0043593E /* OpenAL.framework */; };
@@ -1169,7 +1171,9 @@
 		DF1668C0183C9C0B0047394C /* select_difficulty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_difficulty.png; sourceTree = "<group>"; };
 		DF1668C2183D3BD30047394C /* Icon76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon76.png; path = "Dance Wars/Resources/Icon76.png"; sourceTree = "<group>"; };
 		DF1668C3183D41380047394C /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
-		DF1668C4183D41380047394C /* restart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restart.png; sourceTree = "<group>"; };
+		DF1668C7183D4AED0047394C /* next_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_pressed.png; sourceTree = "<group>"; };
+		DF1668C8183D4AED0047394C /* replay_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = replay_pressed.png; sourceTree = "<group>"; };
+		DF1668CB183D4D760047394C /* replay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = replay.png; sourceTree = "<group>"; };
 		DF3E1C4317EA363E0043593E /* Dance Wars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dance Wars.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF3E1C4617EA363E0043593E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DF3E1C4817EA363E0043593E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -2048,8 +2052,10 @@
 		B2E9188C18176EC80063BC73 /* pause_menu */ = {
 			isa = PBXGroup;
 			children = (
+				DF1668CB183D4D760047394C /* replay.png */,
+				DF1668C7183D4AED0047394C /* next_pressed.png */,
+				DF1668C8183D4AED0047394C /* replay_pressed.png */,
 				DF1668C3183D41380047394C /* next.png */,
-				DF1668C4183D41380047394C /* restart.png */,
 				D85E34EE183B227D00520E3C /* main-menu.png */,
 				D85E34EF183B227D00520E3C /* main-menu_pressed.png */,
 				D85E34F0183B227D00520E3C /* resume.png */,
@@ -3272,6 +3278,7 @@
 				DF166860183C98B90047394C /* player_4_d2_13.png in Resources */,
 				B2EF48121817AE8D00841EB0 /* characterselect_bg.png in Resources */,
 				DF166850183C98B90047394C /* player_4_d1_45.png in Resources */,
+				DF1668C9183D4AED0047394C /* next_pressed.png in Resources */,
 				DF8699701803D028008CB857 /* intro.mp3 in Resources */,
 				B2C4D7541817B5DA000B295E /* player_2_i_30.png in Resources */,
 				B2C4D6D01817B1DA000B295E /* player_2_d1_31.png in Resources */,
@@ -3378,6 +3385,7 @@
 				B2C4D6EE1817B1DA000B295E /* player_2_d1_59.png in Resources */,
 				B2E9184818176B290063BC73 /* player_1_d1_3.png in Resources */,
 				B2C4D76A1817B5DA000B295E /* player_2_i_50.png in Resources */,
+				DF1668CA183D4AED0047394C /* replay_pressed.png in Resources */,
 				B2E9184718176B290063BC73 /* player_1_d1_29.png in Resources */,
 				DF166837183C98B90047394C /* player_4_d1_22.png in Resources */,
 				DF166876183C98B90047394C /* player_4_d2_33.png in Resources */,
@@ -3419,7 +3427,6 @@
 				B2E9185318176B290063BC73 /* player_1_d1_4.png in Resources */,
 				B2EF47FA18179FE600841EB0 /* background_1_5.png in Resources */,
 				DF166827183C98B90047394C /* player_4_d1.plist in Resources */,
-				DF1668C6183D41380047394C /* restart.png in Resources */,
 				B2C4D7581817B5DA000B295E /* player_2_i_34.png in Resources */,
 				B2C4D7661817B5DA000B295E /* player_2_i_47.png in Resources */,
 				DF166899183C98B90047394C /* player_4_d3_22.png in Resources */,
@@ -3525,6 +3532,7 @@
 				B2E9185F18176B290063BC73 /* player_1_d1_50.png in Resources */,
 				B2C4D75A1817B5DA000B295E /* player_2_i_36.png in Resources */,
 				DFCD0AD8182F103A0084868F /* player_2_d2_25.png in Resources */,
+				DF1668CC183D4D760047394C /* replay.png in Resources */,
 				B2C4D75C1817B5DA000B295E /* player_2_i_38.png in Resources */,
 				DF16685B183C98B90047394C /* player_4_d2.png in Resources */,
 				B2E9187818176B290063BC73 /* player_1_d1_73.png in Resources */,

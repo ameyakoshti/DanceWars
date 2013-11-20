@@ -17,11 +17,10 @@ static NSString * const UIGestureRecognizerNodeKey = @"UIGestureRecognizerNodeKe
 
 // Time between the touch icons
 static float levelDifficulty1Speed = 1.45;
-static float levelDifficulty2Speed = 1.00;
-static float levelDifficulty3Speed = 0.75;
+static float levelDifficulty2Speed = 0.75;
+static float levelDifficulty3Speed = 0.50;
 static float speed;
 static float swipeSpeed = 1.45;
-static float displayTouchIconsDelay = 1.50;
 static bool swipeEnableGlobal = NO;
 
 +(CCScene *) scene{
@@ -125,7 +124,7 @@ static bool swipeEnableGlobal = NO;
         
         CCMenuItemImage *mainbutton = [CCMenuItemImage itemWithNormalImage:@"main-menu.png" selectedImage:@"main-menu_pressed.png" target:self selector:@selector(loadHelloWorldLayer)];
         
-        CCMenuItemImage *restartbutton = [CCMenuItemImage itemWithNormalImage:@"restart.png" selectedImage:@"restart.png" target:self selector:@selector(gameRestart)];
+        CCMenuItemImage *restartbutton = [CCMenuItemImage itemWithNormalImage:@"replay.png" selectedImage:@"replay_pressed.png" target:self selector:@selector(gameRestart)];
         
         pauseMenu = [CCMenu menuWithItems:resumebutton, mainbutton, restartbutton, nil];
         [pauseMenu alignItemsVertically];
@@ -565,7 +564,7 @@ static bool swipeEnableGlobal = NO;
     
     totalGeneratedObjects = (singleTouches.count) + (doubleTouches.count*2) + (swipes.count*2);
     
-    [self schedule:@selector(displayTouchIcons) interval:2.1 repeat:5 delay:displayTouchIconsDelay];
+    [self schedule:@selector(displayTouchIcons) interval:1.5 repeat:5 delay:speed];
 }
 
 -(void) displayTouchIcons {
@@ -946,11 +945,11 @@ static bool swipeEnableGlobal = NO;
     CCMenuItemImage *buttonLevel1;
     
     if(ih2.gameLevelDifficulty == 1) {
-        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"restart.png" selectedImage:@"restart.png" target:self selector:@selector(loadLevelEasy)];
+        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"replay.png" selectedImage:@"replay_pressed.png" target:self selector:@selector(loadLevelEasy)];
     } else if (ih2.gameLevelDifficulty == 2) {
-        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"restart.png" selectedImage:@"restart.png" target:self selector:@selector(loadLevelMed)];
+        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"replay.png" selectedImage:@"replay_pressed.png" target:self selector:@selector(loadLevelMed)];
     } else if(ih2.gameLevelDifficulty == 3) {
-        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"restart.png" selectedImage:@"restart.png" target:self selector:@selector(loadLevelDif)];
+        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"replay.png" selectedImage:@"replay_pressed.png" target:self selector:@selector(loadLevelDif)];
     }
     
     CCMenuItemImage *mainbutton = [CCMenuItemImage itemWithNormalImage:@"main-menu.png" selectedImage:@"main-menu_pressed.png" target:self selector:@selector(loadHelloWorldLayer)];

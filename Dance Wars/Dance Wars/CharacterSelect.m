@@ -76,6 +76,12 @@
         charPath = @"player_4.png";
         [self addSprite:charPath];
         
+        
+        // Adds a button after the game is over to return to the main menu
+        CCMenuItemImage *homeButton = [CCMenuItemImage itemWithNormalImage:@"home.png" selectedImage:@"home_pressed.png" target:self selector:@selector(loadHome)];
+        CCMenu *homeMenu = [CCMenu menuWithItems:homeButton, nil];
+        homeMenu.position = ccp(windowSize.width - homeButton.contentSize.width/2, homeButton.contentSize.height/2);
+        [self addChild:homeMenu];
     }
     return self;
 }
@@ -83,6 +89,11 @@
 -(void)onExit{
     [self removeChild:MainMenu cleanup:YES];
     //[self removeChild:[self getChildByTag:MainMenu] cleanup:YES];
+}
+
+-(void) loadHome {
+    CCScene *home = [HelloWorldLayer scene];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.25 scene:home]];
 }
 
 - (CCSprite *) addSprite:(NSString *)spritePath {
