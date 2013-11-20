@@ -73,8 +73,8 @@ static bool swipeEnableGlobal = NO;
         
         //static Player life bar:
         CCSprite* UserLifeWrapper = [CCSprite spriteWithFile:@"outline_health_bar.png"];
-        UserLifeWrapper.scale = 0.3;
-        UserLifeWrapper.position = ccp(130 ,size.height-50);
+        UserLifeWrapper.scale = 0.2;
+        UserLifeWrapper.position = ccp(125 ,size.height-50);
         [self addChild:UserLifeWrapper];
         
         
@@ -86,12 +86,12 @@ static bool swipeEnableGlobal = NO;
         self.progressTimer.barChangeRate = ccp(1,0);
         [self.progressTimer setScale:1];
         self.progressTimer.percentage = self.life;
-        self.progressTimer.position = ccp(130 ,size.height-50);
+        self.progressTimer.position = ccp(125 ,size.height-50);
         [self addChild:self.progressTimer];
         
         CCSprite *AILifeWrapper = [CCSprite spriteWithFile:@"outline_health_bar.png"];
-        AILifeWrapper.position = ccp(size.width-130,size.height-50);
-        AILifeWrapper.scale = 0.3;
+        AILifeWrapper.position = ccp(size.width-125,size.height-50);
+        AILifeWrapper.scale = 0.2;
         AILifeWrapper.flipX = 180;
         [self addChild:AILifeWrapper];
         
@@ -102,9 +102,9 @@ static bool swipeEnableGlobal = NO;
         self.aiProgressTimer.midpoint = ccp(0,0);
         self.aiProgressTimer.barChangeRate = ccp(1,0);
         [self.aiProgressTimer setScale:1];
+        self.aiProgressTimer.rotationY = 180;
         self.aiProgressTimer.percentage = self.aiLife;
-        self.progressTimer.rotationY = 180;
-        self.aiProgressTimer.position = ccp(size.width-130,size.height-50);
+        self.aiProgressTimer.position = ccp(size.width-125,size.height-50);
         [self addChild:self.aiProgressTimer];
         
         // Displaying a pause button to return to the main menu screen
