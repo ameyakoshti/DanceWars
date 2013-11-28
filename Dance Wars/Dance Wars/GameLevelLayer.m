@@ -749,7 +749,7 @@ static bool swipeEnableGlobal = NO;
     
     // Increment progress bar for user
     if(self.life >= 0 && self.life < 100){
-        self.life += (int)([ih3 userLife]/3);
+        self.life += (int)([ih3 userLife]/(2.47));
         [self.progressTimer setSprite:[CCSprite spriteWithFile:@"health_bar.png"]];
         [self.progressTimer setScale:0.2];
         [self.progressTimer setPercentage:self.life];
@@ -918,9 +918,9 @@ static bool swipeEnableGlobal = NO;
     CCMenuItemImage *buttonLevel1;
     
     if(ih2.gameLevelDifficulty == 1) {
-        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"next.png" selectedImage:@"next.png" target:self selector:@selector(loadLevelMed)];
+        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"next.png" selectedImage:@"next_pressed.png" target:self selector:@selector(loadLevelMed)];
     } else if (ih2.gameLevelDifficulty == 2) {
-        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"next.png" selectedImage:@"next.png" target:self selector:@selector(loadLevelDif)];
+        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"next.png" selectedImage:@"next_pressed.png" target:self selector:@selector(loadLevelDif)];
     }
     
     CCMenuItemImage *mainbutton = [CCMenuItemImage itemWithNormalImage:@"main-menu.png" selectedImage:@"main-menu_pressed.png" target:self selector:@selector(loadHelloWorldLayer)];
