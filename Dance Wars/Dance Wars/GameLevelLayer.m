@@ -459,7 +459,6 @@ static bool swipeEnableGlobal = NO;
     }
 }
 
-
 -(void) loadHelloWorldLayer {
     
     InputHandler *ihvol = [sharedManager.inputBundle objectForKey:@"VOLCONTROL"];
