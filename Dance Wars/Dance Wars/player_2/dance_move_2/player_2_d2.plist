@@ -407,7 +407,7 @@
                 <key>sourceSize</key>
                 <string>{288,252}</string>
             </dict>
-            <key>player_2_d2_39.png</key>
+            <key>player_2_d2_38.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,2},{254,148}}</string>
@@ -417,6 +417,19 @@
                 <false/>
                 <key>sourceColorRect</key>
                 <string>{{16,62},{254,148}}</string>
+                <key>sourceSize</key>
+                <string>{288,252}</string>
+            </dict>
+            <key>player_2_d2_39.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{192,478},{182,170}}</string>
+                <key>offset</key>
+                <string>{0,-2}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{53,43},{182,170}}</string>
                 <key>sourceSize</key>
                 <string>{288,252}</string>
             </dict>
@@ -430,19 +443,6 @@
                 <false/>
                 <key>sourceColorRect</key>
                 <string>{{40,45},{208,160}}</string>
-                <key>sourceSize</key>
-                <string>{288,252}</string>
-            </dict>
-            <key>player_2_d2_40.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{192,478},{182,170}}</string>
-                <key>offset</key>
-                <string>{0,-2}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{53,43},{182,170}}</string>
                 <key>sourceSize</key>
                 <string>{288,252}</string>
             </dict>
@@ -521,7 +521,7 @@
             <key>size</key>
             <string>{512,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:0ee07448a026dc59da437d8dd1b92411:1de33d2862f752c0ca278a73a470e7ec:602cb9b4972556a22a7b63c918e87a42$</string>
+            <string>$TexturePacker:SmartUpdate:01cbeded6fdddd41cdfd41867393f6e4:c3b72ce0891592879ea357eb087c3f09:602cb9b4972556a22a7b63c918e87a42$</string>
             <key>textureFileName</key>
             <string>player_2_d2.png</string>
         </dict>
