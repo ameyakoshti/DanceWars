@@ -79,8 +79,8 @@ static bool swipeEnableGlobal = NO;
         
         // Player life bar
         CCSprite* UserLifeWrapper = [CCSprite spriteWithFile:@"outline_health_bar.png"];
-        UserLifeWrapper.scale = 0.2;
-        UserLifeWrapper.position = ccp(125 ,size.height-50);
+        UserLifeWrapper.scale = 0.3;
+        UserLifeWrapper.position = ccp(200 ,size.height-50);
         [self addChild:UserLifeWrapper];
 
         self.life = 0;
@@ -88,15 +88,22 @@ static bool swipeEnableGlobal = NO;
         self.progressTimer.type = kCCProgressTimerTypeBar;
         self.progressTimer.midpoint = ccp(0,0);
         self.progressTimer.barChangeRate = ccp(1,0);
-        [self.progressTimer setScale:1];
+        [self.progressTimer setScale:0.3];
         self.progressTimer.percentage = self.life;
-        self.progressTimer.position = ccp(125 ,size.height-50);
+        self.progressTimer.position = ccp(200 ,size.height-50);
         [self addChild:self.progressTimer];
+        
+        //User Score label
+        UserScoreLabel = [CCLabelTTF labelWithString:@"%d" fontName:@"Papyrus" fontSize:35];
+        UserScoreLabel.position =CGPointMake(290,size.height - 80);
+        UserScoreLabel.color=ccc3(240, 255, 255);
+        [UserScoreLabel setString :[NSString stringWithFormat:@"Score: 0"]];
+        [self addChild:UserScoreLabel z:1 tag:41];
         
         // AI life bar
         CCSprite *AILifeWrapper = [CCSprite spriteWithFile:@"outline_health_bar.png"];
-        AILifeWrapper.position = ccp(size.width-125,size.height-50);
-        AILifeWrapper.scale = 0.2;
+        AILifeWrapper.position = ccp(size.width-200,size.height-50);
+        AILifeWrapper.scale = 0.3;
         AILifeWrapper.flipX = 180;
         [self addChild:AILifeWrapper];
         
@@ -105,11 +112,19 @@ static bool swipeEnableGlobal = NO;
         self.aiProgressTimer.type = kCCProgressTimerTypeBar;
         self.aiProgressTimer.midpoint = ccp(0,0);
         self.aiProgressTimer.barChangeRate = ccp(1,0);
-        [self.aiProgressTimer setScale:1];
+        [self.aiProgressTimer setScale:0.3];
         self.aiProgressTimer.rotationY = 180;
         self.aiProgressTimer.percentage = self.aiLife;
-        self.aiProgressTimer.position = ccp(size.width-125,size.height-50);
+        self.aiProgressTimer.position = ccp(size.width-200,size.height-50);
         [self addChild:self.aiProgressTimer];
+        
+        //AI Score Label
+        AIscoreLabel = [CCLabelTTF labelWithString:@"%d" fontName:@"Papyrus" fontSize:35];
+        AIscoreLabel.position =CGPointMake(size.width - 290,size.height - 80);
+        AIscoreLabel.color=ccc3(240, 255, 255);
+        [AIscoreLabel setString :[NSString stringWithFormat:@"Score: 0"]];
+        [self addChild:AIscoreLabel z:1 tag:40];
+
         
         // Displaying a pause button to return to the main menu screen
         CCMenuItemImage *pauseButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame_pressed.png" target:self selector:@selector(initiatePause)];
@@ -453,8 +468,18 @@ static bool swipeEnableGlobal = NO;
     if(self.aiLife >= 0 && self.aiLife < 100)
     {
         self.aiLife += aiscore;
+        if(AIscoreLabel)
+            [self removeChildByTag:40 cleanup:YES];
+        
+        AIscoreLabel = [CCLabelTTF labelWithString:@"%d" fontName:@"Papyrus" fontSize:35];
+        AIscoreLabel.position =CGPointMake(size.width - 290,size.height - 80);
+        AIscoreLabel.color=ccc3(240, 255, 255);
+        [AIscoreLabel setString :[NSString stringWithFormat:@"Score: %i", self.aiLife]];
+        [self addChild:AIscoreLabel z:1 tag:40];
+
+        
         [self.aiProgressTimer setSprite:[CCSprite spriteWithFile:@"health_bar.png"]];
-        [self.aiProgressTimer setScale:0.2];
+        [self.aiProgressTimer setScale:0.3];
         [self.aiProgressTimer setPercentage:self.aiLife];
     }
 }
@@ -749,28 +774,22 @@ static bool swipeEnableGlobal = NO;
     // Increment progress bar for user
     if(self.life >= 0 && self.life < 100){
         self.life += (int)[ih3 userLife];
+        
+        if(UserScoreLabel)
+            [self removeChildByTag:41 cleanup:YES];
+        
+        UserScoreLabel = [CCLabelTTF labelWithString:@"%d" fontName:@"Papyrus" fontSize:35];
+        UserScoreLabel.position =CGPointMake(290,size.height - 80);
+        UserScoreLabel.color=ccc3(240, 255, 255);
+        [UserScoreLabel setString :[NSString stringWithFormat:@"Score: %i", self.life]];
+        [self addChild:UserScoreLabel z:1 tag:41];
+
+        
         [self.progressTimer setSprite:[CCSprite spriteWithFile:@"health_bar.png"]];
-        [self.progressTimer setScale:0.2];
+        [self.progressTimer setScale:0.3];
         [self.progressTimer setPercentage:self.life];
-//        if(self.life > 25 && self.life < 60){
-//            [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_orange.png"]];
-//            [self.progressTimer setScale:1];
-//        }
-//        if(self.life > 60){
-//            [self.progressTimer setSprite:[CCSprite spriteWithFile:@"healthbar_green.png"]];
-//            [self.progressTimer setScale:1];
-//        }
-    }
-    // Enable dance show for Player
- /*   int num=0;
-    
-    do
-    {
-        num=arc4random()%4;
-    }
-    while(num==0);
-    NSString *danceMove = [NSString stringWithFormat:@"_d%d",num];*/
-    [self initiateUserDance];
+        }
+      [self initiateUserDance];
     
 }
 
@@ -816,11 +835,11 @@ static bool swipeEnableGlobal = NO;
             self.life += 1;
             if(self.life > 25 && self.life < 60){
                 [self.progressTimer setSprite:[CCSprite spriteWithFile:@"health_bar.png"]];
-                [self.progressTimer setScale:1];
+                [self.progressTimer setScale:0.3];
             }
             if(self.life > 60){
                 [self.progressTimer setSprite:[CCSprite spriteWithFile:@"health_bar.png"]];
-                [self.progressTimer setScale:1];
+                [self.progressTimer setScale:0.3];
             }
         }
         [self.progressTimer setPercentage:self.life];
@@ -980,6 +999,7 @@ static bool swipeEnableGlobal = NO;
     [self removeChildByTag:32 cleanup:YES];
     [self removeChildByTag:33 cleanup:YES];
     [self removeChildByTag:30 cleanup:YES];
+
 }
 
 -(void) dealloc {
