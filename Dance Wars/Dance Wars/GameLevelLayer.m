@@ -856,6 +856,7 @@ static bool swipeEnableGlobal = NO;
             visited[1] = YES;
             hitCount++;
             totalHitCount++;
+            touchIcon[1].visible = FALSE;
             //AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
             [self showBlastEffect:touchIcon[1].position];
         }
@@ -863,6 +864,7 @@ static bool swipeEnableGlobal = NO;
             visited[2] = YES;
             hitCount++;
             totalHitCount++;
+            touchIcon[2].visible = FALSE;
             //AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
             [self showBlastEffect:touchIcon[2].position];
         }
