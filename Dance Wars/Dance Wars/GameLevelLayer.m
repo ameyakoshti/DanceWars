@@ -936,9 +936,9 @@ static bool swipeEnableGlobal = NO;
     CCMenuItemImage *buttonLevel1;
     
     if(ih2.gameLevelDifficulty == 1) {
-        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"next.png" selectedImage:@"next.png" target:self selector:@selector(loadLevelMed)];
+        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"next.png" selectedImage:@"next_pressed.png" target:self selector:@selector(loadLevelMed)];
     } else if (ih2.gameLevelDifficulty == 2) {
-        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"next.png" selectedImage:@"next.png" target:self selector:@selector(loadLevelDif)];
+        buttonLevel1 = [CCMenuItemImage itemWithNormalImage:@"next.png" selectedImage:@"next_pressed.png" target:self selector:@selector(loadLevelDif)];
     }
     
     CCMenuItemImage *mainbutton = [CCMenuItemImage itemWithNormalImage:@"main-menu.png" selectedImage:@"main-menu_pressed.png" target:self selector:@selector(loadHelloWorldLayer)];

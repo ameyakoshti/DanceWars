@@ -835,7 +835,6 @@
 		DF5C3811183BEAD600CE0518 /* drum.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF5C3810183BEAD600CE0518 /* drum.mp3 */; };
 		DF6AA8C217F4AADE0076B2A5 /* touchpoints.png in Resources */ = {isa = PBXBuildFile; fileRef = DF6AA8C117F4AADE0076B2A5 /* touchpoints.png */; };
 		DF8699501803BAEA008CB857 /* LevelEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86994F1803BAEA008CB857 /* LevelEnvironment.m */; };
-		DF8699541803C6B4008CB857 /* background4.png in Resources */ = {isa = PBXBuildFile; fileRef = DF8699521803C6B4008CB857 /* background4.png */; };
 		DF86996E1803D028008CB857 /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8699691803D028008CB857 /* background.mp3 */; };
 		DF8699701803D028008CB857 /* intro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF86996B1803D028008CB857 /* intro.mp3 */; };
 		DF8699721803D028008CB857 /* madrid.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF86996D1803D028008CB857 /* madrid.mp3 */; };
@@ -1919,7 +1918,6 @@
 		DF6AA8C117F4AADE0076B2A5 /* touchpoints.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = touchpoints.png; sourceTree = "<group>"; };
 		DF86994E1803BAEA008CB857 /* LevelEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelEnvironment.h; sourceTree = "<group>"; };
 		DF86994F1803BAEA008CB857 /* LevelEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelEnvironment.m; sourceTree = "<group>"; };
-		DF8699521803C6B4008CB857 /* background4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background4.png; sourceTree = "<group>"; };
 		DF8699691803D028008CB857 /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		DF86996B1803D028008CB857 /* intro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = intro.mp3; sourceTree = "<group>"; };
 		DF86996D1803D028008CB857 /* madrid.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = madrid.mp3; sourceTree = "<group>"; };
@@ -2163,7 +2161,6 @@
 				B2EF47D718179FE500841EB0 /* background1 */,
 				07C95C961834053D000B329A /* background2 */,
 				DFFD65AF184ABD4300A83508 /* background3 */,
-				DFCC18E518177941009B8EE8 /* background4 */,
 			);
 			name = background;
 			sourceTree = "<group>";
@@ -3561,14 +3558,6 @@
 			path = "CCNode+SFGestureRecognizers";
 			sourceTree = "<group>";
 		};
-		DFCC18E518177941009B8EE8 /* background4 */ = {
-			isa = PBXGroup;
-			children = (
-				DF8699521803C6B4008CB857 /* background4.png */,
-			);
-			name = background4;
-			sourceTree = "<group>";
-		};
 		DFCC18F01817D149009B8EE8 /* player_3 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3936,7 +3925,6 @@
 				DF424CF51848B71500CD447E /* player_2_d3_15.png in Resources */,
 				DF424B741848B67C00CD447E /* player_1_d2_3.png in Resources */,
 				DF424C9E1848B71500CD447E /* player_2_d1.png in Resources */,
-				DF8699541803C6B4008CB857 /* background4.png in Resources */,
 				DF424B4F1848B67C00CD447E /* player_1_d1_27.png in Resources */,
 				DF424BF71848B67C00CD447E /* player_1_d5_5.png in Resources */,
 				D8D6267A183C636C00C0356C /* settings_pressed.png in Resources */,
