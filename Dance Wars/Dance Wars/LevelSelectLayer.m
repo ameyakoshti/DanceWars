@@ -46,7 +46,7 @@
         
         // Level header
         label = [CCSprite spriteWithFile:@"select_difficulty.png"];
-        label.position = ccp(size.width/2, 768);
+        label.position = ccp(size.width/2, 775);
         [self addChild:label];
         
         // menu to create different levels of difficulty

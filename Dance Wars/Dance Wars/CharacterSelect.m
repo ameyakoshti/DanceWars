@@ -53,7 +53,7 @@
         CCMenuItemImage *characterFour = [CCMenuItemImage itemWithNormalImage:@"player_4.png" selectedImage:@"player_4.png" target:self selector:@selector(selectCharacterFour)];
         
         MainMenu = [CCMenu menuWithItems:characterOne, characterTwo, characterThree, characterFour, nil];
-        MainMenu.position = ccp(windowSize.width/2,windowSize.height*1/3);
+        MainMenu.position = ccp(windowSize.width/2,300);
         NSNumber* itemsPerRow = [NSNumber numberWithInt:2];
         [MainMenu alignItemsInColumns:itemsPerRow, itemsPerRow, itemsPerRow, nil];
         //[MainMenu alignItemsHorizontally];
