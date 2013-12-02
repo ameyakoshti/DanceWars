@@ -773,9 +773,9 @@ static bool swipeEnableGlobal = NO;
     
     // Increment progress bar for user
     if(self.life >= 0 && self.life < 100){
-<<<<<<< HEAD
+
         self.life += (int)([ih3 userLife]/(2.47));
-=======
+
         self.life += (int)[ih3 userLife];
         
         if(UserScoreLabel)
@@ -788,7 +788,6 @@ static bool swipeEnableGlobal = NO;
         [self addChild:UserScoreLabel z:1 tag:41];
 
         
->>>>>>> aec5529ba069b82653376322ee3923fe255a5fa9
         [self.progressTimer setSprite:[CCSprite spriteWithFile:@"health_bar.png"]];
         [self.progressTimer setScale:0.3];
         [self.progressTimer setPercentage:self.life];
