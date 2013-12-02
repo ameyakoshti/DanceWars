@@ -49,7 +49,9 @@
     float yLocations[15];
 
     CCLabelTTF *scoreLabel;
-    
+    CCLabelTTF *AIscoreLabel;
+    CCLabelTTF *UserScoreLabel;
+
     CCMenu *pauseMenu;
     CCMenu *gameMenu;
     
