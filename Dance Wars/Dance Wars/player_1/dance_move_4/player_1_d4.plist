@@ -329,6 +329,19 @@
                 <key>sourceSize</key>
                 <string>{288,252}</string>
             </dict>
+            <key>player_1_d4_32.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{236,196},{158,214}}</string>
+                <key>offset</key>
+                <string>{4,-1}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{69,20},{158,214}}</string>
+                <key>sourceSize</key>
+                <string>{288,252}</string>
+            </dict>
             <key>player_1_d4_4.png</key>
             <dict>
                 <key>frame</key>
@@ -417,7 +430,7 @@
             <key>size</key>
             <string>{512,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:4836e89821edab0a226ca70828446a26:1380fea1c358db7e35006277eb48a3ae:988bfd7a982bd04cd520b6ca096104cb$</string>
+            <string>$TexturePacker:SmartUpdate:e8656c194575f7e57e34d9edc64eb770:cf6647ac5478ece5bbc07b4c7d6b1168:988bfd7a982bd04cd520b6ca096104cb$</string>
             <key>textureFileName</key>
             <string>player_1_d4.png</string>
         </dict>
