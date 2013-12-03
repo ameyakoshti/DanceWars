@@ -127,7 +127,7 @@ static bool swipeEnableGlobal = NO;
 
         
         // Displaying a pause button to return to the main menu screen
-        CCMenuItemImage *pauseButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame_pressed.png" target:self selector:@selector(initiatePause)];
+        pauseButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame_pressed.png" target:self selector:@selector(initiatePause)];
         CCMenu *pauseButtonMenu = [CCMenu menuWithItems:pauseButton, nil];
         pauseButtonMenu.position = ccp(size.width - pauseButton.contentSize.width/2, pauseButton.contentSize.height/2);
         [self addChild:pauseButtonMenu z:1 tag:13];
@@ -248,7 +248,9 @@ static bool swipeEnableGlobal = NO;
             //[self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:3.5];
             [self removeChild:backgroundSpriteSheet];
         }
-
+        
+        pauseButton.visible = FALSE;
+        
         // Displaying score
         
         int scoreHeight = size.height*1/3 + 50;
@@ -541,7 +543,7 @@ static bool swipeEnableGlobal = NO;
     
     [[CCDirector sharedDirector] resume];
     [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
-    CCMenuItemImage *pauseButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame_pressed.png" target:self selector:@selector(initiatePause)];
+    pauseButton = [CCMenuItemImage itemWithNormalImage:@"pausegame.png" selectedImage:@"pausegame_pressed.png" target:self selector:@selector(initiatePause)];
     CCMenu *pauseButtonMenu = [CCMenu menuWithItems:pauseButton, nil];
     pauseButtonMenu.position = ccp(size.width - pauseButton.contentSize.width/2, pauseButton.contentSize.height/2);
     [self addChild:pauseButtonMenu z:1 tag:13];
@@ -777,6 +779,10 @@ static bool swipeEnableGlobal = NO;
         self.life += (int)([ih3 userLife]/(2.47));
 
         self.life += (int)[ih3 userLife];
+        
+        if(self.life > 100){
+            self.life = 100;
+        }
         
         if(UserScoreLabel)
             [self removeChildByTag:41 cleanup:YES];

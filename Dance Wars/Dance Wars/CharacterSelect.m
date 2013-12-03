@@ -43,8 +43,8 @@
         [self addChild:charBg];
         
         // Character header
-        CCLabelTTF *label = [CCLabelTTF labelWithString:@"Select Your Character" fontName:@"Papyrus" fontSize:50];
-        label.position = ccp(windowSize.width/2, windowSize.height*6/7);
+        label = [CCSprite spriteWithFile:@"select_character_bg.png"];
+        label.position = ccp(windowSize.width/2, 775);
         [self addChild:label];
         
         CCMenuItemImage *characterOne = [CCMenuItemImage itemWithNormalImage:@"player_1.png" selectedImage:@"player_1.png" target:self selector:@selector(selectCharacterOne)];
@@ -82,8 +82,14 @@
         CCMenu *homeMenu = [CCMenu menuWithItems:homeButton, nil];
         homeMenu.position = ccp(windowSize.width - homeButton.contentSize.width/2, homeButton.contentSize.height/2);
         [self addChild:homeMenu];
+        
+        [self displayMenuElements];
     }
     return self;
+}
+
+- (void) displayMenuElements {
+    [label runAction:[CCMoveTo actionWithDuration:1 position:ccp(windowSize.width/2, 650)]];
 }
 
 -(void)onExit{

@@ -33,6 +33,7 @@
     CCSpriteBatchNode *userSpriteSheet;
     CCSpriteBatchNode *aiSpriteSheet;
     CCMenuItem *buttonrestart;
+    CCMenuItemImage *pauseButton;
 
     BOOL swipeHit;
     BOOL visited[4];

@@ -20,6 +20,7 @@
     CGSize windowSize;
     MyManager *sharedManager;
     CCMenu *MainMenu;
+    CCSprite *label;
 }
 
 @property (nonatomic, retain) NSMutableArray *charSpriteList;
