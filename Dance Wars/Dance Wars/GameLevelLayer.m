@@ -800,7 +800,7 @@ static float removeMessageSpeed = 0.50;
     // Increment progress bar for user
     if(self.life >= 0 && self.life < 100){
 
-        self.life += (int)([ih3 userLife]);
+        self.life += (int)([ih3 userLife]/(1.83));
     
         //self.life += (int)[ih3 userLife];
         
@@ -857,12 +857,7 @@ static float removeMessageSpeed = 0.50;
         arrow.visible = FALSE;
         
         // Particle effects on a gesture hit
-        CCParticleSystem *emitterGesture = [CCParticleExplosion node];
-        emitterGesture.position = node.position;
-        emitterGesture.scale = 0.5;
-        emitterGesture.texture = [[CCTextureCache sharedTextureCache] addImage:@"Icon-Small.png"];
-        [emitterGesture setLife:1.0f];
-        [self addChild: emitterGesture];
+        [self showBlastEffect:touchIcon[2].position];
         
         if(self.life >= 0 && self.life < 100){
             self.life += 1;

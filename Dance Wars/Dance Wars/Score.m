@@ -92,7 +92,7 @@
     NSLog(@"User Acc: %f", [ih3 userAccuracy]);
     
     // set ai score
-    aiscore = (patternDifficulty * [ih3 aiAccuracy]);
+    aiscore = (patternDifficulty * 1.5 * [ih3 aiAccuracy]);
     [ih setAiScore:aiscore];
     NSLog(@"AIScore: %f",[ih aiScore]);
     
