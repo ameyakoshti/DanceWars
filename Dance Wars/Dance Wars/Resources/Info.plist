@@ -21,6 +21,7 @@
 	</array>
 	<key>CFBundleIconFiles~ipad</key>
 	<array>
+		<string>iPhoneIcon_Big</string>
 		<string>Icon76</string>
 		<string>Icon</string>
 		<string>Icon.png</string>

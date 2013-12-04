@@ -43,7 +43,7 @@
     else if([ih3 userAccuracy] >= 70 && [ih3 moveDifficulty] == 5)
         [ih3 setMoveDifficulty:7];
     
-    NSLog(@"this is move difficulty %d", [ih3 moveDifficulty]);
+    NSLog(@"Move Difficulty Set To: %d", [ih3 moveDifficulty]);
 
     
     patternDifficulty = ([ih3 moveDifficulty] * [ih3 gameLevelDifficulty]);
