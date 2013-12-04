@@ -38,7 +38,7 @@
 	if( (self=[super init])) {
 		
         // start intro music
-        //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"intro.mp3"];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"intro.mp3"];
        
     }
 	
