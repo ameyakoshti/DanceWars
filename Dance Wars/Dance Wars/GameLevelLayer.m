@@ -172,7 +172,7 @@ static float removeMessageSpeed = 0.50;
         [self addChild:messageAwesome];
         messageAwesome.visible = FALSE;
         
-        messageKeepShakin = [CCSprite spriteWithFile:@"keepskakinit.png"];
+        messageKeepShakin = [CCSprite spriteWithFile:@"keepshakinit.png"];
         messageKeepShakin.position = ccp(size.width/2,size.height/2);
         [self addChild:messageKeepShakin];
         messageKeepShakin.visible = FALSE;
@@ -897,7 +897,7 @@ static float removeMessageSpeed = 0.50;
     // Check If Both Hit = 0;
     if(visited[1] == YES && visited[2] == YES){
         // Generate random message
-        int num = arc4random()%4;
+        int num = arc4random()%5;
         switch (num) {
             case 1:
                 messageNice.visible = TRUE;
