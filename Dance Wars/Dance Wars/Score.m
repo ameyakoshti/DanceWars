@@ -78,9 +78,9 @@
                 }
         case 3:{
                     if([ih3 moveDifficulty] == 3)
-                        [ih3 setAiAccuracy:90];
+                        [ih3 setAiAccuracy:85];
                     else if([ih3 moveDifficulty] == 5)
-                        [ih3 setAiAccuracy:95];
+                        [ih3 setAiAccuracy:90];
                     else
                         [ih3 setAiAccuracy:100];
                     break;
@@ -92,7 +92,7 @@
     NSLog(@"User Acc: %f", [ih3 userAccuracy]);
     
     // set ai score
-    aiscore = (patternDifficulty * 1.5 * [ih3 aiAccuracy]);
+    aiscore = (patternDifficulty * [ih3 aiAccuracy]);
     [ih setAiScore:aiscore];
     NSLog(@"AIScore: %f",[ih aiScore]);
     

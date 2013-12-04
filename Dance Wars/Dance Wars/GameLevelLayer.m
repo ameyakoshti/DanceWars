@@ -485,12 +485,13 @@ static float removeMessageSpeed = 0.50;
     // update AI progress bar
     if(self.aiLife >= 0 && self.aiLife < 100)
     {
+        self.aiLife += aiscore;
+        if(AIscoreLabel)
+        
         if(self.aiLife > 100){
             self.aiLife = 100;
         }
         
-        self.aiLife += aiscore;
-        if(AIscoreLabel)
             [self removeChildByTag:40 cleanup:YES];
         
         AIscoreLabel = [CCLabelTTF labelWithString:@"%d" fontName:@"Papyrus" fontSize:35];
@@ -850,7 +851,7 @@ static float removeMessageSpeed = 0.50;
     
     if(CGRectContainsPoint(touchIcon[1].boundingBox, ccp(touchIcon[2].position.x,touchIcon[2].position.y)) && !swipeHit){
         swipeHit = YES;
-        totalHitCount = totalHitCount + 2;
+        totalHitCount = totalHitCount + 1;
         
         touchIcon[1].visible = FALSE;
         touchIcon[2].visible = FALSE;
@@ -930,9 +931,9 @@ static float removeMessageSpeed = 0.50;
     //set the location of the emitter
     emitter.position = location;
     //set size of particle animation
-    emitter.scale = 0.3;
+    emitter.scale = 0.5;
     //set an Image for the particle
-    emitter.texture = [[CCTextureCache sharedTextureCache] addImage:@"touchpoints.png"];
+    emitter.texture = [[CCTextureCache sharedTextureCache] addImage:@"music_note.png"];
     //set length of particle animation
     [emitter setLife:0.08f];
     //add to layer ofcourse(effect begins after this step)
