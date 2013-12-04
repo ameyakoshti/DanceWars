@@ -27,7 +27,7 @@
     CCSprite *dancer;
     CCSprite *aichar;
     CCSprite *message;
-    CCSprite *messageNice;
+    CCSprite *messageNice,*messageAwesome,*messageKeepShakin,*messageGreatMove;
     CCSprite *arrow;
     CCSpriteBatchNode *backgroundSpriteSheet;
     CCSpriteBatchNode *userSpriteSheet;

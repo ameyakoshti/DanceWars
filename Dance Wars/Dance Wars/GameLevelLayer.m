@@ -22,6 +22,7 @@ static float levelDifficulty3Speed = 0.50;
 static float speed;
 static float swipeSpeed = 1.45;
 static bool swipeEnableGlobal = NO;
+static float removeMessageSpeed = 0.50;
 
 +(CCScene *) scene{
 	CCScene *scene = [CCScene node];
@@ -68,14 +69,6 @@ static bool swipeEnableGlobal = NO;
         aichar.position = ccp(801,175);
         aichar.flipX = 180;
         [self addChild:aichar z:0 tag:2];
-        
-        // Static Player life bar:
-        //CCSprite *healthBarBGPlayer = [CCSprite spriteWithFile:@"leftHB_bg.png"];
-        //healthBarBGPlayer.position = ccp(size.width-125,size.height-50);
-        //[self addChild:healthBarBGPlayer];
-        //CCSprite *healthBarBGAI = [CCSprite spriteWithFile:@"rightHB_bg.png"];
-        //healthBarBGAI.position = ccp(125,size.height-50);
-        //[self addChild:healthBarBGAI];
         
         // Player life bar
         CCSprite* UserLifeWrapper = [CCSprite spriteWithFile:@"outline_health_bar.png"];
@@ -133,8 +126,6 @@ static bool swipeEnableGlobal = NO;
         [self addChild:pauseButtonMenu z:1 tag:13];
         
         //Creating and adding pause menu
-        //CCMenuItemImage *pauseScreen = [CCMenuItemImage itemWithNormalImage:@"paused_menu_banner.png" selectedImage:@"paused_menu_banner.png" target:self selector:nil];
-        
         CCMenuItemImage *resumebutton = [CCMenuItemImage itemWithNormalImage:@"resume.png" selectedImage:@"resume_pressed.png" target:self selector:@selector(gameResume)];
         
         CCMenuItemImage *mainbutton = [CCMenuItemImage itemWithNormalImage:@"main-menu.png" selectedImage:@"main-menu_pressed.png" target:self selector:@selector(loadHelloWorldLayer)];
@@ -170,10 +161,26 @@ static bool swipeEnableGlobal = NO;
         // Initial idle move for user
         //[self initiateIdleDance];
         
+        
         messageNice = [CCSprite spriteWithFile:@"nice.png"];
         messageNice.position = ccp(size.width/2,size.height/2);
         [self addChild:messageNice];
         messageNice.visible = FALSE;
+        
+        messageAwesome = [CCSprite spriteWithFile:@"awesome.png"];
+        messageAwesome.position = ccp(size.width/2,size.height/2);
+        [self addChild:messageAwesome];
+        messageAwesome.visible = FALSE;
+        
+        messageKeepShakin = [CCSprite spriteWithFile:@"keepskakinit.png"];
+        messageKeepShakin.position = ccp(size.width/2,size.height/2);
+        [self addChild:messageKeepShakin];
+        messageKeepShakin.visible = FALSE;
+        
+        messageGreatMove = [CCSprite spriteWithFile:@"greatmove.png"];
+        messageGreatMove.position = ccp(size.width/2,size.height/2);
+        [self addChild:messageGreatMove];
+        messageGreatMove.visible = FALSE;
         
     }
     
@@ -596,6 +603,10 @@ static bool swipeEnableGlobal = NO;
 -(void) displayTouchIcons {
     // to check if both the touch icons are tapped at the same time
     messageNice.visible = FALSE;
+    messageAwesome.visible = FALSE;
+    messageGreatMove.visible = FALSE;
+    messageKeepShakin.visible = FALSE;
+    
     visited[1] = NO;
     visited[2] = NO;
     
@@ -881,9 +892,27 @@ static bool swipeEnableGlobal = NO;
     
     // Check If Both Hit = 0;
     if(visited[1] == YES && visited[2] == YES){
-        messageNice.visible = TRUE;
-        //[self addMessage:@"nice.png"];
-        //[self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:removeMessageSpeed];
+        // Generate random message
+        int num = arc4random()%4;
+        switch (num) {
+            case 1:
+                messageNice.visible = TRUE;
+                break;
+            case 2:
+                messageAwesome.visible = TRUE;
+                break;
+            case 3:
+                messageGreatMove.visible = TRUE;
+                break;
+            case 4:
+                messageKeepShakin.visible = TRUE;
+                break;
+                
+            default:
+                break;
+        }
+        
+        [self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:removeMessageSpeed];
     }
 }
 

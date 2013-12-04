@@ -956,6 +956,9 @@
 		DFDEEF61184EAC24009DB0D3 /* player_2_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDEEF60184EAC24009DB0D3 /* player_2_pressed.png */; };
 		DFDEEF63184EAC33009DB0D3 /* player_3_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDEEF62184EAC33009DB0D3 /* player_3_pressed.png */; };
 		DFDEEF65184EAC39009DB0D3 /* player_4_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDEEF64184EAC39009DB0D3 /* player_4_pressed.png */; };
+		DFDEEF69184EB559009DB0D3 /* awesome.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDEEF66184EB559009DB0D3 /* awesome.png */; };
+		DFDEEF6A184EB559009DB0D3 /* greatmove.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDEEF67184EB559009DB0D3 /* greatmove.png */; };
+		DFDEEF6B184EB559009DB0D3 /* keepshakinit.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDEEF68184EB559009DB0D3 /* keepshakinit.png */; };
 		DFE58590183C51A60000BCE9 /* health_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE5858E183C51A60000BCE9 /* health_bar.png */; };
 		DFE58591183C51A60000BCE9 /* outline_health_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE5858F183C51A60000BCE9 /* outline_health_bar.png */; };
 		DFE89BCD17FBEFFA007A7468 /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE89BCC17FBEFFA007A7468 /* fire.png */; };
@@ -2147,6 +2150,9 @@
 		DFDEEF60184EAC24009DB0D3 /* player_2_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_2_pressed.png; sourceTree = "<group>"; };
 		DFDEEF62184EAC33009DB0D3 /* player_3_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_3_pressed.png; sourceTree = "<group>"; };
 		DFDEEF64184EAC39009DB0D3 /* player_4_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_4_pressed.png; sourceTree = "<group>"; };
+		DFDEEF66184EB559009DB0D3 /* awesome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesome.png; sourceTree = "<group>"; };
+		DFDEEF67184EB559009DB0D3 /* greatmove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greatmove.png; sourceTree = "<group>"; };
+		DFDEEF68184EB559009DB0D3 /* keepshakinit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keepshakinit.png; sourceTree = "<group>"; };
 		DFE5858E183C51A60000BCE9 /* health_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health_bar.png; sourceTree = "<group>"; };
 		DFE5858F183C51A60000BCE9 /* outline_health_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outline_health_bar.png; sourceTree = "<group>"; };
 		DFE89BCC17FBEFFA007A7468 /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
@@ -2335,6 +2341,9 @@
 		B2E9188A18176E910063BC73 /* messages */ = {
 			isa = PBXGroup;
 			children = (
+				DFDEEF66184EB559009DB0D3 /* awesome.png */,
+				DFDEEF67184EB559009DB0D3 /* greatmove.png */,
+				DFDEEF68184EB559009DB0D3 /* keepshakinit.png */,
 				DFCC18EC1817CC1C009B8EE8 /* youlose.png */,
 				B2A69B63182175930040B4DC /* arrow.png */,
 				DFCC18ED1817CC1C009B8EE8 /* youwin.png */,
@@ -4065,6 +4074,7 @@
 				DF166892183C98B90047394C /* player_4_d3_16.png in Resources */,
 				DFFD65C2184ABD4300A83508 /* background_3_7.png in Resources */,
 				DF424BAA1848B67C00CD447E /* player_1_d3_9.png in Resources */,
+				DFDEEF6B184EB559009DB0D3 /* keepshakinit.png in Resources */,
 				DF733852184D342F00EA112C /* player_3_d1_4.png in Resources */,
 				DFA239DB184E7933001EEA45 /* player_1_d4_15.png in Resources */,
 				DF3E1DCB17EA36410043593E /* ChangeLog in Resources */,
@@ -4310,6 +4320,7 @@
 				07C95CEB183405E5000B329A /* README.md in Resources */,
 				DF1668BD183C99F00047394C /* difficulty_level_1_pressed.png in Resources */,
 				DF424BF91848B67C00CD447E /* player_1_d5_7.png in Resources */,
+				DFDEEF6A184EB559009DB0D3 /* greatmove.png in Resources */,
 				DF733847184D342F00EA112C /* player_3_d1_22.png in Resources */,
 				DF424D071848B71500CD447E /* player_2_d3_31.png in Resources */,
 				DF424BCD1848B67C00CD447E /* player_1_d5.png in Resources */,
@@ -4375,6 +4386,7 @@
 				DF424CB51848B71500CD447E /* player_2_d1_3.png in Resources */,
 				B2E919141817755A0063BC73 /* touchpoints-green.png in Resources */,
 				DFFD65BB184ABD4300A83508 /* background_3.png in Resources */,
+				DFDEEF69184EB559009DB0D3 /* awesome.png in Resources */,
 				D85E34F9183B23C300520E3C /* slidebar2_bg.png in Resources */,
 				DFA239D8184E7933001EEA45 /* player_1_d4_12.png in Resources */,
 				DF424B3D1848B67C00CD447E /* player_1_d1_10.png in Resources */,
