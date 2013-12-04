@@ -61,11 +61,15 @@ static float removeMessageSpeed = 0.50;
         
         // Player character
         dancer = [CCSprite spriteWithFile:[charHand.charName stringByAppendingString:@"_0.png"]];
+        if([charHand.charName isEqualToString:@"player_2"])
+        dancer.scale = 1.35;
         dancer.position = ccp(225,175);
         [self addChild:dancer z:0 tag:1];
         
         // AI character
         aichar = [CCSprite spriteWithFile:[charHand.aiName stringByAppendingString:@"_0.png"]];
+        if([charHand.aiName isEqualToString:@"player_2"])
+        aichar.scale = 1.35;
         aichar.position = ccp(801,175);
         aichar.flipX = 180;
         [self addChild:aichar z:0 tag:2];
@@ -408,6 +412,9 @@ static float removeMessageSpeed = 0.50;
         NSString *frameName = [player stringByAppendingString:@"_1.png"];
         CCSprite *dance = [CCSprite spriteWithSpriteFrameName:frameName];
         dance.position = ccp(225,175);
+        if([charHand.charName isEqualToString:@"player_2"])
+        dance.scale = 1.35;
+        
         CCFiniteTimeAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:danceDuration] times:1];
         
         [dance runAction:[CCSequence actions: danceAction, [CCCallFunc actionWithTarget:self selector:@selector(initiateAIDance)],nil]];
@@ -463,6 +470,8 @@ static float removeMessageSpeed = 0.50;
     CCSprite *dance = [CCSprite spriteWithSpriteFrameName:danceFrameName];
     dance.position = ccp(801, 175);
     dance.flipX = 180;
+    if([charHand.aiName isEqualToString:@"player_2"])
+    dance.scale = 1.35;
     
     CCAction *danceAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walk] times:1];
     [dance runAction:danceAction];
@@ -947,22 +956,26 @@ static float removeMessageSpeed = 0.50;
 
 -(void) loadLevelMed {
     
+    InputHandler *ih2 = [sharedManager.inputBundle objectForKey:@"LDAA"];
     le.background = [CCSprite spriteWithFile:@"background_2_1.png"];
     le.backgroundName = [NSString stringWithFormat:@"background_2"];
     le.backgroundMusic = [NSString stringWithFormat:@"losangeles.mp3"];
     
     [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
+    ih2.gameLevelDifficulty=2;
     
     [self performSelector:@selector(loadGameLayer)];
 }
 
 -(void) loadLevelDif {
     
+    InputHandler *ih2 = [sharedManager.inputBundle objectForKey:@"LDAA"];
     le.background = [CCSprite spriteWithFile:@"background_3_1.png"];
     le.backgroundName = [NSString stringWithFormat:@"background_3"];
     le.backgroundMusic = [NSString stringWithFormat:@"bombay.mp3"];
     
     [sharedManager.inputBundle setObject:le forKey:@"ENVR"];
+    ih2.gameLevelDifficulty=3;
     
     [self performSelector:@selector(loadGameLayer)];
 }
