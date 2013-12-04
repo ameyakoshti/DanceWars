@@ -47,10 +47,10 @@
         label.position = ccp(windowSize.width/2, 775);
         [self addChild:label];
         
-        CCMenuItemImage *characterOne = [CCMenuItemImage itemWithNormalImage:@"player_1.png" selectedImage:@"player_1.png" target:self selector:@selector(selectCharacterOne)];
-        CCMenuItemImage *characterTwo = [CCMenuItemImage itemWithNormalImage:@"player_2.png" selectedImage:@"player_2.png" target:self selector:@selector(selectCharacterTwo)];
-        CCMenuItemImage *characterThree = [CCMenuItemImage itemWithNormalImage:@"player_3.png" selectedImage:@"player_3.png" target:self selector:@selector(selectCharacterThree)];
-        CCMenuItemImage *characterFour = [CCMenuItemImage itemWithNormalImage:@"player_4.png" selectedImage:@"player_4.png" target:self selector:@selector(selectCharacterFour)];
+        CCMenuItemImage *characterOne = [CCMenuItemImage itemWithNormalImage:@"player_1.png" selectedImage:@"player_1_pressed.png" target:self selector:@selector(selectCharacterOne)];
+        CCMenuItemImage *characterTwo = [CCMenuItemImage itemWithNormalImage:@"player_2.png" selectedImage:@"player_2_pressed.png" target:self selector:@selector(selectCharacterTwo)];
+        CCMenuItemImage *characterThree = [CCMenuItemImage itemWithNormalImage:@"player_3.png" selectedImage:@"player_3_pressed.png" target:self selector:@selector(selectCharacterThree)];
+        CCMenuItemImage *characterFour = [CCMenuItemImage itemWithNormalImage:@"player_4.png" selectedImage:@"player_4_pressed.png" target:self selector:@selector(selectCharacterFour)];
         
         MainMenu = [CCMenu menuWithItems:characterOne, characterTwo, characterThree, characterFour, nil];
         MainMenu.position = ccp(windowSize.width/2,300);
