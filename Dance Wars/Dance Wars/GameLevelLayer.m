@@ -476,6 +476,10 @@ static float removeMessageSpeed = 0.50;
     // update AI progress bar
     if(self.aiLife >= 0 && self.aiLife < 100)
     {
+        if(self.aiLife > 100){
+            self.aiLife = 100;
+        }
+        
         self.aiLife += aiscore;
         if(AIscoreLabel)
             [self removeChildByTag:40 cleanup:YES];
@@ -787,9 +791,9 @@ static float removeMessageSpeed = 0.50;
     // Increment progress bar for user
     if(self.life >= 0 && self.life < 100){
 
-        self.life += (int)([ih3 userLife]/(2.47));
-
-        self.life += (int)[ih3 userLife];
+        self.life += (int)([ih3 userLife]);
+    
+        //self.life += (int)[ih3 userLife];
         
         if(self.life > 100){
             self.life = 100;
