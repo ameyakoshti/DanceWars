@@ -165,6 +165,10 @@ static float removeMessageSpeed = 0.50;
         // Initial idle move for user
         //[self initiateIdleDance];
         
+        messageDance = [CCSprite spriteWithFile:@"danceMessage.png"];
+        messageDance.position = ccp(size.width/2,size.height/2);
+        [self addChild:messageDance];
+        messageDance.visible = FALSE;
         
         messageNice = [CCSprite spriteWithFile:@"nice.png"];
         messageNice.position = ccp(size.width/2,size.height/2);
@@ -233,6 +237,7 @@ static float removeMessageSpeed = 0.50;
         touchPointCounter=1;
         hitCount=0;
         
+        messageDance.visible = TRUE;
         //[self addMessage:@"danceMessage.png"];
         //[self performSelector:@selector(removeMessage) withObject:[NSNumber numberWithInt:1] afterDelay:1];
         [self manageTouchIcons];
@@ -620,6 +625,7 @@ static float removeMessageSpeed = 0.50;
     messageAwesome.visible = FALSE;
     messageGreatMove.visible = FALSE;
     messageKeepShakin.visible = FALSE;
+    messageDance.visible = FALSE;
     
     visited[1] = NO;
     visited[2] = NO;

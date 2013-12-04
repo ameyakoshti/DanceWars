@@ -65,7 +65,6 @@
         [self addChild:settingsLabel];
         [self addChild:volumeLabel];
         [self displaySettingsElements];
-        
     }
     return self;
 }
